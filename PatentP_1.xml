@@ -1,0 +1,71 @@
+<!-- <zahtev_za_priznanje_patenta drzava="Republika Srbija" institucija="Zavod za intelektualnu svojinu" adresa="....">  ovo valjda nije potrebno ... pitati!!-->
+<zahtev_za_priznanje_patenta>
+    <popunjava_zavod>
+        <broj_prijave/>
+        <datum_prijema/>
+        <priznati_datum_podnosenja/>
+        <pecat_i_potpis> 
+    </popunjava_zavod>
+
+    <naziv_pronalaska>
+        <na_srpskom_jeziku/>
+        <na_engleskom_jeziku/>
+    </naziv_pronalaska>
+
+    <podnosilac_prijave podnosilac_prijave_je_i_pronalazac="false" ostali_podnosioci_su_navedeni_u_nastavku="false">
+        <licni_podaci>
+            <ime_prezime_poslovno>
+                <ime_prezime>
+                    <ime/>
+                    <prezime/>
+                </ime_prezime>
+                <poslovno_ime/>
+            </ime_prezime_poslovno>
+            <adresa_drzava>
+                <adresa>
+                    <ulica/>
+                    <broj_objekta/>
+                    <postanski_broj/>
+                    <mesto/>
+                </adresa>
+                <drzava/>
+            </adresa_drzava>
+            <broj_telefona/>
+            <broj_faksa/>
+            <e_posta/>
+            <drzavljanstvo/>
+        </licni_podaci>
+    </podnosilac_prijave>
+
+    <pronalazac pronalazac_ne_zeli_da_bude_naveden_u_prijavi="false" ostali_pronalazaci_su_navedeni_u_nastavku="false">
+        <ime_prezime/>
+        <adresa_drzava/>
+        <broj_telefona/>
+        <broj_faksa/>
+        <e_posta/>
+    </pronalazac>
+
+    <punomocnik punomocnik_za_zastupanje="false" punomocnik_za_prijem_pismena="false" zajednicki_predstavnik="false">
+        <ime_prezime_poslovno/>
+        <adresa/>
+        <broj_telefona/>
+        <e_posta/>
+    </punomocnik>
+
+    <dostavljanje_podaci podnosilac_saglasan_dostavljanje_elektronskim_putem="false" podnosilac_saglasan_dostavljanje_u_papirnoj_formi="false">
+        <adresa/>
+    </dostavljanje_podaci>
+
+    <prijava dopunska_prijava="false" izdvojena_prijava="false">
+        <broj_osnovne_prijave/>
+        <datum_podnosenja_osnovne_prijave/>
+    </prijava>
+
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava podaci_o_ostalim_pravima_prvenstva_su_navedeni_u_listu_dva="false">
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave/>
+            <broj_ranije_prijave/>
+            <dvoslovna_oznaka_drzave/>
+        </ranija_prijava>
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</zahtev_za_priznanje_patenta>
