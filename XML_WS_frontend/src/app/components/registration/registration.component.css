@@ -1,0 +1,27 @@
+.grid-container {
+    overflow: hidden;
+}
+
+mat-form-field {
+    height: 10vh;
+}
+
+.form-holder {
+    padding-top: 15vh;
+}
+
+.form-holder button {
+    margin: 0 auto;
+    border: 1px solid;
+    width: 20vw;
+}
+
+.form-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8vh;
+
+    font-size: large;
+    font-weight: bold;
+
+}
