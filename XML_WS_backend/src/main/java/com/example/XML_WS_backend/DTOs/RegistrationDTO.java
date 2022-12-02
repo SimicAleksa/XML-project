@@ -2,10 +2,10 @@ package com.example.XML_WS_backend.DTOs;
 
 
 public class RegistrationDTO {
-    public String name;
-    public String surname;
-    public String email;
-    public String password;
+    private String name;
+    private String surname;
+    private String email;
+    private String password;
 
     public RegistrationDTO(String name, String surname, String email, String password) {
         this.name = name;

@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 public class Official {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column
-    public String name;
+    private String name;
 
     @Column
-    public String surname;
+    private String surname;
 
     @Column
-    public String email;
+    private String email;
 
     @Column
-    public String password;
+    private String password;
 }
