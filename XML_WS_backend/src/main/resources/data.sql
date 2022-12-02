@@ -1,0 +1,1 @@
+INSERT INTO official VALUES (default, 'name', 'surname', 'email', 'password'), (default, 'name', 'surname', 'email', 'password');
