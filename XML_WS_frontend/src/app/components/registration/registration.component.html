@@ -1,0 +1,46 @@
+<div class="grid-container">
+    <div class="row">
+        <div class="col"></div>
+        
+        <form class="col form-holder" [formGroup]="registrationForm" (ngSubmit)="onRegistrationSubmit()">
+            <div class="row">
+                <p class="form-title">Forma za registraciju službenika</p>
+            </div>
+
+            <div class="row">
+                <mat-form-field class=col>
+                    <mat-label>Ime</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class=col>
+                    <mat-label>Prezime</mat-label>
+                    <input matInput type="text" formControlName="surname">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Email adresa</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class=col>
+                    <mat-label>Lozinka</mat-label>
+                    <input matInput type="password" formControlName="password">
+                </mat-form-field>
+                <mat-form-field class=col>
+                    <mat-label>Ponovite lozinku</mat-label>
+                    <input matInput type="password" formControlName="passwordRep">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <button mat-button [disabled]="regBtnNotClickable">Potvrda registracije</button>
+            </div>
+        </form>
+
+        <div class="col"></div>
+    </div>  
+</div>
