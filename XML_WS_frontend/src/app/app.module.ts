@@ -7,6 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestMaker } from 'src/app/services/request-maker.service';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +22,12 @@ import { RegistrationComponent } from './components/registration/registration.co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [RequestMaker],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
