@@ -1,6 +1,6 @@
 package com.example.XML_WS_backend.DTOs;
 
-public class LoginDTO {
+public class LoginDTO extends ObjDTO{
     private String email;
     private String password;
 

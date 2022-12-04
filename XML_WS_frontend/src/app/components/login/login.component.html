@@ -6,21 +6,22 @@
         <div class="col">
             <div class="row">
                 <div class="col-2"></div>
-                <form class="col form-holder" >
+
+                <form class="col form-holder" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
                     <div class="row">
                         <p class="form-title">Prijava na sistem</p>
                     </div>
                     <div class="row">
                         <mat-form-field>
                             <mat-label>Email adresa</mat-label>
-                            <input matInput type="email">
+                            <input matInput type="email" formControlName="email">
                         </mat-form-field>
                     </div>
         
                     <div class="row">
                         <mat-form-field class=col>
                             <mat-label>Lozinka</mat-label>
-                            <input matInput type="password" >
+                            <input matInput type="password" formControlName="password">
                         </mat-form-field>
                     </div>
         
@@ -28,6 +29,7 @@
                         <button mat-button >Prijavite se</button>
                     </div>
                 </form>
+
                 <div class="col-2"></div>
             </div>
         </div>
