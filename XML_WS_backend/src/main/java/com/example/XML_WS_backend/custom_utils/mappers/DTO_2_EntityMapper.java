@@ -9,10 +9,12 @@ import javax.xml.crypto.Data;
 public class DTO_2_EntityMapper {
     public static Official RegistrationDTO_2_Official(RegistrationDTO registrationDTO, boolean validate) {
         if (validate)
-            if ( !DataValidator.valNameOrSurname(registrationDTO.getName()) ||
-                !DataValidator.valNameOrSurname(registrationDTO.getSurname()) ||
-                !DataValidator.valEmail(registrationDTO.getEmail()) ||
-                !DataValidator.valPassword(registrationDTO.getPassword())
+            if ( !registrationDTO.areAllAttributesNonNull() ||
+                    !( DataValidator.valNameOrSurname(registrationDTO.getName()) &&
+                        DataValidator.valNameOrSurname(registrationDTO.getSurname()) &&
+                        DataValidator.valEmail(registrationDTO.getEmail()) &&
+                        DataValidator.valPassword(registrationDTO.getPassword())
+                    )
             )
                 return null;
 

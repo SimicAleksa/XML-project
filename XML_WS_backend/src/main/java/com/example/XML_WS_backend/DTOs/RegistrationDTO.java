@@ -1,7 +1,7 @@
 package com.example.XML_WS_backend.DTOs;
 
 
-public class RegistrationDTO {
+public class RegistrationDTO extends ObjDTO{
     private String name;
     private String surname;
     private String email;
