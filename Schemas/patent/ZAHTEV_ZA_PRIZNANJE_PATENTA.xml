@@ -1,0 +1,133 @@
+<Zahtev_za_patent xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ftn.uns.ac.rs/zahtev_za_patent">
+    <popunjava_zavod>
+        <broj_prijave/>
+        <datum_prijema>2000-01-20</datum_prijema>
+        <priznati_datum_podnosenja>2000-06-26</priznati_datum_podnosenja>
+    </popunjava_zavod>
+
+    <naziv_pronalaska>
+        <na_srpskom_jeziku/>
+        <na_engleskom_jeziku/>
+    </naziv_pronalaska>
+
+    <podnosilac_prijave>
+        <podnosilac_prijave_je_i_pronalazac>true</podnosilac_prijave_je_i_pronalazac>
+        <licni_podaci>
+            <fizicko_pravno_lice>
+                <fizicko_lice>
+                   <ime/>
+                   <prezime/>
+                </fizicko_lice>
+                <!-- 
+                <pravno_lice>
+                    <poslovno_ime></poslovno_ime>
+                </pravno_lice>
+                !--> 
+            </fizicko_pravno_lice>
+            <drzavljanstvo/>
+            <adresa>
+                <ulica/>
+                <broj_objekta/>
+                <postanski_broj/>
+                <mesto/>
+                <drzava/>
+            </adresa>
+            <dodatni_podaci>
+                <broj_telefona>067413431433</broj_telefona>
+                <broj_faksa/>
+                <e_posta>posta@gmail.com</e_posta>
+            </dodatni_podaci>
+        </licni_podaci>
+    </podnosilac_prijave>
+
+    <pronalazac>
+        <pronalazac_ne_zeli_da_bude_naveden_u_prijavi>true</pronalazac_ne_zeli_da_bude_naveden_u_prijavi>
+        <pronalazac_je_podnosilac_prijave>true</pronalazac_je_podnosilac_prijave>
+        <podaci_o_pronalazacu>
+            <fizicko_lice>
+                <ime/>
+                <prezime/>
+            </fizicko_lice>
+            <adresa>
+                <ulica/>
+                <broj_objekta/>
+                <postanski_broj/>
+                <mesto/>
+                <drzava/>
+            </adresa>
+            <dodatni_podaci>
+                <broj_telefona>064111928</broj_telefona>
+                <broj_faksa/>
+                <e_posta>nekaposta@gmail.com</e_posta>
+            </dodatni_podaci>
+        </podaci_o_pronalazacu>
+    </pronalazac>
+
+    <punomocnik>
+        <vrsta_punomocja>
+            <punomocnik_za_zastupanje>false</punomocnik_za_zastupanje> 
+            <punomocnik_za_prijem_pismena>true</punomocnik_za_prijem_pismena>
+        </vrsta_punomocja>
+        <licni_podaci>
+            <fizicko_pravno_lice>
+                <fizicko_lice>
+                    <ime/>
+                    <prezime/>
+                </fizicko_lice>
+                <!--  <pravno_lice>
+                    <poslovno_ime/>
+                </pravno_lice>
+                -->
+            </fizicko_pravno_lice>
+            <drzavljanstvo/>
+            <adresa>
+                <ulica/>
+                <broj_objekta/>
+                <postanski_broj/>
+                <mesto/>
+                <drzava/>
+            </adresa>
+            <dodatni_podaci>
+                <broj_telefona>0655587321</broj_telefona>
+                <broj_faksa/>
+                <e_posta>ponavljante@yahoo.com</e_posta>
+            </dodatni_podaci>
+        </licni_podaci>
+    </punomocnik>
+
+    <dostavljanje_podaci>
+        <adresa>
+            <ulica/>
+            <broj_objekta/>
+            <postanski_broj/>
+            <mesto/>
+            <drzava/>
+        </adresa>
+        <podnosilac_saglasan_dostavljanje_elektronskim_putem>false</podnosilac_saglasan_dostavljanje_elektronskim_putem>
+        <podnosilac_saglasan_dostavljanje_u_papirnoj_formi>true</podnosilac_saglasan_dostavljanje_u_papirnoj_formi>
+    </dostavljanje_podaci>
+
+    <prijava>
+        <dopunska_prijava>false</dopunska_prijava>
+        <izdvojena_prijava>true</izdvojena_prijava>
+        <broj_osnovne_prijave/>
+        <datum_podnosenja_osnovne_prijave>2023-02-10</datum_podnosenja_osnovne_prijave>
+    </prijava>
+
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>2022-02-22</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave/>
+            <dvoslovna_oznaka_drzave>TV</dvoslovna_oznaka_drzave>
+        </ranija_prijava>
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</Zahtev_za_patent>
+
+
+
+
+
+
+
+
+
