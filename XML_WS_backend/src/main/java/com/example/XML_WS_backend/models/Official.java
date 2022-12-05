@@ -1,8 +1,10 @@
 package com.example.XML_WS_backend.models;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 
 @Data

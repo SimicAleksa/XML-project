@@ -1,5 +1,5 @@
 
-package models.zahtev_za_patent;
+package com.example.XML_WS_backend.models.zahtev_za_patent;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -309,4 +309,13 @@ public class TLicniPodaci {
 
     }
 
+    @Override
+    public String toString() {
+        return "TLicniPodaci{" +
+                "fizickoPravnoLice=" + fizickoPravnoLice +
+                ", drzavljanstvo='" + drzavljanstvo + '\'' +
+                ", adresa=" + adresa +
+                ", dodatniPodaci=" + dodatniPodaci +
+                '}';
+    }
 }

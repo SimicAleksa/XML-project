@@ -1,5 +1,5 @@
 
-package models.zahtev_za_patent;
+package com.example.XML_WS_backend.models.zahtev_za_patent;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
+import com.example.XML_WS_backend.models.zahtev_za_patent.*;
 
 
 /**
@@ -478,6 +480,14 @@ public class ZahtevZaPatent {
             this.podnosilacSaglasanDostavljanjeUPapirnojFormi = value;
         }
 
+        @Override
+        public String toString() {
+            return "DostavljanjePodaci{" +
+                    "adresa=" + adresa +
+                    ", podnosilacSaglasanDostavljanjeElektronskimPutem=" + podnosilacSaglasanDostavljanjeElektronskimPutem +
+                    ", podnosilacSaglasanDostavljanjeUPapirnojFormi=" + podnosilacSaglasanDostavljanjeUPapirnojFormi +
+                    "}\n";
+        }
     }
 
 
@@ -560,6 +570,14 @@ public class ZahtevZaPatent {
             this.naEngleskomJeziku = value;
         }
 
+
+        @Override
+        public String toString() {
+            return "NazivPronalaska{" +
+                    "naSrpskomJeziku='" + naSrpskomJeziku + '\'' +
+                    ", naEngleskomJeziku='" + naEngleskomJeziku + '\'' +
+                    "}\n";
+        }
     }
 
 
@@ -634,6 +652,13 @@ public class ZahtevZaPatent {
             this.licniPodaci = value;
         }
 
+        @Override
+        public String toString() {
+            return "PodnosilacPrijave{" +
+                    "podnosilacPrijaveJeIPronalazac=" + podnosilacPrijaveJeIPronalazac +
+                    ", licniPodaci=" + licniPodaci +
+                    "}\n";
+        }
     }
 
 
@@ -745,6 +770,15 @@ public class ZahtevZaPatent {
             this.priznatiDatumPodnosenja = value;
         }
 
+
+        @Override
+        public String toString() {
+            return "PopunjavaZavod{" +
+                    "brojPrijave='" + brojPrijave + '\'' +
+                    ", datumPrijema=" + datumPrijema +
+                    ", priznatiDatumPodnosenja=" + priznatiDatumPodnosenja +
+                    "}\n";
+        }
     }
 
 
@@ -866,6 +900,15 @@ public class ZahtevZaPatent {
             this.datumPodnosenjaOsnovnePrijave = value;
         }
 
+        @Override
+        public String toString() {
+            return "Prijava{" +
+                    "dopunskaPrijava=" + dopunskaPrijava +
+                    ", izdvojenaPrijava=" + izdvojenaPrijava +
+                    ", brojOsnovnePrijave='" + brojOsnovnePrijave + '\'' +
+                    ", datumPodnosenjaOsnovnePrijave=" + datumPodnosenjaOsnovnePrijave +
+                    "}\n";
+        }
     }
 
 
@@ -1080,6 +1123,14 @@ public class ZahtevZaPatent {
 
         }
 
+        @Override
+        public String toString() {
+            return "Pronalazac{" +
+                    "pronalazacNeZeliDaBudeNavedenUPrijavi=" + pronalazacNeZeliDaBudeNavedenUPrijavi +
+                    ", pronalazacJePodnosilacPrijave=" + pronalazacJePodnosilacPrijave +
+                    ", podaciOPronalazacu=" + podaciOPronalazacu +
+                    "}\n";
+        }
     }
 
 
@@ -1239,6 +1290,13 @@ public class ZahtevZaPatent {
 
         }
 
+        @Override
+        public String toString() {
+            return "Punomocnik{" +
+                    "vrstaPunomocja=" + vrstaPunomocja +
+                    ", licniPodaci=" + licniPodaci +
+                    "}\n";
+        }
     }
 
 
@@ -1430,8 +1488,30 @@ public class ZahtevZaPatent {
                 this.dvoslovnaOznakaDrzave = value;
             }
 
+
+            @Override
+            public String toString() {
+                return "RanijaPrijava{" +
+                        "datumPodnosenjaRanijePrijave=" + datumPodnosenjaRanijePrijave +
+                        ", brojRanijePrijave='" + brojRanijePrijave + '\'' +
+                        ", dvoslovnaOznakaDrzave='" + dvoslovnaOznakaDrzave + '\'' +
+                        "}\n";
+            }
         }
 
     }
 
+    @Override
+    public String toString() {
+        return "ZahtevZaPatent{" +
+                "popunjavaZavod=" + popunjavaZavod +
+                ", nazivPronalaska=" + nazivPronalaska +
+                ", podnosilacPrijave=" + podnosilacPrijave +
+                ", pronalazac=" + pronalazac +
+                ", punomocnik=" + punomocnik +
+                ", dostavljanjePodaci=" + dostavljanjePodaci +
+                ", prijava=" + prijava +
+                ", zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava=" + zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava +
+                "}\n";
+    }
 }

@@ -1,5 +1,5 @@
 
-package models.zahtev_za_patent;
+package com.example.XML_WS_backend.models.zahtev_za_patent;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -167,4 +167,15 @@ public class TAdresa {
         this.drzava = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "TAdresa{" +
+                "ulica='" + ulica + '\'' +
+                ", brojObjekta='" + brojObjekta + '\'' +
+                ", postanskiBroj='" + postanskiBroj + '\'' +
+                ", mesto='" + mesto + '\'' +
+                ", drzava='" + drzava + '\'' +
+                '}';
+    }
 }

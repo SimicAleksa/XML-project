@@ -1,5 +1,5 @@
 
-package models.zahtev_za_patent;
+package com.example.XML_WS_backend.models.zahtev_za_patent;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -125,4 +125,13 @@ public class TDodatniPodaci {
         this.ePosta = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "TDodatniPodaci{" +
+                "brojTelefona='" + brojTelefona + '\'' +
+                ", brojFaksa='" + brojFaksa + '\'' +
+                ", ePosta='" + ePosta + '\'' +
+                '}';
+    }
 }
