@@ -58,7 +58,6 @@
     <xs:complexType name="KTPersona">
         <xs:sequence maxOccurs="1" minOccurs="1">
             <xs:element name="Ime" type="xs:string"/>
-            <xs:element name="Prezime" type="xs:string"/>
             <xs:element name="Adresa" type="KTAdresa"/>
             <xs:element name="KontaktInformacije" type="KTKontaktInformacije"/>
         </xs:sequence>

@@ -4,7 +4,6 @@
  xsi:schemaLocation="ZAHTEV_ZA_PRIZNANJE_ZIGA file:/D:/Projects/web/XML-project/Schemas/trademark/ZahtevZaPriznjanjeZiga.xsd">
     <PodnosilacPrijave>
         <Ime>Ime0</Ime>
-        <Prezime>Prezime0</Prezime>
         <Adresa>
             <Ulica>Ulica0</Ulica>
             <BrojUlice>0</BrojUlice>
@@ -20,7 +19,6 @@
     </PodnosilacPrijave>
     <PodnosilacPrijave>
         <Ime>Ime1</Ime>
-        <Prezime>Prezime1</Prezime>
         <Adresa>
             <Ulica>Ulica1</Ulica>
             <BrojUlice>0</BrojUlice>
@@ -36,7 +34,6 @@
     </PodnosilacPrijave>
     <Punomocnik>
         <Ime>Ime2</Ime>
-        <Prezime>Prezime2</Prezime>
         <Adresa>
             <Ulica>Ulica2</Ulica>
             <BrojUlice>0</BrojUlice>

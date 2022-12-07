@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="Ime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Prezime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Adresa" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTAdresa"/&gt;
  *         &lt;element name="KontaktInformacije" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTKontaktInformacije"/&gt;
  *       &lt;/sequence&gt;
@@ -32,7 +31,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "KTPersona", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
     "ime",
-    "prezime",
     "adresa",
     "kontaktInformacije"
 })
@@ -40,8 +38,6 @@ public class KTPersona {
 
     @XmlElement(name = "Ime", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String ime;
-    @XmlElement(name = "Prezime", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
-    protected String prezime;
     @XmlElement(name = "Adresa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected KTAdresa adresa;
     @XmlElement(name = "KontaktInformacije", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
@@ -69,30 +65,6 @@ public class KTPersona {
      */
     public void setIme(String value) {
         this.ime = value;
-    }
-
-    /**
-     * Gets the value of the prezime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPrezime() {
-        return prezime;
-    }
-
-    /**
-     * Sets the value of the prezime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPrezime(String value) {
-        this.prezime = value;
     }
 
     /**
@@ -147,7 +119,6 @@ public class KTPersona {
     public String toString() {
         return "KTPersona{" +
                 "ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
                 ", adresa=" + adresa +
                 ", kontaktInformacije=" + kontaktInformacije +
                 '}';
