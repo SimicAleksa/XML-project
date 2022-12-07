@@ -86,4 +86,15 @@ public class TFizickoLice {
         this.prezime = value;
     }
 
+    @Override
+    public String toString() {
+        return
+                "\t\t\t\t\t<ime>" + ime + "</ime>\n" +
+                "\t\t\t\t\t<prezime>" + prezime + "</prezime>\n";
+    }
+    public String toString2() {
+        return
+                "\t\t\t\t<ime>" + ime + "</ime>\n" +
+                "\t\t\t\t<prezime>" + prezime + "</prezime>\n";
+    }
 }

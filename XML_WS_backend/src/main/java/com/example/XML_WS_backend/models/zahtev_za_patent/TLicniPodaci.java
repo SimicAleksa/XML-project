@@ -305,17 +305,27 @@ public class TLicniPodaci {
                 this.poslovnoIme = value;
             }
 
+            @Override
+            public String toString() {
+                return
+                        "\t\t\t\t\t<poslovnoIme>" + poslovnoIme + "</poslovnoIme>\n";
+            }
         }
 
+        @Override
+        public String toString() {
+            return
+                    "\t\t\t\t<fizickoLice>\n" + fizickoLice + "\t\t\t\t</fizickoLice>\n" +
+                    "\t\t\t\t<pravnoLice>" + pravnoLice + "</pravnoLice>\n";
+        }
     }
 
     @Override
     public String toString() {
-        return "TLicniPodaci{" +
-                "fizickoPravnoLice=" + fizickoPravnoLice +
-                ", drzavljanstvo='" + drzavljanstvo + '\'' +
-                ", adresa=" + adresa +
-                ", dodatniPodaci=" + dodatniPodaci +
-                '}';
+        return
+                "\t\t\t<fizickoPravnoLice>\n" + fizickoPravnoLice + "\t\t\t</fizickoPravnoLice>\n"+
+                "\t\t\t<drzavljanstvo>" + drzavljanstvo + "</drzavljanstvo>\n" +
+                "\t\t\t<adresa>\n" + adresa + "\t\t\t</adresa>\n" +
+                "\t\t\t<dodatniPodaci>\n" + dodatniPodaci + "\t\t\t</dodatniPodaci>\n";
     }
 }

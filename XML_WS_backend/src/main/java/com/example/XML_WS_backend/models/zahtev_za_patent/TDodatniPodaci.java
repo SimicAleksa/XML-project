@@ -128,10 +128,9 @@ public class TDodatniPodaci {
 
     @Override
     public String toString() {
-        return "TDodatniPodaci{" +
-                "brojTelefona='" + brojTelefona + '\'' +
-                ", brojFaksa='" + brojFaksa + '\'' +
-                ", ePosta='" + ePosta + '\'' +
-                '}';
+        return
+                "\t\t\t\t<brojTelefona>" + brojTelefona + "</brojTelefona>\n" +
+                "\t\t\t\t<brojFaksa>" + brojFaksa + "</brojFaksa>\n" +
+                "\t\t\t\t<ePosta>" + ePosta + "</ePosta>\n";
     }
 }

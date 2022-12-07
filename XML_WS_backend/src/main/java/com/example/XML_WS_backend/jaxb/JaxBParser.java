@@ -2,8 +2,10 @@ package com.example.XML_WS_backend.jaxb;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.StringWriter;
 import java.util.HashMap;
 
 import com.example.XML_WS_backend.models.zahtev_za_patent.ZahtevZaPatent;
@@ -33,13 +35,30 @@ public class JaxBParser {
             System.out.println("[INFO] Unmarshalled content:");
             System.out.println(zahtevZaPatent);
 
+            // Izmena podataka
+            zahtevZaPatent.getPodnosilacPrijave().getLicniPodaci().getFizickoPravnoLice().getFizickoLice().setIme("DODATO IME PODNOSILAC");
+            zahtevZaPatent.getPodnosilacPrijave().getLicniPodaci().getFizickoPravnoLice().getFizickoLice().setPrezime("DODATO PREZIME PODNOSILAC");
+
+            zahtevZaPatent.getPronalazac().getPodaciOPronalazacu().getFizickoLice().setIme("DODATO IME PRONALAZAC");
+            zahtevZaPatent.getPronalazac().getPodaciOPronalazacu().getFizickoLice().setPrezime("DODATO PREZIME PRONALAZAC");
+
+            // Marshaller je objekat zadužen za konverziju iz objektnog u XML model
+            Marshaller marshaller = context.createMarshaller();
+
+            // Podešavanje marshaller-a
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // Ispis izmenjenog sadrzaja
+            System.out.println("\n\n\n[INFO] Updated content:");
+            // Umesto System.out-a, može se koristiti FileOutputStream
+            marshaller.marshal(zahtevZaPatent, System.out);
+
+            File xmlFile = new File("data\\patent\\ZAHTEV_ZA_PRIZNANJE_PATENTA_UPDATE.xml");
+            marshaller.marshal(zahtevZaPatent, xmlFile);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-//    public static void main( String[] args ) {
-//        JaxBParser test = new JaxBParser();
-//        test.test();
-//    }
 }
