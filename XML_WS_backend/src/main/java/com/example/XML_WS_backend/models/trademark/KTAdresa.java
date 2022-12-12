@@ -1,6 +1,9 @@
 
 package com.example.XML_WS_backend.models.trademark;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -38,8 +41,9 @@ import javax.xml.bind.annotation.XmlType;
     "mestoPrebivalista",
     "drzavaPrebivalista"
 })
+@Data
+@NoArgsConstructor
 public class KTAdresa {
-
     @XmlElement(name = "Ulica", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String ulica;
     @XmlElement(name = "BrojUlice", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
@@ -50,119 +54,4 @@ public class KTAdresa {
     protected String mestoPrebivalista;
     @XmlElement(name = "DrzavaPrebivalista", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String drzavaPrebivalista;
-
-    /**
-     * Gets the value of the ulica property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUlica() {
-        return ulica;
-    }
-
-    /**
-     * Sets the value of the ulica property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUlica(String value) {
-        this.ulica = value;
-    }
-
-    /**
-     * Gets the value of the brojUlice property.
-     * 
-     */
-    public int getBrojUlice() {
-        return brojUlice;
-    }
-
-    /**
-     * Sets the value of the brojUlice property.
-     * 
-     */
-    public void setBrojUlice(int value) {
-        this.brojUlice = value;
-    }
-
-    /**
-     * Gets the value of the postanskiBroj property.
-     * 
-     */
-    public int getPostanskiBroj() {
-        return postanskiBroj;
-    }
-
-    /**
-     * Sets the value of the postanskiBroj property.
-     * 
-     */
-    public void setPostanskiBroj(int value) {
-        this.postanskiBroj = value;
-    }
-
-    /**
-     * Gets the value of the mestoPrebivalista property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMestoPrebivalista() {
-        return mestoPrebivalista;
-    }
-
-    /**
-     * Sets the value of the mestoPrebivalista property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMestoPrebivalista(String value) {
-        this.mestoPrebivalista = value;
-    }
-
-    /**
-     * Gets the value of the drzavaPrebivalista property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDrzavaPrebivalista() {
-        return drzavaPrebivalista;
-    }
-
-    /**
-     * Sets the value of the drzavaPrebivalista property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDrzavaPrebivalista(String value) {
-        this.drzavaPrebivalista = value;
-    }
-
-    @Override
-    public String toString() {
-        return "KTAdresa{" +
-                "ulica='" + ulica + '\'' +
-                ", brojUlice=" + brojUlice +
-                ", postanskiBroj=" + postanskiBroj +
-                ", mestoPrebivalista='" + mestoPrebivalista + '\'' +
-                ", drzavaPrebivalista='" + drzavaPrebivalista + '\'' +
-                '}';
-    }
 }

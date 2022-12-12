@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class XMLService {
     public void readTrademarkXMLFile() {
-        TrademarkParser.print(TrademarkParser.read());
+        TrademarkParser.printChanges(TrademarkParser.read());
     }
 }

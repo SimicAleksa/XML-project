@@ -1,5 +1,4 @@
-
-package trademark;
+package com.example.XML_WS_backend.models.trademark;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

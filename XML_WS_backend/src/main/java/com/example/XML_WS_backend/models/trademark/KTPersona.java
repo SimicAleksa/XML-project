@@ -1,6 +1,9 @@
 
 package com.example.XML_WS_backend.models.trademark;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,93 +37,13 @@ import javax.xml.bind.annotation.XmlType;
     "adresa",
     "kontaktInformacije"
 })
+@Data
+@NoArgsConstructor
 public class KTPersona {
-
     @XmlElement(name = "Ime", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String ime;
     @XmlElement(name = "Adresa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected KTAdresa adresa;
     @XmlElement(name = "KontaktInformacije", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected KTKontaktInformacije kontaktInformacije;
-
-    /**
-     * Gets the value of the ime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getIme() {
-        return ime;
-    }
-
-    /**
-     * Sets the value of the ime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setIme(String value) {
-        this.ime = value;
-    }
-
-    /**
-     * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KTAdresa }
-     *     
-     */
-    public KTAdresa getAdresa() {
-        return adresa;
-    }
-
-    /**
-     * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KTAdresa }
-     *     
-     */
-    public void setAdresa(KTAdresa value) {
-        this.adresa = value;
-    }
-
-    /**
-     * Gets the value of the kontaktInformacije property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KTKontaktInformacije }
-     *     
-     */
-    public KTKontaktInformacije getKontaktInformacije() {
-        return kontaktInformacije;
-    }
-
-    /**
-     * Sets the value of the kontaktInformacije property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KTKontaktInformacije }
-     *     
-     */
-    public void setKontaktInformacije(KTKontaktInformacije value) {
-        this.kontaktInformacije = value;
-    }
-
-    @Override
-    public String toString() {
-        return "KTPersona{" +
-                "ime='" + ime + '\'' +
-                ", adresa=" + adresa +
-                ", kontaktInformacije=" + kontaktInformacije +
-                '}';
-    }
 }

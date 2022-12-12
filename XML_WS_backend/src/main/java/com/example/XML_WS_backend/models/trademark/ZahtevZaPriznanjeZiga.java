@@ -1,6 +1,9 @@
 
 package com.example.XML_WS_backend.models.trademark;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -407,12 +410,6 @@ public class ZahtevZaPriznanjeZiga {
             return this.brojKlaseRobeIliUsluge;
         }
 
-        @Override
-        public String toString() {
-            return "BrojeviKlasaRobeIliUsluga{" +
-                    "brojKlaseRobeIliUsluge=" + brojKlaseRobeIliUsluge +
-                    '}';
-        }
     }
 
 
@@ -453,8 +450,9 @@ public class ZahtevZaPriznanjeZiga {
         "dokazPravaPrvenstva",
         "dokazUplateTakse"
     })
+    @Data
+    @NoArgsConstructor
     public static class PriloziUzZahtev {
-
         @XmlElement(name = "PrimerakZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
         protected boolean primerakZnaka;
         @XmlElement(name = "SpisakRobeIUsluga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
@@ -471,163 +469,5 @@ public class ZahtevZaPriznanjeZiga {
         protected boolean dokazPravaPrvenstva;
         @XmlElement(name = "DokazUplateTakse", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
         protected boolean dokazUplateTakse;
-
-        /**
-         * Gets the value of the primerakZnaka property.
-         * 
-         */
-        public boolean isPrimerakZnaka() {
-            return primerakZnaka;
-        }
-
-        /**
-         * Sets the value of the primerakZnaka property.
-         * 
-         */
-        public void setPrimerakZnaka(boolean value) {
-            this.primerakZnaka = value;
-        }
-
-        /**
-         * Gets the value of the spisakRobeIUsluga property.
-         * 
-         */
-        public boolean isSpisakRobeIUsluga() {
-            return spisakRobeIUsluga;
-        }
-
-        /**
-         * Sets the value of the spisakRobeIUsluga property.
-         * 
-         */
-        public void setSpisakRobeIUsluga(boolean value) {
-            this.spisakRobeIUsluga = value;
-        }
-
-        /**
-         * Gets the value of the punomocje property.
-         * 
-         */
-        public boolean isPunomocje() {
-            return punomocje;
-        }
-
-        /**
-         * Sets the value of the punomocje property.
-         * 
-         */
-        public void setPunomocje(boolean value) {
-            this.punomocje = value;
-        }
-
-        /**
-         * Gets the value of the punomocjeRanijePrilozeno property.
-         * 
-         */
-        public boolean isPunomocjeRanijePrilozeno() {
-            return punomocjeRanijePrilozeno;
-        }
-
-        /**
-         * Sets the value of the punomocjeRanijePrilozeno property.
-         * 
-         */
-        public void setPunomocjeRanijePrilozeno(boolean value) {
-            this.punomocjeRanijePrilozeno = value;
-        }
-
-        /**
-         * Gets the value of the punomocjeNaknadnoPrilozeno property.
-         * 
-         */
-        public boolean isPunomocjeNaknadnoPrilozeno() {
-            return punomocjeNaknadnoPrilozeno;
-        }
-
-        /**
-         * Sets the value of the punomocjeNaknadnoPrilozeno property.
-         * 
-         */
-        public void setPunomocjeNaknadnoPrilozeno(boolean value) {
-            this.punomocjeNaknadnoPrilozeno = value;
-        }
-
-        /**
-         * Gets the value of the opstiAktOZigu property.
-         * 
-         */
-        public boolean isOpstiAktOZigu() {
-            return opstiAktOZigu;
-        }
-
-        /**
-         * Sets the value of the opstiAktOZigu property.
-         * 
-         */
-        public void setOpstiAktOZigu(boolean value) {
-            this.opstiAktOZigu = value;
-        }
-
-        /**
-         * Gets the value of the dokazPravaPrvenstva property.
-         * 
-         */
-        public boolean isDokazPravaPrvenstva() {
-            return dokazPravaPrvenstva;
-        }
-
-        /**
-         * Sets the value of the dokazPravaPrvenstva property.
-         * 
-         */
-        public void setDokazPravaPrvenstva(boolean value) {
-            this.dokazPravaPrvenstva = value;
-        }
-
-        /**
-         * Gets the value of the dokazUplateTakse property.
-         * 
-         */
-        public boolean isDokazUplateTakse() {
-            return dokazUplateTakse;
-        }
-
-        /**
-         * Sets the value of the dokazUplateTakse property.
-         * 
-         */
-        public void setDokazUplateTakse(boolean value) {
-            this.dokazUplateTakse = value;
-        }
-
-        @Override
-        public String toString() {
-            return "PriloziUzZahtev{" +
-                    "primerakZnaka=" + primerakZnaka +
-                    ", spisakRobeIUsluga=" + spisakRobeIUsluga +
-                    ", punomocje=" + punomocje +
-                    ", punomocjeRanijePrilozeno=" + punomocjeRanijePrilozeno +
-                    ", punomocjeNaknadnoPrilozeno=" + punomocjeNaknadnoPrilozeno +
-                    ", opstiAktOZigu=" + opstiAktOZigu +
-                    ", dokazPravaPrvenstva=" + dokazPravaPrvenstva +
-                    ", dokazUplateTakse=" + dokazUplateTakse +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "ZahtevZaPriznanjeZiga{" +
-                "podnosilacPrijave=" + podnosilacPrijave +
-                ", punomocnik=" + punomocnik +
-                ", zajednickiPredstavnici=" + zajednickiPredstavnici +
-                ", zig=" + zig +
-                ", brojeviKlasaRobeIliUsluga=" + brojeviKlasaRobeIliUsluga +
-                ", pravoPrvenstvaIOsnov='" + pravoPrvenstvaIOsnov + '\'' +
-                ", taksa=" + taksa +
-                ", priloziUzZahtev=" + priloziUzZahtev +
-                ", datumPodnosenja=" + datumPodnosenja +
-                ", brojPrijave=" + brojPrijave +
-                '}';
     }
 }

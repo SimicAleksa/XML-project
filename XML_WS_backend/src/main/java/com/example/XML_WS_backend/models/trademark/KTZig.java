@@ -1,6 +1,9 @@
 
 package com.example.XML_WS_backend.models.trademark;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,8 +58,9 @@ import javax.xml.bind.annotation.XmlType;
     "prevodZnaka",
     "opisZnaka"
 })
+@Data
+@NoArgsConstructor
 public class KTZig {
-
     @XmlElement(name = "TipZiga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String tipZiga;
     @XmlElement(name = "TipZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
@@ -71,173 +75,6 @@ public class KTZig {
     protected String prevodZnaka;
     @XmlElement(name = "OpisZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String opisZnaka;
-
-    /**
-     * Gets the value of the tipZiga property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTipZiga() {
-        return tipZiga;
-    }
-
-    /**
-     * Sets the value of the tipZiga property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTipZiga(String value) {
-        this.tipZiga = value;
-    }
-
-    /**
-     * Gets the value of the tipZnaka property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTipZnaka() {
-        return tipZnaka;
-    }
-
-    /**
-     * Sets the value of the tipZnaka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTipZnaka(String value) {
-        this.tipZnaka = value;
-    }
-
-    /**
-     * Gets the value of the izgledZnaka property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
-     */
-    public byte[] getIzgledZnaka() {
-        return izgledZnaka;
-    }
-
-    /**
-     * Sets the value of the izgledZnaka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
-     */
-    public void setIzgledZnaka(byte[] value) {
-        this.izgledZnaka = value;
-    }
-
-    /**
-     * Gets the value of the boje property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KTZig.Boje }
-     *     
-     */
-    public KTZig.Boje getBoje() {
-        return boje;
-    }
-
-    /**
-     * Sets the value of the boje property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KTZig.Boje }
-     *     
-     */
-    public void setBoje(KTZig.Boje value) {
-        this.boje = value;
-    }
-
-    /**
-     * Gets the value of the transliteracijaZnaka property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTransliteracijaZnaka() {
-        return transliteracijaZnaka;
-    }
-
-    /**
-     * Sets the value of the transliteracijaZnaka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTransliteracijaZnaka(String value) {
-        this.transliteracijaZnaka = value;
-    }
-
-    /**
-     * Gets the value of the prevodZnaka property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPrevodZnaka() {
-        return prevodZnaka;
-    }
-
-    /**
-     * Sets the value of the prevodZnaka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPrevodZnaka(String value) {
-        this.prevodZnaka = value;
-    }
-
-    /**
-     * Gets the value of the opisZnaka property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOpisZnaka() {
-        return opisZnaka;
-    }
-
-    /**
-     * Sets the value of the opisZnaka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOpisZnaka(String value) {
-        this.opisZnaka = value;
-    }
-
 
     /**
      * <p>Java class for anonymous complex type.
@@ -296,24 +133,6 @@ public class KTZig {
             return this.boja;
         }
 
-        @Override
-        public String toString() {
-            return "Boje{" +
-                    "boja=" + boja +
-                    '}';
-        }
     }
 
-    @Override
-    public String toString() {
-        return "KTZig{" +
-                "tipZiga='" + tipZiga + '\'' +
-                ", tipZnaka='" + tipZnaka + '\'' +
-                ", izgledZnaka=" + Arrays.toString(izgledZnaka) +
-                ", boje=" + boje +
-                ", transliteracijaZnaka='" + transliteracijaZnaka + '\'' +
-                ", prevodZnaka='" + prevodZnaka + '\'' +
-                ", opisZnaka='" + opisZnaka + '\'' +
-                '}';
-    }
 }

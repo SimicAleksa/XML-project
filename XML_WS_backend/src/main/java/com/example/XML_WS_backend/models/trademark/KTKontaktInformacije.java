@@ -1,6 +1,9 @@
 
 package com.example.XML_WS_backend.models.trademark;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,93 +37,13 @@ import javax.xml.bind.annotation.XmlType;
     "eMail",
     "faks"
 })
+@Data
+@NoArgsConstructor
 public class KTKontaktInformacije {
-
     @XmlElement(name = "Telefon", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String telefon;
     @XmlElement(name = "E-mail", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String eMail;
     @XmlElement(name = "Faks", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
     protected String faks;
-
-    /**
-     * Gets the value of the telefon property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTelefon() {
-        return telefon;
-    }
-
-    /**
-     * Sets the value of the telefon property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTelefon(String value) {
-        this.telefon = value;
-    }
-
-    /**
-     * Gets the value of the eMail property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEMail() {
-        return eMail;
-    }
-
-    /**
-     * Sets the value of the eMail property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEMail(String value) {
-        this.eMail = value;
-    }
-
-    /**
-     * Gets the value of the faks property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFaks() {
-        return faks;
-    }
-
-    /**
-     * Sets the value of the faks property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFaks(String value) {
-        this.faks = value;
-    }
-
-    @Override
-    public String toString() {
-        return "KTKontaktInformacije{" +
-                "telefon='" + telefon + '\'' +
-                ", eMail='" + eMail + '\'' +
-                ", faks='" + faks + '\'' +
-                '}';
-    }
 }
