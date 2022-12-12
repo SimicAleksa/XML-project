@@ -23,6 +23,7 @@ public class TrademarkParser {
     public static void printChanges(ZahtevZaPriznanjeZiga trademarkReq) {
         trademarkReq.getPunomocnik().setIme("NEKO IME");
         trademarkReq.getPunomocnik().getAdresa().setDrzavaPrebivalista("Srbija");
+        trademarkReq.getPunomocnik().getAdresa().setUlica("Neka ulica");
         try {
             JAXBContext ctx = JAXBContext.newInstance(ZahtevZaPriznanjeZiga.class);
             Marshaller marshaller = ctx.createMarshaller();

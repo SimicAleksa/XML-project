@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ZahtevZaPriznanjeZiga xmlns="ZAHTEV_ZA_PRIZNANJE_ZIGA">
     <PodnosilacPrijave>
-        <Ime>Ime0</Ime>
+        <Ime>Ime</Ime>
         <Adresa>
-            <Ulica>Ulica0</Ulica>
-            <BrojUlice>0</BrojUlice>
+            <Ulica>Ulica</Ulica>
+            <BrojUlice>1</BrojUlice>
             <PostanskiBroj>0</PostanskiBroj>
-            <MestoPrebivalista>MestoPrebivalista0</MestoPrebivalista>
-            <DrzavaPrebivalista>DrzavaPrebivalista0</DrzavaPrebivalista>
+            <MestoPrebivalista>MestoPrebivalista</MestoPrebivalista>
+            <DrzavaPrebivalista>DrzavaPrebivalista</DrzavaPrebivalista>
         </Adresa>
         <KontaktInformacije>
-            <Telefon>Telefon0</Telefon>
-            <E-mail>E-mail0</E-mail>
-            <Faks>Faks0</Faks>
+            <Telefon>0</Telefon>
+            <E-mail>E-mail0@primer.com</E-mail>
+            <Faks>0</Faks>
         </KontaktInformacije>
     </PodnosilacPrijave>
     <PodnosilacPrijave>
-        <Ime>Ime1</Ime>
+        <Ime>Ime</Ime>
         <Adresa>
-            <Ulica>Ulica1</Ulica>
-            <BrojUlice>0</BrojUlice>
+            <Ulica>Ulica</Ulica>
+            <BrojUlice>1</BrojUlice>
             <PostanskiBroj>0</PostanskiBroj>
-            <MestoPrebivalista>MestoPrebivalista1</MestoPrebivalista>
-            <DrzavaPrebivalista>DrzavaPrebivalista1</DrzavaPrebivalista>
+            <MestoPrebivalista>MestoPrebivalista</MestoPrebivalista>
+            <DrzavaPrebivalista>DrzavaPrebivalista</DrzavaPrebivalista>
         </Adresa>
         <KontaktInformacije>
-            <Telefon>Telefon1</Telefon>
-            <E-mail>E-mail1</E-mail>
-            <Faks>Faks1</Faks>
+            <Telefon>0</Telefon>
+            <E-mail>E-mail0@primer.com</E-mail>
+            <Faks>0</Faks>
         </KontaktInformacije>
     </PodnosilacPrijave>
     <Punomocnik>
-        <Ime>NEKO IME</Ime>
+        <Ime>Ime</Ime>
         <Adresa>
-            <Ulica>Ulica2</Ulica>
-            <BrojUlice>0</BrojUlice>
+            <Ulica>Ulica</Ulica>
+            <BrojUlice>1</BrojUlice>
             <PostanskiBroj>0</PostanskiBroj>
-            <MestoPrebivalista>MestoPrebivalista2</MestoPrebivalista>
-            <DrzavaPrebivalista>Srbija</DrzavaPrebivalista>
+            <MestoPrebivalista>MestoPrebivalista</MestoPrebivalista>
+            <DrzavaPrebivalista>DrzavaPrebivalista</DrzavaPrebivalista>
         </Adresa>
         <KontaktInformacije>
-            <Telefon>Telefon2</Telefon>
-            <E-mail>E-mail2</E-mail>
-            <Faks>Faks2</Faks>
+            <Telefon>0</Telefon>
+            <E-mail>E-mail0@primer.com</E-mail>
+            <Faks>0</Faks>
         </KontaktInformacije>
     </Punomocnik>
     <Zig>
-        <TipZiga>TipZiga0</TipZiga>
-        <TipZnaka>TipZnaka0</TipZnaka>
+        <TipZiga>TipZiga</TipZiga>
+        <TipZnaka>TipZnaka</TipZnaka>
         <IzgledZnaka>ZGVmYXVsdA==</IzgledZnaka>
         <Boje>
-            <Boja>Boja0</Boja>
-            <Boja>Boja1</Boja>
+            <Boja>Boja</Boja>
+            <Boja>Boja</Boja>
         </Boje>
-        <TransliteracijaZnaka>TransliteracijaZnaka0</TransliteracijaZnaka>
-        <PrevodZnaka>PrevodZnaka0</PrevodZnaka>
-        <OpisZnaka>OpisZnaka0</OpisZnaka>
+        <TransliteracijaZnaka>TransliteracijaZnaka</TransliteracijaZnaka>
+        <PrevodZnaka>PrevodZnaka</PrevodZnaka>
+        <OpisZnaka>OpisZnaka</OpisZnaka>
     </Zig>
     <BrojeviKlasaRobeIliUsluga>
         <BrojKlaseRobeIliUsluge>0</BrojKlaseRobeIliUsluge>
         <BrojKlaseRobeIliUsluge>0</BrojKlaseRobeIliUsluge>
     </BrojeviKlasaRobeIliUsluga>
-    <PravoPrvenstvaIOsnov>PravoPrvenstvaIOsnov0</PravoPrvenstvaIOsnov>
+    <PravoPrvenstvaIOsnov>PravoPrvenstvaIOsnov</PravoPrvenstvaIOsnov>
     <Taksa>
-        <OsnovnaTaksa>0.0</OsnovnaTaksa>
-        <TaksaZaBrojKlasa>0.0</TaksaZaBrojKlasa>
-        <TaksaZaGrafickoResenje>0.0</TaksaZaGrafickoResenje>
-        <Ukupno>0.0</Ukupno>
+        <OsnovnaTaksa>0</OsnovnaTaksa>
+        <TaksaZaBrojKlasa>0</TaksaZaBrojKlasa>
+        <TaksaZaGrafickoResenje>0</TaksaZaGrafickoResenje>
+        <Ukupno>0</Ukupno>
     </Taksa>
     <PriloziUzZahtev>
         <PrimerakZnaka>false</PrimerakZnaka>
