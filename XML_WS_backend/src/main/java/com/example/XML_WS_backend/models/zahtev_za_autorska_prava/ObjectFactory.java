@@ -33,7 +33,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava }
      * 
      */
-    public ZahtevZaAutorskaPrava createZahtevZaAutorskaPrava() {
+    public ZahtevZaAutorskaPrava createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELA() {
         return new ZahtevZaAutorskaPrava();
     }
 
@@ -41,7 +41,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciODelu }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciODelu createZahtevZaAutorskaPravaPodaciODelu() {
+    public ZahtevZaAutorskaPrava.PodaciODelu createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciODelu() {
         return new ZahtevZaAutorskaPrava.PodaciODelu();
     }
 
@@ -49,7 +49,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu createZahtevZaAutorskaPravaPodaciOPodnosiocu() {
+    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciOPodnosiocu() {
         return new ZahtevZaAutorskaPrava.PodaciOPodnosiocu();
     }
 
@@ -57,7 +57,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice createZahtevZaAutorskaPravaPodaciOPodnosiocuLice() {
+    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciOPodnosiocuLice() {
         return new ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice();
     }
 
@@ -65,7 +65,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciOAutoru }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciOAutoru createZahtevZaAutorskaPravaPodaciOAutoru() {
+    public ZahtevZaAutorskaPrava.PodaciOAutoru createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciOAutoru() {
         return new ZahtevZaAutorskaPrava.PodaciOAutoru();
     }
 
@@ -81,7 +81,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.Prilozi }
      * 
      */
-    public ZahtevZaAutorskaPrava.Prilozi createZahtevZaAutorskaPravaPrilozi() {
+    public ZahtevZaAutorskaPrava.Prilozi createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPrilozi() {
         return new ZahtevZaAutorskaPrava.Prilozi();
     }
 
@@ -113,7 +113,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade createZahtevZaAutorskaPravaPodaciODeluPodaciODeluPrerade() {
+    public ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciODeluPodaciODeluPrerade() {
         return new ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade();
     }
 
@@ -121,7 +121,7 @@ public class ObjectFactory {
      * Create an instance of {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice }
      * 
      */
-    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice createZahtevZaAutorskaPravaPodaciOPodnosiocuLicePravnoLice() {
+    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice createZAHTEVZAUNOSENJEUEVIDENCIJUIDEPONOVANJEAUTORSKIHDELAPodaciOPodnosiocuLicePravnoLice() {
         return new ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice();
     }
 

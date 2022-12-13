@@ -119,11 +119,4 @@ public class TPunomocnik {
         this.adresa = value;
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u punomocniku");
-        return "ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                ", adresa=" + adresa + '\'';
-    }
 }

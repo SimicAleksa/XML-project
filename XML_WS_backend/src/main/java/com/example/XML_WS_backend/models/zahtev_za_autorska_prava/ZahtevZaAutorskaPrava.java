@@ -3,9 +3,12 @@ package com.example.XML_WS_backend.models.zahtev_za_autorska_prava;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -120,6 +123,8 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *       &lt;/all&gt;
+ *       &lt;attribute name="datum_podnosenja" type="{http://www.w3.org/2001/XMLSchema}date" /&gt;
+ *       &lt;attribute name="broj_prijave" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -146,6 +151,11 @@ public class ZahtevZaAutorskaPrava {
     protected ZahtevZaAutorskaPrava.PodaciODelu podaciODelu;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
     protected ZahtevZaAutorskaPrava.Prilozi prilozi;
+    @XmlAttribute(name = "datum_podnosenja")
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar datumPodnosenja;
+    @XmlAttribute(name = "broj_prijave")
+    protected String brojPrijave;
 
     /**
      * Gets the value of the pseudonimIliZnakAutora property.
@@ -289,6 +299,54 @@ public class ZahtevZaAutorskaPrava {
      */
     public void setPrilozi(ZahtevZaAutorskaPrava.Prilozi value) {
         this.prilozi = value;
+    }
+
+    /**
+     * Gets the value of the datumPodnosenja property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDatumPodnosenja() {
+        return datumPodnosenja;
+    }
+
+    /**
+     * Sets the value of the datumPodnosenja property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDatumPodnosenja(XMLGregorianCalendar value) {
+        this.datumPodnosenja = value;
+    }
+
+    /**
+     * Gets the value of the brojPrijave property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBrojPrijave() {
+        return brojPrijave;
+    }
+
+    /**
+     * Sets the value of the brojPrijave property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBrojPrijave(String value) {
+        this.brojPrijave = value;
     }
 
 
@@ -1080,14 +1138,4 @@ public class ZahtevZaAutorskaPrava {
 
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u Zahtjevu");
-        return  "pseudonimIliZnakAutora='" + pseudonimIliZnakAutora + '\'' +
-                ", podaciOPodnosiocu=" + podaciOPodnosiocu + '\'' +
-                ", podaciOAutoru=" + podaciOAutoru + '\'' +
-                ", podaciOPunomocniku=" + podaciOPunomocniku + '\'' +
-                ", podaciODelu=" + podaciODelu + '\'' +
-                ", prilozi=" + prilozi + '\'';
-    }
 }

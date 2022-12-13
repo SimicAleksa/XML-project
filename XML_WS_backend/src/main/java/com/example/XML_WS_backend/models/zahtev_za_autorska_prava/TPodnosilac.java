@@ -65,12 +65,4 @@ public class TPodnosilac
         this.drzavljanstvo = value;
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u podnosiolcu");
-        return  "drzavljanstvo='" + drzavljanstvo + '\'' +
-                ", ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                ", adresa=" + adresa + '\'';
-    }
 }

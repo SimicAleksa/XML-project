@@ -107,12 +107,4 @@ public class TAdresa {
         this.grad = value;
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u adresi");
-        return
-                "ulica='" + ulica + "\' \n" +
-                ", broj=" + broj +
-                ", grad='" + grad + '\'';
-    }
 }
