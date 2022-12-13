@@ -170,12 +170,19 @@ public class TAdresa {
 
     @Override
     public String toString() {
-        return "TAdresa{" +
-                "ulica='" + ulica + '\'' +
-                ", brojObjekta='" + brojObjekta + '\'' +
-                ", postanskiBroj='" + postanskiBroj + '\'' +
-                ", mesto='" + mesto + '\'' +
-                ", drzava='" + drzava + '\'' +
-                '}';
+        return
+                "\t\t\t\t<ulica>" + ulica + "</ulica>\n" +
+                "\t\t\t\t<brojObjekta>" + brojObjekta + "</brojObjekta>\n" +
+                "\t\t\t\t<postanskiBroj>" + postanskiBroj + "<postanskiBroj>\n" +
+                "\t\t\t\t<mesto>" + mesto + "</mesto>\n" +
+                "\t\t\t\t<drzava>" + drzava + "</drzava>\n";
+    }
+    public String toString2() {
+        return
+                "\t\t\t<ulica>" + ulica + "</ulica>\n" +
+                "\t\t\t<brojObjekta>" + brojObjekta + "</brojObjekta>\n" +
+                "\t\t\t<postanskiBroj>" + postanskiBroj + "<postanskiBroj>\n" +
+                "\t\t\t<mesto>" + mesto + "</mesto>\n" +
+                "\t\t\t<drzava>" + drzava + "</drzava>\n";
     }
 }
