@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ZAHTEV_ZA_UNOSENJE_U_EVIDENCIJU_I_DEPONOVANJE_AUTORSKIH_DELA xmlns="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica file:/C:/Users/Nevena/Desktop/faks/7.%20semestar/XML/AutorskaPravaLatinica.xsd">
+    <pseudonim_ili_znak_autora>Stari pseudonim</pseudonim_ili_znak_autora>
+    <podaci_o_podnosiocu>
+        <lice>
+            <fizicko_lice>
+                <ime>Pera</ime>
+                <prezime>Peric</prezime>
+                <adresa>
+                    <ulica>Karadjordjeva</ulica>
+                    <broj>10</broj>
+                    <grad>Novi Sad</grad>
+                </adresa>
+                <drzavljanstvo>Srbija</drzavljanstvo>
+            </fizicko_lice>
+        </lice>
+        <telefon>0651775463</telefon>
+        <email>email@email.com</email>
+    </podaci_o_podnosiocu>
+    <podaci_o_autoru>
+        <anoniman_autor>true</anoniman_autor>
+    </podaci_o_autoru>
+    <podaci_o_punomocniku>
+        <ime>Marko</ime>
+        <prezime>Markovic</prezime>
+        <adresa>
+            <ulica>Zmaj Jovina</ulica>
+            <broj>40</broj>
+            <grad>Novi Sad</grad>
+        </adresa>
+    </podaci_o_punomocniku>
+    <podaci_o_delu>
+        <naslov>Na kraj sela</naslov>
+        <alternativni_naslov>Na kraju sela</alternativni_naslov>
+        <podaci_o_delu_prerade>
+            <naslov_dela_prerade> Cobar tera ovcice</naslov_dela_prerade>
+            <autor_dela_prerade>Mika Mikic</autor_dela_prerade>
+        </podaci_o_delu_prerade>
+        <vrsta_autorskog_dela>knjizevno delo</vrsta_autorskog_dela>
+        <forma_zapisa_autorskog_dela>pismena</forma_zapisa_autorskog_dela>
+        <delo_stvoreno_u_radnom_odnosu>true</delo_stvoreno_u_radnom_odnosu>
+        <nacin_koriscenja_dela>kako god</nacin_koriscenja_dela>
+    </podaci_o_delu>
+    <prilozi>
+        <opis_dela>Inspirativna prica o kuci i babi na kraju sela</opis_dela>
+        <primer_dela>npr</primer_dela>
+    </prilozi>
+</ZAHTEV_ZA_UNOSENJE_U_EVIDENCIJU_I_DEPONOVANJE_AUTORSKIH_DELA>

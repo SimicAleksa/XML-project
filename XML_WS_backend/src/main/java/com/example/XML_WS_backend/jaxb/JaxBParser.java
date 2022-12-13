@@ -2,11 +2,14 @@ package com.example.XML_WS_backend.jaxb;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.HashMap;
 
+import com.example.XML_WS_backend.models.zahtev_za_autorska_prava.ZahtevZaAutorskaPrava;
 import com.example.XML_WS_backend.models.zahtev_za_patent.ZahtevZaPatent;
+import com.sun.xml.internal.ws.db.glassfish.BridgeWrapper;
 
 public class JaxBParser {
     private HashMap<Class, String> schemaLocationRegistry = new HashMap<>();
@@ -17,29 +20,23 @@ public class JaxBParser {
 
     public void test() {
         try {
-//            System.out.println("Working Directory = " + System.getProperty("user.dir"));
-            System.out.println("[INFO] Testiranje: JAXB XML Schema validation.\n");
-
-            // Definiše se JAXB kontekst (putanja do paketa sa JAXB bean-ovima)
-            JAXBContext context = JAXBContext.newInstance("com.example.XML_WS_backend.models.zahtev_za_patent");
-
-            // Unmarshaller - zadužen za konverziju iz XML-a u objektni model
+//
+            JAXBContext context = JAXBContext.newInstance("com.example.XML_WS_backend.models.zahtev_za_autorska_prava");
             Unmarshaller unmarshaller = context.createUnmarshaller();
-
-            // Učitavanje XML-a u objektni model
-            ZahtevZaPatent zahtevZaPatent = (ZahtevZaPatent) unmarshaller.unmarshal(new File("data\\patent\\ZAHTEV_ZA_PRIZNANJE_PATENTA.xml"));
-
-            // Ispis sadržaja objekta
+            ZahtevZaAutorskaPrava zahtevZaPrava = (ZahtevZaAutorskaPrava) unmarshaller.unmarshal(new File("data\\autorska_prava\\ZAHTEV_ZA_AUTORSKA_PRAVA.xml"));
             System.out.println("[INFO] Unmarshalled content:");
-            System.out.println(zahtevZaPatent);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(zahtevZaPrava, System.out);
+            System.out.println("---------------------------------------------------------------------------");
+            zahtevZaPrava.setPseudonimIliZnakAutora("Novi pseudonim autora");
+            File xmlFile = new File("data\\autorska_prava\\Izmenjeno.xml");
+            marshaller.marshal(zahtevZaPrava, xmlFile);
+            marshaller.marshal(zahtevZaPrava, System.out);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-//    public static void main( String[] args ) {
-//        JaxBParser test = new JaxBParser();
-//        test.test();
-//    }
 }
