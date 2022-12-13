@@ -61,13 +61,4 @@ public class TAutor
         this.godinaSmrti = value;
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u autoru");
-        return  "godinaSmrti=" + godinaSmrti + '\'' +
-                ", drzavljanstvo='" + drzavljanstvo + '\'' +
-                ", ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                ", adresa=" + adresa + '\'';
-    }
 }

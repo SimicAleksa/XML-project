@@ -3,9 +3,12 @@ package com.example.XML_WS_backend.models.zahtev_za_autorska_prava;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -120,6 +123,8 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *       &lt;/all&gt;
+ *       &lt;attribute name="datum_podnosenja" type="{http://www.w3.org/2001/XMLSchema}date" /&gt;
+ *       &lt;attribute name="broj_prijave" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -137,15 +142,20 @@ public class ZahtevZaAutorskaPrava {
     @XmlElement(name = "pseudonim_ili_znak_autora", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
     protected String pseudonimIliZnakAutora;
     @XmlElement(name = "podaci_o_podnosiocu", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
-    protected ZahtevZaAutorskaPrava.PodaciOPodnosiocu podaciOPodnosiocu;
+    protected PodaciOPodnosiocu podaciOPodnosiocu;
     @XmlElement(name = "podaci_o_autoru", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica")
-    protected ZahtevZaAutorskaPrava.PodaciOAutoru podaciOAutoru;
+    protected PodaciOAutoru podaciOAutoru;
     @XmlElement(name = "podaci_o_punomocniku", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
     protected TPunomocnik podaciOPunomocniku;
     @XmlElement(name = "podaci_o_delu", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
-    protected ZahtevZaAutorskaPrava.PodaciODelu podaciODelu;
+    protected PodaciODelu podaciODelu;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
-    protected ZahtevZaAutorskaPrava.Prilozi prilozi;
+    protected Prilozi prilozi;
+    @XmlAttribute(name = "datum_podnosenja")
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar datumPodnosenja;
+    @XmlAttribute(name = "broj_prijave")
+    protected String brojPrijave;
 
     /**
      * Gets the value of the pseudonimIliZnakAutora property.
@@ -176,10 +186,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @return
      *     possible object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu }
+     *     {@link PodaciOPodnosiocu }
      *     
      */
-    public ZahtevZaAutorskaPrava.PodaciOPodnosiocu getPodaciOPodnosiocu() {
+    public PodaciOPodnosiocu getPodaciOPodnosiocu() {
         return podaciOPodnosiocu;
     }
 
@@ -188,10 +198,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu }
+     *     {@link PodaciOPodnosiocu }
      *     
      */
-    public void setPodaciOPodnosiocu(ZahtevZaAutorskaPrava.PodaciOPodnosiocu value) {
+    public void setPodaciOPodnosiocu(PodaciOPodnosiocu value) {
         this.podaciOPodnosiocu = value;
     }
 
@@ -200,10 +210,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @return
      *     possible object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciOAutoru }
+     *     {@link PodaciOAutoru }
      *     
      */
-    public ZahtevZaAutorskaPrava.PodaciOAutoru getPodaciOAutoru() {
+    public PodaciOAutoru getPodaciOAutoru() {
         return podaciOAutoru;
     }
 
@@ -212,10 +222,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciOAutoru }
+     *     {@link PodaciOAutoru }
      *     
      */
-    public void setPodaciOAutoru(ZahtevZaAutorskaPrava.PodaciOAutoru value) {
+    public void setPodaciOAutoru(PodaciOAutoru value) {
         this.podaciOAutoru = value;
     }
 
@@ -248,10 +258,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @return
      *     possible object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciODelu }
+     *     {@link PodaciODelu }
      *     
      */
-    public ZahtevZaAutorskaPrava.PodaciODelu getPodaciODelu() {
+    public PodaciODelu getPodaciODelu() {
         return podaciODelu;
     }
 
@@ -260,10 +270,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZahtevZaAutorskaPrava.PodaciODelu }
+     *     {@link PodaciODelu }
      *     
      */
-    public void setPodaciODelu(ZahtevZaAutorskaPrava.PodaciODelu value) {
+    public void setPodaciODelu(PodaciODelu value) {
         this.podaciODelu = value;
     }
 
@@ -272,10 +282,10 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @return
      *     possible object is
-     *     {@link ZahtevZaAutorskaPrava.Prilozi }
+     *     {@link Prilozi }
      *     
      */
-    public ZahtevZaAutorskaPrava.Prilozi getPrilozi() {
+    public Prilozi getPrilozi() {
         return prilozi;
     }
 
@@ -284,11 +294,59 @@ public class ZahtevZaAutorskaPrava {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZahtevZaAutorskaPrava.Prilozi }
+     *     {@link Prilozi }
      *     
      */
-    public void setPrilozi(ZahtevZaAutorskaPrava.Prilozi value) {
+    public void setPrilozi(Prilozi value) {
         this.prilozi = value;
+    }
+
+    /**
+     * Gets the value of the datumPodnosenja property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDatumPodnosenja() {
+        return datumPodnosenja;
+    }
+
+    /**
+     * Sets the value of the datumPodnosenja property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDatumPodnosenja(XMLGregorianCalendar value) {
+        this.datumPodnosenja = value;
+    }
+
+    /**
+     * Gets the value of the brojPrijave property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBrojPrijave() {
+        return brojPrijave;
+    }
+
+    /**
+     * Sets the value of the brojPrijave property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBrojPrijave(String value) {
+        this.brojPrijave = value;
     }
 
 
@@ -422,7 +480,7 @@ public class ZahtevZaAutorskaPrava {
         @XmlElement(name = "alternativni_naslov", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica")
         protected String alternativniNaslov;
         @XmlElement(name = "podaci_o_delu_prerade", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica")
-        protected ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade podaciODeluPrerade;
+        protected PodaciODeluPrerade podaciODeluPrerade;
         @XmlElement(name = "vrsta_autorskog_dela", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
         protected String vrstaAutorskogDela;
         @XmlElement(name = "forma_zapisa_autorskog_dela", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
@@ -485,10 +543,10 @@ public class ZahtevZaAutorskaPrava {
          * 
          * @return
          *     possible object is
-         *     {@link ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade }
+         *     {@link PodaciODeluPrerade }
          *     
          */
-        public ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade getPodaciODeluPrerade() {
+        public PodaciODeluPrerade getPodaciODeluPrerade() {
             return podaciODeluPrerade;
         }
 
@@ -497,10 +555,10 @@ public class ZahtevZaAutorskaPrava {
          * 
          * @param value
          *     allowed object is
-         *     {@link ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade }
+         *     {@link PodaciODeluPrerade }
          *     
          */
-        public void setPodaciODeluPrerade(ZahtevZaAutorskaPrava.PodaciODelu.PodaciODeluPrerade value) {
+        public void setPodaciODeluPrerade(PodaciODeluPrerade value) {
             this.podaciODeluPrerade = value;
         }
 
@@ -741,7 +799,7 @@ public class ZahtevZaAutorskaPrava {
     public static class PodaciOPodnosiocu {
 
         @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
-        protected ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice lice;
+        protected Lice lice;
         @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
         protected String telefon;
         @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
@@ -752,10 +810,10 @@ public class ZahtevZaAutorskaPrava {
          * 
          * @return
          *     possible object is
-         *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice }
+         *     {@link Lice }
          *     
          */
-        public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice getLice() {
+        public Lice getLice() {
             return lice;
         }
 
@@ -764,10 +822,10 @@ public class ZahtevZaAutorskaPrava {
          * 
          * @param value
          *     allowed object is
-         *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice }
+         *     {@link Lice }
          *     
          */
-        public void setLice(ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice value) {
+        public void setLice(Lice value) {
             this.lice = value;
         }
 
@@ -861,7 +919,7 @@ public class ZahtevZaAutorskaPrava {
             @XmlElement(name = "fizicko_lice", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica")
             protected TPodnosilac fizickoLice;
             @XmlElement(name = "pravno_lice", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica")
-            protected ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice pravnoLice;
+            protected PravnoLice pravnoLice;
 
             /**
              * Gets the value of the fizickoLice property.
@@ -892,10 +950,10 @@ public class ZahtevZaAutorskaPrava {
              * 
              * @return
              *     possible object is
-             *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice }
+             *     {@link PravnoLice }
              *     
              */
-            public ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice getPravnoLice() {
+            public PravnoLice getPravnoLice() {
                 return pravnoLice;
             }
 
@@ -904,10 +962,10 @@ public class ZahtevZaAutorskaPrava {
              * 
              * @param value
              *     allowed object is
-             *     {@link ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice }
+             *     {@link PravnoLice }
              *     
              */
-            public void setPravnoLice(ZahtevZaAutorskaPrava.PodaciOPodnosiocu.Lice.PravnoLice value) {
+            public void setPravnoLice(PravnoLice value) {
                 this.pravnoLice = value;
             }
 
@@ -1080,14 +1138,4 @@ public class ZahtevZaAutorskaPrava {
 
     }
 
-    @Override
-    public String toString() {
-        System.out.println("Bila sam u Zahtjevu");
-        return  "pseudonimIliZnakAutora='" + pseudonimIliZnakAutora + '\'' +
-                ", podaciOPodnosiocu=" + podaciOPodnosiocu + '\'' +
-                ", podaciOAutoru=" + podaciOAutoru + '\'' +
-                ", podaciOPunomocniku=" + podaciOPunomocniku + '\'' +
-                ", podaciODelu=" + podaciODelu + '\'' +
-                ", prilozi=" + prilozi + '\'';
-    }
 }

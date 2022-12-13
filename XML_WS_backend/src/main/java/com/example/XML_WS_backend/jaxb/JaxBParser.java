@@ -1,16 +1,13 @@
 package com.example.XML_WS_backend.jaxb;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.StringWriter;
 import java.util.HashMap;
 
 import com.example.XML_WS_backend.models.zahtev_za_autorska_prava.ZahtevZaAutorskaPrava;
 import com.example.XML_WS_backend.models.zahtev_za_patent.ZahtevZaPatent;
-import com.sun.xml.internal.ws.db.glassfish.BridgeWrapper;
 
 public class JaxBParser {
     private HashMap<Class, String> schemaLocationRegistry = new HashMap<>();
