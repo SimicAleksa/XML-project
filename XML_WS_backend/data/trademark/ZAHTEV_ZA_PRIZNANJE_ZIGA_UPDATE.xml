@@ -31,13 +31,13 @@
         </KontaktInformacije>
     </PodnosilacPrijave>
     <Punomocnik>
-        <Ime>Ime</Ime>
+        <Ime>NEKO IME</Ime>
         <Adresa>
-            <Ulica>Ulica</Ulica>
+            <Ulica>Neka ulica</Ulica>
             <BrojUlice>1</BrojUlice>
             <PostanskiBroj>0</PostanskiBroj>
             <MestoPrebivalista>MestoPrebivalista</MestoPrebivalista>
-            <DrzavaPrebivalista>DrzavaPrebivalista</DrzavaPrebivalista>
+            <DrzavaPrebivalista>Srbija</DrzavaPrebivalista>
         </Adresa>
         <KontaktInformacije>
             <Telefon>0</Telefon>
@@ -63,10 +63,10 @@
     </BrojeviKlasaRobeIliUsluga>
     <PravoPrvenstvaIOsnov>PravoPrvenstvaIOsnov</PravoPrvenstvaIOsnov>
     <Taksa>
-        <OsnovnaTaksa>0</OsnovnaTaksa>
-        <TaksaZaBrojKlasa>0</TaksaZaBrojKlasa>
-        <TaksaZaGrafickoResenje>0</TaksaZaGrafickoResenje>
-        <Ukupno>0</Ukupno>
+        <OsnovnaTaksa>0.0</OsnovnaTaksa>
+        <TaksaZaBrojKlasa>0.0</TaksaZaBrojKlasa>
+        <TaksaZaGrafickoResenje>0.0</TaksaZaGrafickoResenje>
+        <Ukupno>0.0</Ukupno>
     </Taksa>
     <PriloziUzZahtev>
         <PrimerakZnaka>false</PrimerakZnaka>
