@@ -8,8 +8,8 @@
                 <xs:element name="MetaData">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="BrojPrijave"/>
-                            <xs:element name="DatumPodnosenja"/>
+                            <xs:element name="BrojPrijave" type="xs:string"/>
+                            <xs:element name="DatumPodnosenja" type="xs:date"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -43,7 +43,7 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="id"/>
+            <xs:attribute name="id" type="xs:int"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="KTAdresa">
