@@ -1,8 +1,9 @@
-<Zahtev_za_patent xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ftn.uns.ac.rs/zahtev_za_patent">
+<Zahtev_za_patent xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ftn.uns.ac.rs/zahtev_za_patent"
+                  xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" >
     <popunjava_zavod>
-        <broj_prijave/>
-        <datum_prijema>2000-01-20</datum_prijema>
-        <priznati_datum_podnosenja>2000-06-26</priznati_datum_podnosenja>
+        <broj_prijave property="pred:brojPrijave"/>
+        <datum_prijema property="pred:datumPrijema">2000-01-20</datum_prijema>
+        <priznati_datum_podnosenja property="pred:priznatiDatumPodnosenja">2000-06-26</priznati_datum_podnosenja>
     </popunjava_zavod>
 
     <naziv_pronalaska>
@@ -65,8 +66,8 @@
 
     <punomocnik>
         <vrsta_punomocja>
-            <punomocnik_za_zastupanje>false</punomocnik_za_zastupanje> 
-            <punomocnik_za_prijem_pismena>true</punomocnik_za_prijem_pismena>
+            <punomocnik_za_zastupanje property="pred:punomocnikZastupanje">false</punomocnik_za_zastupanje>
+            <punomocnik_za_prijem_pismena property="pred:punomocnikPrijemPismena">true</punomocnik_za_prijem_pismena>
         </vrsta_punomocja>
         <licni_podaci>
             <fizicko_pravno_lice>
@@ -118,7 +119,7 @@
         <ranija_prijava>
             <datum_podnosenja_ranije_prijave>2022-02-22</datum_podnosenja_ranije_prijave>
             <broj_ranije_prijave/>
-            <dvoslovna_oznaka_drzave>TV</dvoslovna_oznaka_drzave>
+            <dvoslovna_oznaka_drzave property="pred:oznakaDrzave">TV</dvoslovna_oznaka_drzave>
         </ranija_prijava>
     </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
 </Zahtev_za_patent>

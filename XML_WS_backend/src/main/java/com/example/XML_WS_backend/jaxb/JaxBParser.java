@@ -35,9 +35,9 @@ public class JaxBParser {
             ZahtevZaPatent zahtevZaPatent = (ZahtevZaPatent) unmarshaller.unmarshal(new File("data\\patent\\ZAHTEV_ZA_PRIZNANJE_PATENTA.xml"));
 
             // TODO ovdje pozvati ono
-            JaxbWriter.upis("patent", "1", zahtevZaPatent );
-            System.out.println("Citaj mali");
-            JaxbReader.ispis("patent", "1.xml");
+//            JaxbWriter.upis("patent", "1", zahtevZaPatent );
+//            System.out.println("Citaj mali");
+//            JaxbReader.ispis("patent", "1.xml");
 
             // Ispis sadržaja objekta
 //            System.out.println("[INFO] Unmarshalled content:");

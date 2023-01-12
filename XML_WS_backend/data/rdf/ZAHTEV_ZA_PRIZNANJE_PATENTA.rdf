@@ -1,0 +1,20 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="">
+    <pred:brojPrijave xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:datumPrijema xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2000-01-20</pred:datumPrijema>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:priznatiDatumPodnosenja xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2000-06-26</pred:priznatiDatumPodnosenja>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:punomocnikZastupanje xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">false</pred:punomocnikZastupanje>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:punomocnikPrijemPismena xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">true</pred:punomocnikPrijemPismena>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:oznakaDrzave xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">TV</pred:oznakaDrzave>
+  </rdf:Description>
+</rdf:RDF>
