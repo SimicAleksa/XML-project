@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.StringWriter;
 import java.util.HashMap;
 
+import com.example.XML_WS_backend.custom_utils.authenticationUtilities.AuthenticationUtilities;
+import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbReader;
+import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbWriter;
 import com.example.XML_WS_backend.models.zahtev_za_patent.ZahtevZaPatent;
 
 public class JaxBParser {
@@ -31,9 +34,14 @@ public class JaxBParser {
             // Učitavanje XML-a u objektni model
             ZahtevZaPatent zahtevZaPatent = (ZahtevZaPatent) unmarshaller.unmarshal(new File("data\\patent\\ZAHTEV_ZA_PRIZNANJE_PATENTA.xml"));
 
+            // TODO ovdje pozvati ono
+            JaxbWriter.upis("patent", "1", zahtevZaPatent );
+            System.out.println("Citaj mali");
+            JaxbReader.ispis("patent", "1.xml");
+
             // Ispis sadržaja objekta
-            System.out.println("[INFO] Unmarshalled content:");
-            System.out.println(zahtevZaPatent);
+//            System.out.println("[INFO] Unmarshalled content:");
+//            System.out.println(zahtevZaPatent);
 
             // Izmena podataka
             zahtevZaPatent.getPodnosilacPrijave().getLicniPodaci().getFizickoPravnoLice().getFizickoLice().setIme("DODATO IME PODNOSILAC");
@@ -49,9 +57,9 @@ public class JaxBParser {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             // Ispis izmenjenog sadrzaja
-            System.out.println("\n\n\n[INFO] Updated content:");
-            // Umesto System.out-a, može se koristiti FileOutputStream
-            marshaller.marshal(zahtevZaPatent, System.out);
+//            System.out.println("\n\n\n[INFO] Updated content:");
+//            // Umesto System.out-a, može se koristiti FileOutputStream
+//            marshaller.marshal(zahtevZaPatent, System.out);
 
             File xmlFile = new File("data\\patent\\ZAHTEV_ZA_PRIZNANJE_PATENTA_UPDATE.xml");
             marshaller.marshal(zahtevZaPatent, xmlFile);
