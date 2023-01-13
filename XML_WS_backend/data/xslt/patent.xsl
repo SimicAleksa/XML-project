@@ -8,7 +8,7 @@
             </head>
             <body>
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:.5pt;text-indent:0cm;line-height:115%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;margin:0cm;border:none;'><span style="font-size:15px;line-height:115%;">&#160;</span></p>
-                <div style="align-content: center;width: 70%;align-self: center;margin-left:15%">
+                <div style="align-content: center;width: 100%;align-self: center;">
                     <table style="width: 47%;border-collapse:collapse;border:none; margin-left: 1%;">
                         <tbody>
                             <tr>
@@ -492,7 +492,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <xsl:for-each select="b:zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+                                <xsl:for-each select="b:zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava/b:ranija_prijava">
                                     <tr>
                                         <td style="width: 19.05pt;border-top: none;border-left: 1.5pt solid black;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
                                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;text-align:center;'><strong>
@@ -503,7 +503,7 @@
                                         <td style="width: 116.6pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
                                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'>
                                                 <span style="font-size:12px;line-height:107%;">&#160;
-                                                    <xsl:value-of select="b:ranija_prijava/b:datum_podnosenja_ranije_prijave"/>
+                                                    <xsl:value-of select="b:datum_podnosenja_ranije_prijave"/>
                                                 </span></p>
                                         </td>
                                         <td style="width: 116.6pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
@@ -512,13 +512,13 @@
                                         <td colspan="2" style="width: 129.05pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
                                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'>
                                                 <span style="font-size:12px;line-height:107%;">&#160;
-                                                    <xsl:value-of select="b:ranija_prijava/b:broj_ranije_prijave"/>
+                                                    <xsl:value-of select="b:broj_ranije_prijave"/>
                                                 </span></p>
                                         </td>
                                         <td colspan="3" style="width: 148.4pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1.5pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
                                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'>
                                                 <span style="font-size:12px;line-height:107%;">&#160;
-                                                    <xsl:value-of select="b:ranija_prijava/b:dvoslovna_oznaka_drzave"/>
+                                                    <xsl:value-of select="b:dvoslovna_oznaka_drzave"/>
                                                 </span></p>
                                         </td>
                                     </tr>
