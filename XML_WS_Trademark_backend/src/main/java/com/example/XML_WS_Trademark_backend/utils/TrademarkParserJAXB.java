@@ -7,12 +7,11 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.OutputStream;
-public class TrademarkParserJAXB {
-    private static final String TRADEMARK_XML_FILE_PATH = "src\\main\\resources\\xmls\\ZAHTEV_ZA_PRIZNANJE_ZIGA.xml";
-    private static final String TRADEMARK_XML_UPDATE_FILE_PATH = "src\\main\\resources\\xmls\\ZAHTEV_ZA_PRIZNANJE_ZIGA_UPDATE.xml";
+import java.io.StringReader;
 
+
+public class TrademarkParserJAXB {
     public static JAXBContext getJAXBInstance() throws JAXBException {
         return JAXBContext.newInstance(ZahtevZaPriznanjeZiga.class);
     }
@@ -27,8 +26,8 @@ public class TrademarkParserJAXB {
         return marshaller;
     }
 
-    public static ZahtevZaPriznanjeZiga parseFromXMLToObj() throws JAXBException {
-        return (ZahtevZaPriznanjeZiga) getUnmarshaller().unmarshal(new File(TRADEMARK_XML_FILE_PATH));
+    public static ZahtevZaPriznanjeZiga parseFromXMLToObj(String xmlContent) throws JAXBException {
+        return (ZahtevZaPriznanjeZiga) getUnmarshaller().unmarshal(new StringReader(xmlContent));
     }
 
     public static OutputStream parseFromObjToByteStream(ZahtevZaPriznanjeZiga trademarkReq) throws JAXBException {

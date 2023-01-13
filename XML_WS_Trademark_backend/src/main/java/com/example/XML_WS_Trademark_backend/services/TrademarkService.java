@@ -9,17 +9,15 @@ import java.util.List;
 
 @Service
 public class TrademarkService {
-    public final String contextPath = "com.zavod.model";
-    public final String dataPath = "./data/z1.xml";
-
-    private List<ZahtevZaPriznanjeZiga> trademarks;
-
     @Autowired
     private TrademarkRepository trademarkRepository;
 
+    public void save(ZahtevZaPriznanjeZiga trademark) {
+        trademarkRepository.save(trademark);
+    }
 
     public List<ZahtevZaPriznanjeZiga> getAll() {
-        return null;
+        return trademarkRepository.getAllTrademarkRequest();
     }
 
 
