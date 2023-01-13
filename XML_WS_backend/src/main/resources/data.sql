@@ -1,3 +1,2 @@
-INSERT INTO "user" (name,surname,email,password)
-    VALUES ('Marko', 'Markovic','email1@gmail.com','sifra123'),
-           ('Milos',  'Milosevic','email2@gmail.com','sifra123');
+INSERT INTO "user" VALUES (default, 'email1@gmail.com', 'Marko', 'sifra123', 'Markovic'),
+                            (default, 'email2@gmail.com', 'Milos', 'sifra123', 'Milosevic');
