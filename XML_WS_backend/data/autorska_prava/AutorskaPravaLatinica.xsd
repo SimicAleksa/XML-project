@@ -6,6 +6,8 @@
     <xs:element name="ZAHTEV_ZA_UNOSENJE_U_EVIDENCIJU_I_DEPONOVANJE_AUTORSKIH_DELA">
         <xs:complexType>
             <xs:all>
+                <xs:element name="datum_podnosenja" type="xs:string"/>
+                <xs:element name="broj_prijave" type="xs:string"/>
                 <xs:element name="pseudonim_ili_znak_autora" type="xs:string"/>
                 <xs:element name="podaci_o_podnosiocu">
                     <xs:complexType>
@@ -81,8 +83,6 @@
                     </xs:complexType>
                 </xs:element>
             </xs:all>
-            <xs:attribute name="datum_podnosenja" type="xs:date"/>
-            <xs:attribute name="broj_prijave" type="xs:string"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="TAdresa">

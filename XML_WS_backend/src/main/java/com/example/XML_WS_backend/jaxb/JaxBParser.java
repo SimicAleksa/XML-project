@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbReader;
 import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbWriter;
-import com.example.XML_WS_backend.models.autorskaprava.ZahtevZaAutorskaPrava;
+import com.example.XML_WS_backend.models.autorskapravaStaro.ZahtevZaAutorskaPrava;
 
 
 

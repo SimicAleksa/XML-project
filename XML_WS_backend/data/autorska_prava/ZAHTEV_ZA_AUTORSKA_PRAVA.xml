@@ -2,8 +2,9 @@
 <ZAHTEV_ZA_UNOSENJE_U_EVIDENCIJU_I_DEPONOVANJE_AUTORSKIH_DELA
         xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica"
-        xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_autorska_prava/predikati/"
-        datum_podnosenja="13.01.2022." broj_prijave="1256422">
+        xmlns:pred="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica/predikati/">
+    <datum_podnosenja property="pred:datumPodnosenja">13.01.2022.</datum_podnosenja>
+    <broj_prijave property="pred:brojPrijave">1256422</broj_prijave>
     <pseudonim_ili_znak_autora>Stari pseudonim</pseudonim_ili_znak_autora>
     <podaci_o_podnosiocu>
         <lice>

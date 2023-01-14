@@ -1,7 +1,7 @@
 package com.example.XML_WS_backend.custom_utils.reader_writer;
 
 import com.example.XML_WS_backend.custom_utils.authenticationUtilities.AuthenticationUtilities;
-import com.example.XML_WS_backend.models.autorskaprava.ZahtevZaAutorskaPrava;
+import com.example.XML_WS_backend.models.autorskapravaStaro.ZahtevZaAutorskaPrava;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.Collection;

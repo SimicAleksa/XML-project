@@ -203,7 +203,10 @@
                                     <td style="width: 163.05pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 49.8pt;vertical-align: top;">
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:15px;font-family:Arial, Helvetica, sans-serif'>&#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>Број пријаве</span></p>
-                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>&#160;</span><strong><span style='font-size:24px;font-family:Arial, Helvetica, sans-serif'>&#160;A-</span></strong></p>
+                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>&#160;</span>
+                                            <strong><span style='font-size:24px;font-family:Arial, Helvetica, sans-serif'>
+                                                &#160;A-&#160;<xsl:value-of select="b:broj_prijave"/>
+                                            </span></strong></p>
                                     </td>
                                     <td rowspan="3" style="width: 12.45pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 49.8pt;vertical-align: top;">
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:11px;font-family:Arial, Helvetica, sans-serif'>&#160;</span></p>
@@ -212,8 +215,13 @@
                                 <tr>
                                     <td style="width: 163.05pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 29.25pt;vertical-align: top;">
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:11px;font-family:Arial, Helvetica, sans-serif'>&#160;</span></p>
-                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>Датум подношења:</span></p>
-                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:15px;font-family:Arial, Helvetica, sans-serif'>&#160;</span></p>
+                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
+                                            <span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>
+                                                Датум подношења: </span></p>
+                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
+                                            <span style='font-size:15px;font-family:Arial, Helvetica, sans-serif'>
+                                                <xsl:value-of select="b:datum_podnosenja"/>
+                                            </span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:15px;font-family:Arial, Helvetica, sans-serif'>&#160;</span></p>
                                     </td>
                                 </tr>
