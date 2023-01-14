@@ -20,7 +20,7 @@ public class TrademarkRepository {
 
     public void save(ZahtevZaPriznanjeZiga trademark) {
         try {
-            trademarkDB.addToCollection(collectionUri, documentId, TrademarkParserJAXB.parseFromObjToByteStream(trademark).toString());
+            trademarkDB.addToCollection(collectionUri, documentId, TrademarkParserJAXB.parseFromObjToByteStream(trademark));
         } catch (Exception e) {
             e.printStackTrace();
         }

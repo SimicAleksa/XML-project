@@ -26,4 +26,10 @@ public class TrademarkController {
         trademarkService.save(trademark);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<HttpStatus> getPDF() {
+        trademarkService.getPDF();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
