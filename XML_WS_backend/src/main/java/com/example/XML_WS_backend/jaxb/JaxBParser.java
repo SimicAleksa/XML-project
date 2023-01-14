@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbReader;
 import com.example.XML_WS_backend.custom_utils.reader_writer.JaxbWriter;
-import com.example.XML_WS_backend.models.autorskapravaStaro.ZahtevZaAutorskaPrava;
+import com.example.XML_WS_backend.models.autorskaprava.ZahtevZaAutorskaPrava;
 
 
 
@@ -23,7 +23,7 @@ public class JaxBParser {
     public void test() {
         try {
 //
-            JAXBContext context = JAXBContext.newInstance("com.example.XML_WS_backend.models.zahtev_za_autorska_prava");
+            JAXBContext context = JAXBContext.newInstance("com.example.XML_WS_backend.models.autorskaprava");
             Unmarshaller unmarshaller = context.createUnmarshaller();
             ZahtevZaAutorskaPrava zahtevZaPrava = (ZahtevZaAutorskaPrava) unmarshaller.unmarshal(new File("data\\autorska_prava\\ZAHTEV_ZA_AUTORSKA_PRAVA.xml"));
 

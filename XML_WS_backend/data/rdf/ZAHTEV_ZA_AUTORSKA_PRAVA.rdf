@@ -1,0 +1,8 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="">
+    <pred:datumPodnosenja xmlns:pred="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">13.01.2022.</pred:datumPodnosenja>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:brojPrijave xmlns:pred="http://www.ftn.uns.ac.rs/AutorskaPravaLatinica/predikati/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1256422</pred:brojPrijave>
+  </rdf:Description>
+</rdf:RDF>
