@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <z:ZahtevZaPriznanjeZiga xmlns="ZAHTEV_ZA_PRIZNANJE_ZIGA"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:z="ZAHTEV_ZA_PRIZNANJE_ZIGA"
- xsi:schemaLocation="ZAHTEV_ZA_PRIZNANJE_ZIGA file:/D:/Projects/web/XML-project/XML_WS_Trademark_backend/src/main/resources/xmls/ZahtevZaPriznjanjeZiga.xsd" id="0">
+    xmlns:z="ZAHTEV_ZA_PRIZNANJE_ZIGA"
+    xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/predikati/" id="0">
     <z:MetaData>
-        <z:BrojPrijave>BrojPrijave0</z:BrojPrijave>
-        <z:DatumPodnosenja>2006-05-04</z:DatumPodnosenja>
+        <z:BrojPrijave property="pred:BrojPrijave">BrojPrijave0</z:BrojPrijave>
+        <z:DatumPodnosenja property="pred:DatumPodnosenja">2006-05-04</z:DatumPodnosenja>
     </z:MetaData>
     <z:PodnosilacPrijave>
         <z:Ime>Ime0</z:Ime>
