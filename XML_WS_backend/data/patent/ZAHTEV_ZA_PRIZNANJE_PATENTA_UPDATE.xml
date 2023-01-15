@@ -6,8 +6,8 @@
         <priznati_datum_podnosenja>2000-06-26</priznati_datum_podnosenja>
     </popunjava_zavod>
     <naziv_pronalaska>
-        <na_srpskom_jeziku></na_srpskom_jeziku>
-        <na_engleskom_jeziku></na_engleskom_jeziku>
+        <na_srpskom_jeziku>Moj naziv pronalaska</na_srpskom_jeziku>
+        <na_engleskom_jeziku> My invention name</na_engleskom_jeziku>
     </naziv_pronalaska>
     <podnosilac_prijave>
         <podnosilac_prijave_je_i_pronalazac>true</podnosilac_prijave_je_i_pronalazac>
@@ -18,17 +18,17 @@
                     <prezime>DODATO PREZIME PODNOSILAC</prezime>
                 </fizicko_lice>
             </fizicko_pravno_lice>
-            <drzavljanstvo></drzavljanstvo>
+            <drzavljanstvo>srpsko</drzavljanstvo>
             <adresa>
-                <ulica></ulica>
-                <broj_objekta></broj_objekta>
-                <postanski_broj></postanski_broj>
-                <mesto></mesto>
-                <drzava></drzava>
+                <ulica>Nova</ulica>
+                <broj_objekta>10</broj_objekta>
+                <postanski_broj>17000</postanski_broj>
+                <mesto> Moje Mesto</mesto>
+                <drzava> Lotos</drzava>
             </adresa>
             <dodatni_podaci>
                 <broj_telefona>067413431433</broj_telefona>
-                <broj_faksa></broj_faksa>
+                <broj_faksa>broj_faksa 4e213312</broj_faksa>
                 <e_posta>posta@gmail.com</e_posta>
             </dodatni_podaci>
         </licni_podaci>
@@ -42,15 +42,15 @@
                 <prezime>DODATO PREZIME PRONALAZAC</prezime>
             </fizicko_lice>
             <adresa>
-                <ulica></ulica>
-                <broj_objekta></broj_objekta>
-                <postanski_broj></postanski_broj>
-                <mesto></mesto>
-                <drzava></drzava>
+                <ulica>Puskinova</ulica>
+                <broj_objekta>6</broj_objekta>
+                <postanski_broj>21000</postanski_broj>
+                <mesto>Novi Sad</mesto>
+                <drzava>Republika Srbija</drzava>
             </adresa>
             <dodatni_podaci>
                 <broj_telefona>064111928</broj_telefona>
-                <broj_faksa></broj_faksa>
+                <broj_faksa>moj faksic 497d3d133</broj_faksa>
                 <e_posta>nekaposta@gmail.com</e_posta>
             </dodatni_podaci>
         </podaci_o_pronalazacu>
@@ -62,33 +62,32 @@
         </vrsta_punomocja>
         <licni_podaci>
             <fizicko_pravno_lice>
-                <fizicko_lice>
-                    <ime></ime>
-                    <prezime></prezime>
-                </fizicko_lice>
+                <pravno_lice>
+                    <poslovno_ime>Pravo Poslovno Ime</poslovno_ime>
+                </pravno_lice>
             </fizicko_pravno_lice>
-            <drzavljanstvo></drzavljanstvo>
+            <drzavljanstvo> srpsko</drzavljanstvo>
             <adresa>
-                <ulica></ulica>
-                <broj_objekta></broj_objekta>
-                <postanski_broj></postanski_broj>
-                <mesto></mesto>
-                <drzava></drzava>
+                <ulica>Brankova</ulica>
+                <broj_objekta>32</broj_objekta>
+                <postanski_broj>15000</postanski_broj>
+                <mesto>Sabac</mesto>
+                <drzava>Republika Srbija</drzava>
             </adresa>
             <dodatni_podaci>
                 <broj_telefona>0655587321</broj_telefona>
-                <broj_faksa></broj_faksa>
+                <broj_faksa>faksit 4327y9y532</broj_faksa>
                 <e_posta>ponavljante@yahoo.com</e_posta>
             </dodatni_podaci>
         </licni_podaci>
     </punomocnik>
     <dostavljanje_podaci>
         <adresa>
-            <ulica></ulica>
-            <broj_objekta></broj_objekta>
-            <postanski_broj></postanski_broj>
-            <mesto></mesto>
-            <drzava></drzava>
+            <ulica>Puskinova</ulica>
+            <broj_objekta>6</broj_objekta>
+            <postanski_broj>21000</postanski_broj>
+            <mesto>Novi Sad</mesto>
+            <drzava>Republika Srbija</drzava>
         </adresa>
         <podnosilac_saglasan_dostavljanje_elektronskim_putem>false</podnosilac_saglasan_dostavljanje_elektronskim_putem>
         <podnosilac_saglasan_dostavljanje_u_papirnoj_formi>true</podnosilac_saglasan_dostavljanje_u_papirnoj_formi>
@@ -101,9 +100,9 @@
     </prijava>
     <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
         <ranija_prijava>
-            <datum_podnosenja_ranije_prijave>2022-02-22</datum_podnosenja_ranije_prijave>
-            <broj_ranije_prijave></broj_ranije_prijave>
-            <dvoslovna_oznaka_drzave>TV</dvoslovna_oznaka_drzave>
+            <datum_podnosenja_ranije_prijave>2022-12-13</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>П-962346732 </broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave>EE</dvoslovna_oznaka_drzave>
         </ranija_prijava>
     </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
 </Zahtev_za_patent>
