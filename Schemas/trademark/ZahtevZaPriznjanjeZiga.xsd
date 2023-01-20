@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="ZAHTEV_ZA_PRIZNANJE_ZIGA" xmlns="ZAHTEV_ZA_PRIZNANJE_ZIGA">
+
+    <xs:element name="ZahtevZaPriznanjeZiga">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MetaData">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="BrojPrijave"/>
+                            <xs:element name="DatumPodnosenja"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PodnosilacPrijave" type="KTPersona" maxOccurs="unbounded"/>
+                <xs:element name="Punomocnik" type="KTPersona"/>
+                <xs:element name="ZajednickiPredstavnici" type="KTPersona" maxOccurs="1"
+                    minOccurs="0"/>
+                <xs:element name="Zig" type="KTZig"/>
+                <xs:element name="BrojeviKlasaRobeIliUsluga">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="BrojKlaseRobeIliUsluge" maxOccurs="unbounded"
+                                minOccurs="1" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PravoPrvenstvaIOsnov" type="xs:string"/>
+                <xs:element name="Taksa" type="KTTaksa"/>
+                <xs:element name="PriloziUzZahtev">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="PrimerakZnaka" type="xs:boolean"/>
+                            <xs:element name="SpisakRobeIUsluga" type="xs:boolean"/>
+                            <xs:element name="Punomocje" type="xs:boolean"/>
+                            <xs:element name="PunomocjeRanijePrilozeno" type="xs:boolean"/>
+                            <xs:element name="PunomocjeNaknadnoPrilozeno" type="xs:boolean"/>
+                            <xs:element name="OpstiAktOZigu" type="xs:boolean"/>
+                            <xs:element name="DokazPravaPrvenstva" type="xs:boolean"/>
+                            <xs:element name="DokazUplateTakse" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="KTAdresa">
+        <xs:sequence>
+            <xs:element name="Ulica">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="BrojUlice">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PostanskiBroj">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="MestoPrebivalista">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="DrzavaPrebivalista">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="KTKontaktInformacije">
+        <xs:sequence>
+            <xs:element name="Telefon">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="E-mail">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Faks">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="KTPersona">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="Ime">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"> </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Adresa" type="KTAdresa"/>
+            <xs:element name="KontaktInformacije" type="KTKontaktInformacije"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="KTZig">
+        <xs:sequence>
+            <xs:element name="TipZiga" type="xs:string"/>
+            <xs:element name="TipZnaka" type="xs:string"/>
+            <xs:element name="IzgledZnaka" type="xs:base64Binary"/>
+            <xs:element name="Boje" type="xs:string"> </xs:element>
+            <xs:element name="TransliteracijaZnaka" type="xs:string"/>
+            <xs:element name="PrevodZnaka" type="xs:string"/>
+            <xs:element name="OpisZnaka" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="KTTaksa">
+        <xs:sequence>
+            <xs:element name="OsnovnaTaksa" type="xs:float"/>
+            <xs:element name="TaksaZaBrojKlasa" type="xs:float"/>
+            <xs:element name="TaksaZaGrafickoResenje" type="xs:float"/>
+            <xs:element name="Ukupno" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

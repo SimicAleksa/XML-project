@@ -1,0 +1,61 @@
+.grid-container {
+    overflow: hidden;
+}
+
+mat-form-field {
+    height: 8vh;
+}
+
+.form-holder {
+    padding-top: 15vh;
+}
+
+.form-holder button {
+    margin: 0 auto;
+    margin-bottom: 5vh;
+    border: 1px solid;
+    width: 20vw;
+}
+
+.form-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8vh;
+
+    font-size: large;
+    font-weight: bold;
+}
+
+.subform {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5vh;
+}
+
+.subform div {
+    margin: 0;
+}
+
+.subform-title {
+    font-size: large;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(78, 104, 104);
+}
+
+.radio-group-label {
+    color: rgb(112, 109, 109);
+    margin: 1vh 0;
+    font-weight: 500;
+    font-size: medium;
+}
+
+mat-radio-button{
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+}
+
+.trademark-card img{
+    height: 30vh;
+    width: 30vh;
+}
