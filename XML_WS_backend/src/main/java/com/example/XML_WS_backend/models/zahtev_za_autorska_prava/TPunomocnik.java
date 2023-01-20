@@ -1,25 +1,27 @@
 
-package com.example.XML_WS_backend.models.zahtev_za_patent;
+package com.example.XML_WS_backend.models.zahtev_za_autorska_prava;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TFizicko_Lice complex type.
+ * <p>Java class for TPunomocnik complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TFizicko_Lice"&gt;
+ * &lt;complexType name="TPunomocnik"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;all&gt;
+ *       &lt;sequence&gt;
  *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *       &lt;/all&gt;
+ *         &lt;element name="adresa" type="{http://www.ftn.uns.ac.rs/AutorskaPravaLatinica}TAdresa"/&gt;
+ *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -28,15 +30,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TFizicko_Lice", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", propOrder = {
-
+@XmlType(name = "TPunomocnik", namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", propOrder = {
+    "ime",
+    "prezime",
+    "adresa"
 })
-public class TFizickoLice {
+@XmlSeeAlso({
+    TPodnosilac.class
+})
+public class TPunomocnik {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
     protected String ime;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
     protected String prezime;
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPravaLatinica", required = true)
+    protected TAdresa adresa;
 
     /**
      * Gets the value of the ime property.
@@ -86,15 +95,28 @@ public class TFizickoLice {
         this.prezime = value;
     }
 
-    @Override
-    public String toString() {
-        return
-                "\t\t\t\t\t<ime>" + ime + "</ime>\n" +
-                "\t\t\t\t\t<prezime>" + prezime + "</prezime>\n";
+    /**
+     * Gets the value of the adresa property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TAdresa }
+     *     
+     */
+    public TAdresa getAdresa() {
+        return adresa;
     }
-    public String toString2() {
-        return
-                "\t\t\t\t<ime>" + ime + "</ime>\n" +
-                "\t\t\t\t<prezime>" + prezime + "</prezime>\n";
+
+    /**
+     * Sets the value of the adresa property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TAdresa }
+     *     
+     */
+    public void setAdresa(TAdresa value) {
+        this.adresa = value;
     }
+
 }

@@ -482,11 +482,10 @@ public class ZahtevZaPatent {
 
         @Override
         public String toString() {
-            return "DostavljanjePodaci{" +
-                    "adresa=" + adresa +
-                    ", podnosilacSaglasanDostavljanjeElektronskimPutem=" + podnosilacSaglasanDostavljanjeElektronskimPutem +
-                    ", podnosilacSaglasanDostavljanjeUPapirnojFormi=" + podnosilacSaglasanDostavljanjeUPapirnojFormi +
-                    "}\n";
+            return
+                    "\t\t<adresa>\n" + adresa.toString2() + "\t\t</adresa>\n" +
+                    "\t\t<podnosilacSaglasanDostavljanjeElektronskimPutem>" + podnosilacSaglasanDostavljanjeElektronskimPutem + "</podnosilacSaglasanDostavljanjeElektronskimPutem>\n" +
+                    "\t\t<podnosilacSaglasanDostavljanjeUPapirnojFormi>" + podnosilacSaglasanDostavljanjeUPapirnojFormi + "</podnosilacSaglasanDostavljanjeUPapirnojFormi>\n";
         }
     }
 
@@ -573,10 +572,9 @@ public class ZahtevZaPatent {
 
         @Override
         public String toString() {
-            return "NazivPronalaska{" +
-                    "naSrpskomJeziku='" + naSrpskomJeziku + '\'' +
-                    ", naEngleskomJeziku='" + naEngleskomJeziku + '\'' +
-                    "}\n";
+            return
+                    "\t\t<naSrpskomJeziku>" + naSrpskomJeziku + "</naSrpskomJeziku>\n" +
+                    "\t\t<naEngleskomJeziku>" + naEngleskomJeziku + "</naEngleskomJeziku>\n";
         }
     }
 
@@ -654,10 +652,9 @@ public class ZahtevZaPatent {
 
         @Override
         public String toString() {
-            return "PodnosilacPrijave{" +
-                    "podnosilacPrijaveJeIPronalazac=" + podnosilacPrijaveJeIPronalazac +
-                    ", licniPodaci=" + licniPodaci +
-                    "}\n";
+            return
+                    "\n\t\t<podnosilacPrijaveJeIPronalazac>" + podnosilacPrijaveJeIPronalazac + "</podnosilacPrijaveJeIPronalazac>"+
+                    "\n\t\t<licniPodaci>\n" + licniPodaci + "\t\t</licniPodaci>";
         }
     }
 
@@ -773,11 +770,10 @@ public class ZahtevZaPatent {
 
         @Override
         public String toString() {
-            return "PopunjavaZavod{" +
-                    "brojPrijave='" + brojPrijave + '\'' +
-                    ", datumPrijema=" + datumPrijema +
-                    ", priznatiDatumPodnosenja=" + priznatiDatumPodnosenja +
-                    "}\n";
+            return
+                    "\t\t<brojPrijave>" + brojPrijave + "</brojPrijave>\n" +
+                    "\t\t<datumPrijema>" + datumPrijema + "</datumPrijema>\n"+
+                    "\t\t<priznatiDatumPodnosenja>" + priznatiDatumPodnosenja + "</priznatiDatumPodnosenja>\n";
         }
     }
 
@@ -902,12 +898,11 @@ public class ZahtevZaPatent {
 
         @Override
         public String toString() {
-            return "Prijava{" +
-                    "dopunskaPrijava=" + dopunskaPrijava +
-                    ", izdvojenaPrijava=" + izdvojenaPrijava +
-                    ", brojOsnovnePrijave='" + brojOsnovnePrijave + '\'' +
-                    ", datumPodnosenjaOsnovnePrijave=" + datumPodnosenjaOsnovnePrijave +
-                    "}\n";
+            return
+                    "\t\t<dopunskaPrijava>" + dopunskaPrijava + "</dopunskaPrijava>\n" +
+                    "\t\t<izdvojenaPrijava>" + izdvojenaPrijava + "</izdvojenaPrijava>\n" +
+                    "\t\t<brojOsnovnePrijave>" + brojOsnovnePrijave + "</brojOsnovnePrijave>\n" +
+                    "\t\t<datumPodnosenjaOsnovnePrijave>" + datumPodnosenjaOsnovnePrijave + "</datumPodnosenjaOsnovnePrijave>\n";
         }
     }
 
@@ -1121,15 +1116,21 @@ public class ZahtevZaPatent {
                 this.dodatniPodaci = value;
             }
 
+            @Override
+            public String toString() {
+                return
+                        "\t\t\t<fizickoLice>\n" + fizickoLice.toString2() + "\t\t\t</fizickoLice>\n" +
+                        "\t\t\t<adresa>\n" + adresa + "\t\t\t</adresa>\n" +
+                        "\t\t\t<dodatniPodaci>\n" + dodatniPodaci + "\t\t\t</dodatniPodaci>\n";
+            }
         }
 
         @Override
         public String toString() {
-            return "Pronalazac{" +
-                    "pronalazacNeZeliDaBudeNavedenUPrijavi=" + pronalazacNeZeliDaBudeNavedenUPrijavi +
-                    ", pronalazacJePodnosilacPrijave=" + pronalazacJePodnosilacPrijave +
-                    ", podaciOPronalazacu=" + podaciOPronalazacu +
-                    "}\n";
+            return
+                    "\t\t<pronalazacNeZeliDaBudeNavedenUPrijavi>" + pronalazacNeZeliDaBudeNavedenUPrijavi + "/<pronalazacNeZeliDaBudeNavedenUPrijavi>\n" +
+                    "\t\t<pronalazacJePodnosilacPrijave>" + pronalazacJePodnosilacPrijave + "</pronalazacJePodnosilacPrijave>\n"+
+                    "\t\t<podaciOPronalazacu>\n" + podaciOPronalazacu + "\t\t</podaciOPronalazacu>\n";
         }
     }
 
@@ -1288,14 +1289,19 @@ public class ZahtevZaPatent {
                 this.punomocnikZaPrijemPismena = value;
             }
 
+            @Override
+            public String toString() {
+                return
+                        "\t\t\t<punomocnikZaZastupanje>" + punomocnikZaZastupanje + "</punomocnikZaZastupanje>\n"+
+                        "\t\t\t<punomocnikZaPrijemPismena>" + punomocnikZaPrijemPismena + "</punomocnikZaPrijemPismena>\n";
+            }
         }
 
         @Override
         public String toString() {
-            return "Punomocnik{" +
-                    "vrstaPunomocja=" + vrstaPunomocja +
-                    ", licniPodaci=" + licniPodaci +
-                    "}\n";
+            return
+                    "\t\t<vrstaPunomocja>\n" + vrstaPunomocja + "\t\t</vrstaPunomocja>\n"+
+                    "\t\t<licniPodaci>\n" + licniPodaci + "\t\t</licniPodaci>\n";
         }
     }
 
@@ -1491,27 +1497,31 @@ public class ZahtevZaPatent {
 
             @Override
             public String toString() {
-                return "RanijaPrijava{" +
-                        "datumPodnosenjaRanijePrijave=" + datumPodnosenjaRanijePrijave +
-                        ", brojRanijePrijave='" + brojRanijePrijave + '\'' +
-                        ", dvoslovnaOznakaDrzave='" + dvoslovnaOznakaDrzave + '\'' +
-                        "}\n";
+                return
+                        "\t\t\t<datumPodnosenjaRanijePrijave>" + datumPodnosenjaRanijePrijave + "</datumPodnosenjaRanijePrijave>\n" +
+                        "\t\t\t<brojRanijePrijave>" + brojRanijePrijave + "</brojRanijePrijave>\n" +
+                        "\t\t\t<dvoslovnaOznakaDrzave>" + dvoslovnaOznakaDrzave + "</dvoslovnaOznakaDrzave>\n";
             }
         }
 
+        @Override
+        public String toString() {
+            return
+                    "\t\t<ranijaPrijava>\n" + ranijaPrijava + "\t\t</ranijaPrijava>\n";
+        }
     }
 
     @Override
     public String toString() {
-        return "ZahtevZaPatent{" +
-                "popunjavaZavod=" + popunjavaZavod +
-                ", nazivPronalaska=" + nazivPronalaska +
-                ", podnosilacPrijave=" + podnosilacPrijave +
-                ", pronalazac=" + pronalazac +
-                ", punomocnik=" + punomocnik +
-                ", dostavljanjePodaci=" + dostavljanjePodaci +
-                ", prijava=" + prijava +
-                ", zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava=" + zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava +
-                "}\n";
+        return "<zahtevZaPatent>\n" +
+                "\t<popunjavaZavod>\n" + popunjavaZavod + "\t</popunjavaZavod>\n" +
+                "\t<nazivPronalaska>\n" + nazivPronalaska + "\t</nazivPronalaska>\n"+
+                "\t<podnosilacPrijave>" + podnosilacPrijave + "\n\t</podnosilacPrijave>\n" +
+                "\t<pronalazac>\n" + pronalazac + "\t</pronalazac>\n"+
+                "\t<punomocnik>\n" + punomocnik + "\t<punomocnik>\n" +
+                "\t<dostavljanjePodaci>\n" + dostavljanjePodaci + "\t</dostavljanjePodaci>\n" +
+                "\t<prijava>\n" + prijava + "\t</prijava>\n" +
+                "\t<zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava>\n" + zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava + "\t</zahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava>\n"+
+                "</zahtevZaPatent>";
     }
 }
