@@ -1,5 +1,6 @@
 package com.example.XML_WS_Trademark_backend.database;
 
+import com.example.XML_WS_Trademark_backend.configs.Settings;
 import com.example.XML_WS_Trademark_backend.utils.MetadataExtractor;
 import com.example.XML_WS_Trademark_backend.utils.SparqlUtil;
 import org.apache.jena.query.QueryExecution;
@@ -12,6 +13,7 @@ import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import javax.xml.transform.TransformerException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -22,7 +24,7 @@ import java.nio.file.Paths;
 @Component
 public class FusekiDatabase {
     private static final String SPARQL_NAMED_GRAPH_URI = "/trademark/metadata";
-    private static final String RDF_FILE_PATH = "src/main/resources/formats_data/ZahtevZaPriznanjeZiga.rdf";
+    private static final String RDF_FILE_PATH = Settings.RDF_FILE_PATH;
 
     @Autowired
     public FusekiAuthManager authManager;

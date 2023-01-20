@@ -1,14 +1,22 @@
 package com.example.XML_WS_Trademark_backend.utils;
 
+import com.example.XML_WS_Trademark_backend.configs.Settings;
 import org.apache.xalan.xsltc.trax.TransformerFactoryImpl;
-import javax.xml.transform.*;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.*;
+import java.io.File;
+import java.io.OutputStream;
+import java.io.StringReader;
 
 
 public class MetadataExtractor {
-    private static final String XSLT_FILE = "src/main/resources/formats_data/grddl.xsl";
+    private static final String XSLT_FILE = Settings.GRDDL_FILE;
+
 
     public static void extractMetadata(String in, OutputStream out) throws TransformerException {
         getGrddlTransformer(new StreamSource(new File(XSLT_FILE)))
@@ -26,7 +34,7 @@ public class MetadataExtractor {
     }
 
     private static String adjustInpXML(String inpXML) {
-        return inpXML.replaceFirst("ZahtevZaPriznanjeZiga","ZahtevZaPriznanjeZiga xmlns:pred=\"http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/\" ");
+        return inpXML.replaceFirst(Settings.REQ_NAME,String.format("%s %s", Settings.REQ_NAME, Settings.PREDICATE_NAMESPACE));
     }
 
 }

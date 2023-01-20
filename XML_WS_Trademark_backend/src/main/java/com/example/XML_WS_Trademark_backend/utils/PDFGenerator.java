@@ -1,6 +1,7 @@
 package com.example.XML_WS_Trademark_backend.utils;
 
 
+import com.example.XML_WS_Trademark_backend.configs.Settings;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -24,9 +25,9 @@ import java.nio.file.Paths;
 public class PDFGenerator {
     private static DocumentBuilderFactory documentFactory;
     private static TransformerFactory transformerFactory;
-    private static final String xslFilePath = "src/main/resources/formats_data/ZahtevZaPriznanjeZiga.xsl";
-    private static final String pdfFilePath = "src/main/resources/formats_data/ZahtevZaPriznanjeZiga.pdf";
-    private static final String htmlFilePath = "src/main/resources/formats_data/ZahtevZaPriznanjeZiga.html";
+    private static final String XSL_FILE_PATH = Settings.XSL_FILE_PATH;
+    private static final String PDF_FILE_PATH = Settings.PDF_FILE_PATH;
+    private static final String HTML_FILE_PATH = Settings.HTML_FILE_PATH;
 
     static {
         setupDocBuilderFactory();
@@ -40,10 +41,10 @@ public class PDFGenerator {
 
     private static void generateHTML(ZahtevZaPriznanjeZiga trademarkReq) throws Exception {
         try {
-            Transformer transformer = getTransformerByXSLFile(new StreamSource(new File(xslFilePath)));
+            Transformer transformer = getTransformerByXSLFile(new StreamSource(new File(XSL_FILE_PATH)));
             transformer.transform(
                     new DOMSource(makeDocFromTrademarkReq(trademarkReq)),
-                    new StreamResult(Files.newOutputStream(Paths.get(htmlFilePath)))
+                    new StreamResult(Files.newOutputStream(Paths.get(HTML_FILE_PATH)))
             );
         } catch (TransformerFactoryConfigurationError | TransformerException ignored) {}
     }
@@ -51,9 +52,9 @@ public class PDFGenerator {
     private static void generatePDF() {
         try {
             Document document = new Document();
-            PdfWriter writer = PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(pdfFilePath)));
+            PdfWriter writer = PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(PDF_FILE_PATH)));
             document.open();
-            XMLWorkerHelper.getInstance().parseXHtml(writer, document, Files.newInputStream(Paths.get(htmlFilePath)));
+            XMLWorkerHelper.getInstance().parseXHtml(writer, document, Files.newInputStream(Paths.get(HTML_FILE_PATH)));
             document.close();
         } catch (IOException | DocumentException ignored) {}
     }
