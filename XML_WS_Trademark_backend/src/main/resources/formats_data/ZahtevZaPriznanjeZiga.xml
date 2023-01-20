@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<z:ZahtevZaPriznanjeZiga xmlns="ZAHTEV_ZA_PRIZNANJE_ZIGA"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:z="ZAHTEV_ZA_PRIZNANJE_ZIGA"
-    xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/predikati/" id="0">
+<z:ZahtevZaPriznanjeZiga xmlns:z="http://www.ftn.uns.ac.rs/zahtev_za_zig"
+                         xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig ZahtevZaPriznjanjeZiga.xsd" id="0">
     <z:MetaData>
         <z:BrojPrijave property="pred:BrojPrijave">BrojPrijave0</z:BrojPrijave>
         <z:DatumPodnosenja property="pred:DatumPodnosenja">2006-05-04</z:DatumPodnosenja>

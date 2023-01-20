@@ -1,88 +1,32 @@
 package com.example.XML_WS_Trademark_backend.utils;
 
 import org.apache.xalan.xsltc.trax.TransformerFactoryImpl;
-import org.xml.sax.SAXException;
-
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-/**
- *
- * Primer demonstrira ekstrakciju RDFa metapodataka iz
- * XML dokumenta primenom GRDDL (Gleaning Resource Descriptions
- * from Dialects of Languages) transformacije.
- *
- */
+
 public class MetadataExtractor {
-
-    private TransformerFactory transformerFactory;
-
     private static final String XSLT_FILE = "src/main/resources/formats_data/grddl.xsl";
 
-    public MetadataExtractor() throws SAXException, IOException {
-
-        // Setup the XSLT transformer factory
-        transformerFactory = new TransformerFactoryImpl();
+    public static void extractMetadata(String in, OutputStream out) throws TransformerException {
+        getGrddlTransformer(new StreamSource(new File(XSLT_FILE)))
+                .transform(
+                        new StreamSource(new StringReader(adjustInpXML(in))),
+                        new StreamResult(out)
+                );
     }
 
-    /**
-     * Generates RDF/XML based on RDFa metadata from an XML containing
-     * input stream by applying GRDDL XSL transformation.
-     *
-     * @param in XML containing input stream
-     * @param out RDF/XML output stream
-     */
-    public void extractMetadata(InputStream in, OutputStream out) throws FileNotFoundException, TransformerException {
-
-        // Create transformation source
-        StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
-
-        // Initialize GRDDL transformer object
-        Transformer grddlTransformer = transformerFactory.newTransformer(transformSource);
-
-        // Set the indentation properties
+    private static Transformer getGrddlTransformer(StreamSource transformSource) throws TransformerConfigurationException {
+        Transformer grddlTransformer = new TransformerFactoryImpl().newTransformer(transformSource);
         grddlTransformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
         grddlTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-        // Initialize transformation subject
-        StreamSource source = new StreamSource(in);
-
-        // Initialize result stream
-        StreamResult result = new StreamResult(out);
-
-        // Trigger the transformation
-        grddlTransformer.transform(source, result);
-
+        return grddlTransformer;
     }
 
-
-    public void test() throws Exception {
-
-        System.out.println("[INFO] " + MetadataExtractor.class.getSimpleName());
-
-        String filePath = "src/main/resources/formats_data/ZahtevZaPriznanjeZiga.rdf";
-
-        InputStream in = Files.newInputStream(new File("src/main/resources/formats_data/ZahtevZaPriznanjeZiga.xml").toPath());
-
-        OutputStream out = Files.newOutputStream(Paths.get(filePath));
-
-        extractMetadata(in, out);
-
-        System.out.println("[INFO] File \"" + filePath + "\" generated successfully.");
-
-        System.out.println("[INFO] End.");
-
-    }
-
-    public static void main(String[] args) throws Exception {
-        new MetadataExtractor().test();
+    private static String adjustInpXML(String inpXML) {
+        return inpXML.replaceFirst("ZahtevZaPriznanjeZiga","ZahtevZaPriznanjeZiga xmlns:pred=\"http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/\" ");
     }
 
 }

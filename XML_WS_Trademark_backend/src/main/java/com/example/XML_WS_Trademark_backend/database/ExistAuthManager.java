@@ -6,17 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class DBAuthManager {
-    @Value("${conn.user}")
+public class ExistAuthManager {
+    @Value("${exist.user}")
     private String user;
-    @Value("${conn.password}")
+    @Value("${exist.password}")
     private String password;
-    @Value("${conn.host}")
+    @Value("${exist.host}")
     private String host;
-    @Value("${conn.port}")
+    @Value("${exist.port}")
     private String port;
-    @Value("${conn.driver}")
+    @Value("${exist.driver}")
     private String driver;
-    @Value("${conn.uri}")
+    @Value("${exist.uri}")
     private String uri;
 }

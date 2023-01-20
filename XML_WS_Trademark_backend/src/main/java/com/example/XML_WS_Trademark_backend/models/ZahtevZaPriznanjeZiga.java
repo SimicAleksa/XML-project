@@ -1,3 +1,4 @@
+
 package com.example.XML_WS_Trademark_backend.models;
 
 import javax.xml.bind.annotation.*;
@@ -21,17 +22,33 @@ import java.util.List;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="BrojPrijave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="DatumPodnosenja" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *                   &lt;element name="BrojPrijave"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:BrojPrijave" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="DatumPodnosenja"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:DatumPodnosenja" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="PodnosilacPrijave" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTPersona" maxOccurs="unbounded"/&gt;
- *         &lt;element name="Punomocnik" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTPersona"/&gt;
- *         &lt;element name="ZajednickiPredstavnici" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTPersona" minOccurs="0"/&gt;
- *         &lt;element name="Zig" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTZig"/&gt;
+ *         &lt;element name="PodnosilacPrijave" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTPersona" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="Punomocnik" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTPersona"/&gt;
+ *         &lt;element name="ZajednickiPredstavnici" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTPersona" minOccurs="0"/&gt;
+ *         &lt;element name="Zig" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTZig"/&gt;
  *         &lt;element name="BrojeviKlasaRobeIliUsluga"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
@@ -44,7 +61,7 @@ import java.util.List;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="PravoPrvenstvaIOsnov" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Taksa" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTTaksa"/&gt;
+ *         &lt;element name="Taksa" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTTaksa"/&gt;
  *         &lt;element name="PriloziUzZahtev"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
@@ -84,26 +101,26 @@ import java.util.List;
     "taksa",
     "priloziUzZahtev"
 })
-@XmlRootElement(name = "ZahtevZaPriznanjeZiga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+@XmlRootElement(name = "ZahtevZaPriznanjeZiga", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
 public class ZahtevZaPriznanjeZiga {
 
-    @XmlElement(name = "MetaData", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "MetaData", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected ZahtevZaPriznanjeZiga.MetaData metaData;
-    @XmlElement(name = "PodnosilacPrijave", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "PodnosilacPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected List<KTPersona> podnosilacPrijave;
-    @XmlElement(name = "Punomocnik", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Punomocnik", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTPersona punomocnik;
-    @XmlElement(name = "ZajednickiPredstavnici", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "ZajednickiPredstavnici", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected KTPersona zajednickiPredstavnici;
-    @XmlElement(name = "Zig", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Zig", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTZig zig;
-    @XmlElement(name = "BrojeviKlasaRobeIliUsluga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "BrojeviKlasaRobeIliUsluga", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected ZahtevZaPriznanjeZiga.BrojeviKlasaRobeIliUsluga brojeviKlasaRobeIliUsluga;
-    @XmlElement(name = "PravoPrvenstvaIOsnov", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "PravoPrvenstvaIOsnov", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String pravoPrvenstvaIOsnov;
-    @XmlElement(name = "Taksa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Taksa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTTaksa taksa;
-    @XmlElement(name = "PriloziUzZahtev", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "PriloziUzZahtev", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected ZahtevZaPriznanjeZiga.PriloziUzZahtev priloziUzZahtev;
     @XmlAttribute(name = "id")
     protected Integer id;
@@ -379,7 +396,7 @@ public class ZahtevZaPriznanjeZiga {
     })
     public static class BrojeviKlasaRobeIliUsluga {
 
-        @XmlElement(name = "BrojKlaseRobeIliUsluge", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", type = Integer.class)
+        @XmlElement(name = "BrojKlaseRobeIliUsluge", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", type = Integer.class)
         protected List<Integer> brojKlaseRobeIliUsluge;
 
         /**
@@ -424,8 +441,24 @@ public class ZahtevZaPriznanjeZiga {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="BrojPrijave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="DatumPodnosenja" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+     *         &lt;element name="BrojPrijave"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:BrojPrijave" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="DatumPodnosenja"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:DatumPodnosenja" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -441,21 +474,20 @@ public class ZahtevZaPriznanjeZiga {
     })
     public static class MetaData {
 
-        @XmlElement(name = "BrojPrijave", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
-        protected String brojPrijave;
-        @XmlElement(name = "DatumPodnosenja", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
-        @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar datumPodnosenja;
+        @XmlElement(name = "BrojPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+        protected ZahtevZaPriznanjeZiga.MetaData.BrojPrijave brojPrijave;
+        @XmlElement(name = "DatumPodnosenja", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+        protected ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja datumPodnosenja;
 
         /**
          * Gets the value of the brojPrijave property.
          * 
          * @return
          *     possible object is
-         *     {@link String }
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.BrojPrijave }
          *     
          */
-        public String getBrojPrijave() {
+        public ZahtevZaPriznanjeZiga.MetaData.BrojPrijave getBrojPrijave() {
             return brojPrijave;
         }
 
@@ -464,10 +496,10 @@ public class ZahtevZaPriznanjeZiga {
          * 
          * @param value
          *     allowed object is
-         *     {@link String }
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.BrojPrijave }
          *     
          */
-        public void setBrojPrijave(String value) {
+        public void setBrojPrijave(ZahtevZaPriznanjeZiga.MetaData.BrojPrijave value) {
             this.brojPrijave = value;
         }
 
@@ -476,10 +508,10 @@ public class ZahtevZaPriznanjeZiga {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja }
          *     
          */
-        public XMLGregorianCalendar getDatumPodnosenja() {
+        public ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja getDatumPodnosenja() {
             return datumPodnosenja;
         }
 
@@ -488,11 +520,178 @@ public class ZahtevZaPriznanjeZiga {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja }
          *     
          */
-        public void setDatumPodnosenja(XMLGregorianCalendar value) {
+        public void setDatumPodnosenja(ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja value) {
             this.datumPodnosenja = value;
+        }
+
+
+        /**
+         * <p>Java class for anonymous complex type.
+         * 
+         * <p>The following schema fragment specifies the expected content contained within this class.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:BrojPrijave" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "value"
+        })
+        public static class BrojPrijave {
+
+            @XmlValue
+            protected String value;
+            @XmlAttribute(name = "property")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setValue(String value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getProperty() {
+                if (property == null) {
+                    return "pred:BrojPrijave";
+                } else {
+                    return property;
+                }
+            }
+
+            /**
+             * Sets the value of the property property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setProperty(String value) {
+                this.property = value;
+            }
+
+        }
+
+
+        /**
+         * <p>Java class for anonymous complex type.
+         * 
+         * <p>The following schema fragment specifies the expected content contained within this class.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" default="pred:DatumPodnosenja" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "value"
+        })
+        public static class DatumPodnosenja {
+
+            @XmlValue
+            @XmlSchemaType(name = "date")
+            protected XMLGregorianCalendar value;
+            @XmlAttribute(name = "property")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link XMLGregorianCalendar }
+             *     
+             */
+            public XMLGregorianCalendar getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link XMLGregorianCalendar }
+             *     
+             */
+            public void setValue(XMLGregorianCalendar value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getProperty() {
+                if (property == null) {
+                    return "pred:DatumPodnosenja";
+                } else {
+                    return property;
+                }
+            }
+
+            /**
+             * Sets the value of the property property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setProperty(String value) {
+                this.property = value;
+            }
+
         }
 
     }
@@ -537,21 +736,21 @@ public class ZahtevZaPriznanjeZiga {
     })
     public static class PriloziUzZahtev {
 
-        @XmlElement(name = "PrimerakZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "PrimerakZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean primerakZnaka;
-        @XmlElement(name = "SpisakRobeIUsluga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "SpisakRobeIUsluga", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean spisakRobeIUsluga;
-        @XmlElement(name = "Punomocje", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "Punomocje", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean punomocje;
-        @XmlElement(name = "PunomocjeRanijePrilozeno", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "PunomocjeRanijePrilozeno", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean punomocjeRanijePrilozeno;
-        @XmlElement(name = "PunomocjeNaknadnoPrilozeno", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "PunomocjeNaknadnoPrilozeno", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean punomocjeNaknadnoPrilozeno;
-        @XmlElement(name = "OpstiAktOZigu", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "OpstiAktOZigu", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean opstiAktOZigu;
-        @XmlElement(name = "DokazPravaPrvenstva", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "DokazPravaPrvenstva", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean dokazPravaPrvenstva;
-        @XmlElement(name = "DokazUplateTakse", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+        @XmlElement(name = "DokazUplateTakse", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
         protected boolean dokazUplateTakse;
 
         /**

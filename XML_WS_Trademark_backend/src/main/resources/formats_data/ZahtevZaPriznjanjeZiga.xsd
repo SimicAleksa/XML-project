@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="ZAHTEV_ZA_PRIZNANJE_ZIGA" xmlns="ZAHTEV_ZA_PRIZNANJE_ZIGA">
-
+    targetNamespace="http://www.ftn.uns.ac.rs/zahtev_za_zig" 
+    xmlns="http://www.ftn.uns.ac.rs/zahtev_za_zig"
+    xmlns:z="http://www.ftn.uns.ac.rs/zahtev_za_zig"
+    xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/">
     <xs:element name="ZahtevZaPriznanjeZiga">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="MetaData">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="BrojPrijave" type="xs:string"/>
-                            <xs:element name="DatumPodnosenja" type="xs:date"/>
+                            <xs:element name="BrojPrijave">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string" default="pred:BrojPrijave"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DatumPodnosenja">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:date">
+                                            <xs:attribute name="property" type="xs:string" default="pred:DatumPodnosenja"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

@@ -1,3 +1,4 @@
+
 package com.example.XML_WS_Trademark_backend.models;
 
 import javax.xml.bind.annotation.XmlRegistry;
@@ -98,6 +99,22 @@ public class ObjectFactory {
      */
     public KTKontaktInformacije createKTKontaktInformacije() {
         return new KTKontaktInformacije();
+    }
+
+    /**
+     * Create an instance of {@link ZahtevZaPriznanjeZiga.MetaData.BrojPrijave }
+     * 
+     */
+    public ZahtevZaPriznanjeZiga.MetaData.BrojPrijave createZahtevZaPriznanjeZigaMetaDataBrojPrijave() {
+        return new ZahtevZaPriznanjeZiga.MetaData.BrojPrijave();
+    }
+
+    /**
+     * Create an instance of {@link ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja }
+     * 
+     */
+    public ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja createZahtevZaPriznanjeZigaMetaDataDatumPodnosenja() {
+        return new ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja();
     }
 
 }

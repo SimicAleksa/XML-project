@@ -1,6 +1,7 @@
 
 package com.example.XML_WS_Trademark_backend.models;
 
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KTTaksa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
+@XmlType(name = "KTTaksa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", propOrder = {
     "osnovnaTaksa",
     "taksaZaBrojKlasa",
     "taksaZaGrafickoResenje",
@@ -38,13 +39,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class KTTaksa {
 
-    @XmlElement(name = "OsnovnaTaksa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "OsnovnaTaksa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected float osnovnaTaksa;
-    @XmlElement(name = "TaksaZaBrojKlasa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "TaksaZaBrojKlasa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected float taksaZaBrojKlasa;
-    @XmlElement(name = "TaksaZaGrafickoResenje", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "TaksaZaGrafickoResenje", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected float taksaZaGrafickoResenje;
-    @XmlElement(name = "Ukupno", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "Ukupno", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected float ukupno;
 
     /**

@@ -1,4 +1,6 @@
+
 package com.example.XML_WS_Trademark_backend.models;
+
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KTZig", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
+@XmlType(name = "KTZig", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", propOrder = {
     "tipZiga",
     "tipZnaka",
     "izgledZnaka",
@@ -43,19 +45,19 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class KTZig {
 
-    @XmlElement(name = "TipZiga", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "TipZiga", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String tipZiga;
-    @XmlElement(name = "TipZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "TipZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String tipZnaka;
-    @XmlElement(name = "IzgledZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "IzgledZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected byte[] izgledZnaka;
-    @XmlElement(name = "Boje", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Boje", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String boje;
-    @XmlElement(name = "TransliteracijaZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "TransliteracijaZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String transliteracijaZnaka;
-    @XmlElement(name = "PrevodZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "PrevodZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String prevodZnaka;
-    @XmlElement(name = "OpisZnaka", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "OpisZnaka", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String opisZnaka;
 
     /**

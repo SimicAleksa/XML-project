@@ -15,9 +15,9 @@ import org.xmldb.api.modules.XPathQueryService;
 import javax.xml.transform.OutputKeys;
 
 @Component
-public class TrademarkDatabase {
+public class ExistDatabase {
     @Autowired
-    public DBAuthManager authManager;
+    public ExistAuthManager authManager;
 
     public void createDBConnection() throws Exception {
         Class<?> cl = Class.forName(authManager.getDriver());

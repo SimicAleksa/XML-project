@@ -1,6 +1,7 @@
 
 package com.example.XML_WS_Trademark_backend.models;
 
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -23,8 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/restriction&gt;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Adresa" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTAdresa"/&gt;
- *         &lt;element name="KontaktInformacije" type="{ZAHTEV_ZA_PRIZNANJE_ZIGA}KTKontaktInformacije"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTAdresa"/&gt;
+ *         &lt;element name="KontaktInformacije" type="{http://www.ftn.uns.ac.rs/zahtev_za_zig}KTKontaktInformacije"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,18 +35,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KTPersona", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
+@XmlType(name = "KTPersona", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", propOrder = {
     "ime",
     "adresa",
     "kontaktInformacije"
 })
 public class KTPersona {
 
-    @XmlElement(name = "Ime", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String ime;
-    @XmlElement(name = "Adresa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTAdresa adresa;
-    @XmlElement(name = "KontaktInformacije", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "KontaktInformacije", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTKontaktInformacije kontaktInformacije;
 
     /**

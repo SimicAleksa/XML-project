@@ -1,8 +1,9 @@
 package com.example.XML_WS_Trademark_backend.repositories;
 
-import com.example.XML_WS_Trademark_backend.database.TrademarkDatabase;
+import com.example.XML_WS_Trademark_backend.database.ExistDatabase;
+import com.example.XML_WS_Trademark_backend.database.FusekiDatabase;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
-import com.example.XML_WS_Trademark_backend.utils.TrademarkParserJAXB;
+import com.example.XML_WS_Trademark_backend.utils.JAXBParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceIterator;
@@ -14,13 +15,24 @@ import java.util.List;
 @Repository
 public class TrademarkRepository {
     public static final String collectionUri = "/db/trademarks";
-    public static final String documentId = "1";
+    public static final String documentId = "2";
+
+    private final JAXBParser<ZahtevZaPriznanjeZiga> jaxbParser;
     @Autowired
-    private TrademarkDatabase trademarkDB;
+    private ExistDatabase trademarkDB;
+    @Autowired
+    private FusekiDatabase fusekiDB;
+
+    public TrademarkRepository() {
+        this.jaxbParser = new JAXBParser<>(ZahtevZaPriznanjeZiga.class);
+    }
+
 
     public void save(ZahtevZaPriznanjeZiga trademark) {
         try {
-            trademarkDB.addToCollection(collectionUri, documentId, TrademarkParserJAXB.parseFromObjToByteStream(trademark));
+            String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
+            trademarkDB.addToCollection(collectionUri, documentId, trademarkXML);
+            fusekiDB.save(trademarkXML);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,7 +42,7 @@ public class TrademarkRepository {
         try {
             XMLResource res = trademarkDB.loadResourceById(collectionUri, documentId);
             if (res != null)
-                return TrademarkParserJAXB.parseFromXMLToObj(res.getContent().toString());
+                return jaxbParser.parseFromXMLToObj(res.getContent().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,7 +54,7 @@ public class TrademarkRepository {
         try {
             ResourceIterator iterator = trademarkDB.loadAllResources(collectionUri).getIterator();
             while (iterator.hasMoreResources())
-                trademarkReqs.add(TrademarkParserJAXB.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+                trademarkReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
         } catch (Exception e) {
             e.printStackTrace();
         }

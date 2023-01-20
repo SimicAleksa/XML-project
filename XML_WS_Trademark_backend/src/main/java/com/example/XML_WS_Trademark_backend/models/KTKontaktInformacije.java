@@ -1,6 +1,7 @@
 
 package com.example.XML_WS_Trademark_backend.models;
 
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -44,18 +45,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KTKontaktInformacije", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
+@XmlType(name = "KTKontaktInformacije", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", propOrder = {
     "telefon",
     "eMail",
     "faks"
 })
 public class KTKontaktInformacije {
 
-    @XmlElement(name = "Telefon", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Telefon", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String telefon;
-    @XmlElement(name = "E-mail", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "E-mail", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String eMail;
-    @XmlElement(name = "Faks", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Faks", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String faks;
 
     /**

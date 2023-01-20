@@ -23,7 +23,7 @@ public class TrademarkService {
 
     public void getPDF() {
         try {
-            PDFGenerator.generatePDFandHTML(trademarkRepository.getAllTrademarkRequest().get(0));
+            PDFGenerator.generatePDFandHTML(trademarkRepository.getAllTrademarkRequest().get(1));
         } catch (Exception ignored) {}
     }
 

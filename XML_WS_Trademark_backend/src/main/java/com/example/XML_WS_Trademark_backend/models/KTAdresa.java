@@ -1,6 +1,7 @@
 
 package com.example.XML_WS_Trademark_backend.models;
 
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -56,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KTAdresa", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", propOrder = {
+@XmlType(name = "KTAdresa", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", propOrder = {
     "ulica",
     "brojUlice",
     "postanskiBroj",
@@ -65,15 +66,15 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class KTAdresa {
 
-    @XmlElement(name = "Ulica", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "Ulica", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String ulica;
-    @XmlElement(name = "BrojUlice", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "BrojUlice", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected int brojUlice;
-    @XmlElement(name = "PostanskiBroj", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA")
+    @XmlElement(name = "PostanskiBroj", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
     protected int postanskiBroj;
-    @XmlElement(name = "MestoPrebivalista", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "MestoPrebivalista", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String mestoPrebivalista;
-    @XmlElement(name = "DrzavaPrebivalista", namespace = "ZAHTEV_ZA_PRIZNANJE_ZIGA", required = true)
+    @XmlElement(name = "DrzavaPrebivalista", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected String drzavaPrebivalista;
 
     /**

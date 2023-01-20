@@ -2,10 +2,10 @@ package com.example.XML_WS_Trademark_backend.utils;
 
 public class SparqlUtil {
 
-    /* The following operation causes all of the triples in all of the graphs to be deleted */
+    /* The following operation causes all the triples in all the graphs to be deleted */
     private static final String DROP_ALL = "DROP ALL";
 
-    /* Removes all of the triples from a named graphed */
+    /* Removes all the triples from a named graphed */
     private static final String DROP_GRAPH_TEMPLATE = "DROP GRAPH <%s>";
 
     /**

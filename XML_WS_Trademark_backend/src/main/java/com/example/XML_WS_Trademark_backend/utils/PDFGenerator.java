@@ -62,7 +62,13 @@ public class PDFGenerator {
         org.w3c.dom.Document document = null;
         try {
             DocumentBuilder builder = documentFactory.newDocumentBuilder();
-            document = builder.parse(new InputSource(new ByteArrayInputStream(TrademarkParserJAXB.parseFromObjToByteStream(trademarkReq).getBytes())));
+            document = builder.parse(
+                    new InputSource(
+                            new ByteArrayInputStream(
+                                    new JAXBParser<>(ZahtevZaPriznanjeZiga.class).parseFromObjToByteStream(trademarkReq).getBytes()
+                            )
+                    )
+            );
         } catch (Exception ignored) {}
 
         return document;
