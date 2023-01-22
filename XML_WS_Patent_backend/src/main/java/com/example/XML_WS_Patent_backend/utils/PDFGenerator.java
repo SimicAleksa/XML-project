@@ -1,8 +1,8 @@
-package com.example.XML_WS_Trademark_backend.utils;
+package com.example.XML_WS_Patent_backend.utils;
 
 
-import com.example.XML_WS_Trademark_backend.configs.Settings;
-import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
+import com.example.XML_WS_Patent_backend.configs.Settings;
+import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -34,19 +34,21 @@ public class PDFGenerator {
         setupTransformerFactory();
     }
 
-    public static void generatePDFandHTML(ZahtevZaPriznanjeZiga trademarkReq) throws Exception {
+    public static void generatePDFandHTML(ZahtevZaPatent trademarkReq) throws Exception {
         generateHTML(trademarkReq);
         generatePDF();
     }
 
-    private static void generateHTML(ZahtevZaPriznanjeZiga trademarkReq) throws Exception {
+    private static void generateHTML(ZahtevZaPatent trademarkReq) throws Exception {
         try {
             Transformer transformer = getTransformerByXSLFile(new StreamSource(new File(XSL_FILE_PATH)));
             transformer.transform(
                     new DOMSource(makeDocFromTrademarkReq(trademarkReq)),
                     new StreamResult(Files.newOutputStream(Paths.get(HTML_FILE_PATH)))
             );
-        } catch (TransformerFactoryConfigurationError | TransformerException ignored) {}
+        } catch (TransformerFactoryConfigurationError | TransformerException ignored) {
+            ignored.printStackTrace();
+        }
     }
 
     private static void generatePDF() {
@@ -56,21 +58,26 @@ public class PDFGenerator {
             document.open();
             XMLWorkerHelper.getInstance().parseXHtml(writer, document, Files.newInputStream(Paths.get(HTML_FILE_PATH)));
             document.close();
-        } catch (IOException | DocumentException ignored) {}
+        } catch (IOException | DocumentException ignored) {
+            ignored.printStackTrace();
+        }
     }
 
-    private static org.w3c.dom.Document makeDocFromTrademarkReq(ZahtevZaPriznanjeZiga trademarkReq) {
+    private static org.w3c.dom.Document makeDocFromTrademarkReq(ZahtevZaPatent trademarkReq) {
         org.w3c.dom.Document document = null;
         try {
             DocumentBuilder builder = documentFactory.newDocumentBuilder();
             document = builder.parse(
                     new InputSource(
                             new ByteArrayInputStream(
-                                    new JAXBParser<>(ZahtevZaPriznanjeZiga.class).parseFromObjToByteStream(trademarkReq).getBytes()
+                                    new JAXBParser<>(ZahtevZaPatent.class).parseFromObjToByteStream(trademarkReq).getBytes()
                             )
                     )
             );
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+            ignored.printStackTrace();
+
+        }
 
         return document;
     }

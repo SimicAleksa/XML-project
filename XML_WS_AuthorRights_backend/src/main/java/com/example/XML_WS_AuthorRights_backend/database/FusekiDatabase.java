@@ -1,8 +1,8 @@
-package com.example.XML_WS_Trademark_backend.database;
+package com.example.XML_WS_AuthorRights_backend.database;
 
-import com.example.XML_WS_Trademark_backend.configs.Settings;
-import com.example.XML_WS_Trademark_backend.utils.MetadataExtractor;
-import com.example.XML_WS_Trademark_backend.utils.SparqlUtil;
+import com.example.XML_WS_AuthorRights_backend.configs.Settings;
+import com.example.XML_WS_AuthorRights_backend.utils.MetadataExtractor;
+import com.example.XML_WS_AuthorRights_backend.utils.SparqlUtil;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.ResultSet;

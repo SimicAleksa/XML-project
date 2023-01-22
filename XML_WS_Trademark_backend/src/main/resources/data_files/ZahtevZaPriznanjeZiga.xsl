@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:z="http://www.ftn.uns.ac.rs/zahtev_za_zig" version="2.0"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig file:/D:/Projects/web/XML-project/XML_WS_Trademark_backend/src/main/resources/xmls/ZahtevZaPriznjanjeZiga.xsd">
+                xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig ZahtevZaPriznjanjeZiga.xsd">
 
     <xsl:template match="/">
         <html>

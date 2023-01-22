@@ -1,6 +1,6 @@
-package com.example.XML_WS_Trademark_backend.utils;
+package com.example.XML_WS_AuthorRights_backend.utils;
 
-import com.example.XML_WS_Trademark_backend.configs.Settings;
+import com.example.XML_WS_AuthorRights_backend.configs.Settings;
 import org.apache.xalan.xsltc.trax.TransformerFactoryImpl;
 
 import javax.xml.transform.OutputKeys;

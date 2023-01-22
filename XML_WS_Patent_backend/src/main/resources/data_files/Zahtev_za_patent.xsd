@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/zahtev_za_patent"
-    xmlns:pat="http://www.ftn.uns.ac.rs/zahtev_za_patent">
+    xmlns="http://www.ftn.uns.ac.rs/zahtev_za_patent"
+       xmlns:p="http://www.ftn.uns.ac.rs/zahtev_za_patent"
+       xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_patent/pred">
     <xs:element name="Zahtev_za_patent">
         <xs:complexType>
             <xs:all>

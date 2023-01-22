@@ -1,9 +1,9 @@
-package com.example.XML_WS_Trademark_backend.repositories;
+package com.example.XML_WS_AuthorRights_backend.repository;
 
-import com.example.XML_WS_Trademark_backend.database.ExistDatabase;
-import com.example.XML_WS_Trademark_backend.database.FusekiDatabase;
-import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
-import com.example.XML_WS_Trademark_backend.utils.JAXBParser;
+import com.example.XML_WS_AuthorRights_backend.database.ExistDatabase;
+import com.example.XML_WS_AuthorRights_backend.database.FusekiDatabase;
+import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
+import com.example.XML_WS_AuthorRights_backend.utils.JAXBParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceIterator;
@@ -13,22 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class TrademarkRepository {
-    public static final String collectionUri = "/db/trademarks";
-    public static final String documentId = "2";
+public class AuthorRightsRepository {
+    public static final String collectionUri = "/db/author-rights";
+    public static final String documentId = "1";
 
-    private final JAXBParser<ZahtevZaPriznanjeZiga> jaxbParser;
+    private final JAXBParser<ZahtevZaAutorskoPravo> jaxbParser;
     @Autowired
     private ExistDatabase existDB;
     @Autowired
     private FusekiDatabase fusekiDB;
 
-    public TrademarkRepository() {
-        this.jaxbParser = new JAXBParser<>(ZahtevZaPriznanjeZiga.class);
+    public AuthorRightsRepository() {
+        this.jaxbParser = new JAXBParser<>(ZahtevZaAutorskoPravo.class);
     }
 
 
-    public void save(ZahtevZaPriznanjeZiga trademark) {
+    public void save(ZahtevZaAutorskoPravo trademark) {
         try {
             String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
             existDB.addToCollection(collectionUri, documentId, trademarkXML);
@@ -38,7 +38,7 @@ public class TrademarkRepository {
         }
     }
 
-    public ZahtevZaPriznanjeZiga getTrademarkRequestById(String trademarkReqNum) {
+    public ZahtevZaAutorskoPravo getTrademarkRequestById(String trademarkReqNum) {
         try {
             XMLResource res = existDB.loadResourceById(collectionUri, documentId);
             if (res != null)
@@ -49,8 +49,8 @@ public class TrademarkRepository {
         return null;
     }
 
-    public List<ZahtevZaPriznanjeZiga> getAllTrademarkRequest() {
-        List<ZahtevZaPriznanjeZiga> trademarkReqs = new ArrayList<>();
+    public List<ZahtevZaAutorskoPravo> getAllTrademarkRequest() {
+        List<ZahtevZaAutorskoPravo> trademarkReqs = new ArrayList<>();
         try {
             ResourceIterator iterator = existDB.loadAllResources(collectionUri).getIterator();
             while (iterator.hasMoreResources())
@@ -60,6 +60,4 @@ public class TrademarkRepository {
         }
         return trademarkReqs;
     }
-
-
 }

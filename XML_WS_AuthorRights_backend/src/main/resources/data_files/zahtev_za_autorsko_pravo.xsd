@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/AutorskaPrava"
+   xmlns="http://www.ftn.uns.ac.rs/AutorskaPrava"
+    xmlns:a="http://www.ftn.uns.ac.rs/AutorskaPrava">
+    <xs:element name="zahtev_za_autorsko_pravo">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="datum_podnosenja" type="xs:string"/>
+                <xs:element name="broj_prijave" type="xs:string"/>
+                <xs:element name="pseudonim_ili_znak_autora" type="xs:string"/>
+                <xs:element name="podaci_o_podnosiocu">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="lice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element name="fizicko_lice" type="a:TPodnosilac"/>
+                                        <xs:element name="pravno_lice">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="poslovno_ime" type="xs:string"/>
+                                                  <xs:element name="podaci_o_sedistu"
+                                                  type="a:TAdresa"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="telefon">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[0-9]{9,12}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="email">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[\w-]+@([\w-]+\.)+[\w-]+"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="podaci_o_autoru" minOccurs="0">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="anoniman_autor" type="xs:boolean"/>
+                            <xs:element name="autor" type="a:TAutor"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="podaci_o_punomocniku" type="a:TPunomocnik"/>
+                <xs:element name="podaci_o_delu">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="naslov" type="xs:string"/>
+                            <xs:element name="alternativni_naslov" type="xs:string" minOccurs="0"/>
+                            <xs:element name="podaci_o_delu_prerade" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="naslov_dela_prerade" type="xs:string"/>
+                                        <xs:element name="autor_dela_prerade" type="xs:string"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="vrsta_autorskog_dela" type="xs:string"/>
+                            <xs:element name="forma_zapisa_autorskog_dela" type="xs:string"/>
+                            <xs:element name="delo_stvoreno_u_radnom_odnosu" type="xs:boolean"/>
+                            <xs:element name="nacin_koriscenja_dela" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="prilozi">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="opis_dela" type="xs:string"/>
+                            <xs:element name="primer_dela" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TAdresa">
+        <xs:sequence>
+            <xs:element name="ulica" type="xs:string"/>
+            <xs:element name="broj" type="xs:int"/>
+            <xs:element name="grad" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TPunomocnik">
+        <xs:sequence>
+            <xs:element name="ime" type="xs:string"/>
+            <xs:element name="prezime" type="xs:string"/>
+            <xs:element name="adresa" type="a:TAdresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TPodnosilac">
+        <xs:complexContent>
+            <xs:extension base="a:TPunomocnik">
+                <xs:sequence>
+                    <xs:element name="drzavljanstvo" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TAutor">
+        <xs:complexContent>
+            <xs:extension base="a:TPodnosilac">
+                <xs:sequence>
+                    <xs:element name="godina_smrti" type="xs:int" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
