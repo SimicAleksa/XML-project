@@ -4,17 +4,17 @@
         
         <form class="col form-holder" [formGroup]="registrationForm" (ngSubmit)="onRegistrationSubmit()">
             <div class="row">
-                <p class="form-title">Forma za registraciju službenika</p>
+                <p class="form-title">Forma za registraciju</p>
             </div>
 
             <div class="row">
                 <mat-form-field class=col>
                     <mat-label>Ime</mat-label>
-                    <input matInput type="text" formControlName="name">
+                    <input matInput type="text" formControlName="firstname">
                 </mat-form-field>
                 <mat-form-field class=col>
                     <mat-label>Prezime</mat-label>
-                    <input matInput type="text" formControlName="surname">
+                    <input matInput type="text" formControlName="lastname">
                 </mat-form-field>
             </div>
 

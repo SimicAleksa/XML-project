@@ -17,8 +17,8 @@ export class RegistrationComponent implements OnInit {
   constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, private router: Router) {
     this.regBtnNotClickable = false;
     this.registrationForm = this.formBuilder.group({
-      name: ["", [Validators.required]],
-      surname: ["", [Validators.required]],
+      firstname: ["", [Validators.required]],
+      lastname: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],    
       passwordRep: ["", [Validators.required]]
@@ -33,11 +33,13 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.invalid || this.registrationForm.value.password !== this.registrationForm.value.passwordRep)
       alert("Unete lozinke se ne poklapaju!");
     else {
+      console.log(this.registrationForm.value);
       this.requestMaker
-        .registrationRequest(this.registrationForm.value)
+        .registrationRequest(this._parseToXml())
         .subscribe(
           null,
           err => {
+            console.log(err);
             if (err.status === 409)
               alert('Vec postoji korisnik sa datom email adresom!');
             else
@@ -52,4 +54,20 @@ export class RegistrationComponent implements OnInit {
     
     this.regBtnNotClickable = false;
   }
+
+  _parseToXml(): any {
+    const formData = this.registrationForm.value;
+    const formDataAsXml = { 
+      _declaration: { _attributes: { version: '1.0', encoding: 'utf-8' } },
+      RegistrationDTO: { 
+          firstname: { _text: formData.firstname }, 
+          lastname: { _text: formData.lastname }, 
+          email: { _text: formData.email }, 
+          password: { _text: formData.password }
+      } 
+    };
+    console.log(require('xml-js').js2xml(formDataAsXml, {compact: true, ignoreComment: true, spaces: 4}));
+    return require('xml-js').js2xml(formDataAsXml, {compact: true, ignoreComment: true, spaces: 4})
+  }
+
 }
