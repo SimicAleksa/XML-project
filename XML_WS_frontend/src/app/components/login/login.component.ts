@@ -4,6 +4,7 @@ import { RequestMaker } from 'src/app/services/request-maker.service';
 import { Router } from '@angular/router';
 import { XMLParser } from 'src/app/utils/XMLParser';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
+import { MenuService } from '../menu/service/menu-service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
   constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, 
-              private router: Router, private xmlParser: XMLParser, private lStorageManager: LocalStorageManager) {
+              private router: Router, private xmlParser: XMLParser, 
+              private lStorageManager: LocalStorageManager, private menuService: MenuService) {
     this.loginBtnNotClickable = false;
     this.loginForm = this.formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -38,8 +40,8 @@ export class LoginComponent implements OnInit {
           next: (retData: any) => {
             if (retData.body !== undefined) {
               let resData = this.xmlParser.parseFromXml(retData.body).AuthTokenDTO;
-              this.lStorageManager.setAuthToken(resData.authToken);
-              this.lStorageManager.setUserRole(resData.role);
+              this.lStorageManager.setAuthToken(resData.authToken._text);
+              this.lStorageManager.setUserRole(resData.role._text);
             }
           },
           error: (err: any) => {
@@ -47,8 +49,8 @@ export class LoginComponent implements OnInit {
               alert('Uneti podaci nisu tacni, molimo vas pokusajte ponovo!');
           },
           complete: () => {
-            alert('Logovanje je USPESNO!');
-            //this.router.navigate(['/login']);
+            this.menuService.updateMenu();
+            this.router.navigate(['/trademark']);
           }
         });
     }
