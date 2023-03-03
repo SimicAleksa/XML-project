@@ -50,7 +50,7 @@ public class User {
     @XmlElement(required = true)
     protected String password;
     @XmlElement(required = true)
-    protected String role;
+    protected String role;      // REGULAR; OFFICIAL; ADMIN;
 
     /**
      * Gets the value of the firstname property.

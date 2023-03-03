@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { Router } from '@angular/router';
+import { XMLParser } from 'src/app/utils/XMLParser';
+import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 
 
 @Component({
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
   public loginBtnNotClickable: boolean;
   public loginForm: FormGroup;
 
-  constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, 
+              private router: Router, private xmlParser: XMLParser, private lStorageManager: LocalStorageManager) {
     this.loginBtnNotClickable = false;
     this.loginForm = this.formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -30,21 +33,36 @@ export class LoginComponent implements OnInit {
       alert("Uneti podaci nisu tacni, molimo vas pokusajte ponovo!");
     else {
       this.requestMaker
-        .loginRequest(this.loginForm.value)
-        .subscribe(
-          null,
-          err => {
-            if (err.status === 404)
+        .loginRequest(this._getLoginDTOAsXML())
+        .subscribe({
+          next: (retData: any) => {
+            if (retData.body !== undefined) {
+              let resData = this.xmlParser.parseFromXml(retData.body).AuthTokenDTO;
+              this.lStorageManager.setAuthToken(resData.authToken);
+              this.lStorageManager.setUserRole(resData.role);
+            }
+          },
+          error: (err: any) => {
+            if (err.status === 404 || err.status === 401)
               alert('Uneti podaci nisu tacni, molimo vas pokusajte ponovo!');
           },
-          () => {
+          complete: () => {
             alert('Logovanje je USPESNO!');
             //this.router.navigate(['/login']);
           }
-        );
+        });
     }
 
     this.loginBtnNotClickable = false;
   }
 
+  _getLoginDTOAsXML(): any {
+    const formData = this.loginForm.value;
+      
+    const reqBody = {
+      email: { _text: formData.email }, 
+      password: { _text: formData.password }
+    };
+    return this.xmlParser.parseToXml("LoginDTO", reqBody);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { Router } from '@angular/router';
+import { XMLParser } from 'src/app/utils/XMLParser';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class RegistrationComponent implements OnInit {
   public regBtnNotClickable: boolean;
   public registrationForm: FormGroup;
 
-  constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private requestMaker: RequestMaker, private formBuilder: FormBuilder, 
+              private router: Router, private xmlParser: XMLParser) {
     this.regBtnNotClickable = false;
     this.registrationForm = this.formBuilder.group({
       firstname: ["", [Validators.required]],
@@ -33,41 +35,35 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.invalid || this.registrationForm.value.password !== this.registrationForm.value.passwordRep)
       alert("Unete lozinke se ne poklapaju!");
     else {
-      console.log(this.registrationForm.value);
       this.requestMaker
-        .registrationRequest(this._parseToXml())
-        .subscribe(
-          null,
-          err => {
-            console.log(err);
+        .registrationRequest(this._getRegDTOAsXML())
+        .subscribe({
+          error: (err: any) => {
             if (err.status === 409)
               alert('Vec postoji korisnik sa datom email adresom!');
             else
               alert('Registracija nije bila uspesna, proverite unete podatke!');
           },
-          () => {
+          complete: () => {
             alert('Registracija je uspesno obavljena!');
             this.router.navigate(['/login']);
           }
-        );
+        });
     }
     
     this.regBtnNotClickable = false;
   }
 
-  _parseToXml(): any {
+  _getRegDTOAsXML(): any {
     const formData = this.registrationForm.value;
-    const formDataAsXml = { 
-      _declaration: { _attributes: { version: '1.0', encoding: 'utf-8' } },
-      RegistrationDTO: { 
-          firstname: { _text: formData.firstname }, 
-          lastname: { _text: formData.lastname }, 
-          email: { _text: formData.email }, 
-          password: { _text: formData.password }
-      } 
+      
+    const reqBody = {
+      firstname: { _text: formData.firstname }, 
+      lastname: { _text: formData.lastname }, 
+      email: { _text: formData.email }, 
+      password: { _text: formData.password }
     };
-    console.log(require('xml-js').js2xml(formDataAsXml, {compact: true, ignoreComment: true, spaces: 4}));
-    return require('xml-js').js2xml(formDataAsXml, {compact: true, ignoreComment: true, spaces: 4})
+    return this.xmlParser.parseToXml("RegistrationDTO", reqBody);
   }
 
 }

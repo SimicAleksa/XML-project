@@ -15,10 +15,11 @@ export class RequestMaker {
   }
 
   getRequest(requestType: string, api_url: string,data: any = null) {
-    let header = {
+    let header: Object = {
       headers: new HttpHeaders()
       .set('Authorization',  `Bearer ${localStorage.getItem("token") || 'invalid'}`)
-      .set('Content-Type',  'application/xml')
+      .set('Content-Type',  'application/xml'),
+      responseType: 'text'
     }
     return this.httpClient.request(new HttpRequest(requestType, api_url, data, header));
   }
