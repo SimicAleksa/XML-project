@@ -5,15 +5,19 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatOptionModule} from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const matModules = [
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
   MatRadioModule,
-  MatCardModule
+  MatCardModule,
+  MatSelectModule, 
+  MatOptionModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@ mat-form-field {
 }
 
 .form-holder {
-    padding-top: 15vh;
+    padding-top: 12vh;
 }
 
 .form-holder button {
@@ -34,6 +34,7 @@ mat-form-field {
 
 .subform div {
     margin: 0;
+    padding-top: 5px;
 }
 
 .subform-title {
@@ -44,7 +45,7 @@ mat-form-field {
 }
 
 .radio-group-label {
-    color: rgb(112, 109, 109);
+    color: rgb(27, 26, 26);
     margin: 1vh 0;
     font-weight: 500;
     font-size: medium;
@@ -55,7 +56,13 @@ mat-radio-button{
     margin-left: 1vw;
 }
 
-.trademark-card img{
-    height: 30vh;
-    width: 30vh;
+.radio-group-holder {
+    padding-bottom: 10px;
 }
+
+.tm-picture {
+    margin-bottom: 20px;
+}
+
+
+

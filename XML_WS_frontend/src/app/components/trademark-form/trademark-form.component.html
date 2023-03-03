@@ -4,7 +4,7 @@
         
         <form class="col form-holder" >
             <div class="row">
-                <p class="form-title">Forma za prikaz i izmenu zahteva za priznanje ziga</p>
+                <p class="form-title">Forma za pravljenje novog zahteva za zig</p>
             </div>
 
             <label class="subform-title">Podaci o podnosiocu zahteva</label>
@@ -181,41 +181,81 @@
             <label class="subform-title">Podaci o zigu</label>
             <div class="row subform">
 
-                <div class="row">
+                <div class="row radio-group-holder">
                     <div class="col">
-                        <label class="radio-group-label">Izaberite tip ziga:</label>
-                        <div>
-                            <mat-radio-group class="row">
-                                <mat-radio-button value="1">Individualni zig</mat-radio-button>
-                                <mat-radio-button value="2">Kolektivni zig</mat-radio-button>
-                                <mat-radio-button value="3">Zig garancije</mat-radio-button>
-                            </mat-radio-group>
+                        <label class="radio-group-label"><b>Tip ziga:</b></label>
+                        <div class="cbox-bot-bord">
+                            <mat-select class="row" [(value)]="tipZiga">
+                                <mat-option value="" disabled>Izaberite tip ziga</mat-option>
+                                <mat-option value="1">Individualni zig</mat-option>
+                                <mat-option value="2">Kolektivni zig</mat-option>
+                                <mat-option value="3">Zig garancije</mat-option>
+                            </mat-select>
                         </div>
                     </div>
     
                     <div class="col">
-                        <label class="radio-group-label">Izaberite tip znaka:</label>
-                        <mat-radio-group class="row">
-                            <mat-radio-button value="1">Verbalni znak</mat-radio-button>
-                            <mat-radio-button value="2">Graficki znak</mat-radio-button>
-                            <mat-radio-button value="3">Kombinovani znak</mat-radio-button>
-                            <mat-radio-button value="4">Trodimenzionalni znak</mat-radio-button>
-                            <mat-radio-button value="5">Druga vrsta znaka</mat-radio-button>
-                        </mat-radio-group>
+                        <label class="radio-group-label"><b>Tip znaka:</b></label>
+                        <mat-select class="row" [(value)]="tipZnaka">
+                            <mat-option value="" disabled>Izaberite tip znaka</mat-option>
+                            <mat-option value="1">Verbalni znak</mat-option>
+                            <mat-option value="2">Graficki znak</mat-option>
+                            <mat-option value="3">Kombinovani znak</mat-option>
+                            <mat-option value="4">Trodimenzionalni znak</mat-option>
+                            <mat-option value="5">Druga vrsta znaka</mat-option>
+                        </mat-select>
                     </div>
                 </div>
 
                 <div class="row">
-                    <mat-card class="trademark-card">
-                        <mat-card-header class="radio-group-label">Slika ziga:</mat-card-header>
-                        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-                    </mat-card>
+                    <mat-form-field class=col>
+                        <mat-label>Upisite boje od kojih se znak sastoji (odvojite zarezima ako ih je vise)</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Transliteracija znaka</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                    <mat-form-field class=col>
+                        <mat-label>Prevod znaka</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Opis znaka</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+
+                
+                <div class="row">
+                    <mat-label class="radio-group-label">Slika ziga:</mat-label>
+                    <input if="file-upload" type="file">
+                    
+                    <img class="tm-picture" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
                 </div>
             </div>
 
-            <div class="row">
-                <button mat-button>Potvrda registracije</button>
+            <label class="subform-title">Ostalo</label>
+            <div class="row subform">
+                <div class="row">
+                    <label>Izaberite brojeve klasa robe i usluga prema Nicanskoj klasifikaciji:</label>
+                    <mat-checkbox-group [(ngModel)]="selectedNumbers">
+                        <mat-checkbox *ngFor="let number of numbers" >1</mat-checkbox>
+                    </mat-checkbox-group>
+                </div>
+
             </div>
+
+            <div class="row">
+                <button mat-button>Potvrda</button>
+            </div>
+
         </form>
 
         <div class="col"></div>

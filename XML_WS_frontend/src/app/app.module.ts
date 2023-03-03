@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { LoginComponent } from './components/login/login.component';
 import { TrademarkFormComponent } from './components/trademark-form/trademark-form.component';
+import { XMLParser } from './utils/XMLParser';
+import { LocalStorageManager } from './utils/LocalStorageManager';
 
 
 @NgModule({
@@ -31,7 +33,11 @@ import { TrademarkFormComponent } from './components/trademark-form/trademark-fo
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [RequestMaker],
+  providers: [
+    RequestMaker, 
+    XMLParser, 
+    LocalStorageManager
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

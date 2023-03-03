@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trademark-form.component.css']
 })
 export class TrademarkFormComponent implements OnInit {
-  favoriteSeason: string;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  public tipZiga: string = "";
+  public tipZnaka: string = "";
+
+  // numbers = Array.from({length: 3}, (_, i) => i+1);
+  numbers = [1, 2, 5 , 3];
+  selectedNumbers =[];
+
   constructor() { }
 
   ngOnInit(): void {
