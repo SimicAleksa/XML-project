@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { XMLParser } from 'src/app/utils/XMLParser';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { MenuService } from '../menu/service/menu-service';
+import { CLIENT_PROFILE_URL } from 'src/app/configs/client-urls';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
           },
           complete: () => {
             this.menuService.updateMenu();
-            this.router.navigate(['/trademark']);
+            this.router.navigate([CLIENT_PROFILE_URL]);
           }
         });
     }
