@@ -16,7 +16,8 @@ export class LocalStorageManager {
   }
 
   getAuthToken(): string | null{
-    return localStorage.getItem(this.authTokenKey);
+    let authToken = localStorage.getItem(this.authTokenKey);
+    return authToken !== null ? authToken : "INVALID";
   }
 
   removeAuthToken() {

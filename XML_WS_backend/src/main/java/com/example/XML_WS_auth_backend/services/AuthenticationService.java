@@ -9,6 +9,7 @@ import com.example.XML_WS_auth_backend.custom_exceptions.UserNotFoundException;
 import com.example.XML_WS_auth_backend.models.User;
 import com.example.XML_WS_auth_backend.repositories.UserRepository;
 import com.example.XML_WS_auth_backend.utils.TokenUtils;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +51,7 @@ public class AuthenticationService {
         throw new AuthFailedException();
     }
 
-    private boolean verifyUserByRole(HttpServletRequest request, String role) {
+    private boolean verifyUserByRole(HttpServletRequest request, String role) throws ExpiredJwtException  {
         tokenUtils.getIssuedAtDateFromToken(request);
         String headerEmail = tokenUtils.getEmailDirectlyFromHeader(request);
         String headerRole = tokenUtils.getRoleDirectlyFromHeader(request);

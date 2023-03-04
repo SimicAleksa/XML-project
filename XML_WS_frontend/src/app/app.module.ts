@@ -16,6 +16,7 @@ import { XMLParser } from './utils/XMLParser';
 import { LocalStorageManager } from './utils/LocalStorageManager';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuService } from './components/menu/service/menu-service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MenuService } from './components/menu/service/menu-service';
     RegistrationComponent,
     LoginComponent,
     TrademarkFormComponent,
-    MenuComponent
+    MenuComponent,
+    UserProfileComponent
   ],
   imports: [
     NgbModule,

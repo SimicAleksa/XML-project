@@ -5,7 +5,7 @@
     </span>
 
     <span *ngIf="activeRole !== 'NOT LOGGED'">
-        <button mat-button>KORISNIK</button>
+        <button mat-button (click)="onProfileBtnClick()">KORISNIK</button>
     </span>
 
     <span *ngIf="activeRole === 'REGULAR'">

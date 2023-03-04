@@ -1,0 +1,43 @@
+<div class="grid-container">
+    <div class="row">
+        <div class="col"></div>
+        
+        <div class="col">
+            <div class="row form-holder text-center">
+                <div class="row">
+                    <p class="form-title">Informacije o prijavljenom korisniku</p>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Ime</mat-label>
+                        <input matInput [ngModel]="firstname" readonly>
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Prezime</mat-label>
+                        <input matInput [ngModel]="lastname" readonly>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput [ngModel]="email" readonly>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-3"></div>
+                    <mat-form-field class="col-6">
+                        <mat-label>Account type</mat-label>
+                        <input matInput [ngModel]="roleType" readonly>
+                    </mat-form-field>
+                    <div class="col-3"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col"></div>
+    </div>  
+</div>

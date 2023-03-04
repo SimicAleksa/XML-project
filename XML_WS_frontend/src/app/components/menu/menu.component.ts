@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CLIENT_LOGIN_URL, CLIENT_REGISTER_URL } from 'src/app/configs/client-urls';
+import { CLIENT_LOGIN_URL, CLIENT_PROFILE_URL, CLIENT_REGISTER_URL } from 'src/app/configs/client-urls';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { MenuService } from './service/menu-service';
 
@@ -41,6 +41,10 @@ export class MenuComponent implements OnInit {
 
   onRegisterBtnClick() {
     this.router.navigate([CLIENT_REGISTER_URL]);
+  }
+
+  onProfileBtnClick() {
+    this.router.navigate([CLIENT_PROFILE_URL]);
   }
 
 }

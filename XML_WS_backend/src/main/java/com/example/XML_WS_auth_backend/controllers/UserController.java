@@ -1,13 +1,18 @@
 package com.example.XML_WS_auth_backend.controllers;
 
 import com.example.XML_WS_auth_backend.DTOs.RegistrationDTO;
+import com.example.XML_WS_auth_backend.DTOs.UserInfoDTO;
 import com.example.XML_WS_auth_backend.custom_exceptions.UserAlreadyExistsException;
 import com.example.XML_WS_auth_backend.services.UserService;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+
 import static com.example.XML_WS_auth_backend.configs.Settings.CROSS_ORIGIN_FRONTEND_PATH;
 
 @RestController
@@ -24,6 +29,15 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (UserAlreadyExistsException ignored) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @GetMapping(value = "/info", produces = {MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<UserInfoDTO> fetchUserData(final HttpServletRequest request) {
+        try {
+            return new ResponseEntity<>(userService.getUserInfo(request), HttpStatus.OK);
+        } catch (ExpiredJwtException ignored) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
 
