@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { Router } from '@angular/router';
 import { XMLParser } from 'src/app/utils/XMLParser';
+import { CLIENT_LOGIN_URL } from 'src/app/configs/client-urls';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class RegistrationComponent implements OnInit {
           },
           complete: () => {
             alert('Registracija je uspesno obavljena!');
-            this.router.navigate(['/login']);
+            this.router.navigate([CLIENT_LOGIN_URL]);
           }
         });
     }

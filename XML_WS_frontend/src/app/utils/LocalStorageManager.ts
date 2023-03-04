@@ -16,15 +16,25 @@ export class LocalStorageManager {
   }
 
   getAuthToken(): string | null{
-    return localStorage.getItem(this.authTokenKey);
+    let authToken = localStorage.getItem(this.authTokenKey);
+    return authToken !== null ? authToken : "INVALID";
+  }
+
+  removeAuthToken() {
+    localStorage.removeItem(this.authTokenKey);
   }
 
   setUserRole(role: string): void {
     localStorage.setItem(this.roleKey, role);
   }
 
-  getUserRole(): string | null{
-    return localStorage.getItem(this.roleKey);
+  getUserRole(): string {
+    let role = localStorage.getItem(this.roleKey);
+    return role === null ? "NOT LOGGED" : role;
+  }
+
+  removeRole() {
+    localStorage.removeItem(this.roleKey);
   }
 
 }

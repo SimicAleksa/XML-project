@@ -1,0 +1,22 @@
+<div class="menu-holder">
+    <span *ngIf="activeRole === 'NOT LOGGED'">
+        <button mat-button (click)="onLoginBtnClick()">ULOGUJTE SE</button>
+        <button mat-button (click)="onRegisterBtnClick()">REGISTRACIJA</button>
+    </span>
+
+    <span *ngIf="activeRole !== 'NOT LOGGED'">
+        <button mat-button (click)="onProfileBtnClick()">KORISNIK</button>
+    </span>
+
+    <span *ngIf="activeRole === 'REGULAR'">
+        <button mat-button [matMenuTriggerFor]="aboveMenu">SERVIS ZA ZIG</button>
+        <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <button mat-menu-item>Nesto</button>
+            <button mat-menu-item>Nesto drugo</button>
+        </mat-menu>
+    </span>
+
+    <span *ngIf="activeRole !== 'NOT LOGGED'">
+        <button mat-button (click)="onLogOutBtnClick()">IZLOGUJTE SE</button>
+    </span>
+</div>
