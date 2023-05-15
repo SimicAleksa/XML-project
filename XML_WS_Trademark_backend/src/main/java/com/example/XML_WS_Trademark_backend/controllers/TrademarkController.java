@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/trademark")
+@RequestMapping(path = "/api/trademark")
 public class TrademarkController {
     @Autowired
     private TrademarkService trademarkService;
@@ -22,8 +22,9 @@ public class TrademarkController {
     }
 
     @PostMapping(path = "/save", consumes = {MediaType.APPLICATION_XML_VALUE} )
+    @CrossOrigin("http://localhost:4200")
     public ResponseEntity<HttpStatus> saveNewTrademark(@RequestBody ZahtevZaPriznanjeZiga trademark) {
-        trademarkService.save(trademark);
+        trademarkService.addNewTrademarkReq(trademark);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

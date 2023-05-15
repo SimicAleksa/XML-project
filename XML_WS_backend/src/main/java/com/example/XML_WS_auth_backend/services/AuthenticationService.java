@@ -31,7 +31,7 @@ public class AuthenticationService {
             throw new CredsNotValidException();
 
         String userRole = user.getRole();
-        return new AuthTokenDTO(tokenUtils.generateToken(user.getEmail(), userRole), userRole);
+        return new AuthTokenDTO(tokenUtils.generateToken(user.getEmail(), userRole), userRole, loginDTO.getEmail());
     }
 
     public void authRegularUser(HttpServletRequest request) {

@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
               let resData = this.xmlParser.parseFromXml(retData.body).AuthTokenDTO;
               this.lStorageManager.setAuthToken(resData.authToken._text);
               this.lStorageManager.setUserRole(resData.role._text);
+              this.lStorageManager.setLoggedUserEmail(resData.email._text);
             }
           },
           error: (err: any) => {

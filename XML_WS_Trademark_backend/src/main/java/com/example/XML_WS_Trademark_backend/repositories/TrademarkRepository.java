@@ -15,7 +15,6 @@ import java.util.List;
 @Repository
 public class TrademarkRepository {
     public static final String collectionUri = "/db/trademarks";
-    public static final String documentId = "2";
 
     private final JAXBParser<ZahtevZaPriznanjeZiga> jaxbParser;
     @Autowired
@@ -29,6 +28,7 @@ public class TrademarkRepository {
 
 
     public void save(ZahtevZaPriznanjeZiga trademark) {
+        String documentId = trademark.getMetaData().getBrojPrijave().getValue();
         try {
             String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
             existDB.addToCollection(collectionUri, documentId, trademarkXML);
@@ -38,7 +38,7 @@ public class TrademarkRepository {
         }
     }
 
-    public ZahtevZaPriznanjeZiga getTrademarkRequestById(String trademarkReqNum) {
+    public ZahtevZaPriznanjeZiga getTrademarkRequestById(String documentId) {
         try {
             XMLResource res = existDB.loadResourceById(collectionUri, documentId);
             if (res != null)

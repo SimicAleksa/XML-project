@@ -16,10 +16,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "authToken",
-        "role"
+        "role",
+        "email"
 })
 @XmlRootElement(name = "AuthTokenDTO")
 public class AuthTokenDTO {
     private String authToken;
     private String role;
+    private String email;
 }

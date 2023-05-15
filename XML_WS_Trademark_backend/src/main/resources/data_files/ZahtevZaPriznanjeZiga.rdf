@@ -1,8 +1,1 @@
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
-<rdf:Description rdf:about="">
-<pred:BrojPrijave xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">BrojPrijave0</pred:BrojPrijave>
-</rdf:Description>
-<rdf:Description rdf:about="">
-<pred:DatumPodnosenja xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2006-05-04</pred:DatumPodnosenja>
-</rdf:Description>
-</rdf:RDF>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml"/>

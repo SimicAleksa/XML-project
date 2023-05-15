@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="MetaData"&gt;
  *           &lt;complexType&gt;
@@ -86,15 +86,15 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "metaData",
-    "podnosilacPrijave",
+    "podnosiociPrijave",
     "punomocnik",
-    "zajednickiPredstavnici",
+    "zajednickiPredstavnik",
     "zig",
     "brojeviKlasaRobeIliUsluga",
     "pravoPrvenstvaIOsnov",
@@ -106,12 +106,12 @@ public class ZahtevZaPriznanjeZiga {
 
     @XmlElement(name = "MetaData", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected ZahtevZaPriznanjeZiga.MetaData metaData;
-    @XmlElement(name = "PodnosilacPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
-    protected List<KTPersona> podnosilacPrijave;
+    @XmlElement(name = "PodnosiociPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+    protected ZahtevZaPriznanjeZiga.PodnosilacPrijave podnosiociPrijave;
     @XmlElement(name = "Punomocnik", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTPersona punomocnik;
-    @XmlElement(name = "ZajednickiPredstavnici", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
-    protected KTPersona zajednickiPredstavnici;
+    @XmlElement(name = "ZajednickiPredstavnik", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig")
+    protected KTPersona zajednickiPredstavnik;
     @XmlElement(name = "Zig", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected KTZig zig;
     @XmlElement(name = "BrojeviKlasaRobeIliUsluga", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
@@ -122,8 +122,6 @@ public class ZahtevZaPriznanjeZiga {
     protected KTTaksa taksa;
     @XmlElement(name = "PriloziUzZahtev", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
     protected ZahtevZaPriznanjeZiga.PriloziUzZahtev priloziUzZahtev;
-    @XmlAttribute(name = "id")
-    protected Integer id;
 
     /**
      * Gets the value of the metaData property.
@@ -171,11 +169,8 @@ public class ZahtevZaPriznanjeZiga {
      * 
      * 
      */
-    public List<KTPersona> getPodnosilacPrijave() {
-        if (podnosilacPrijave == null) {
-            podnosilacPrijave = new ArrayList<KTPersona>();
-        }
-        return this.podnosilacPrijave;
+    public ZahtevZaPriznanjeZiga.PodnosilacPrijave getPodnosiociPrijave() {
+        return this.podnosiociPrijave;
     }
 
     /**
@@ -210,8 +205,8 @@ public class ZahtevZaPriznanjeZiga {
      *     {@link KTPersona }
      *     
      */
-    public KTPersona getZajednickiPredstavnici() {
-        return zajednickiPredstavnici;
+    public KTPersona getZajednickiPredstavnik() {
+        return zajednickiPredstavnik;
     }
 
     /**
@@ -222,8 +217,8 @@ public class ZahtevZaPriznanjeZiga {
      *     {@link KTPersona }
      *     
      */
-    public void setZajednickiPredstavnici(KTPersona value) {
-        this.zajednickiPredstavnici = value;
+    public void setZajednickiPredstavnik(KTPersona value) {
+        this.zajednickiPredstavnik = value;
     }
 
     /**
@@ -346,30 +341,46 @@ public class ZahtevZaPriznanjeZiga {
         this.priloziUzZahtev = value;
     }
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getId() {
-        return id;
-    }
 
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setId(Integer value) {
-        this.id = value;
-    }
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+            "podnosilacPrijave"
+    })
+    public static class PodnosilacPrijave {
 
+        @XmlElement(name = "PodnosilacPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", type = KTPersona.class)
+        protected List<KTPersona> podnosilacPrijave;
+
+        /**
+         * Gets the value of the brojKlaseRobeIliUsluge property.
+         *
+         * <p>
+         * This accessor method returns a reference to the live list,
+         * not a snapshot. Therefore any modification you make to the
+         * returned list will be present inside the JAXB object.
+         * This is why there is not a <CODE>set</CODE> method for the brojKlaseRobeIliUsluge property.
+         *
+         * <p>
+         * For example, to add a new item, do as follows:
+         * <pre>
+         *    getBrojKlaseRobeIliUsluge().add(newItem);
+         * </pre>
+         *
+         *
+         * <p>
+         * Objects of the following type(s) are allowed in the list
+         * {@link Integer }
+         *
+         *
+         */
+        public List<KTPersona> getPodnosilacPrijave() {
+            if (podnosilacPrijave == null) {
+                podnosilacPrijave = new ArrayList<KTPersona>();
+            }
+            return this.podnosilacPrijave;
+        }
+
+    }
 
     /**
      * <p>Java class for anonymous complex type.
@@ -470,14 +481,24 @@ public class ZahtevZaPriznanjeZiga {
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "brojPrijave",
-        "datumPodnosenja"
+        "emailNalogaPodnosioca",
+        "datumPodnosenja",
+        "datumPregledanja",
+        "status"
     })
     public static class MetaData {
 
         @XmlElement(name = "BrojPrijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
         protected ZahtevZaPriznanjeZiga.MetaData.BrojPrijave brojPrijave;
+        @XmlElement(name = "EmailNalogaPodnosioca", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+        protected ZahtevZaPriznanjeZiga.MetaData.EmailNalogaPodnosioca emailNalogaPodnosioca;
         @XmlElement(name = "DatumPodnosenja", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
         protected ZahtevZaPriznanjeZiga.MetaData.DatumPodnosenja datumPodnosenja;
+        @XmlElement(name = "DatumPregledanja", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+        protected ZahtevZaPriznanjeZiga.MetaData.DatumPregledanja datumPregledanja;
+        @XmlElement(name = "Status", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_zig", required = true)
+        protected ZahtevZaPriznanjeZiga.MetaData.Status status;
+
 
         /**
          * Gets the value of the brojPrijave property.
@@ -501,6 +522,22 @@ public class ZahtevZaPriznanjeZiga {
          */
         public void setBrojPrijave(ZahtevZaPriznanjeZiga.MetaData.BrojPrijave value) {
             this.brojPrijave = value;
+        }
+
+        public ZahtevZaPriznanjeZiga.MetaData.EmailNalogaPodnosioca getEmailNalogaPodnosioca() {
+            return emailNalogaPodnosioca;
+        }
+
+        /**
+         * Sets the value of the brojPrijave property.
+         *
+         * @param value
+         *     allowed object is
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.EmailNalogaPodnosioca }
+         *
+         */
+        public void setEmailNalogaPodnosioca(ZahtevZaPriznanjeZiga.MetaData.EmailNalogaPodnosioca value) {
+            this.emailNalogaPodnosioca = value;
         }
 
         /**
@@ -527,6 +564,37 @@ public class ZahtevZaPriznanjeZiga {
             this.datumPodnosenja = value;
         }
 
+        public ZahtevZaPriznanjeZiga.MetaData.DatumPregledanja getDatumPregledanja() {
+            return datumPregledanja;
+        }
+
+        /**
+         * Sets the value of the datumPodnosenja property.
+         *
+         * @param value
+         *     allowed object is
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.DatumPregledanja }
+         *
+         */
+        public void setDatumPregledanja(ZahtevZaPriznanjeZiga.MetaData.DatumPregledanja value) {
+            this.datumPregledanja = value;
+        }
+
+        public ZahtevZaPriznanjeZiga.MetaData.Status getStatus() {
+            return status;
+        }
+
+        /**
+         * Sets the value of the status property.
+         *
+         * @param value
+         *     allowed object is
+         *     {@link ZahtevZaPriznanjeZiga.MetaData.Status }
+         *
+         */
+        public void setStatus(ZahtevZaPriznanjeZiga.MetaData.Status value) {
+            this.status = value;
+        }
 
         /**
          * <p>Java class for anonymous complex type.
@@ -610,6 +678,70 @@ public class ZahtevZaPriznanjeZiga {
 
         }
 
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+                "value"
+        })
+        public static class EmailNalogaPodnosioca {
+
+            @XmlValue
+            protected String value;
+            @XmlAttribute(name = "property")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             *
+             * @return
+             *     possible object is
+             *     {@link String }
+             *
+             */
+            public String getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *
+             */
+            public void setValue(String value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             *
+             * @return
+             *     possible object is
+             *     {@link String }
+             *
+             */
+            public String getProperty() {
+                if (property == null) {
+                    return "pred:EmailNalogaPodnosioca";
+                } else {
+                    return property;
+                }
+            }
+
+            /**
+             * Sets the value of the property property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *
+             */
+            public void setProperty(String value) {
+                this.property = value;
+            }
+
+        }
 
         /**
          * <p>Java class for anonymous complex type.
@@ -694,6 +826,135 @@ public class ZahtevZaPriznanjeZiga {
 
         }
 
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+                "value"
+        })
+        public static class DatumPregledanja {
+
+            @XmlValue
+            @XmlSchemaType(name = "date")
+            protected XMLGregorianCalendar value;
+            @XmlAttribute(name = "property")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             *
+             * @return
+             *     possible object is
+             *     {@link XMLGregorianCalendar }
+             *
+             */
+            public XMLGregorianCalendar getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link XMLGregorianCalendar }
+             *
+             */
+            public void setValue(XMLGregorianCalendar value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             *
+             * @return
+             *     possible object is
+             *     {@link String }
+             *
+             */
+            public String getProperty() {
+                if (property == null) {
+                    return "pred:DatumPregledanja";
+                } else {
+                    return property;
+                }
+            }
+
+            /**
+             * Sets the value of the property property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *
+             */
+            public void setProperty(String value) {
+                this.property = value;
+            }
+
+        }
+
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+                "value"
+        })
+        public static class Status {
+
+            @XmlValue
+            protected String value;
+            @XmlAttribute(name = "property")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             *
+             * @return
+             *     possible object is
+             *     {@link String }
+             *
+             */
+            public String getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *
+             */
+            public void setValue(String value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             *
+             * @return
+             *     possible object is
+             *     {@link String }
+             *
+             */
+            public String getProperty() {
+                if (property == null) {
+                    return "pred:Status";
+                } else {
+                    return property;
+                }
+            }
+
+            /**
+             * Sets the value of the property property.
+             *
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *
+             */
+            public void setProperty(String value) {
+                this.property = value;
+            }
+        }
     }
 
 

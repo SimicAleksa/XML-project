@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 export class LocalStorageManager {
     private authTokenKey: string;
     private roleKey: string;
+    private loggedUserEmailKey: string;
 
     constructor() {
         this.authTokenKey = 'auth-token';
         this.roleKey = 'role';
+        this.loggedUserEmailKey = 'logged-user-email'
      }
 
   setAuthToken(authToken: string): void {
@@ -37,4 +39,16 @@ export class LocalStorageManager {
     localStorage.removeItem(this.roleKey);
   }
 
+  setLoggedUserEmail(loggedUserEmail: string): void {
+    localStorage.setItem(this.loggedUserEmailKey, loggedUserEmail);
+  }
+
+  getLoggedUserEmail(): string {
+    let email = localStorage.getItem(this.loggedUserEmailKey);
+    return email === null ? "NOT LOGGED" : email;
+  }
+
+  removeLoggedUserEmail() {
+    localStorage.removeItem(this.loggedUserEmailKey);
+  }
 }

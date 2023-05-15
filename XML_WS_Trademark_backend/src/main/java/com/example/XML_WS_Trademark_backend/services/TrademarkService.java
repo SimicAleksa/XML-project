@@ -13,8 +13,11 @@ public class TrademarkService {
     @Autowired
     private TrademarkRepository trademarkRepository;
 
-    public void save(ZahtevZaPriznanjeZiga trademark) {
-        trademarkRepository.save(trademark);
+
+    public void addNewTrademarkReq(ZahtevZaPriznanjeZiga trademark) {
+        trademark.getMetaData().getBrojPrijave().setValue("Ж-" + (trademarkRepository.getAllTrademarkRequest().size()+1));
+        trademark.getMetaData().getStatus().setValue("PENDING");
+        save(trademark);
     }
 
     public List<ZahtevZaPriznanjeZiga> getAll() {
@@ -24,7 +27,12 @@ public class TrademarkService {
     public void getPDF() {
         try {
             PDFGenerator.generatePDFandHTML(trademarkRepository.getAllTrademarkRequest().get(1));
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
+    }
+
+    private void save(ZahtevZaPriznanjeZiga trademark) {
+        trademarkRepository.save(trademark);
     }
 
 }

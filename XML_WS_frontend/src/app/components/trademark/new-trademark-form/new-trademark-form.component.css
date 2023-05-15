@@ -1,0 +1,80 @@
+h1 {
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+.form-cont {
+    margin: 30px;
+}
+
+form {
+    margin: 5vh 25vw;
+}
+
+.buttons-cont {
+    margin-top: 40px;
+}
+
+.stepper-btn {
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 0 5px;
+}
+
+.stepper-btn:hover {
+    background-color: rgb(194, 189, 189);
+}
+
+mat-checkbox {
+    margin-right: 15px;
+}
+
+.klase {
+    margin: 30px 0;
+}
+
+.selected {
+    background-color: #ffcc80; 
+}
+
+button {
+    margin: 0 5px;
+}
+
+.minus-btn {
+    color: black;
+    background-color: red;
+    font-size: 40px;
+}
+
+.minus-btn:hover { 
+    background-color: rgb(240, 73, 73);
+}
+
+.plus-btn {
+    color: black;
+    background-color: green;
+    font-size: 40px;
+}
+
+.plus-btn:hover { 
+    background-color: rgb(52, 136, 52);
+}
+
+.zaj-pred-btn {
+    color: black;
+    background-color: rgb(30, 111, 233);
+    font-size: 15px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+.zaj-pred-btn:hover {
+    background-color: rgb(83, 137, 218);
+}
+
+.glowing-chip {
+    box-shadow: 0 0 5px 6px rgba(0, 0, 255, 0.3);
+}
