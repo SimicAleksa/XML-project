@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { TitleStrategy } from '@angular/router';
 import { RequestMaker } from 'src/app/services/request-maker.service';
+import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { XMLParser } from 'src/app/utils/XMLParser';
 
 
@@ -62,7 +63,7 @@ export class NewTrademarkFormComponent implements OnInit {
 
   public numbers = Array.from({length: 45}, (_, i) => i+1);
 
-  constructor(private _formBuilder: FormBuilder, private xmlParser: XMLParser, private requestMaker: RequestMaker) {
+  constructor(private _formBuilder: FormBuilder, private xmlParser: XMLParser, private requestMaker: RequestMaker, private lStoargeManager: LocalStorageManager) {
     this.podnosioci = [{name: "Podnosioc 1", selected: true, representative: false, form: this.getPodnosiocFromForm()}];
     this.podnosiocIndeks = 0;
     this.representIndeks = 0;
@@ -211,7 +212,9 @@ export class NewTrademarkFormComponent implements OnInit {
       },
       "z:MetaData": { 
         "z:BrojPrijave": { _text: ""},
+        "z:EmailNalogaPodnosioca": { _text: this.lStoargeManager.getLoggedUserEmail() },
         "z:DatumPodnosenja": { _text: new Date().toISOString().slice(0, 19) }, 
+        "z:DatumPregledanja": { _text: new Date().toISOString().slice(0, 19) }, 
         "z:Status": { _text: ""},
       }, 
       "z:PodnosiociPrijave": { "z:PodnosilacPrijave": this.mapPodnosiociForXML() },

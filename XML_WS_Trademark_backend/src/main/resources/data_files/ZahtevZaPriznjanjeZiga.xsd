@@ -18,12 +18,32 @@
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
+                            <xs:element name="EmailNalogaPodnosioca">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"
+                                                          default="pred:EmailNalogaPodnosioca"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="DatumPodnosenja">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="xs:dateTime">
                                             <xs:attribute name="property" type="xs:string"
                                                           default="pred:DatumPodnosenja"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DatumPregledanja">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:dateTime">
+                                            <xs:attribute name="property" type="xs:string"
+                                                          default="pred:DatumPregledanja"/>
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>

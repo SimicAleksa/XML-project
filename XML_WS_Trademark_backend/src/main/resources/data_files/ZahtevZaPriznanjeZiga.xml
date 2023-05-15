@@ -4,7 +4,9 @@
                          xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig ZahtevZaPriznjanjeZiga.xsd">
     <z:MetaData>
         <z:BrojPrijave property="pred:BrojPrijave">BrojPrijave0</z:BrojPrijave>
-        <z:DatumPodnosenja property="pred:DatumPodnosenja">2006-05-04T10:30:20</z:DatumPodnosenja>
+        <z:EmailNalogaPodnosioca property="pred:EmailNalogaPodnosioca">strahinjapopovic@gmail.com</z:EmailNalogaPodnosioca>
+        <z:DatumPodnosenja property="pred:DatumPodnosenja">2023-05-04T10:30:20</z:DatumPodnosenja>
+        <z:DatumPregledanja property="pred:DatumPregledanja">2023-05-04T10:30:20</z:DatumPregledanja>
         <z:Status property="pred:Status">PENDING</z:Status>
     </z:MetaData>
     <z:PodnosiociPrijave>
