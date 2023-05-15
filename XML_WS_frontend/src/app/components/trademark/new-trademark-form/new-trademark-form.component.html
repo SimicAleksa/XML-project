@@ -1,0 +1,242 @@
+<h1 class="text-center">Novi zahtev za priznanje ziga</h1>
+<div class="form-cont">
+    <mat-stepper #stepper>
+
+        <mat-step [stepControl]="podnosiocZahteva" label="Podnosioc zahteva">
+            <form [formGroup]="podnosiocZahteva">
+
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Ime i prezime/poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required >
+                        <mat-label>Telefonski broj</mat-label>
+                        <input matInput type="text" formControlName="telefon">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>E-mail adresa</mat-label>
+                        <input matInput type="text" formControlName="eMail">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Faks</mat-label>
+                        <input matInput type="text" formControlName="faks">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                </div>
+                
+                <div class="row">
+                    <mat-form-field class=col-3 appearance="fill" required>
+                        <mat-label>Postanski br.</mat-label>
+                        <input matInput type="text" formControlName="postanskiBroj">
+                    </mat-form-field>
+                    <mat-form-field class=col-5 appearance="fill" required>
+                        <mat-label>Mesto</mat-label>
+                        <input matInput type="text" formControlName="mestoPrebivalista">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Drzava</mat-label>
+                        <input matInput type="text" formControlName="drzavaPrebivalista">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-9">
+                        <mat-chip-list>
+                            <mat-chip class="glowing-chip" *ngFor="let podnosioc of podnosioci; let i = index" (click)="toggleSelect(i)"
+                                [ngClass]="{ 'selected': podnosioc.selected, 'glowing-chip': podnosioc.representative}"
+                            >
+                              {{ podnosioc.name }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button mat-raised-button class="minus-btn" (click)="removePodnosioc()">-</button>
+                        <button mat-raised-button class="plus-btn" (click)="addPodnosioc()">+</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button mat-button class="zaj-pred-btn" (click)="changeRepresent()">Postavi zajednickog predstavnika</button>
+                    </div>
+                </div>
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="punomocnik" label="Punomocnik">
+            <form [formGroup]="punomocnik">
+
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Ime i prezime/poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required >
+                        <mat-label>Telefonski broj</mat-label>
+                        <input matInput type="text" formControlName="telefon">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>E-mail adresa</mat-label>
+                        <input matInput type="text" formControlName="eMail">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Faks</mat-label>
+                        <input matInput type="text" formControlName="faks">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                </div>
+                
+                <div class="row">
+                    <mat-form-field class=col-3 appearance="fill" required>
+                        <mat-label>Postanski br.</mat-label>
+                        <input matInput type="text" formControlName="postanskiBroj">
+                    </mat-form-field>
+                    <mat-form-field class=col-5 appearance="fill" required>
+                        <mat-label>Mesto</mat-label>
+                        <input matInput type="text" formControlName="mestoPrebivalista">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Drzava</mat-label>
+                        <input matInput type="text" formControlName="drzavaPrebivalista">
+                    </mat-form-field>
+                </div>
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+
+            </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="podaciZiga" label="Podaci ziga">
+            <form [formGroup]="podaciZiga">
+
+                <div class="row">
+                    <div class="col">
+                        <label class="radio-group-label"><b>Tip ziga:</b></label>
+                        <div class="cbox-bot-bord">
+                            <mat-select class="row" formControlName="tipZiga">
+                                <mat-option value="" disabled>Izaberite tip ziga</mat-option>
+                                <mat-option value="1">Individualni zig</mat-option>
+                                <mat-option value="2">Kolektivni zig</mat-option>
+                                <mat-option value="3">Zig garancije</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+        
+                    <div class="col">
+                        <label class="radio-group-label"><b>Tip znaka:</b></label>
+                        <mat-select class="row" formControlName="tipZnaka">
+                            <mat-option value="" disabled>Izaberite tip znaka</mat-option>
+                            <mat-option value="1">Verbalni znak</mat-option>
+                            <mat-option value="2">Graficki znak</mat-option>
+                            <mat-option value="3">Kombinovani znak</mat-option>
+                            <mat-option value="4">Trodimenzionalni znak</mat-option>
+                            <mat-option value="5">Druga vrsta znaka</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Upisite boje od kojih se znak sastoji</mat-label>
+                        <input matInput type="text" formControlName="boje">
+                    </mat-form-field>
+                    <mat-form-field class=col>
+                        <mat-label>Opis znaka</mat-label>
+                        <input matInput type="text" formControlName="opisZnaka">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Transliteracija znaka</mat-label>
+                        <input matInput type="text" formControlName="transliteracija">
+                    </mat-form-field>
+                    <mat-form-field class=col>
+                        <mat-label>Prevod znaka</mat-label>
+                        <input matInput type="text" formControlName="prevodZnaka">
+                    </mat-form-field>
+                </div>
+                
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+                
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="ostalo" label="Ostalo">
+            <form [formGroup]="ostalo">
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Zatrazeno pravo prvenstva i osnov</mat-label>
+                        <input matInput type="text" formControlName="pravoPrvenstvaIOsnov">
+                    </mat-form-field>
+                </div>
+
+                <div class="klase">
+                    <p><b>Izaberite brojeve klasa robe i usluga prema Nicanskoj klasifikaciji:</b></p>
+                    <mat-checkbox *ngFor="let number of numbers" value="{{number}}" (change)="onCheckboxChange($event)" labelPosition="before">{{number}}</mat-checkbox>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col>
+                        <mat-label>Osnovna taksa</mat-label>
+                        <input matInput type="text" formControlName="osnovnaTaksa">
+                    </mat-form-field>
+                    <mat-form-field class=col>
+                        <mat-label>Taksa za broj klasa</mat-label>
+                        <input matInput type="text" formControlName="taksaZaBrojKlasa">
+                    </mat-form-field>
+                    <mat-form-field class=col>
+                        <mat-label>Taksa za graficko resenje</mat-label>
+                        <input matInput type="text" formControlName="taksaZaGrafickoResenje">
+                    </mat-form-field>
+                </div>
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button (click)="saveChanges(); onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
+                </div>
+
+            </form>
+        </mat-step>
+
+    </mat-stepper>
+</div>

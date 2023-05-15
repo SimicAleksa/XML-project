@@ -11,8 +11,7 @@
     <span *ngIf="activeRole === 'REGULAR'">
         <button mat-button [matMenuTriggerFor]="aboveMenu">SERVIS ZA ZIG</button>
         <mat-menu #aboveMenu="matMenu" yPosition="above">
-            <button mat-menu-item>Nesto</button>
-            <button mat-menu-item>Nesto drugo</button>
+            <button mat-menu-item (click)="onNewTrademarkReqBtnClick()">Novi zahtev za zig</button>
         </mat-menu>
     </span>
 

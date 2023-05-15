@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.ftn.uns.ac.rs/zahtev_za_zig" 
-    xmlns="http://www.ftn.uns.ac.rs/zahtev_za_zig"
-    xmlns:z="http://www.ftn.uns.ac.rs/zahtev_za_zig"
-    xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/">
+           targetNamespace="http://www.ftn.uns.ac.rs/zahtev_za_zig"
+           xmlns="http://www.ftn.uns.ac.rs/zahtev_za_zig">
     <xs:element name="ZahtevZaPriznanjeZiga">
         <xs:complexType>
             <xs:sequence>
@@ -14,7 +12,8 @@
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="xs:string">
-                                            <xs:attribute name="property" type="xs:string" default="pred:BrojPrijave"/>
+                                            <xs:attribute name="property" type="xs:string"
+                                                          default="pred:BrojPrijave"/>
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
@@ -22,8 +21,19 @@
                             <xs:element name="DatumPodnosenja">
                                 <xs:complexType>
                                     <xs:simpleContent>
-                                        <xs:extension base="xs:date">
-                                            <xs:attribute name="property" type="xs:string" default="pred:DatumPodnosenja"/>
+                                        <xs:extension base="xs:dateTime">
+                                            <xs:attribute name="property" type="xs:string"
+                                                          default="pred:DatumPodnosenja"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Status">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"
+                                                          default="pred:Status"/>
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
@@ -31,16 +41,23 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="PodnosilacPrijave" type="KTPersona" maxOccurs="unbounded"/>
+                <xs:element name="PodnosiociPrijave">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="PodnosilacPrijave" type="KTPersona"
+                                        maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="Punomocnik" type="KTPersona"/>
-                <xs:element name="ZajednickiPredstavnici" type="KTPersona" maxOccurs="1"
-                    minOccurs="0"/>
+                <xs:element name="ZajednickiPredstavnik" type="KTPersona"
+                            minOccurs="0"/>
                 <xs:element name="Zig" type="KTZig"/>
                 <xs:element name="BrojeviKlasaRobeIliUsluga">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="BrojKlaseRobeIliUsluge" maxOccurs="unbounded"
-                                minOccurs="1" type="xs:int"/>
+                                        type="xs:int"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -61,34 +78,33 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:int"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="KTAdresa">
         <xs:sequence>
             <xs:element name="Ulica">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="BrojUlice">
                 <xs:simpleType>
-                    <xs:restriction base="xs:int"> </xs:restriction>
+                    <xs:restriction base="xs:int"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="PostanskiBroj">
                 <xs:simpleType>
-                    <xs:restriction base="xs:int"> </xs:restriction>
+                    <xs:restriction base="xs:int"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="MestoPrebivalista">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="DrzavaPrebivalista">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
@@ -97,17 +113,17 @@
         <xs:sequence>
             <xs:element name="Telefon">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="E-mail">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="Faks">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
@@ -116,7 +132,7 @@
         <xs:sequence maxOccurs="1" minOccurs="1">
             <xs:element name="Ime">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string"> </xs:restriction>
+                    <xs:restriction base="xs:string"></xs:restriction>
                 </xs:simpleType>
             </xs:element>
             <xs:element name="Adresa" type="KTAdresa"/>
@@ -128,7 +144,7 @@
             <xs:element name="TipZiga" type="xs:string"/>
             <xs:element name="TipZnaka" type="xs:string"/>
             <xs:element name="IzgledZnaka" type="xs:base64Binary"/>
-            <xs:element name="Boje" type="xs:string"> </xs:element>
+            <xs:element name="Boje" type="xs:string"></xs:element>
             <xs:element name="TransliteracijaZnaka" type="xs:string"/>
             <xs:element name="PrevodZnaka" type="xs:string"/>
             <xs:element name="OpisZnaka" type="xs:string"/>

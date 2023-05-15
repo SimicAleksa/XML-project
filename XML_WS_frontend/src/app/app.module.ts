@@ -11,12 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { LoginComponent } from './components/login/login.component';
-import { TrademarkFormComponent } from './components/trademark-form/trademark-form.component';
 import { XMLParser } from './utils/XMLParser';
 import { LocalStorageManager } from './utils/LocalStorageManager';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuService } from './components/menu/service/menu-service';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { NewTrademarkFormComponent } from './components/trademark/new-trademark-form/new-trademark-form.component';
 
 
 @NgModule({
@@ -24,9 +24,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    TrademarkFormComponent,
     MenuComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NewTrademarkFormComponent
   ],
   imports: [
     NgbModule,

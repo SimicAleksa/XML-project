@@ -5,10 +5,13 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select';
-import {MatOptionModule} from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
+
 
 const matModules = [
   MatFormFieldModule,
@@ -19,7 +22,9 @@ const matModules = [
   MatSelectModule, 
   MatOptionModule,
   MatCheckboxModule,
-  MatMenuModule
+  MatMenuModule,
+  MatStepperModule,
+  MatChipsModule
 ];
 
 @NgModule({

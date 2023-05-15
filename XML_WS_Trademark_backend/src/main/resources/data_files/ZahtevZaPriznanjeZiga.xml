@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <z:ZahtevZaPriznanjeZiga xmlns:z="http://www.ftn.uns.ac.rs/zahtev_za_zig"
-                         xmlns:pred="http://www.ftn.uns.ac.rs/zahtev_za_zig/pred/"
                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                         xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig ZahtevZaPriznjanjeZiga.xsd" id="0">
+                         xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev_za_zig ZahtevZaPriznjanjeZiga.xsd">
     <z:MetaData>
         <z:BrojPrijave property="pred:BrojPrijave">BrojPrijave0</z:BrojPrijave>
-        <z:DatumPodnosenja property="pred:DatumPodnosenja">2006-05-04</z:DatumPodnosenja>
+        <z:DatumPodnosenja property="pred:DatumPodnosenja">2006-05-04T10:30:20</z:DatumPodnosenja>
+        <z:Status property="pred:Status">PENDING</z:Status>
     </z:MetaData>
-    <z:PodnosilacPrijave>
-        <z:Ime>Ime0</z:Ime>
-        <z:Adresa>
-            <z:Ulica>Ulica0</z:Ulica>
-            <z:BrojUlice>0</z:BrojUlice>
-            <z:PostanskiBroj>0</z:PostanskiBroj>
-            <z:MestoPrebivalista>MestoPrebivalista0</z:MestoPrebivalista>
-            <z:DrzavaPrebivalista>DrzavaPrebivalista0</z:DrzavaPrebivalista>
-        </z:Adresa>
-        <z:KontaktInformacije>
-            <z:Telefon>Telefon0</z:Telefon>
-            <z:E-mail>E-mail0</z:E-mail>
-            <z:Faks>Faks0</z:Faks>
-        </z:KontaktInformacije>
-    </z:PodnosilacPrijave>
-    <z:PodnosilacPrijave>
-        <z:Ime>Ime1</z:Ime>
-        <z:Adresa>
-            <z:Ulica>Ulica1</z:Ulica>
-            <z:BrojUlice>0</z:BrojUlice>
-            <z:PostanskiBroj>0</z:PostanskiBroj>
-            <z:MestoPrebivalista>MestoPrebivalista1</z:MestoPrebivalista>
-            <z:DrzavaPrebivalista>DrzavaPrebivalista1</z:DrzavaPrebivalista>
-        </z:Adresa>
-        <z:KontaktInformacije>
-            <z:Telefon>Telefon1</z:Telefon>
-            <z:E-mail>E-mail1</z:E-mail>
-            <z:Faks>Faks1</z:Faks>
-        </z:KontaktInformacije>
-    </z:PodnosilacPrijave>
+    <z:PodnosiociPrijave>
+        <z:PodnosilacPrijave>
+            <z:Ime>Ime0</z:Ime>
+            <z:Adresa>
+                <z:Ulica>Ulica0</z:Ulica>
+                <z:BrojUlice>0</z:BrojUlice>
+                <z:PostanskiBroj>0</z:PostanskiBroj>
+                <z:MestoPrebivalista>MestoPrebivalista0</z:MestoPrebivalista>
+                <z:DrzavaPrebivalista>DrzavaPrebivalista0</z:DrzavaPrebivalista>
+            </z:Adresa>
+            <z:KontaktInformacije>
+                <z:Telefon>Telefon0</z:Telefon>
+                <z:E-mail>E-mail0</z:E-mail>
+                <z:Faks>Faks0</z:Faks>
+            </z:KontaktInformacije>
+        </z:PodnosilacPrijave>
+        <z:PodnosilacPrijave>
+            <z:Ime>Ime1</z:Ime>
+            <z:Adresa>
+                <z:Ulica>Ulica1</z:Ulica>
+                <z:BrojUlice>0</z:BrojUlice>
+                <z:PostanskiBroj>0</z:PostanskiBroj>
+                <z:MestoPrebivalista>MestoPrebivalista1</z:MestoPrebivalista>
+                <z:DrzavaPrebivalista>DrzavaPrebivalista1</z:DrzavaPrebivalista>
+            </z:Adresa>
+            <z:KontaktInformacije>
+                <z:Telefon>Telefon1</z:Telefon>
+                <z:E-mail>E-mail1</z:E-mail>
+                <z:Faks>Faks1</z:Faks>
+            </z:KontaktInformacije>
+        </z:PodnosilacPrijave>
+    </z:PodnosiociPrijave>
     <z:Punomocnik>
         <z:Ime>Ime2</z:Ime>
         <z:Adresa>
@@ -52,7 +54,7 @@
             <z:Faks>Faks2</z:Faks>
         </z:KontaktInformacije>
     </z:Punomocnik>
-    <z:ZajednickiPredstavnici>
+    <z:ZajednickiPredstavnik>
         <z:Ime>Ime3</z:Ime>
         <z:Adresa>
             <z:Ulica>Ulica3</z:Ulica>
@@ -66,7 +68,7 @@
             <z:E-mail>E-mail3</z:E-mail>
             <z:Faks>Faks3</z:Faks>
         </z:KontaktInformacije>
-    </z:ZajednickiPredstavnici>
+    </z:ZajednickiPredstavnik>
     <z:Zig>
         <z:TipZiga>TipZiga0</z:TipZiga>
         <z:TipZnaka>TipZnaka0</z:TipZnaka>
