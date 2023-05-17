@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NewTrademarkFormComponent } from './components/trademark/new-trademark-form/new-trademark-form.component';
+import { PendingRequestsPageComponent } from './components/trademark/pages/pending-requests-page/pending-requests-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: UserProfileComponent},
   {path: 'trademark/new', component: NewTrademarkFormComponent},
+  {path: 'trademark/pending', component: PendingRequestsPageComponent},
 ];
 
 @NgModule({

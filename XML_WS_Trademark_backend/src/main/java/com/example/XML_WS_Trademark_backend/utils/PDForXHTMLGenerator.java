@@ -16,47 +16,54 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 
-public class PDFGenerator {
+public class PDForXHTMLGenerator {
     private static DocumentBuilderFactory documentFactory;
     private static TransformerFactory transformerFactory;
     private static final String XSL_FILE_PATH = Settings.XSL_FILE_PATH;
-    private static final String PDF_FILE_PATH = Settings.PDF_FILE_PATH;
-    private static final String HTML_FILE_PATH = Settings.HTML_FILE_PATH;
 
     static {
         setupDocBuilderFactory();
         setupTransformerFactory();
     }
 
-    public static void generatePDFandHTML(ZahtevZaPriznanjeZiga trademarkReq) throws Exception {
-        generateHTML(trademarkReq);
-        generatePDF();
+    public static byte[] getPDF(ZahtevZaPriznanjeZiga trademarkReq) {
+        return generatePDF(generateXHTML(trademarkReq));
     }
 
-    private static void generateHTML(ZahtevZaPriznanjeZiga trademarkReq) throws Exception {
+    public static byte[] getXHTML(ZahtevZaPriznanjeZiga trademarkReq) {
+        return generateXHTML(trademarkReq);
+    }
+
+    private static byte[] generateXHTML(ZahtevZaPriznanjeZiga trademarkReq) {
         try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             Transformer transformer = getTransformerByXSLFile(new StreamSource(new File(XSL_FILE_PATH)));
             transformer.transform(
                     new DOMSource(makeDocFromTrademarkReq(trademarkReq)),
-                    new StreamResult(Files.newOutputStream(Paths.get(HTML_FILE_PATH)))
+                    new StreamResult(outputStream)
             );
+            return outputStream.toByteArray();
         } catch (TransformerFactoryConfigurationError | TransformerException ignored) {}
+        return new byte[0];
     }
 
-    private static void generatePDF() {
+    private static byte[] generatePDF(byte[] htmlBytes) {
         try {
             Document document = new Document();
-            PdfWriter writer = PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(PDF_FILE_PATH)));
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            PdfWriter writer = PdfWriter.getInstance(document, outputStream);
             document.open();
-            XMLWorkerHelper.getInstance().parseXHtml(writer, document, Files.newInputStream(Paths.get(HTML_FILE_PATH)));
+            XMLWorkerHelper.getInstance().parseXHtml(writer, document, new ByteArrayInputStream(htmlBytes));
             document.close();
+
+            return outputStream.toByteArray();
         } catch (IOException | DocumentException ignored) {}
+        return new byte[0];
     }
 
     private static org.w3c.dom.Document makeDocFromTrademarkReq(ZahtevZaPriznanjeZiga trademarkReq) {

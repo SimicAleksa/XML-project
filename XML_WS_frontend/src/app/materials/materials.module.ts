@@ -11,7 +11,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 const matModules = [
   MatFormFieldModule,
@@ -24,7 +25,9 @@ const matModules = [
   MatCheckboxModule,
   MatMenuModule,
   MatStepperModule,
-  MatChipsModule
+  MatChipsModule,
+  MatTableModule,
+  MatSortModule
 ];
 
 @NgModule({
