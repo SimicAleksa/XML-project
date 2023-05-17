@@ -17,7 +17,7 @@ public class TrademarkService {
 
     public void addNewTrademarkReq(ZahtevZaPriznanjeZiga trademark) {
         trademark.getMetaData().getBrojPrijave().setValue("Ж-" + (trademarkRepository.getAllTrademarkRequest().size()+1));
-        trademark.getMetaData().getStatus().setValue("PENDING");
+        trademark.getMetaData().getStatus().setValue("NERESENO");
         save(trademark);
     }
 
@@ -27,36 +27,32 @@ public class TrademarkService {
 
     public List<ZahtevZaPriznanjeZiga> getPendingRequests() {
         return trademarkRepository.getAllTrademarkRequest().stream()
-                .filter(req -> req.getMetaData().getStatus().getValue().equals("PENDING"))
+                .filter(req -> req.getMetaData().getStatus().getValue().equals("NERESENO"))
                 .collect(Collectors.toList());
     }
 
     public byte[] getPDF(String brojPrijave) {
         try {
-            return PDForXHTMLGenerator.getPDF(getZahtevByBrojPrijave(brojPrijave));
+            return PDForXHTMLGenerator.getPDF(trademarkRepository.getTrademarkRequestById(brojPrijave));
         } catch (Exception ignored) {}
         return new byte[0];
     }
 
     public byte[] getXHTML(String brojPrijave) {
         try {
-            return PDForXHTMLGenerator.getXHTML(getZahtevByBrojPrijave(brojPrijave));
+            return PDForXHTMLGenerator.getXHTML(trademarkRepository.getTrademarkRequestById(brojPrijave));
         } catch (Exception ignored) {}
         return new byte[0];
     }
 
-    private void save(ZahtevZaPriznanjeZiga trademark) {
-        trademarkRepository.save(trademark);
+    public void changeTrademarkStatus(String trademarkId, boolean isApproved) {
+        ZahtevZaPriznanjeZiga trademarkReq = trademarkRepository.getTrademarkRequestById(trademarkId);
+        trademarkReq.getMetaData().getStatus().setValue(isApproved ? "PRIHVACENO" : "ODBIJENO");
+        save(trademarkReq);
     }
 
-    private ZahtevZaPriznanjeZiga getZahtevByBrojPrijave(String brojPrijave) {
-        ZahtevZaPriznanjeZiga trademarkReq = null;
-        for (ZahtevZaPriznanjeZiga req: trademarkRepository.getAllTrademarkRequest())
-            if (req.getMetaData().getBrojPrijave().getValue().equals(brojPrijave)) {
-                trademarkReq = req;
-                break;
-            }
-        return trademarkReq;
+    private void save(ZahtevZaPriznanjeZiga trademark) {
+        trademarkRepository.save(trademark);
     }
 
 }

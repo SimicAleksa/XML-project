@@ -2,7 +2,9 @@ package com.example.XML_WS_Trademark_backend.controllers;
 
 import com.example.XML_WS_Trademark_backend.DTOs.ListOfTrademarkRequestsDTO;
 import com.example.XML_WS_Trademark_backend.DTOs.PDFBytesDTO;
+import com.example.XML_WS_Trademark_backend.models.ResenjeZahteva;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
+import com.example.XML_WS_Trademark_backend.services.ResenjaService;
 import com.example.XML_WS_Trademark_backend.services.TrademarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class TrademarkController {
     @Autowired
     private TrademarkService trademarkService;
+    @Autowired
+    private ResenjaService resenjaService;
+
 
     @GetMapping(path = "/all")
     public ResponseEntity<ListOfTrademarkRequestsDTO> getAll() {
@@ -41,5 +46,12 @@ public class TrademarkController {
     @GetMapping("/xhtml/{id}")
     public ResponseEntity<PDFBytesDTO> getXHTML(@PathVariable String id) {
         return new ResponseEntity<>(new PDFBytesDTO(trademarkService.getXHTML(id)), HttpStatus.OK);
+    }
+
+    @PostMapping("/resenje/save")
+    public ResponseEntity<HttpStatus> saveResenje(@RequestBody ResenjeZahteva resenjeZahteva) {
+        resenjaService.saveNewResenje(resenjeZahteva);
+        trademarkService.changeTrademarkStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

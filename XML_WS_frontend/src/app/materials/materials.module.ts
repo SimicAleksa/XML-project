@@ -13,6 +13,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const matModules = [
   MatFormFieldModule,
@@ -27,7 +28,8 @@ const matModules = [
   MatStepperModule,
   MatChipsModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatDialogModule
 ];
 
 @NgModule({

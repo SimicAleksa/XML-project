@@ -19,6 +19,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { NewTrademarkFormComponent } from './components/trademark/new-trademark-form/new-trademark-form.component';
 import { TrademarkListComponent } from './components/trademark/trademark-list/trademark-list.component';
 import { PendingRequestsPageComponent } from './components/trademark/pages/pending-requests-page/pending-requests-page.component';
+import { DeclineReqDialogComponent } from './components/trademark/decline-req-dialog/decline-req-dialog.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PendingRequestsPageComponent } from './components/trademark/pages/pendi
     UserProfileComponent,
     NewTrademarkFormComponent,
     TrademarkListComponent,
-    PendingRequestsPageComponent
+    PendingRequestsPageComponent,
+    DeclineReqDialogComponent
   ],
   imports: [
     NgbModule,

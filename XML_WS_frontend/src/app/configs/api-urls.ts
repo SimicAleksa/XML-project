@@ -13,4 +13,5 @@ export const API_SEND_TRADEMARK_REQ_URL = TRADEMARK_API_BASE_URL + "/trademark/s
 export const API_FETCH_PENDING_TM_REQS_URL = TRADEMARK_API_BASE_URL + "/trademark/pending";
 export const API_GEN_TM_PDF = TRADEMARK_API_BASE_URL + "/trademark/pdf/";
 export const API_GEN_TM_XHTML = TRADEMARK_API_BASE_URL + "/trademark/xhtml/";
+export const API_SEND_TM_RESENJE = TRADEMARK_API_BASE_URL + "/trademark/resenje/save";
 //-------------------------------
