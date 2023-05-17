@@ -28,6 +28,7 @@ public class AuthenticationController {
     @PostMapping(value = "/login", consumes = {MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<AuthTokenDTO> loginUser(@RequestBody LoginDTO loginDTO) {
         try {
+            System.out.println(loginDTO.toString());
             return new ResponseEntity<>(authenticationService.loginUser(loginDTO), HttpStatus.OK);
         } catch (CredsNotValidException ignored) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

@@ -6,3 +6,6 @@ export const CLIENT_PROFILE_URL = "profile";
 
 //trademark service related urls
 export const CLIENT_TM_NEW_REQ_URL = "trademark/new";
+
+//patent service related urls
+export const CLIENT_PT_NEW_REQ_URL = "patent/new";

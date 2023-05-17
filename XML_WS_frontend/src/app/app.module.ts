@@ -17,6 +17,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuService } from './components/menu/service/menu-service';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewTrademarkFormComponent } from './components/trademark/new-trademark-form/new-trademark-form.component';
+import { NewPatentFormComponent } from './components/patent/new-patent-form/new-patent-form.component';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { NewTrademarkFormComponent } from './components/trademark/new-trademark-
     LoginComponent,
     MenuComponent,
     UserProfileComponent,
-    NewTrademarkFormComponent
+    NewTrademarkFormComponent,
+    NewPatentFormComponent
   ],
   imports: [
     NgbModule,

@@ -9,10 +9,18 @@
     </span>
 
     <span *ngIf="activeRole === 'REGULAR'">
-        <button mat-button [matMenuTriggerFor]="aboveMenu">SERVIS ZA ZIG</button>
-        <mat-menu #aboveMenu="matMenu" yPosition="above">
+        <button mat-button [matMenuTriggerFor]="aboveMenu1">SERVIS ZA ZIG</button>
+        <mat-menu #aboveMenu1="matMenu" yPosition="above">
             <button mat-menu-item (click)="onNewTrademarkReqBtnClick()">Novi zahtev za zig</button>
         </mat-menu>
+
+        <!-- dodato -->
+        <button mat-button [matMenuTriggerFor]="aboveMenu2">SERVIS ZA PATENT</button>
+        <mat-menu #aboveMenu2="matMenu" yPosition="above">
+            <button mat-menu-item (click)="onNewPatentReqBtnClick()">Novi zahtev za patent</button>
+        </mat-menu>
+
+
     </span>
 
     <span *ngIf="activeRole !== 'NOT LOGGED'">

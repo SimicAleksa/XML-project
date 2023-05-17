@@ -23,4 +23,13 @@ public class LoginDTO {
     private String email;
     @XmlElement(required = true)
     private String password;
+
+    @Override
+    public String toString() {
+        return "LoginDTO{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+

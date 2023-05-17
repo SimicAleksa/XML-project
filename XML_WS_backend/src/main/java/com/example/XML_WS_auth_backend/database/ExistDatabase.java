@@ -74,7 +74,8 @@ public class ExistDatabase {
         createDBConnection();
 
         Collection collection = getOrCreateCollection(0);
-        XMLResource resource = (XMLResource) collection.createResource(documentId, XMLResource.RESOURCE_TYPE);
+        //ToDo dodat nastavak .xml zarad dobavljanja podataka
+        XMLResource resource = (XMLResource) collection.createResource(documentId+".xml", XMLResource.RESOURCE_TYPE);
         resource.setContent(xmlDoc);
         collection.storeResource(resource);
 
@@ -85,7 +86,9 @@ public class ExistDatabase {
         createDBConnection();
         try (Collection collection = getOrCreateCollection(0)) {
             collection.setProperty(OutputKeys.INDENT, "yes");
-            return (XMLResource) collection.getResource(documentId);
+
+            //ToDo dodat nastavak .xml zarad dobavljanja podataka (pogledaj gornji todo)
+            return (XMLResource) collection.getResource(documentId+".xml");
         }
     }
 
