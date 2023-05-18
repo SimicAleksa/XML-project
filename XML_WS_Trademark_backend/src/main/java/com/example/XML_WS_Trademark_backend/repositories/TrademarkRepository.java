@@ -60,5 +60,15 @@ public class TrademarkRepository {
         return trademarkReqs;
     }
 
-
+    public List<ZahtevZaPriznanjeZiga> getTrademarksWithBasicSearch(List<String> params) {
+        List<ZahtevZaPriznanjeZiga> trademarkReqs = new ArrayList<>();
+        try {
+            ResourceIterator iterator = existDB.loadResourcesByBasicSearchParams(collectionUri, params).getIterator();
+            while (iterator.hasMoreResources())
+                trademarkReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return trademarkReqs;
+    }
 }

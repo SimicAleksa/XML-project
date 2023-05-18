@@ -20,6 +20,7 @@ import { NewTrademarkFormComponent } from './components/trademark/new-trademark-
 import { TrademarkListComponent } from './components/trademark/trademark-list/trademark-list.component';
 import { PendingRequestsPageComponent } from './components/trademark/pages/pending-requests-page/pending-requests-page.component';
 import { DeclineReqDialogComponent } from './components/trademark/decline-req-dialog/decline-req-dialog.component';
+import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basic-search-page/tm-basic-search-page.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DeclineReqDialogComponent } from './components/trademark/decline-req-di
     NewTrademarkFormComponent,
     TrademarkListComponent,
     PendingRequestsPageComponent,
-    DeclineReqDialogComponent
+    DeclineReqDialogComponent,
+    TmBasicSearchPageComponent
   ],
   imports: [
     NgbModule,

@@ -51,6 +51,14 @@ public class TrademarkService {
         save(trademarkReq);
     }
 
+    public List<ZahtevZaPriznanjeZiga> basicSearch(List<String> params, boolean onlyApproved) {
+        List<ZahtevZaPriznanjeZiga> reqs = trademarkRepository.getTrademarksWithBasicSearch(params);
+        if (onlyApproved)
+            return reqs.stream().filter(req -> req.getMetaData().getStatus().getValue().equals("PRIHVACENO"))
+                                .collect(Collectors.toList());
+        return reqs;
+    }
+
     private void save(ZahtevZaPriznanjeZiga trademark) {
         trademarkRepository.save(trademark);
     }

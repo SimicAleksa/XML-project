@@ -13,6 +13,8 @@ import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
 
 import javax.xml.transform.OutputKeys;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ExistDatabase {
@@ -92,6 +94,18 @@ public class ExistDatabase {
         try (Collection collection = getOrCreateCollection(collectionUri, 0)) {
             collection.setProperty(OutputKeys.INDENT, "yes");
             return getXPathQueryService(collection).query("/*");
+        }
+    }
+
+    public ResourceSet loadResourcesByBasicSearchParams(String collectionUri, List<String> params) throws Exception  {
+        createDBConnection();
+        try (Collection collection = getOrCreateCollection(collectionUri, 0)) {
+            collection.setProperty(OutputKeys.INDENT, "yes");
+            String xpathQuery = "//*[local-name()='ZahtevZaPriznanjeZiga' and (" +
+                                    params.stream()
+                                    .map(searchString -> "contains(., '" + searchString + "')")
+                                    .collect(Collectors.joining(" or ")) + ")]";
+            return getXPathQueryService(collection).query(xpathQuery);
         }
     }
 }

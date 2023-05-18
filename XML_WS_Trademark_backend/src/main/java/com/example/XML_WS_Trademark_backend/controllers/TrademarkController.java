@@ -1,5 +1,6 @@
 package com.example.XML_WS_Trademark_backend.controllers;
 
+import com.example.XML_WS_Trademark_backend.DTOs.BasicSearchParamsDTO;
 import com.example.XML_WS_Trademark_backend.DTOs.ListOfTrademarkRequestsDTO;
 import com.example.XML_WS_Trademark_backend.DTOs.PDFBytesDTO;
 import com.example.XML_WS_Trademark_backend.models.ResenjeZahteva;
@@ -53,5 +54,10 @@ public class TrademarkController {
         resenjaService.saveNewResenje(resenjeZahteva);
         trademarkService.changeTrademarkStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen());
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/search/basic")
+    public ResponseEntity<ListOfTrademarkRequestsDTO> basicSearch(@RequestBody BasicSearchParamsDTO paramsDTO) {
+        return new ResponseEntity<>(new ListOfTrademarkRequestsDTO(trademarkService.basicSearch(paramsDTO.getParam(), paramsDTO.getOnlyApproved())), HttpStatus.OK);
     }
 }
