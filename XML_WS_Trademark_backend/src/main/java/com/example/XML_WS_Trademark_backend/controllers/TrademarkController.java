@@ -1,6 +1,7 @@
 package com.example.XML_WS_Trademark_backend.controllers;
 
 import com.example.XML_WS_Trademark_backend.DTOs.BasicSearchParamsDTO;
+import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_Trademark_backend.DTOs.ListOfTrademarkRequestsDTO;
 import com.example.XML_WS_Trademark_backend.DTOs.PDFBytesDTO;
 import com.example.XML_WS_Trademark_backend.models.ResenjeZahteva;
@@ -58,6 +59,18 @@ public class TrademarkController {
 
     @PostMapping("/search/basic")
     public ResponseEntity<ListOfTrademarkRequestsDTO> basicSearch(@RequestBody BasicSearchParamsDTO paramsDTO) {
-        return new ResponseEntity<>(new ListOfTrademarkRequestsDTO(trademarkService.basicSearch(paramsDTO.getParam(), paramsDTO.getOnlyApproved())), HttpStatus.OK);
+        return new ResponseEntity<>(
+                new ListOfTrademarkRequestsDTO(trademarkService.basicSearch(paramsDTO.getParam(), paramsDTO.getOnlyApproved())),
+                HttpStatus.OK
+        );
     }
+
+    @PostMapping("/search/advanced")
+    public ResponseEntity<ListOfTrademarkRequestsDTO> advancedSearch(@RequestBody ComplexSearchParamsDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfTrademarkRequestsDTO(trademarkService.advancedSearch(paramsDTO)),
+                HttpStatus.OK
+        );
+    }
+
 }

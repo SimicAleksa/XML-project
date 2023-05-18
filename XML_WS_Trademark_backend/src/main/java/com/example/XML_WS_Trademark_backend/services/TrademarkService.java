@@ -1,5 +1,6 @@
 package com.example.XML_WS_Trademark_backend.services;
 
+import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.example.XML_WS_Trademark_backend.repositories.TrademarkRepository;
 import com.example.XML_WS_Trademark_backend.utils.PDForXHTMLGenerator;
@@ -56,6 +57,14 @@ public class TrademarkService {
         if (onlyApproved)
             return reqs.stream().filter(req -> req.getMetaData().getStatus().getValue().equals("PRIHVACENO"))
                                 .collect(Collectors.toList());
+        return reqs;
+    }
+
+    public List<ZahtevZaPriznanjeZiga> advancedSearch(ComplexSearchParamsDTO searchParamsDTO) {
+        List<ZahtevZaPriznanjeZiga> reqs = trademarkRepository.getTrademarksWithAdvancedSearch(searchParamsDTO);
+        if (searchParamsDTO.getOnlyApproved())
+            return reqs.stream().filter(req -> req.getMetaData().getStatus().getValue().equals("PRIHVACENO"))
+                    .collect(Collectors.toList());
         return reqs;
     }
 
