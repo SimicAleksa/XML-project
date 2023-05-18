@@ -25,7 +25,27 @@ public class UserController {
     @PostMapping(value = "/regular/register", consumes = {MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<HttpStatus> registerRegularUser(@RequestBody RegistrationDTO registrationDTO) {
         try {
-            this.userService.registerUser(registrationDTO);
+            this.userService.registerRegularUser(registrationDTO);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UserAlreadyExistsException ignored) {
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PostMapping(value = "/official/register", consumes = {MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<HttpStatus> registerOfficial(@RequestBody RegistrationDTO registrationDTO) {
+        try {
+            this.userService.registerOfficial(registrationDTO);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UserAlreadyExistsException ignored) {
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PostMapping(value = "/admin/register", consumes = {MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<HttpStatus> registerAdmin(@RequestBody RegistrationDTO registrationDTO) {
+        try {
+            this.userService.registerAdmin(registrationDTO);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (UserAlreadyExistsException ignored) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);

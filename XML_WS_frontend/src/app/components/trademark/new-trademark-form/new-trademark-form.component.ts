@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import { TitleStrategy } from '@angular/router';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { XMLParser } from 'src/app/utils/XMLParser';
@@ -56,7 +55,6 @@ export class NewTrademarkFormComponent implements OnInit {
 
   public podnosiocZahteva = this._formBuilder.group(this.personInfoFBObj);
   public punomocnik = this._formBuilder.group(this.personInfoFBObj);
-  // public zajednickiPredstavnik = this._formBuilder.group(this.personInfoFBObj);
   public podaciZiga = this._formBuilder.group(this.trademarkInfoFBObj);
   public ostalo = this._formBuilder.group(this.otherInfoFBObj);
   
@@ -118,8 +116,10 @@ export class NewTrademarkFormComponent implements OnInit {
   }
 
   onSubmitBtnClick(): void {
-    if (this.podaciZiga.value.tipZiga === "" || this.podaciZiga.value.tipZnaka === "")
+    if (this.podaciZiga.value.tipZiga === "" || this.podaciZiga.value.tipZnaka === "") {
       alert("Tip ziga i znaka nisu odabrani! ");
+      return;
+    }
 
     this.requestMaker
       .sendTrademarkRequest(this._getDocumentAsXML())

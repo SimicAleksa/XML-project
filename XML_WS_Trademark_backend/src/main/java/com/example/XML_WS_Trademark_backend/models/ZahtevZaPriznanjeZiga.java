@@ -767,7 +767,7 @@ public class ZahtevZaPriznanjeZiga {
         public static class DatumPodnosenja {
 
             @XmlValue
-            @XmlSchemaType(name = "date")
+            @XmlSchemaType(name = "dateTime")
             protected XMLGregorianCalendar value;
             @XmlAttribute(name = "property")
             protected String property;
@@ -833,7 +833,7 @@ public class ZahtevZaPriznanjeZiga {
         public static class DatumPregledanja {
 
             @XmlValue
-            @XmlSchemaType(name = "date")
+            @XmlSchemaType(name = "dateTime")
             protected XMLGregorianCalendar value;
             @XmlAttribute(name = "property")
             protected String property;

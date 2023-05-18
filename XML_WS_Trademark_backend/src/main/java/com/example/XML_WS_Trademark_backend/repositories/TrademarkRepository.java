@@ -15,7 +15,6 @@ import java.util.List;
 @Repository
 public class TrademarkRepository {
     public static final String collectionUri = "/db/trademarks";
-
     private final JAXBParser<ZahtevZaPriznanjeZiga> jaxbParser;
     @Autowired
     private ExistDatabase existDB;

@@ -29,6 +29,11 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    public ResenjeZahteva createResenjeZahteva() {
+        return new ResenjeZahteva();
+    }
+
+
     /**
      * Create an instance of {@link ZahtevZaPriznanjeZiga }
      * 

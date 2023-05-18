@@ -2,11 +2,12 @@ package com.example.XML_WS_Trademark_backend.services;
 
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.example.XML_WS_Trademark_backend.repositories.TrademarkRepository;
-import com.example.XML_WS_Trademark_backend.utils.PDFGenerator;
+import com.example.XML_WS_Trademark_backend.utils.PDForXHTMLGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TrademarkService {
@@ -16,7 +17,7 @@ public class TrademarkService {
 
     public void addNewTrademarkReq(ZahtevZaPriznanjeZiga trademark) {
         trademark.getMetaData().getBrojPrijave().setValue("Ж-" + (trademarkRepository.getAllTrademarkRequest().size()+1));
-        trademark.getMetaData().getStatus().setValue("PENDING");
+        trademark.getMetaData().getStatus().setValue("NERESENO");
         save(trademark);
     }
 
@@ -24,11 +25,30 @@ public class TrademarkService {
         return trademarkRepository.getAllTrademarkRequest();
     }
 
-    public void getPDF() {
+    public List<ZahtevZaPriznanjeZiga> getPendingRequests() {
+        return trademarkRepository.getAllTrademarkRequest().stream()
+                .filter(req -> req.getMetaData().getStatus().getValue().equals("NERESENO"))
+                .collect(Collectors.toList());
+    }
+
+    public byte[] getPDF(String brojPrijave) {
         try {
-            PDFGenerator.generatePDFandHTML(trademarkRepository.getAllTrademarkRequest().get(1));
-        } catch (Exception ignored) {
-        }
+            return PDForXHTMLGenerator.getPDF(trademarkRepository.getTrademarkRequestById(brojPrijave));
+        } catch (Exception ignored) {}
+        return new byte[0];
+    }
+
+    public byte[] getXHTML(String brojPrijave) {
+        try {
+            return PDForXHTMLGenerator.getXHTML(trademarkRepository.getTrademarkRequestById(brojPrijave));
+        } catch (Exception ignored) {}
+        return new byte[0];
+    }
+
+    public void changeTrademarkStatus(String trademarkId, boolean isApproved) {
+        ZahtevZaPriznanjeZiga trademarkReq = trademarkRepository.getTrademarkRequestById(trademarkId);
+        trademarkReq.getMetaData().getStatus().setValue(isApproved ? "PRIHVACENO" : "ODBIJENO");
+        save(trademarkReq);
     }
 
     private void save(ZahtevZaPriznanjeZiga trademark) {
