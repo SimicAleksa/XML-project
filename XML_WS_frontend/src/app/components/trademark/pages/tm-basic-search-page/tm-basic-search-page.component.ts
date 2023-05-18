@@ -10,8 +10,8 @@ import { XMLParser } from 'src/app/utils/XMLParser';
 })
 export class TmBasicSearchPageComponent implements OnInit {
   public searchResult: Array<any> = [];
-
   public searchQuery: string = '';
+  public selectedTM: string = "Nista nije izabrano";
 
   constructor(private requestMaker: RequestMaker, private xmlParser: XMLParser, private lStorageManager: LocalStorageManager) {
   }
@@ -49,4 +49,54 @@ export class TmBasicSearchPageComponent implements OnInit {
     }
     return this.xmlParser.parseToXml("BasicSearchParamsDTO", reqBody);
   }
+
+  handleSelectedRow(trademarkNum: string) {
+    this.selectedTM = trademarkNum;
+  }
+
+  onPDFBtnClick() {
+    if (this.nothingIsSelected())
+      return;
+
+    this.requestMaker
+    .getTrademarkPDF(this.selectedTM)
+    .subscribe({
+      next: (data: any) => {
+        if (data.body !== undefined)
+          this.openPDF(this.xmlParser.parseFromXml(data.body).PDFBytesDTO.Bytes._text, 'application/pdf');
+      },
+      error: () => {
+        alert('Pdf nije generisan, nesto se desilo!');
+      }
+    });
+  }
+
+  onXHTMLBtnClick() {
+    if (this.nothingIsSelected())
+      return;
+    
+    this.requestMaker
+    .getTrademarkXHTML(this.selectedTM)
+    .subscribe({
+      next: (data: any) => {
+        if (data.body !== undefined)
+          this.openPDF(this.xmlParser.parseFromXml(data.body).PDFBytesDTO.Bytes._text, 'text/html;charset=utf-8');
+      },
+      error: () => {
+        alert('XHTML nije generisan, nesto se desilo!');
+      }
+    });
+  }
+
+  nothingIsSelected(): Boolean {
+    return this.selectedTM === "Nista nije izabrano";
+  }
+
+  openPDF(bytesAsStr: string, mime: string) {
+    const blob = new Blob([require('buffer').Buffer.from(bytesAsStr, 'base64')], { type: mime });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+  }
+  
+  
 }

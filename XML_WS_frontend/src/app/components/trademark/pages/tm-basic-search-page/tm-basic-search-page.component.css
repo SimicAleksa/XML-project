@@ -9,3 +9,40 @@
 .table-cont {
     margin-top: 40px;
 }
+
+.selected-tm {
+    margin-top: 50px;
+}
+
+.sl-tm-txt {
+    font-size: 20px;
+}
+
+.sl-tm {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btns-section {
+    margin-top: 20px;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.pdf-btn {
+    background-color: rgb(15, 228, 182);
+}
+
+.pdf-btn:hover {
+    background-color: rgb(136, 212, 196);
+}
+
+.xhtml-btn {
+    background-color: rgb(9, 117, 189);
+}
+
+.xhtml-btn:hover {
+    background-color: rgb(119, 165, 196);
+}
