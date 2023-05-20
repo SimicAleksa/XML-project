@@ -12,6 +12,7 @@
         <button mat-button [matMenuTriggerFor]="aboveMenu">SERVIS ZA ZIG</button>
         <mat-menu #aboveMenu="matMenu" yPosition="above">
             <button mat-menu-item (click)="onBasicSearchBtnClick()">Osnovna pretraga</button>
+            <button mat-menu-item (click)="onAdvancedSearchBtnClick()">Napredna pretraga</button>
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewTrademarkReqBtnClick()">Novi zahtev za zig</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingTrademarkReqsBtnClick()">Neobradjeni zahtevi</button>
         </mat-menu>

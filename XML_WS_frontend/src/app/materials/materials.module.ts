@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 const matModules = [
   MatFormFieldModule,
@@ -32,6 +35,8 @@ const matModules = [
   MatSortModule,
   MatDialogModule,
   MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

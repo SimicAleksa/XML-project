@@ -15,4 +15,5 @@ export const API_GEN_TM_PDF = TRADEMARK_API_BASE_URL + "/trademark/pdf/";
 export const API_GEN_TM_XHTML = TRADEMARK_API_BASE_URL + "/trademark/xhtml/";
 export const API_SEND_TM_RESENJE = TRADEMARK_API_BASE_URL + "/trademark/resenje/save";
 export const API_TM_BASIC_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/basic";
+export const API_TM_ADVANCED_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/advanced";
 //-------------------------------

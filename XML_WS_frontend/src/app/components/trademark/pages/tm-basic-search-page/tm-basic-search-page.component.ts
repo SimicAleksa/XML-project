@@ -34,6 +34,7 @@ export class TmBasicSearchPageComponent implements OnInit {
                                   ).ListOfTrademarkRequestsDTO.ZahtevZaPriznanjeZiga;
       }
     });
+    this.selectedTM = "Nista nije izabrano";
   }
 
   getParamsFromSearchQuery() {

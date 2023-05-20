@@ -1,0 +1,85 @@
+button {
+    margin-left: 5px;
+}
+
+mat-form-field.sts-filters-inp, input {
+    width: 400px;
+}
+
+mat-form-field.marg {
+    margin: 0 5px;
+}
+
+mat-form-field.cmbox-sts-sel {
+    width: 200px;
+}
+
+mat-form-field.cmbox-logop {
+    width: 100px;
+}
+
+mat-form-field.cmbox-neg {
+    width: 100px;
+}
+
+.table-cont {
+    margin-top: 40px;
+}
+
+.datepicker-inp {
+    width: 150px;
+    height: 65.5px;
+}
+
+.neg {
+    background: rgb(241, 27, 27);
+}
+
+.not-neg {
+    background: rgb(59, 235, 15);
+}
+
+.disabled {
+    background: rgb(197, 201, 196);
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+.selected-tm {
+    margin-top: 50px;
+}
+
+.sl-tm-txt {
+    font-size: 20px;
+}
+
+.sl-tm {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btns-section {
+    margin-top: 20px;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.pdf-btn {
+    background-color: rgb(15, 228, 182);
+}
+
+.pdf-btn:hover {
+    background-color: rgb(136, 212, 196);
+}
+
+.xhtml-btn {
+    background-color: rgb(9, 117, 189);
+}
+
+.xhtml-btn:hover {
+    background-color: rgb(119, 165, 196);
+}

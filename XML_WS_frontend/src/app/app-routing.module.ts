@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NewTrademarkFormComponent } from './components/trademark/new-trademark-form/new-trademark-form.component';
 import { PendingRequestsPageComponent } from './components/trademark/pages/pending-requests-page/pending-requests-page.component';
+import { TmAdvancedSearchComponent } from './components/trademark/pages/tm-advanced-search/tm-advanced-search.component';
 import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basic-search-page/tm-basic-search-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'trademark/new', component: NewTrademarkFormComponent},
   {path: 'trademark/pending', component: PendingRequestsPageComponent},
   {path: 'trademark/search/basic', component: TmBasicSearchPageComponent},
+  {path: 'trademark/search/advanced', component: TmAdvancedSearchComponent},
 ];
 
 @NgModule({
