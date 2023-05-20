@@ -10,11 +10,10 @@ import { XMLParser } from 'src/app/utils/XMLParser';
   styleUrls: ['./new-patent-form.component.css']
 })
 export class NewPatentFormComponent implements OnInit {
-  public podnosioci: { name: string, selected: boolean, representative: boolean, form: any }[];
-  public podnosiocIndeks: number;
-  public representIndeks: number;
+  public podnosilac: { name: string, selected: boolean, representative: boolean, form: any };
   items: any[] = [];
   form: FormGroup;
+  
 
   countries = ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM",
    "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BE", "BZ", "BJ", "BM", "BT", "BO",
@@ -44,7 +43,7 @@ export class NewPatentFormComponent implements OnInit {
   private numInpFieldValids = [Validators.required, Validators.pattern(this.numReg)];
 
 
-  private personInfoFBObj = {
+  private podnosilacInfoFBObj = {
     ime: ['', this.nameInpFieldValids],
     telefon: ['', this.numInpFieldValids],
     eMail: ['', [Validators.required, Validators.email]],
@@ -54,41 +53,84 @@ export class NewPatentFormComponent implements OnInit {
     postanskiBroj: ['', this.numInpFieldValids],
     mestoPrebivalista: ['', this.nameInpFieldValids],
     drzavaPrebivalista: ['', this.nameInpFieldValids],
-    drzavljanstvo: ['', this.nameInpFieldValids]
+    drzavljanstvo: ['', this.nameInpFieldValids],
+    podnosilacJeIPronalazac:false
   };
 
-  private trademarkInfoFBObj = {
-    ulicaDostavljanje: ['', this.nameInpFieldValids],
-    brojUliceDostavljanje: ['', this.numInpFieldValids],
-    postanskiBrojDostavljanje: ['', this.numInpFieldValids],
-    mestoPrebivalistaDostavljanje: ['', this.nameInpFieldValids],
+  private pronalazacInfoFBObj = {
+    ime: ['', this.nameInpFieldValids],
+    telefon: ['', this.numInpFieldValids],
+    eMail: ['', [Validators.required, Validators.email]],
+    faks: ['', this.numInpFieldValids],
+    ulica: ['', this.nameInpFieldValids],
+    brojUlice: ['', this.numInpFieldValids],
+    postanskiBroj: ['', this.numInpFieldValids],
+    mestoPrebivalista: ['', this.nameInpFieldValids],
+    drzavaPrebivalista: ['', this.nameInpFieldValids],
+    pronalazacNeZeliDaBudeNaveden:false
+  };
+
+
+  private punomocnikInfoFBObj = {
+    ime: ['', this.nameInpFieldValids],
+    telefon: ['', this.numInpFieldValids],
+    eMail: ['', [Validators.required, Validators.email]],
+    ulica: ['', this.nameInpFieldValids],
+    brojUlice: ['', this.numInpFieldValids],
+    postanskiBroj: ['', this.numInpFieldValids],
+    mestoPrebivalista: ['', this.nameInpFieldValids],
+    zaZastupanje:false,
+    zaPrijemPismena:false
+  };
+
+  private pronalazakInfoFBObj = {
     naEngleskom: ['', [Validators.required]],
     naSrpskom: ['', [Validators.required]],
   };
 
+  private posiljkaInfoFBObj = {
+    ulicaDostavljanje: ['', this.nameInpFieldValids],
+    brojUliceDostavljanje: ['', this.numInpFieldValids],
+    postanskiBrojDostavljanje: ['', this.numInpFieldValids],
+    mestoPrebivalistaDostavljanje: ['', this.nameInpFieldValids],
+    elektronskimPutem:false,
+    papirnaForma:false
+  };
+
   private brojeviKlasaRobeIliUsluga = new Array<any>();
 
-  private otherInfoFBObj = {
+  private vrstaPrijaveInfoFBObj = {
     datumPodnosenjaPrvobitnePrijave: ['', ],
     brojPrvobitnePrijave: ['', ],
-    dvoslovnaOznakaDrzave: ['', ],
+    dopunska:false,
+    izdvojena:false
   }
 
-  public podnosiocZahteva = this._formBuilder.group(this.personInfoFBObj);
-  public pronalazac = this._formBuilder.group(this.personInfoFBObj);
-  public punomocnik = this._formBuilder.group(this.personInfoFBObj);
-  // public zajednickiPredstavnik = this._formBuilder.group(this.personInfoFBObj);
-  public podaciZiga = this._formBuilder.group(this.trademarkInfoFBObj);
-  public ostalo = this._formBuilder.group(this.otherInfoFBObj);
+  private ranijePrijaveInfoFBObj = 
+    [
+      {datumPodnosenjaPrvobitnePrijave: ['', ],
+      brojPrvobitnePrijave: ['', ],
+      dvoslovnaOznakaDrzave: ['', ]}
+    ]
   
 
+  public podnosiocZahteva = this._formBuilder.group(this.podnosilacInfoFBObj);
+  public pronalazac = this._formBuilder.group(this.podnosilacInfoFBObj);
+  public punomocnik = this._formBuilder.group(this.podnosilacInfoFBObj);
+  public podaciPatenta = this._formBuilder.group(this.pronalazakInfoFBObj);
+  public podaciPosiljke = this._formBuilder.group(this.posiljkaInfoFBObj);
+  public ostaloVrsta = this._formBuilder.group(this.vrstaPrijaveInfoFBObj);
+  public ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
+  // public ostaloRanije = [];
+  
   public numbers = Array.from({length: 45}, (_, i) => i+1);
 
   constructor(private _formBuilder: FormBuilder, private xmlParser: XMLParser, private requestMaker: RequestMaker, private lStoargeManager: LocalStorageManager) {
-    this.podnosioci = [{name: "Podnosioc 1", selected: true, representative: false, form: this.getPodnosiocFromForm()}];
-    this.podnosiocIndeks = 0;
-    this.representIndeks = 0;
-    this.podnosioci[this.representIndeks].representative = true;
+    this.podnosilac = {name: "Podnosioc 1", selected: true, representative: false, form: this.getPodnosiocFromForm()};
+    this.podnosilac.representative = true;
+    // this.form = this._formBuilder.group({
+    //   ostaloRanije : this._formBuilder.array(this.ranijePrijaveInfoFBObj)
+    // })
   }
 
   ngOnInit(): void {
@@ -96,9 +138,9 @@ export class NewPatentFormComponent implements OnInit {
 
   addNewInput(): void {
     const newItem = {
-      brojPrvobitnePrijave: new FormControl('', Validators.required),
-      datumPodnosenjaPrvobitnePrijave: new FormControl('', Validators.required),
-      dvoslovnaOznakaDrzave: new FormControl('', Validators.required)
+      brojPrvobitnePrijave: '',
+      datumPodnosenjaPrvobitnePrijave: '',
+      dvoslovnaOznakaDrzave: '',
     };
 
     this.items.push(newItem);
@@ -127,12 +169,13 @@ deleteInput(index: number) {
       postanskiBroj: p.postanskiBroj,
       mestoPrebivalista: p.mestoPrebivalista,
       drzavaPrebivalista: p.drzavaPrebivalista,
-      drzavljanstvo: p.drzavljanstvo
+      drzavljanstvo: p.drzavljanstvo,
+      podnosilacJeIPronalazac: p.podnosilacJeIPronalazac
     }
   }
 
   setPodnosiocFormFromSelection(){
-    let currPodnosioc = this.podnosioci.at(this.podnosiocIndeks);
+    let currPodnosioc = this.podnosilac;
     this.podnosiocZahteva.patchValue({
       ime: currPodnosioc?.form.ime,
       telefon: currPodnosioc?.form.telefon,
@@ -143,7 +186,8 @@ deleteInput(index: number) {
       postanskiBroj: currPodnosioc?.form.postanskiBroj,
       mestoPrebivalista: currPodnosioc?.form.mestoPrebivalista,
       drzavaPrebivalista: currPodnosioc?.form.drzavaPrebivalista,
-      drzavljanstvo: currPodnosioc?.form.drzavljanstvo
+      drzavljanstvo: currPodnosioc?.form.drzavljanstvo,
+      podnosilacJeIPronalazac: currPodnosioc?.form.podnosilacJeIPronalazac
     });
   }
 
@@ -158,61 +202,45 @@ deleteInput(index: number) {
       postanskiBroj: '',
       mestoPrebivalista: '',
       drzavaPrebivalista: '',
-      drzavljanstvo: ''
+      drzavljanstvo: '',
+      podnosilacJeIPronalazac:false
     });
   }
 
   onSubmitBtnClick(): void {
-    this.requestMaker
-      .sendTrademarkRequest(this._getDocumentAsXML())
-      .subscribe({
-        error: (err: any) => {
-          alert('Neuspesno, nesto se desilo!');
-        },
-        complete: () => {
-          alert('Prijava za zig je uspesno poslata!');
-        }
-    });
+
+
+    console.log(this.items);
+    console.log(this.ostaloRanije.value);
+    alert("usao")
+
+
+    // this.requestMaker
+    //   .sendPatentRequest(this._getDocumentAsXML())
+    //   .subscribe({
+    //     error: (err: any) => {
+    //       alert('Neuspesno, nesto se desilo!');
+    //     },
+    //     complete: () => {
+    //       alert('Prijava za zig je uspesno poslata!');
+    //     }
+    // });
   }
 
   addPodnosioc(): void {
     this.saveChanges();
-    this.podnosioci[this.podnosiocIndeks].selected = false;
+    this.podnosilac.selected = false;
     
     this.resetPodnosiocForm();
-    this.podnosioci.push({name:'Podnosioc ' + (this.podnosioci.length+1) , selected: false, representative: false, form: this.getPodnosiocFromForm()});
-    this.podnosiocIndeks = this.podnosioci.length-1;
-    this.podnosioci[this.podnosiocIndeks].selected = true;
-  }
-
-  removePodnosioc(): void {
-    if (this.podnosioci.length > 1) {
-      if (this.podnosioci[this.podnosiocIndeks].representative) {
-        this.representIndeks = 0;
-        this.podnosioci[this.representIndeks].representative = true;
-      }
-      this.podnosioci.splice(this.podnosiocIndeks, 1);
-      this.podnosiocIndeks = this.podnosioci.length-1;
-      this.podnosioci[this.podnosiocIndeks].selected = true;
-      this.podnosioci.forEach((podnosioc, i) => {
-        podnosioc.name = "Podnosioc " + (i+1);
-      });
-      this.setPodnosiocFormFromSelection();
-    }
   }
 
   toggleSelect(index: number): void {
     this.saveChanges();
-    this.podnosioci[this.podnosiocIndeks].selected = false;
-
-    this.podnosiocIndeks = index;
-    this.podnosioci[this.podnosiocIndeks].selected = true;
-    
     this.setPodnosiocFormFromSelection();
   }
 
   saveChanges() {
-    this.podnosioci[this.podnosiocIndeks].form = this.getPodnosiocFromForm();
+    this.podnosilac.form = this.getPodnosiocFromForm();
   }
 
   theSamePerson(): void {
@@ -266,8 +294,9 @@ deleteInput(index: number) {
 
   _getDocumentAsXML(): any {
     let punomocnik = this.punomocnik.value;
-    let zig = this.podaciZiga.value;
-    let ostalo = this.ostalo.value;
+    let zig = this.podaciPatenta.value;
+    let ostaloVrsta = this.ostaloVrsta.value;
+    let ostaloRanije = this.ostaloRanije.value;
 
     const reqBody = {
       "_attributes": {
@@ -283,24 +312,18 @@ deleteInput(index: number) {
         "z:DatumPregledanja": { _text: new Date().toISOString().slice(0, 19) }, 
         "z:Status": { _text: ""},
       }, 
-      "z:PodnosiociPrijave": { "z:PodnosilacPrijave": this.mapPodnosiociForXML() },
+      "z:PodnosilacPrijave": this._getPersonInfoJSONObj(this.podnosilac) ,
       "z:Punomocnik": this._getPersonInfoJSONObj(punomocnik),
-      "z:ZajednickiPredstavnik": this._getPersonInfoJSONObj(this.podnosioci[this.representIndeks].form),
-      "z:Zig": this._getTrademarkInfoJSONObj(zig),
+      "z:ZajednickiPredstavnik": this._getPersonInfoJSONObj(this.podnosilac.form),
+      // "z:Zig": this._getTrademarkInfoJSONObj(zig),
       "z:BrojeviKlasaRobeIliUsluga": { "z:BrojKlaseRobeIliUsluge": this.brojeviKlasaRobeIliUsluga.sort((a,b) => a - b) },
-      "z:BrojPrvobitnePrijave": { _text: ostalo.brojPrvobitnePrijave },
-      "z:DatumPodnosenjaPrvobitnePrijave": { _text: ostalo.datumPodnosenjaPrvobitnePrijave },
-      "z:DvoslovnaOznakaDrzave": { _text: ostalo.dvoslovnaOznakaDrzave },
-      "z:Taksa": this._getTaxesInfoJSONObj(ostalo)
+      "z:BrojPrvobitnePrijave": { _text: ostaloRanije.forEach((item: any) => {item.brojPrvobitnePrijave})  },
+      "z:DatumPodnosenjaPrvobitnePrijave": { _text: ostaloRanije.forEach((item: any) => {item.datumPodnosenjaPrvobitnePrijave}) },
+      "z:DvoslovnaOznakaDrzave": { _text: ostaloRanije.forEach((item: any) => {item.dvoslovnaOznakaDrzave}) },
+      // "z:Taksa": this._getTaxesInfoJSONObj(ostalo)
 
     };
     return this.xmlParser.parseToXml("z:ZahtevZaPriznanjeZiga", reqBody);
-  }
-
-  mapPodnosiociForXML() {
-    return this.podnosioci.map(p => {
-      return this._getPersonInfoJSONObj(p.form);
-    });
   }
 
   _getPersonInfoJSONObj(formData: any) {
@@ -325,10 +348,10 @@ deleteInput(index: number) {
   _getTrademarkInfoJSONObj(formData: any) {
     console.log(formData);
     return {
-      "z:UlicaDostavljanje": { _text: formData.tipZiga },
-      "z:BrojUliceDostavljanje": { _text: formData.tipZnaka },
-      "z:PostanskiBrojDostavljanje": { _text: formData.transliteracija },
-      "z:MestoPrebivalistaDostavljanje": { _text: formData.prevodZnaka },
+      // "z:UlicaDostavljanje": { _text: formData.tipZiga },
+      // "z:BrojUliceDostavljanje": { _text: formData.tipZnaka },
+      // "z:PostanskiBrojDostavljanje": { _text: formData.transliteracija },
+      // "z:MestoPrebivalistaDostavljanje": { _text: formData.prevodZnaka },
       "z:NaEngleskom": { _text: formData.naEngleskom },
       "z:NaSrpskom": { _text: formData.naSrpskom }
     }
