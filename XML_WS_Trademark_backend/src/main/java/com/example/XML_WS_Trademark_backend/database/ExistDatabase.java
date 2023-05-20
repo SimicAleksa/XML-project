@@ -94,4 +94,13 @@ public class ExistDatabase {
             return getXPathQueryService(collection).query("/*");
         }
     }
+
+    public ResourceSet loadResourcesByCustomQuery(String collectionUri, String xpathQuery) throws Exception  {
+        createDBConnection();
+        try (Collection collection = getOrCreateCollection(collectionUri, 0)) {
+            collection.setProperty(OutputKeys.INDENT, "yes");
+
+            return getXPathQueryService(collection).query(xpathQuery);
+        }
+    }
 }

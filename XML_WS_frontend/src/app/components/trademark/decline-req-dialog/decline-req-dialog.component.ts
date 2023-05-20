@@ -29,6 +29,4 @@ export class DeclineReqDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-
-
 }
