@@ -306,36 +306,36 @@
             <form [formGroup]="ostaloRanije">
                 <div class="border" style="padding: 10px;">
                     <h4>Zahtev za priznanje prava prvenstva iz ranijih prijava</h4>
-                    <div class="row" *ngFor="let item of items; let i = index">
-                      <div *ngIf="!item.deleted">
-                        <div class="border" style="padding: 10px;">
-                            <div class="input-row">
-                            <mat-form-field class="col-4 m-1" appearance="fill" required>
-                                <mat-label>Datum podnosenja prvobitne prijave</mat-label>
-                                <input class="row-input" matInput type="date" [formControlName]="item.datumPodnosenjaPrvobitnePrijave">
-                            </mat-form-field>
-                            <mat-form-field class="col-4 m-1" appearance="fill" required>
-                                <mat-label>Broj ranije prijave</mat-label>
-                                <input class="row-input" id="newItemValue2_{{i}}" matInput type="text" [formControlName]="item.brojPrvobitnePrijave">
+                    <md-grid-list cols="1" formArrayName='areas'>
+                        <div class="row" *ngIf="ostaloRanije.get('areas')">
+                            <div *ngFor="let area of getControls(); let i = index">
+                                <div>
+                                    <div class="border" style="padding: 10px;">
+                                        <div class="input-row">
+                                        <!-- <p>{{ostaloRanije.get('areas')?.value[0].brojPrvobitnePrijave}}</p> -->
+                                        <p>{{area.value | json}}</p>
+                                        <!-- <mat-form-field class="col-4 m-1" appearance="fill" required>
+                                            <mat-label>Datum podnosenja prvobitne prijave</mat-label>
+                                            <input class="row-input" matInput type="date" formControlName={{area.value[i].datumPodnosenjaPrvobitnePrijave}}>
+                                        </mat-form-field> -->
+                                        <mat-form-field class="col-4 m-1" appearance="fill" required>
+                                            <mat-label>Broj ranije prijave</mat-label>
+                                            <input class="row-input" id="newItemValue2_{{i}}" matInput type="text" formGroupName="brojPrvobitnePrijave">
+                                        </mat-form-field>
 
-                            </mat-form-field>
-
-                            <mat-form-field class="col-2 m-1" appearance="fill" required>
-                                <mat-label>Dvoslovna oznaka drzave</mat-label>
-                                <mat-select [formControlName]="getFormControlName(i)">
-                                  <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                              
-
-
-
+                                        <!-- <mat-form-field class="col-2 m-1" appearance="fill" required>
+                                            <mat-label>Dvoslovna oznaka drzave</mat-label>
+                                            <mat-select formControlName="dvoslovnaOznakaDrzave">
+                                            <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field> -->
+                                        </div>
+                                        <button class="delete-button" (click)="deleteInput(i)">Obrisi</button>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="delete-button" (click)="deleteInput(i)">Obrisi</button>
                         </div>
-                      </div>
-                    </div>
-                    
+                    </md-grid-list>
                     <button class="add-button" (click)="addNewInput()">Dodaj raniju prijavu</button>
                 </div>
                   

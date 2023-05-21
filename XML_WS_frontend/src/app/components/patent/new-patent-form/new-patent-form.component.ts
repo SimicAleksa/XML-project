@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators,FormGroup, FormControl,} from '@angular/forms';
+import {FormBuilder, Validators,FormGroup, FormControl, FormArray,} from '@angular/forms';
 import { TitleStrategy } from '@angular/router';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
@@ -120,8 +120,7 @@ export class NewPatentFormComponent implements OnInit {
   public podaciPatenta = this._formBuilder.group(this.pronalazakInfoFBObj);
   public podaciPosiljke = this._formBuilder.group(this.posiljkaInfoFBObj);
   public ostaloVrsta = this._formBuilder.group(this.vrstaPrijaveInfoFBObj);
-  public ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
-  // public ostaloRanije = [];
+  // public ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
   
   public numbers = Array.from({length: 45}, (_, i) => i+1);
 
@@ -133,23 +132,63 @@ export class NewPatentFormComponent implements OnInit {
     // })
   }
 
+  ostaloRanije: FormGroup;
+
+  private area(){
+    return this._formBuilder.group({
+      brojPrvobitnePrijave: [''],
+      datumPodnosenjaPrvobitnePrijave: [''],
+      dvoslovnaOznakaDrzave: [''],
+    });
+  }
+
+  private areaFULL(){
+    return this._formBuilder.group({
+      brojPrvobitnePrijave: ['asdasddas'],
+      datumPodnosenjaPrvobitnePrijave: ['dsadassa'],
+      dvoslovnaOznakaDrzave: ['dsadsadsa'],
+    });
+  }
+
   ngOnInit(): void {
+    this.ostaloRanije = this._formBuilder.group({
+        areas:this._formBuilder.array([this.area()])
+    });    
+  this.addNewInput()
+  console.log(this._formBuilder.array([this.area()]));
+  }
+
+
+  getControls() {
+    // console.log(this.ostaloRanije.get('areas') as FormArray);
+    
+    return (this.ostaloRanije.get('areas') as FormArray).controls;
   }
 
   addNewInput(): void {
-    const newItem = {
-      brojPrvobitnePrijave: '',
-      datumPodnosenjaPrvobitnePrijave: '',
-      dvoslovnaOznakaDrzave: '',
-    };
 
-    this.items.push(newItem);
+    const control = <FormArray>this.ostaloRanije.get('areas');
+    control.push(this.areaFULL());
+
+
+    // const newItem = {
+    //   brojPrvobitnePrijave: '',
+    //   datumPodnosenjaPrvobitnePrijave: '',
+    //   dvoslovnaOznakaDrzave: '',
+    // };
+
+    // this.items.push(newItem);
   }
 
   
 deleteInput(index: number) {
-  this.items[index].deleted = true;
-  this.items.splice(index,1);
+
+  const control = <FormArray>this.ostaloRanije.get('areas');
+  control.removeAt(index);
+
+
+  // this.items[index].deleted = true;
+  // this.items.splice(index,1);
 }
 
 
@@ -211,7 +250,7 @@ deleteInput(index: number) {
 
 
     console.log(this.items);
-    console.log(this.ostaloRanije.value);
+    console.log(this.ostaloRanije);
     alert("usao")
 
 
