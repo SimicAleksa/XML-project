@@ -118,3 +118,24 @@ button {
     margin-right: 10px;
   }
   
+  .item-table {
+    margin-bottom: 20px;
+  }
+  
+  .item-table__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .item-table__header {
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .item-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  

@@ -13,6 +13,7 @@ export class NewPatentFormComponent implements OnInit {
   public podnosilac: { name: string, selected: boolean, representative: boolean, form: any };
   items: any[] = [];
   form: FormGroup;
+
   
 
   countries = ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM",
@@ -107,11 +108,9 @@ export class NewPatentFormComponent implements OnInit {
   }
 
   private ranijePrijaveInfoFBObj = 
-    [
       {datumPodnosenjaPrvobitnePrijave: ['', ],
       brojPrvobitnePrijave: ['', ],
       dvoslovnaOznakaDrzave: ['', ]}
-    ]
   
 
   public podnosiocZahteva = this._formBuilder.group(this.podnosilacInfoFBObj);
@@ -120,7 +119,7 @@ export class NewPatentFormComponent implements OnInit {
   public podaciPatenta = this._formBuilder.group(this.pronalazakInfoFBObj);
   public podaciPosiljke = this._formBuilder.group(this.posiljkaInfoFBObj);
   public ostaloVrsta = this._formBuilder.group(this.vrstaPrijaveInfoFBObj);
-  // public ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
+  public ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
   
   public numbers = Array.from({length: 45}, (_, i) => i+1);
 
@@ -132,7 +131,7 @@ export class NewPatentFormComponent implements OnInit {
     // })
   }
 
-  ostaloRanije: FormGroup;
+  // ostaloRanije: FormGroup;
 
   private area(){
     return this._formBuilder.group({
@@ -151,45 +150,37 @@ export class NewPatentFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ostaloRanije = this._formBuilder.group({
-        areas:this._formBuilder.array([this.area()])
-    });    
-  this.addNewInput()
-  console.log(this._formBuilder.array([this.area()]));
+  //   this.ostaloRanije = this._formBuilder.group({
+  //       areas:this._formBuilder.array([this.area()])
+  //   });    
+  // // this.addNewInput()
+  // console.log(this._formBuilder.array([this.area()]));
   }
 
 
-  getControls() {
-    // console.log(this.ostaloRanije.get('areas') as FormArray);
+  // getControls() {
+  //   // console.log(this.ostaloRanije.get('areas') as FormArray);
     
-    return (this.ostaloRanije.get('areas') as FormArray).controls;
-  }
+  //   return (this.ostaloRanije.get('areas') as FormArray).controls;
+  // }
 
   addNewInput(): void {
 
-    const control = <FormArray>this.ostaloRanije.get('areas');
-    control.push(this.areaFULL());
+    // const control = <FormArray>this.ostaloRanije.get('areas');
+    // control.push(this.areaFULL());
 
+    alert("DODATO")
+    const newItem = {
+      brojPrvobitnePrijave: this.ostaloRanije.get("brojPrvobitnePrijave")?.value,
+      datumPodnosenjaPrvobitnePrijave: this.ostaloRanije.get("datumPodnosenjaPrvobitnePrijave")?.value,
+      dvoslovnaOznakaDrzave: this.ostaloRanije.get("dvoslovnaOznakaDrzave")?.value,
+    };
 
-    // const newItem = {
-    //   brojPrvobitnePrijave: '',
-    //   datumPodnosenjaPrvobitnePrijave: '',
-    //   dvoslovnaOznakaDrzave: '',
-    // };
+    this.items.push(newItem);
 
-    // this.items.push(newItem);
+    this.ostaloRanije = this._formBuilder.group(this.ranijePrijaveInfoFBObj);
+
   }
-
-  
-deleteInput(index: number) {
-
-  const control = <FormArray>this.ostaloRanije.get('areas');
-  control.removeAt(index);
-
-
-  // this.items[index].deleted = true;
-  // this.items.splice(index,1);
-}
 
 
   getFormControlName(index: number): string {
@@ -356,9 +347,9 @@ deleteInput(index: number) {
       "z:ZajednickiPredstavnik": this._getPersonInfoJSONObj(this.podnosilac.form),
       // "z:Zig": this._getTrademarkInfoJSONObj(zig),
       "z:BrojeviKlasaRobeIliUsluga": { "z:BrojKlaseRobeIliUsluge": this.brojeviKlasaRobeIliUsluga.sort((a,b) => a - b) },
-      "z:BrojPrvobitnePrijave": { _text: ostaloRanije.forEach((item: any) => {item.brojPrvobitnePrijave})  },
-      "z:DatumPodnosenjaPrvobitnePrijave": { _text: ostaloRanije.forEach((item: any) => {item.datumPodnosenjaPrvobitnePrijave}) },
-      "z:DvoslovnaOznakaDrzave": { _text: ostaloRanije.forEach((item: any) => {item.dvoslovnaOznakaDrzave}) },
+      "z:BrojPrvobitnePrijave": { _text: this.ostaloRanije.get("brojPrvobitnePrijave")  },
+      "z:DatumPodnosenjaPrvobitnePrijave": { _text: this.ostaloRanije.get("datumPodnosenjaPrvobitnePrijave") },
+      "z:DvoslovnaOznakaDrzave": { _text: this.ostaloRanije.get("dvoslovnaOznakaDrzave")},
       // "z:Taksa": this._getTaxesInfoJSONObj(ostalo)
 
     };
@@ -385,7 +376,7 @@ deleteInput(index: number) {
   }
 
   _getTrademarkInfoJSONObj(formData: any) {
-    console.log(formData);
+    // console.log(formData);
     return {
       // "z:UlicaDostavljanje": { _text: formData.tipZiga },
       // "z:BrojUliceDostavljanje": { _text: formData.tipZnaka },
