@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/patent")
+@RequestMapping(path = "/api/patent")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatentController {
     @Autowired
     private PatentService patentService;
@@ -22,8 +23,8 @@ public class PatentController {
     }
 
     @PostMapping(path = "/save", consumes = {MediaType.APPLICATION_XML_VALUE} )
-    public ResponseEntity<HttpStatus> saveNewTrademark(@RequestBody ZahtevZaPatent trademark) {
-        patentService.save(trademark);
+    public ResponseEntity<HttpStatus> saveNewPatent(@RequestBody ZahtevZaPatent patent) {
+        patentService.save(patent);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

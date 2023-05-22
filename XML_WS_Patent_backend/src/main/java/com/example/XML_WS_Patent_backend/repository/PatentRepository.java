@@ -29,11 +29,12 @@ public class PatentRepository {
     }
 
 
-    public void save(ZahtevZaPatent trademark) {
+    public void save(ZahtevZaPatent patent) {
         try {
-            String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
-            patentDB.addToCollection(collectionUri, documentId, trademarkXML);
-            fusekiDB.save(trademarkXML);
+            String documentID = patent.getPopunjavaZavod().getBrojPrijave().concat(".xml");
+            String patentXML = jaxbParser.parseFromObjToByteStream(patent);
+            patentDB.addToCollection(collectionUri, documentID, patentXML);
+            fusekiDB.save(patentXML);
         } catch (Exception e) {
             e.printStackTrace();
         }

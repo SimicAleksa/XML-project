@@ -5,19 +5,18 @@
         <mat-step [stepControl]="podnosiocZahteva" label="Podnosioc prijave">
             <form [formGroup]="podnosiocZahteva">
                 <div class="row" >
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
                         <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
                         <mat-label>Prezime</mat-label>
                         <input matInput type="text" formControlName="prezime">
                     </mat-form-field>
-                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
-                    <!-- <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="!isFizockoLice;">
                         <mat-label>Poslovno ime</mat-label>
                         <input matInput type="text" formControlName="poslovnoIme">
-                    </mat-form-field> -->
+                    </mat-form-field>
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -61,7 +60,7 @@
                     </mat-form-field>
 
                     <!-- ALI ovo samo za fizicka lica!!!! -->
-                    <mat-form-field class=col-4 appearance="fill" required>
+                    <mat-form-field class=col-4 appearance="fill" required *ngIf="isFizockoLice;">
                         <mat-label>Drzavljanstvo</mat-label>
                         <input matInput type="text" formControlName="drzavljanstvo">
                     </mat-form-field>
@@ -92,11 +91,6 @@
                         <mat-label>Prezime</mat-label>
                         <input matInput type="text" formControlName="prezime">
                     </mat-form-field>
-                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
-                    <!-- <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Poslovno ime</mat-label>
-                        <input matInput type="text" formControlName="poslovnoIme">
-                    </mat-form-field> -->
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -160,19 +154,18 @@
             <form [formGroup]="punomocnik">
 
                 <div class="row" >
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
                         <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
                         <mat-label>Prezime</mat-label>
                         <input matInput type="text" formControlName="prezime">
                     </mat-form-field>
-                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
-                    <!-- <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" required *ngIf="!isFizockoLice;">
                         <mat-label>Poslovno ime</mat-label>
                         <input matInput type="text" formControlName="poslovnoIme">
-                    </mat-form-field> -->
+                    </mat-form-field>
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -333,7 +326,7 @@
 
                 <div class="text-center buttons-cont">
                     <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
-                    <button mat-button (click)="onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
                 </div>
             </form>
         </mat-step>

@@ -14,8 +14,8 @@ public class PatentService {
     @Autowired
     private PatentRepository patentRepository;
 
-    public void save(ZahtevZaPatent trademark) {
-        patentRepository.save(trademark);
+    public void save(ZahtevZaPatent patent) {
+        patentRepository.save(patent);
     }
 
     public List<ZahtevZaPatent> getAll() {

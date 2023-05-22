@@ -188,7 +188,8 @@ public class ZahtevZaPatent {
     protected ZahtevZaPatent.Pronalazac pronalazac;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
     protected ZahtevZaPatent.Punomocnik punomocnik;
-    @XmlElement(name = "dostavljanje_podaci", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+//    @XmlElement(name = "dostavljanje_podaci", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+    @XmlElement(name = "dostavljanje_podaci", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = false)
     protected ZahtevZaPatent.DostavljanjePodaci dostavljanjePodaci;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
     protected ZahtevZaPatent.Prijava prijava;

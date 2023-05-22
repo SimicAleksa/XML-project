@@ -121,7 +121,7 @@
             <xs:element name="fizicko_pravno_lice">
                 <xs:complexType>
                     <xs:choice>
-                        <xs:element minOccurs="1" name="fizicko_lice" type="pat:TFizicko_Lice"/>
+                        <xs:element minOccurs="0" name="fizicko_lice" type="pat:TFizicko_Lice"/>
                         <xs:element minOccurs="0" name="pravno_lice">
                             <xs:complexType>
                                 <xs:all>

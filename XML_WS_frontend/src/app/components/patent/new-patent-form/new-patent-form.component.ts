@@ -11,9 +11,7 @@ import { XMLParser } from 'src/app/utils/XMLParser';
 })
 export class NewPatentFormComponent implements OnInit {
   items: any[] = [];
-  form: FormGroup;
-
-  
+  form: FormGroup;  
 
   countries = ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM",
    "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BE", "BZ", "BJ", "BM", "BT", "BO",
@@ -52,10 +50,16 @@ export class NewPatentFormComponent implements OnInit {
   public izdvojena:boolean = false;
   public elektronskimPutem:boolean = false;
   public papirnaForma:boolean = false;
+  
+
+  public isFizockoLice:boolean = false
+
+
 
   private podnosilacInfoFBObj = {
     ime: ['', this.nameInpFieldValids],
     prezime: ['', this.nameInpFieldValids],
+    poslovnoIme: ['', this.nameInpFieldValids],
     telefon: ['', this.numInpFieldValids],
     eMail: ['', [Validators.required, Validators.email]],
     faks: ['', this.numInpFieldValids],
@@ -87,6 +91,7 @@ export class NewPatentFormComponent implements OnInit {
   private punomocnikInfoFBObj = {
     ime: ['', this.nameInpFieldValids],
     prezime: ['', this.nameInpFieldValids],
+    poslovnoIme: ['', this.nameInpFieldValids],
     telefon: ['', this.numInpFieldValids],
     eMail: ['', [Validators.required, Validators.email]],
     ulica: ['', this.nameInpFieldValids],
@@ -146,6 +151,12 @@ export class NewPatentFormComponent implements OnInit {
 
   }
 
+  generateRandomString() {
+    var timestamp = Date.now().toString();
+    var randomString = Math.random().toString(36).substr(2) + timestamp;
+    return randomString;
+  }
+
   addNewInput(): void {
     alert("DODATO")
     const newItem = {
@@ -160,22 +171,22 @@ export class NewPatentFormComponent implements OnInit {
 
   onSubmitBtnClick(): void {
 
-    console.log(this.items);
-    console.log(this.punomocnik);
-    alert("usao")
+    // console.log(this.items);
+    // console.log(this.punomocnik);
+    // alert("usao")
 
-    console.log(this._getDocumentAsXML())
+    // console.log(this._getDocumentAsXML())
 
-    // this.requestMaker
-    //   .sendPatentRequest(this._getDocumentAsXML())
-    //   .subscribe({
-    //     error: (err: any) => {
-    //       alert('Neuspesno, nesto se desilo!');
-    //     },
-    //     complete: () => {
-    //       alert('Prijava za zig je uspesno poslata!');
-    //     }
-    // });
+    this.requestMaker
+      .sendPatentRequest(this._getDocumentAsXML())
+      .subscribe({
+        error: (err: any) => {
+          alert('Neuspesno, nesto se desilo!');
+        },
+        complete: () => {
+          alert('Prijava za zig je uspesno poslata!');
+        }
+    });
   }
 
 
@@ -235,7 +246,7 @@ export class NewPatentFormComponent implements OnInit {
         "xsi:schemaLocation": "http://www.ftn.uns.ac.rs/zahtev_za_patent Zahtev_za_patent.xsd"
       },
       "p:popunjava_zavod": { 
-        "p:broj_prijave": { _text: ""},
+        "p:broj_prijave": { _text: "P_"+this.generateRandomString()},
         "p:datum_prijema": { _text: new Date().toISOString().slice(0, 19) },
         "p:priznati_datum_podnosenja": { _text: new Date().toISOString().slice(0, 19) }, 
       }, 
@@ -250,7 +261,7 @@ export class NewPatentFormComponent implements OnInit {
       } 
 
     };
-    return this.xmlParser.parseToXml("p:ZahtevZaPriznanjeZiga", reqBody);
+    return this.xmlParser.parseToXml("p:Zahtev_za_patent", reqBody);
   }
   _getRanijePrijaveInfoJSONObj(listaRanijihPrijava: any) {
     let result: { "p:datum_podnosenja_ranije_prijave": { _text: any; }; "p:broj_ranije_prijave": { _text: any; }; "p:dvoslovna_oznaka_drzave": { _text: any; }; }[] = [];
@@ -298,36 +309,59 @@ export class NewPatentFormComponent implements OnInit {
 
 
   _getPodnosilacInfoJSONObj(formData: any) {
-    return {
-      // traba staviti vrednost checkboxa!!!
-      "p:podnosilac_prijave_je_i_pronalazac": { _text: this.podnosilacJeIPronalazac },
-      "p:licni_podaci": { 
-        "p:fizicko_pravno_lice": { 
-          "p:fizicko_lice": { 
-            "p:ime": { _text: formData.ime},
-            "p:prezime": { _text: formData.prezime},
+    if(this.isFizockoLice)
+      return {
+        "p:podnosilac_prijave_je_i_pronalazac": { _text: this.podnosilacJeIPronalazac },
+        "p:licni_podaci": { 
+          "p:fizicko_pravno_lice": { 
+            "p:fizicko_lice": { 
+              "p:ime": { _text: formData.ime},
+              "p:prezime": { _text: formData.prezime},
+            }
+          },
+          "p:drzavljanstvo": { _text: formData.drzavljanstvo },
+          "p:adresa": { 
+            "p:ulica": { _text: formData.ulica },
+            "p:broj_objekta": { _text: formData.brojUlice },
+            "p:postanski_broj": { _text: formData.postanskiBroj },
+            "p:mesto": { _text: formData.mestoPrebivalista },
+            "p:drzava": { _text: formData.drzavaPrebivalista }
+          },
+          "p:dodatni_podaci": { 
+            "p:broj_telefona": { _text: formData.brojUlice},
+            "p:broj_faksa": { _text: formData.postanskiBroj},
+            "p:e_posta": { _text: formData.mestoPrebivalista},
           }
-        },
-        "p:drzavljanstvo": { _text: formData.drzavljanstvo },
-        "p:adresa": { 
-          "p:ulica": { _text: formData.ulica },
-          "p:broj_objekta": { _text: formData.brojUlice },
-          "p:postanski_broj": { _text: formData.postanskiBroj },
-          "p:mesto": { _text: formData.mestoPrebivalista },
-          "p:drzava": { _text: formData.drzavaPrebivalista }
-        },
-        "p:dodatni_podaci": { 
-          "p:broj_telefona": { _text: formData.brojUlice},
-          "p:broj_faksa": { _text: formData.postanskiBroj},
-          "p:e_posta": { _text: formData.mestoPrebivalista},
         }
       }
-    }
+      else
+      return {
+        "p:podnosilac_prijave_je_i_pronalazac": { _text: this.podnosilacJeIPronalazac },
+        "p:licni_podaci": { 
+          "p:fizicko_pravno_lice": { 
+            "p:pravno_lice": { 
+              "p:poslovno_ime": { _text: formData.poslovnoIme},
+            }
+          },
+          "p:drzavljanstvo": { _text: formData.drzavljanstvo },
+          "p:adresa": { 
+            "p:ulica": { _text: formData.ulica },
+            "p:broj_objekta": { _text: formData.brojUlice },
+            "p:postanski_broj": { _text: formData.postanskiBroj },
+            "p:mesto": { _text: formData.mestoPrebivalista },
+            "p:drzava": { _text: formData.drzavaPrebivalista }
+          },
+          "p:dodatni_podaci": { 
+            "p:broj_telefona": { _text: formData.brojUlice},
+            "p:broj_faksa": { _text: formData.postanskiBroj},
+            "p:e_posta": { _text: formData.mestoPrebivalista},
+          }
+        }
+      }
   }
 
   _getPronalazacInfoJSONObj(formData: any) {
     return {
-      // traba staviti vrednost checkboxa!!!
       "p:pronalazac_ne_zeli_da_bude_naveden_u_prijavi": { _text: formData.pronalazacNeZeliDaBudeNaveden  },
       "p:pronalazac_je_podnosilac_prijave": { _text: formData.pronalazacJeIPodnosilac  },
       "p:podaci_o_pronalazacu": { 
@@ -352,18 +386,46 @@ export class NewPatentFormComponent implements OnInit {
   }
 
   _getPunomocnikInfoJSONObj(formData: any) {
+    if(this.isFizockoLice)
+      return {
+        "p:vrsta_punomocja": { 
+          "p:punomocnik_za_zastupanje": { _text: formData.zaZastupanje  },
+          "p:punomocnik_za_prijem_pismena": { _text: formData.zaPrijemPismena  }
+        },
+      
+        "p:licni_podaci": { 
+          "p:fizicko_pravno_lice": { 
+            "p:fizicko_lice": { 
+              "p:ime": { _text: formData.ime},
+              "p:prezime": { _text: formData.prezime},
+            }
+          },
+          "p:drzavljanstvo": { _text: formData.drzavljanstvo },
+          "p:adresa": { 
+            "p:ulica": { _text: formData.ulica },
+            "p:broj_objekta": { _text: formData.brojUlice },
+            "p:postanski_broj": { _text: formData.postanskiBroj },
+            "p:mesto": { _text: formData.mestoPrebivalista },
+            "p:drzava": { _text: formData.drzavaPrebivalista }
+          },
+          "p:dodatni_podaci": { 
+            "p:broj_telefona": { _text: formData.brojUlice},
+            "p:broj_faksa": { _text: formData.postanskiBroj},
+            "p:e_posta": { _text: formData.mestoPrebivalista},
+          }
+        }
+      }
+    else
     return {
-      // traba staviti vrednost checkboxa!!!
       "p:vrsta_punomocja": { 
         "p:punomocnik_za_zastupanje": { _text: formData.zaZastupanje  },
         "p:punomocnik_za_prijem_pismena": { _text: formData.zaPrijemPismena  }
       },
-     
+    
       "p:licni_podaci": { 
         "p:fizicko_pravno_lice": { 
-          "p:fizicko_lice": { 
-            "p:ime": { _text: formData.ime},
-            "p:prezime": { _text: formData.prezime},
+          "p:pravno_lice": { 
+            "p:poslovno_ime": { _text: formData.poslovnoIme},
           }
         },
         "p:drzavljanstvo": { _text: formData.drzavljanstvo },
