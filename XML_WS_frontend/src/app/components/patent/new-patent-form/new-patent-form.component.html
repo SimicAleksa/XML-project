@@ -6,9 +6,18 @@
             <form [formGroup]="podnosiocZahteva">
                 <div class="row" >
                     <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Ime i prezime/poslovno ime</mat-label>
+                        <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
+                    <!-- <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="poslovnoIme">
+                    </mat-form-field> -->
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -60,7 +69,7 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <mat-checkbox class="zaj-pred-checkbox" (change)="theSamePerson()">Podnosilac je i pronalazac</mat-checkbox>
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="theSamePerson()" formControlName="podnosilacJeIPronalazac">Podnosilac je i pronalazac</mat-checkbox>
                     </div>
                 </div> 
 
@@ -76,9 +85,18 @@
             <form [formGroup]="pronalazac">
                 <div class="row" >
                     <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Ime i prezime</mat-label>
+                        <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
+                    <!-- <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="poslovnoIme">
+                    </mat-form-field> -->
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -124,7 +142,8 @@
                 
                 <div class="row">
                     <div class="col-4">
-                        <mat-checkbox class="zaj-pred-checkbox" (change)="doesntWantToBeApointed()">Pronalazac ne zeli da bude naveden</mat-checkbox>
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="doesntWantToBeApointed()" formControlName="pronalazacNeZeliDaBudeNaveden">Pronalazac ne zeli da bude naveden</mat-checkbox>
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="theSamePersonYetAgain()" formControlName="pronalazacJeIPodnosilac">Podnosilac je i pronalazac</mat-checkbox>
                     </div>
                 </div> 
 
@@ -142,9 +161,18 @@
 
                 <div class="row" >
                     <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Ime i prezime/poslovno ime</mat-label>
+                        <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                    <!-- TREBA DODATI I ZA POSLOVNO IME -->
+                    <!-- <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="poslovnoIme">
+                    </mat-form-field> -->
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -178,14 +206,18 @@
                         <mat-label>Mesto</mat-label>
                         <input matInput type="text" formControlName="mestoPrebivalista">
                     </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Drzava</mat-label>
+                        <input matInput type="text" formControlName="drzavaPrebivalista">
+                    </mat-form-field>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <mat-checkbox class="zaj-pred-checkbox" (change)="forRepresentation()">Za zastupanje</mat-checkbox>
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="forRepresentation()" formControlName="zaZastupanje">Za zastupanje</mat-checkbox>
                     </div>
                     <div class="col-4">
-                        <mat-checkbox class="zaj-pred-checkbox" (change)="forReception()">Za prijem pismena</mat-checkbox>
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="forReception()" formControlName="zaPrijemPismena">Za prijem pismena</mat-checkbox>
                     </div>
                 </div> 
 
@@ -245,6 +277,10 @@
                             <mat-label>Mesto</mat-label>
                             <input matInput type="text" formControlName="mestoPrebivalistaDostavljanje">
                         </mat-form-field>
+                        <mat-form-field class=col-4 appearance="fill" required>
+                            <mat-label>Drzava</mat-label>
+                            <input matInput type="text" formControlName="drzavaPrebivalistaDostavljanje">
+                        </mat-form-field>
                     </div>
                 </div>
 
@@ -252,10 +288,10 @@
                     <h4>Nacin dostavljanja</h4>
                     <div class="row">
                         <div class="col-4">
-                            <mat-checkbox class="zaj-pred-checkbox" (change)="viaMail()">Elektronskim putem</mat-checkbox>
+                            <mat-checkbox class="zaj-pred-checkbox" (change)="viaMail()" formControlName="elektronskimPutem">Elektronskim putem</mat-checkbox>
                         </div>
                         <div class="col-4">
-                            <mat-checkbox class="zaj-pred-checkbox" (change)="viaPapir()">U papirnoj formi</mat-checkbox>
+                            <mat-checkbox class="zaj-pred-checkbox" (change)="viaPapir()" formControlName="papirnaForma">U papirnoj formi</mat-checkbox>
                         </div>
                     </div> 
                 </div>
@@ -276,10 +312,10 @@
                     <h4>Vrsta prijave</h4>
                     <div class="row">
                         <div class="col-4">
-                            <mat-checkbox class="zaj-pred-checkbox" (change)="additionalEntry()">Dopunska</mat-checkbox>
+                            <mat-checkbox class="zaj-pred-checkbox" (change)="additionalEntry()" formControlName="dopunska">Dopunska</mat-checkbox>
                         </div>
                         <div class="col-4">
-                            <mat-checkbox class="zaj-pred-checkbox" (change)="separateEntry()">Izdvojena</mat-checkbox>
+                            <mat-checkbox class="zaj-pred-checkbox" (change)="separateEntry()" formControlName="izdvojena">Izdvojena</mat-checkbox>
                         </div>
                     </div>
 
@@ -297,7 +333,7 @@
 
                 <div class="text-center buttons-cont">
                     <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
-                    <button mat-button (click)="saveChanges(); onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
+                    <button mat-button (click)="onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
                 </div>
             </form>
         </mat-step>
@@ -344,14 +380,10 @@
                               </tr>
                             </table>
                         </div>
-                          
-                          
-                    
                     <div class="text-center buttons-cont">
                         <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
-                        <button mat-button (click)="saveChanges(); onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
+                        <button mat-button (click)="onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
                     </div>
-
                 </form>
             </div>
         </mat-step>
