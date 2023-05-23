@@ -1,0 +1,144 @@
+<div class="row search-form">
+    <div class="col text-center">
+        <button mat-raised-button (click)="resetStatusFilters()" color="accent">RESET</button>
+
+        <mat-form-field class="sts-filters-inp marg">
+            <input matInput [(ngModel)]="statusFiltersTxt" placeholder="Status filteri" >
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-neg marg">
+            <mat-label>Negacija</mat-label>
+            <mat-select matNativeControl required [(value)]="stsNegSelection">
+              <mat-option value="true">NIJE</mat-option>
+              <mat-option value="false">JE</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-sts-sel marg">
+            <mat-label>Status zahteva</mat-label>
+            <mat-select matNativeControl required [(value)]="stsValueSelection">
+              <mat-option value="NERESENO">NERESENO</mat-option>
+              <mat-option value="PRIHVACENO">PRIHVACENO</mat-option>
+              <mat-option value="ODBIJENO">ODBIJENO</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-logop marg">
+            <mat-label>Logicki operator</mat-label>
+            <mat-select matNativeControl required [(value)]="stsLogOpSelection">
+              <mat-option value="and"> && </mat-option>
+              <mat-option value="or"> || </mat-option>
+              <mat-option value="">Nista</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="addStatusFilter()">Dodaj status filter</button>
+    </div>
+</div>
+
+<div class="row search-form">
+    <div class="col text-center">
+        <button mat-raised-button (click)="resetEmailFilters()" color="accent">RESET</button>
+
+        <mat-form-field class="sts-filters-inp marg">
+            <input matInput [(ngModel)]="emailFiltersTxt" placeholder="Email filteri" >
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-neg marg">
+            <mat-label>Negacija</mat-label>
+            <mat-select matNativeControl required [(value)]="emailNegSelection">
+              <mat-option value="true">NIJE</mat-option>
+              <mat-option value="false">JE</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [(ngModel)]="emailValueInp" placeholder="Rec/izraz">
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-logop marg">
+            <mat-label>Logicki operator</mat-label>
+            <mat-select matNativeControl required [(value)]="emailLogOpSelection">
+              <mat-option value="and"> && </mat-option>
+              <mat-option value="or"> || </mat-option>
+              <mat-option value="">Nista</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="addEmailFilter()">Dodaj email filter</button>
+    </div>
+</div>
+
+<div class="row search-form">
+    <div class="col text-center">
+        <button mat-raised-button (click)="resetDateFilters()" color="accent">RESET</button>
+
+        <mat-form-field class="sts-filters-inp marg">
+            <input matInput [(ngModel)]="dateFiltersTxt" placeholder="Datum filteri" >
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-neg marg">
+            <mat-label>Zahtev je: </mat-label>
+            <mat-select matNativeControl required [(value)]="dateOpSelection">
+              <mat-option value="&lt;">PRE</mat-option>
+              <mat-option value="&gt;">POSLE</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="datepicker-inp marg">
+            <mat-label>Izaberite datum</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="dateValueInp">
+            <mat-hint>DD/MM/GGGG</mat-hint>
+            <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-logop marg">
+            <mat-label>Logicki operator</mat-label>
+            <mat-select matNativeControl required [(value)]="dateLogOpSelection">
+              <mat-option value="and"> && </mat-option>
+              <mat-option value="or"> || </mat-option>
+              <mat-option value="">Nista</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="addDateFilter()">Dodaj datum filter</button>
+    </div>
+</div>
+
+<div class="row search-form">
+    <div class="col text-center">
+        <button mat-raised-button color="primary" type="submit" (click)="performAdvancedSearch()">
+            Pretrazi<mat-icon>search</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="searchResult.length !== 0">
+    <div class="row table-cont" >
+        <div class="col-3"></div>
+        <div class="col">
+            <h1 class="text-center">REZULTAT NAPREDNE PRETRAGE</h1>    
+            <app-trademark-list (onRowClickEventEmit)="handleSelectedRow($event)" [trademarks]="searchResult"></app-trademark-list>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <div class="row selected-tm">
+        <div class="col-3"></div>
+        <div class="col">
+            <span class="sl-tm-txt">Izabrani zahtev: </span>
+            <span class="sl-tm">{{ selectedTM }}</span>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <div class="row btns-section">
+        <div class="col-3"></div>
+        <div class="col">
+            <button mat-raised-button class="pdf-btn" (click)="onPDFBtnClick()">PDF</button>
+            <button mat-raised-button class="xhtml-btn" (click)="onXHTMLBtnClick()">XHTML</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

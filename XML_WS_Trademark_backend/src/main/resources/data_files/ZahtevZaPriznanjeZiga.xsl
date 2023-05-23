@@ -118,7 +118,6 @@
             <body>
                 <h2>ЗАХТЕВ ЗА ПРИЗНАЊЕ ЖИГА</h2>
                 <h3>Завод за интелектуалну својину, Књегиње Љубице 5, 11000 Београд</h3>
-                <p class="is-centered">(попунити на рачунару)</p>
                 <table>
                     <tr>
                         <td colspan="3" class="pad-lef-10">
@@ -146,17 +145,17 @@
                     </tr>
                     <tr class="ht-60">
                         <td colspan="3" class="pad-left-20 input-txt-clr">
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Ime"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:Ulica"/></span>
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:BrojUlice"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:MestoPrebivalista"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:DrzavaPrebivalista"/></span>
+                            <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:Ime"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:Adresa/z:Ulica"/></span>
+                            <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:Adresa/z:BrojUlice"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:Adresa/z:MestoPrebivalista"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:Adresa/z:DrzavaPrebivalista"/></span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="pad-lef-10">телефон: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:Telefon"/></span></td>
-                        <td class="pad-lef-10">e-mail: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:E-mail"/></span></td>
-                        <td class="pad-lef-10">факс: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:Faks"/></span></td>
+                        <td class="pad-lef-10">телефон: <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:KontaktInformacije/z:Telefon"/></span></td>
+                        <td class="pad-lef-10">e-mail: <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:KontaktInformacije/z:E-mail"/></span></td>
+                        <td class="pad-lef-10">факс: <span class="input-txt-clr"><xsl:value-of select="//z:Punomocnik/z:KontaktInformacije/z:Faks"/></span></td>
                     </tr>
                 </table>
                 <table class="border-top-none">
@@ -166,17 +165,17 @@
                     </tr>
                     <tr class="ht-60 pad-left-20">
                         <td colspan="3" class="pad-left-20 input-txt-clr">
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Ime"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:Ulica"/></span>
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:BrojUlice"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:MestoPrebivalista"/></span>,
-                            <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:Adresa/z:DrzavaPrebivalista"/></span>
+                            <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:Ime"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:Adresa/z:Ulica"/></span>
+                            <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:Adresa/z:BrojUlice"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:Adresa/z:MestoPrebivalista"/></span>,
+                            <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:Adresa/z:DrzavaPrebivalista"/></span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="pad-lef-10">телефон: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:Telefon"/></span></td>
-                        <td class="pad-lef-10">e-mail: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:E-mail"/></span></td>
-                        <td class="pad-lef-10">факс: <span class="input-txt-clr"><xsl:value-of select="//z:PodnosilacPrijave/z:KontaktInformacije/z:Faks"/></span></td>
+                        <td class="pad-lef-10">телефон: <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:KontaktInformacije/z:Telefon"/></span></td>
+                        <td class="pad-lef-10">e-mail: <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:KontaktInformacije/z:E-mail"/></span></td>
+                        <td class="pad-lef-10">факс: <span class="input-txt-clr"><xsl:value-of select="//z:ZajednickiPredstavnik/z:KontaktInformacije/z:Faks"/></span></td>
                     </tr>
                 </table>
                 <table class="border-top-none">

@@ -11,6 +11,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 const matModules = [
@@ -24,7 +30,13 @@ const matModules = [
   MatCheckboxModule,
   MatMenuModule,
   MatStepperModule,
-  MatChipsModule
+  MatChipsModule,
+  MatTableModule,
+  MatSortModule,
+  MatDialogModule,
+  MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({
