@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -1317,7 +1319,7 @@ public class ZahtevZaPatent {
     public static class ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava {
 
         @XmlElement(name = "ranija_prijava", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
-        protected ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava ranijaPrijava;
+        protected List<ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava> ranijaPrijava;
 
         /**
          * Gets the value of the ranijaPrijava property.
@@ -1327,7 +1329,10 @@ public class ZahtevZaPatent {
          *     {@link ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava }
          *     
          */
-        public ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava getRanijaPrijava() {
+        public List<ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava> getRanijaPrijave() {
+            if (ranijaPrijava == null) {
+                ranijaPrijava = new ArrayList<>();
+            }
             return ranijaPrijava;
         }
 
@@ -1339,7 +1344,7 @@ public class ZahtevZaPatent {
          *     {@link ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava }
          *     
          */
-        public void setRanijaPrijava(ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava value) {
+        public void setRanijaPrijava(List<ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava> value) {
             this.ranijaPrijava = value;
         }
 
