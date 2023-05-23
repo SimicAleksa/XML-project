@@ -22,7 +22,7 @@
                                 </td>
                                 <td colspan="2" rowspan="2" style="width:216.0pt;border:none;border-bottom:solid black 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:19.05pt;">
                                     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'>
-                                        <span style="font-size:21px;line-height:107%;">П <xsl:value-of select="//p:Zahtev_za_patent/p:popunjava_zavod/p:broj_prijave"/> </span></p>
+                                        <span style="font-size:21px;line-height:107%;"><xsl:value-of select="//p:Zahtev_za_patent/p:popunjava_zavod/p:broj_prijave"/> </span></p>
                                 </td>
                                 <td style="width:40.0pt;border:none;border-right:solid black 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:19.05pt;">
                                     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'><span style="font-size:12px;line-height:107%;">(21)</span></p>

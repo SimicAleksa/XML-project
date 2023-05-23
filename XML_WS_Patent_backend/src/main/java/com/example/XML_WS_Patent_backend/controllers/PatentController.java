@@ -1,8 +1,11 @@
 package com.example.XML_WS_Patent_backend.controllers;
 
 import com.example.XML_WS_Patent_backend.DTOs.ListOfPatentRequestsDTO;
+import com.example.XML_WS_Patent_backend.DTOs.PDFBytesDTO;
+import com.example.XML_WS_Patent_backend.models.ResenjeZahteva;
 import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
 import com.example.XML_WS_Patent_backend.services.PatentService;
+import com.example.XML_WS_Patent_backend.services.ResenjaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +20,9 @@ import java.util.List;
 public class PatentController {
     @Autowired
     private PatentService patentService;
+
+    @Autowired
+    private ResenjaService resenjaService;
 
     @GetMapping(path = "/all")
     public ResponseEntity<List<ZahtevZaPatent>> getAll() {
@@ -34,9 +40,20 @@ public class PatentController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/pdf")
-    public ResponseEntity<HttpStatus> getPDF() {
-        patentService.getPDF();
+    @GetMapping("/pdf/{id}")
+    public ResponseEntity<PDFBytesDTO> getPDF(@PathVariable String id) {
+        return new ResponseEntity<>(new PDFBytesDTO(patentService.getPDF(id)), HttpStatus.OK);
+    }
+
+    @GetMapping("/xhtml/{id}")
+    public ResponseEntity<PDFBytesDTO> getXHTML(@PathVariable String id) {
+        return new ResponseEntity<>(new PDFBytesDTO(patentService.getXHTML(id)), HttpStatus.OK);
+    }
+
+    @PostMapping("/resenje/save")
+    public ResponseEntity<HttpStatus> saveResenje(@RequestBody ResenjeZahteva resenjeZahteva) {
+        resenjaService.saveNewResenje(resenjeZahteva);
+        patentService.changePatentStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

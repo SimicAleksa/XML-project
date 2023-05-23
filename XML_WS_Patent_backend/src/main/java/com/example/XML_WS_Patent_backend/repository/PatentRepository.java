@@ -42,7 +42,7 @@ public class PatentRepository {
 
     public ZahtevZaPatent getPatentRequestById(String patentReqNum) {
         try {
-            XMLResource res = patentDB.loadResourceById(collectionUri, documentId);
+            XMLResource res = patentDB.loadResourceById(collectionUri, patentReqNum.concat(".xml"));
             if (res != null)
                 return jaxbParser.parseFromXMLToObj(res.getContent().toString());
         } catch (Exception e) {

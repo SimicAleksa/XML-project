@@ -23,5 +23,8 @@ export const API_TM_ADVANCED_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/searc
 const PATENT_API_BASE_URL = "http://localhost:8041/api";
 export const API_SEND_PATENT_REQ_URL = PATENT_API_BASE_URL + "/patent/save";
 export const API_FETCH_PENDING_PAT_REQS_URL = PATENT_API_BASE_URL + "/patent/pending";
+export const API_GEN_PAT_XHTML = PATENT_API_BASE_URL + "/patent/xhtml/";
+export const API_GEN_PAT_PDF = PATENT_API_BASE_URL + "/patent/pdf/";
+export const API_SEND_PAT_RESENJE = PATENT_API_BASE_URL + "/patent/resenje/save";
 //-------------------------------
 

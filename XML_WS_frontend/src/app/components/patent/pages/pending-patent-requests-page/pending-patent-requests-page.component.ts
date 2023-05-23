@@ -21,6 +21,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
     this.selectedPAT = "Nista nije izabrano";
     this.obrazlozenje = "";
     // this.getOfficialNameAndSurname()
+    this.officialNameAndSurname= "Temp Tempic"
   }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
       return;
 
     this.requestMaker
-    .getTrademarkPDF(this.selectedPAT)
+    .getPatentPDF(this.selectedPAT)
     .subscribe({
       next: (data: any) => {
         if (data.body !== undefined)
@@ -65,7 +66,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
       return;
     
     this.requestMaker
-    .getTrademarkXHTML(this.selectedPAT)
+    .getPatentXHTML(this.selectedPAT)
     .subscribe({
       next: (data: any) => {
         if (data.body !== undefined)
@@ -82,7 +83,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
       return;
     
     this.requestMaker
-    .sendNewTrademarkReqResenje(this.getApprovedResenje())
+    .sendNewPatentReqResenje(this.getApprovedResenje())
     .subscribe({
       error: () => {
         alert('Resenje nije poslato, nesto se desilo!');
@@ -101,7 +102,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
     dialogRef.componentInstance.submitValue.subscribe((obrazlozenje: string) => {
       this.obrazlozenje = obrazlozenje;
       this.requestMaker
-      .sendNewTrademarkReqResenje(this.getDeclinedResenje())
+      .sendNewPatentReqResenje(this.getDeclinedResenje())
       .subscribe({
         error: () => {
           alert('Resenje nije poslato, nesto se desilo!');
@@ -155,7 +156,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
   // }
 
   removeSelectedPATFromList() {
-    this.pendingPATRequests = this.pendingPATRequests.filter(tm => tm.MetaData.BrojPrijave._text !== this.selectedPAT);
+    this.pendingPATRequests = this.pendingPATRequests.filter(pat => pat.popunjava_zavod.broj_prijave._text !== this.selectedPAT);
     this.selectedPAT = "Nista nije izabrano";
   }
 }
