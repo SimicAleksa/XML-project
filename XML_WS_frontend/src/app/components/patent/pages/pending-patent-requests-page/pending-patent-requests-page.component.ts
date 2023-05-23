@@ -20,7 +20,7 @@ export class PendingPatentRequestsPageComponent implements OnInit {
     this.fetchPendingRequests();
     this.selectedPAT = "Nista nije izabrano";
     this.obrazlozenje = "";
-    this.getOfficialNameAndSurname()
+    // this.getOfficialNameAndSurname()
   }
 
   ngOnInit(): void {
@@ -143,16 +143,16 @@ export class PendingPatentRequestsPageComponent implements OnInit {
     return this.xmlParser.parseToXml("ResenjeZahteva", reqBody);
   }
 
-  getOfficialNameAndSurname() {
-    this.requestMaker.fetchUserInfo().subscribe({
-      next: (retData: any) => {
-        if (retData.body !== undefined) {
-          retData = this.xmlParser.parseFromXml(retData.body).UserInfoDTO;
-          this.officialNameAndSurname = retData.firstname._text + " " + retData.lastname._text;
-        }
-      }
-    });
-  }
+  // getOfficialNameAndSurname() {
+  //   this.requestMaker.fetchUserInfo().subscribe({
+  //     next: (retData: any) => {
+  //       if (retData.body !== undefined) {
+  //         retData = this.xmlParser.parseFromXml(retData.body).UserInfoDTO;
+  //         this.officialNameAndSurname = retData.firstname._text + " " + retData.lastname._text;
+  //       }
+  //     }
+  //   });
+  // }
 
   removeSelectedPATFromList() {
     this.pendingPATRequests = this.pendingPATRequests.filter(tm => tm.MetaData.BrojPrijave._text !== this.selectedPAT);

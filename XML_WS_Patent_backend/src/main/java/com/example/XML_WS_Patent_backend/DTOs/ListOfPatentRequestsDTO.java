@@ -15,9 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "tmReqs" })
+@XmlType(name = "", propOrder = { "patReqs" })
 @XmlRootElement(name = "ListOfPatentRequestsDTO")
 public class ListOfPatentRequestsDTO {
     @XmlElement(name = "ZahtevZaPatent")
-    private List<ZahtevZaPatent> tmReqs;
+    private List<ZahtevZaPatent> patReqs;
 }

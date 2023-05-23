@@ -25,7 +25,7 @@ public class PatentService {
 
     public List<ZahtevZaPatent> getPendingRequests() {
         return patentRepository.getAllPatentRequest().stream()
-                .filter(req -> req.getPopunjavaZavod().getStatus().getValue().equals("NERESENO"))
+                .filter(req -> req.getPopunjavaZavod().getStatus().equals("PENDING"))
                 .collect(Collectors.toList());
     }
 

@@ -46,21 +46,21 @@ export class PatentListComponent implements OnInit {
     let rows = new Array<TableData>();
     if (this.patents !== undefined)
       if (!Array.isArray(this.patents)) {
-        let metaData = this.patents.MetaData;
+        let metaData = this.patents.popunjava_zavod;
         rows.push({
-          oznaka: metaData.BrojPrijave._text,
-          vremePodnosenjaZahteva: this.convertDatetimeForTable(metaData.DatumPodnosenja._text),
-          status: metaData.Status._text,
+          oznaka: metaData.broj_prijave._text,
+          vremePodnosenjaZahteva: this.convertDatetimeForTable(metaData.priznati_datum_podnosenja._text),
+          status: metaData.status._text,
           // emailNalogaPodnosioca: metaData.EmailNalogaPodnosioca._text
         });
       }
       else
-       this.patents.forEach(tm => {
-        let metaData = tm.MetaData;
+       this.patents.forEach(pat => {
+        let metaData = pat.popunjava_zavod;
         rows.push({
-          oznaka: metaData.BrojPrijave._text,
-          vremePodnosenjaZahteva: this.convertDatetimeForTable(metaData.DatumPodnosenja._text),
-          status: metaData.Status._text,
+          oznaka: metaData.broj_prijave._text,
+          vremePodnosenjaZahteva: this.convertDatetimeForTable(metaData.priznati_datum_podnosenja._text),
+          status: metaData.status._text,
           // emailNalogaPodnosioca: metaData.EmailNalogaPodnosioca._text
         })
       });

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/patent")
+@RequestMapping(path = "/api/patent", produces = MediaType.APPLICATION_XML_VALUE)
 @CrossOrigin(origins = "http://localhost:4200")
 public class PatentController {
     @Autowired

@@ -674,6 +674,9 @@ public class ZahtevZaPatent {
         @XmlSchemaType(name = "date")
         protected XMLGregorianCalendar priznatiDatumPodnosenja;
 
+        @XmlElement(name = "status", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+        protected String status;
+
         /**
          * Gets the value of the brojPrijave property.
          * 
@@ -744,6 +747,31 @@ public class ZahtevZaPatent {
          */
         public void setPriznatiDatumPodnosenja(XMLGregorianCalendar value) {
             this.priznatiDatumPodnosenja = value;
+        }
+
+
+        /**
+         * Gets the value of the brojPrijave property.
+         *
+         * @return
+         *     possible object is
+         *     {@link String }
+         *
+         */
+        public String getStatus() {
+            return status;
+        }
+
+        /**
+         * Sets the value of the brojPrijave property.
+         *
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *
+         */
+        public void setStatus(String value) {
+            this.status = value;
         }
 
     }
