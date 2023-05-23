@@ -23,6 +23,8 @@ import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basi
 import { TmAdvancedSearchComponent } from './components/trademark/pages/tm-advanced-search/tm-advanced-search.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { NewPatentFormComponent } from './components/patent/new-patent-form/new-patent-form.component';
+import { PendingPatentRequestsPageComponent } from './components/patent/pages/pending-patent-requests-page/pending-patent-requests-page.component';
+import { PatentListComponent } from './components/patent/pages/patent-list/patent-list.component';
 
 
 
@@ -39,7 +41,9 @@ import { NewPatentFormComponent } from './components/patent/new-patent-form/new-
     PendingRequestsPageComponent,
     DeclineReqDialogComponent,
     TmBasicSearchPageComponent,
-    TmAdvancedSearchComponent
+    TmAdvancedSearchComponent,
+    PendingPatentRequestsPageComponent,
+    PatentListComponent
   ],
   imports: [
     NgbModule,

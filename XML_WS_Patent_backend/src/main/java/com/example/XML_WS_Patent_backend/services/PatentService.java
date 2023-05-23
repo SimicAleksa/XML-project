@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PatentService {
@@ -19,12 +20,18 @@ public class PatentService {
     }
 
     public List<ZahtevZaPatent> getAll() {
-        return patentRepository.getAllTrademarkRequest();
+        return patentRepository.getAllPatentRequest();
+    }
+
+    public List<ZahtevZaPatent> getPendingRequests() {
+        return patentRepository.getAllPatentRequest().stream()
+                .filter(req -> req.getPopunjavaZavod().getStatus().getValue().equals("NERESENO"))
+                .collect(Collectors.toList());
     }
 
     public void getPDF() {
         try {
-            PDFGenerator.generatePDFandHTML(patentRepository.getAllTrademarkRequest().get(0));
+            PDFGenerator.generatePDFandHTML(patentRepository.getAllPatentRequest().get(0));
         } catch (Exception ignored) {}
     }
 

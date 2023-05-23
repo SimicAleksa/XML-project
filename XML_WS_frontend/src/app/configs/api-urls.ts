@@ -22,5 +22,6 @@ export const API_TM_ADVANCED_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/searc
 //ovo je server.port u application.properties
 const PATENT_API_BASE_URL = "http://localhost:8041/api";
 export const API_SEND_PATENT_REQ_URL = PATENT_API_BASE_URL + "/patent/save";
+export const API_FETCH_PENDING_PAT_REQS_URL = PATENT_API_BASE_URL + "/patent/pending";
 //-------------------------------
 

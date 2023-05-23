@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+        <h1 class="text-center">NEOBRADJENI ZAHTEVI</h1>    
+        <app-patent-list (onRowClickEventEmit)="handleSelectedRow($event)" [patents]="pendingPATRequests"></app-patent-list>
+    </div>
+    <div class="col-3"></div>
+</div>
+<div class="row selected-tm">
+    <div class="col-3"></div>
+    <div class="col">
+        <span class="sl-tm-txt">Izabrani zahtev: </span>
+        <span class="sl-tm">{{ selectedPAT }}</span>
+    </div>
+    <div class="col-3"></div>
+</div>
+<div class="row btns-section">
+    <div class="col-3"></div>
+    <div class="col">
+        <button mat-raised-button class="pdf-btn" (click)="onPDFBtnClick()">PDF</button>
+        <button mat-raised-button class="xhtml-btn" (click)="onXHTMLBtnClick()">XHTML</button>
+    </div>
+    <div class="col-3"></div>
+</div>
+<div class="row btns-section">
+    <div class="col-3"></div>
+    <div class="col">
+        <button mat-raised-button class="approve-btn" (click)="onApproveBtnClick()">ODOBRI</button>
+        <button mat-raised-button class="decline-btn" (click)="onDeclineBtnClick()">ODBIJ</button>
+    </div>
+    <div class="col-3"></div>
+</div>

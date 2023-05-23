@@ -8,13 +8,16 @@ import { TmAdvancedSearchComponent } from './components/trademark/pages/tm-advan
 import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basic-search-page/tm-basic-search-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewPatentFormComponent } from './components/patent/new-patent-form/new-patent-form.component';
+import { PendingPatentRequestsPageComponent } from './components/patent/pages/pending-patent-requests-page/pending-patent-requests-page.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: UserProfileComponent},
-  {path: 'trademark/new', component: NewTrademarkFormComponent},
   {path: 'patent/new', component: NewPatentFormComponent},
+  {path: 'patent/pending', component: PendingPatentRequestsPageComponent},
+
+  {path: 'trademark/new', component: NewTrademarkFormComponent},
   {path: 'trademark/pending', component: PendingRequestsPageComponent},
   {path: 'trademark/search/basic', component: TmBasicSearchPageComponent},
   {path: 'trademark/search/advanced', component: TmAdvancedSearchComponent},

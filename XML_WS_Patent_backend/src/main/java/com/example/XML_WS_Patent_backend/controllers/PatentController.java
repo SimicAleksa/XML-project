@@ -1,5 +1,6 @@
 package com.example.XML_WS_Patent_backend.controllers;
 
+import com.example.XML_WS_Patent_backend.DTOs.ListOfPatentRequestsDTO;
 import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
 import com.example.XML_WS_Patent_backend.services.PatentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class PatentController {
     @GetMapping(path = "/all")
     public ResponseEntity<List<ZahtevZaPatent>> getAll() {
         return new ResponseEntity<>(patentService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/pending")
+    public ResponseEntity<ListOfPatentRequestsDTO> getPending() {
+        return new ResponseEntity<>(new ListOfPatentRequestsDTO(patentService.getPendingRequests()), HttpStatus.OK);
     }
 
     @PostMapping(path = "/save", consumes = {MediaType.APPLICATION_XML_VALUE} )
