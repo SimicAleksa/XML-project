@@ -24,7 +24,7 @@ export class NewCopyrightFormComponent implements OnInit {
   public podnosilacJeIPronalazac:boolean = false;
   
 
-  public isFizockoLice:boolean = true
+  public isFizockoLice:boolean = false
 
 
   private pseudonimInfoFBObj = {
