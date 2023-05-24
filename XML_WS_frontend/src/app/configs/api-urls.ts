@@ -32,10 +32,10 @@ export const API_SEND_PAT_RESENJE = PATENT_API_BASE_URL + "/patent/resenje/save"
 //-----------COPYRIGHT-----------
 //ovo je server.port u application.properties
 const COPYRIGHT_API_BASE_URL = "http://localhost:8021/api";
-export const API_SEND_CR_REQ_URL = COPYRIGHT_API_BASE_URL + "/patent/save";
-export const API_FETCH_PENDING_CR_REQS_URL = COPYRIGHT_API_BASE_URL + "/patent/pending";
-export const API_GEN_CR_XHTML = COPYRIGHT_API_BASE_URL + "/patent/xhtml/";
-export const API_GEN_CR_PDF = COPYRIGHT_API_BASE_URL + "/patent/pdf/";
-export const API_SEND_CR_RESENJE = COPYRIGHT_API_BASE_URL + "/patent/resenje/save";
+export const API_SEND_CR_REQ_URL = COPYRIGHT_API_BASE_URL + "/author-rights/save";
+export const API_FETCH_PENDING_CR_REQS_URL = COPYRIGHT_API_BASE_URL + "/author-rights/pending";
+export const API_GEN_CR_XHTML = COPYRIGHT_API_BASE_URL + "/author-rights/xhtml/";
+export const API_GEN_CR_PDF = COPYRIGHT_API_BASE_URL + "/author-rights/pdf/";
+export const API_SEND_CR_RESENJE = COPYRIGHT_API_BASE_URL + "/author-rights/resenje/save";
 //-------------------------------
 

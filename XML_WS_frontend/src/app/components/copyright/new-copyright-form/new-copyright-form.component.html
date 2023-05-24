@@ -31,10 +31,6 @@
                         <mat-label>Poslovno ime</mat-label>
                         <input matInput type="text" formControlName="poslovnoIme">
                     </mat-form-field>
-                    <mat-form-field class=col appearance="fill" required *ngIf="!isFizockoLice;">
-                        <mat-label>Sediste</mat-label>
-                        <input matInput type="text" formControlName="poslovnoSediste">
-                    </mat-form-field>
                     <mat-form-field class=col appearance="fill" required >
                         <mat-label>Telefonski broj</mat-label>
                         <input matInput type="text" formControlName="telefon">
@@ -77,37 +73,77 @@
 
         <mat-step [stepControl]="podaci_o_autoru" label="Podaci o autoru">
             <form [formGroup]="podaci_o_autoru">
+
+                <div class="row">
+                    <div class="col-4">
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="anoniman_autorChangeChange()" formControlName="anoniman_autor">Anoniman Autor</mat-checkbox>
+                    </div>
+                </div> 
+
                 <div class="row" >
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill">
                         <mat-label>Ime</mat-label>
                         <input matInput type="text" formControlName="ime">
                     </mat-form-field>
-                    <mat-form-field class=col appearance="fill" required>
+                    <mat-form-field class=col appearance="fill" >
                         <mat-label>Prezime</mat-label>
                         <input matInput type="text" formControlName="prezime">
                     </mat-form-field>
                 </div>
 
                 <div class="row">
-                    <mat-form-field class=col-8 appearance="fill" required>
+                    <mat-form-field class=col-8 appearance="fill" >
                         <mat-label>Ime ulice</mat-label>
                         <input matInput type="text" formControlName="ulica">
                     </mat-form-field>
-                    <mat-form-field class=col-4 appearance="fill" required>
+                    <mat-form-field class=col-4 appearance="fill">
                         <mat-label>Broj ulice</mat-label>
                         <input matInput type="text" formControlName="brojUlice">
                     </mat-form-field>
-                    <mat-form-field class=col-4 appearance="fill" required>
+                    <mat-form-field class=col-4 appearance="fill">
                         <mat-label>Grad</mat-label>
                         <input matInput type="text" formControlName="grad">
                     </mat-form-field>
                 </div>
 
                 <div class="row">
-                    <mat-form-field class=col-4 appearance="fill" required>
+                    <mat-form-field class=col-4 appearance="fill">
                         <mat-label>Drzavljanstvo</mat-label>
                         <input matInput type="text" formControlName="drzavljanstvo">
                     </mat-form-field>
+                    <mat-form-field class="col-4 m-1" appearance="fill">
+                        <mat-label>Datum smrti</mat-label>
+                        <input class="row-input" matInput type="date" formControlName="godina_smrti">
+                    </mat-form-field>
+                </div>
+
+                <button class="add-button" (click)="addNewAutor()">Dodaj autora</button>
+
+
+                <div class="item-table">
+                    <h3>Dodati autori:</h3>
+                    <table class="item-table__table">
+                      <tr>
+                        <th class="item-table__header">Anoniman</th>
+                        <th class="item-table__header">Ime</th>
+                        <th class="item-table__header">Prezime</th>
+                        <th class="item-table__header">Ime ulice</th>
+                        <th class="item-table__header">Broj ulice</th>
+                        <th class="item-table__header">Grad</th>
+                        <th class="item-table__header">Drzavljanstvo</th>
+                        <th class="item-table__header">Godina smrti</th>
+                      </tr>
+                      <tr *ngFor="let item of items_autori">
+                        <td>{{ item.anoniman_autor }}</td>
+                        <td>{{ item.autor.ime }}</td>
+                        <td>{{ item.autor.prezime }}</td>
+                        <td>{{ item.autor.ulica }}</td>
+                        <td>{{ item.autor.brojUlice }}</td>
+                        <td>{{ item.autor.grad }}</td>
+                        <td>{{ item.autor.drzavljanstvo }}</td>
+                        <td>{{ item.autor.godina_smrti }}</td>
+                      </tr>
+                    </table>
                 </div>
 
 
@@ -157,33 +193,91 @@
             <form [formGroup]="podaci_o_delu">
                 <div class="row" >
                     <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Ime</mat-label>
-                        <input matInput type="text" formControlName="ime">
+                        <mat-label>Naslov</mat-label>
+                        <input matInput type="text" formControlName="naslov">
                     </mat-form-field>
                     <mat-form-field class=col appearance="fill" required>
-                        <mat-label>Prezime</mat-label>
-                        <input matInput type="text" formControlName="prezime">
+                        <mat-label>Alternativni naslov</mat-label>
+                        <input matInput type="text" formControlName="alternativni_naslov">
                     </mat-form-field>
                 </div>
 
-                <div class="row">
-                    <mat-form-field class=col-8 appearance="fill" required>
-                        <mat-label>Ime ulice</mat-label>
-                        <input matInput type="text" formControlName="ulica">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Naslov dela prerade</mat-label>
+                        <input matInput type="text" formControlName="naslov_dela_prerade">
                     </mat-form-field>
-                    <mat-form-field class=col-4 appearance="fill" required>
-                        <mat-label>Broj ulice</mat-label>
-                        <input matInput type="text" formControlName="brojUlice">
-                    </mat-form-field>
-                    <mat-form-field class=col-4 appearance="fill" required>
-                        <mat-label>Grad</mat-label>
-                        <input matInput type="text" formControlName="grad">
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Autor dela prerade</mat-label>
+                        <input matInput type="text" formControlName="autor_dela_prerade">
                     </mat-form-field>
                 </div>
+
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Vrsta autorskog dela</mat-label>
+                        <input matInput type="text" formControlName="vrsta_autorskog_dela">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Forma zapisa autorskog dela</mat-label>
+                        <input matInput type="text" formControlName="forma_zapisa_autorskog_dela">
+                    </mat-form-field>
+                </div>
+
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Nacin koriscenja dela</mat-label>
+                        <input matInput type="text" formControlName="nacin_koriscenja_dela">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <mat-checkbox class="zaj-pred-checkbox" (change)="dsur_odnosuChange()" formControlName="delo_stvoreno_u_radnom_odnosu">Delo stvoreno u radnom odnosu</mat-checkbox>
+                    </div>
+                </div> 
                 
                 <div class="text-center buttons-cont">
                     <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
                     <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="prilozi" label="Prilozi">
+            <form [formGroup]="prilozi">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Opis dela</mat-label>
+                        <input matInput type="text" formControlName="opis_dela">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Primer dela</mat-label>
+                        <input matInput type="text" formControlName="primer_dela">
+                    </mat-form-field>
+                </div>
+                <button class="add-button" (click)="addNewPrilog()">Dodaj prilog</button>
+
+
+                <div class="item-table">
+                    <h3>Dodati prilozi:</h3>
+                    <table class="item-table__table">
+                      <tr>
+                        <th class="item-table__header">Opis dela</th>
+                        <th class="item-table__header">Primer dela</th>
+                      </tr>
+                      <tr *ngFor="let item of items_prilozi">
+                        <td>{{ item.opis_dela }}</td>
+                        <td>{{ item.primer_dela }}</td>
+                      </tr>
+                    </table>
+                </div>
+
+
+
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button (click)="onSubmitBtnClick();" class="stepper-btn">Posalji zahtev</button>
                 </div>
             </form>
         </mat-step>

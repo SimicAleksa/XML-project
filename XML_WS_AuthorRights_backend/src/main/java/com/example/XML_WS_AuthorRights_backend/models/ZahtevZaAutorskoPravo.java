@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -145,13 +147,13 @@ public class ZahtevZaAutorskoPravo {
     @XmlElement(name = "podaci_o_podnosiocu", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected ZahtevZaAutorskoPravo.PodaciOPodnosiocu podaciOPodnosiocu;
     @XmlElement(name = "podaci_o_autoru", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava")
-    protected ZahtevZaAutorskoPravo.PodaciOAutoru podaciOAutoru;
+    protected List<ZahtevZaAutorskoPravo.PodaciOAutoru> podaciOAutoru;
     @XmlElement(name = "podaci_o_punomocniku", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected TPunomocnik podaciOPunomocniku;
     @XmlElement(name = "podaci_o_delu", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected ZahtevZaAutorskoPravo.PodaciODelu podaciODelu;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
-    protected ZahtevZaAutorskoPravo.Prilozi prilozi;
+    protected List<ZahtevZaAutorskoPravo.Prilozi> prilozi;
 
     /**
      * Gets the value of the datumPodnosenja property.
@@ -257,7 +259,10 @@ public class ZahtevZaAutorskoPravo {
      *     {@link ZahtevZaAutorskoPravo.PodaciOAutoru }
      *     
      */
-    public ZahtevZaAutorskoPravo.PodaciOAutoru getPodaciOAutoru() {
+    public List<ZahtevZaAutorskoPravo.PodaciOAutoru> getPodaciOAutoru() {
+        if (podaciOAutoru == null) {
+            podaciOAutoru = new ArrayList<>();
+        }
         return podaciOAutoru;
     }
 
@@ -269,7 +274,7 @@ public class ZahtevZaAutorskoPravo {
      *     {@link ZahtevZaAutorskoPravo.PodaciOAutoru }
      *     
      */
-    public void setPodaciOAutoru(ZahtevZaAutorskoPravo.PodaciOAutoru value) {
+    public void setPodaciOAutoru(List<ZahtevZaAutorskoPravo.PodaciOAutoru> value) {
         this.podaciOAutoru = value;
     }
 
@@ -329,7 +334,10 @@ public class ZahtevZaAutorskoPravo {
      *     {@link ZahtevZaAutorskoPravo.Prilozi }
      *     
      */
-    public ZahtevZaAutorskoPravo.Prilozi getPrilozi() {
+    public List<ZahtevZaAutorskoPravo.Prilozi> getPrilozi() {
+        if (prilozi == null) {
+            prilozi = new ArrayList<>();
+        }
         return prilozi;
     }
 
@@ -341,7 +349,7 @@ public class ZahtevZaAutorskoPravo {
      *     {@link ZahtevZaAutorskoPravo.Prilozi }
      *     
      */
-    public void setPrilozi(ZahtevZaAutorskoPravo.Prilozi value) {
+    public void setPrilozi(List<ZahtevZaAutorskoPravo.Prilozi> value) {
         this.prilozi = value;
     }
 

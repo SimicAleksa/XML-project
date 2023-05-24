@@ -14,17 +14,17 @@ public class AuthorRightsService {
     @Autowired
     private AuthorRightsRepository authorRightsRepository;
 
-    public void save(ZahtevZaAutorskoPravo trademark) {
-        authorRightsRepository.save(trademark);
+    public void save(ZahtevZaAutorskoPravo zaAutorskoPravo) {
+        authorRightsRepository.save(zaAutorskoPravo);
     }
 
     public List<ZahtevZaAutorskoPravo> getAll() {
-        return authorRightsRepository.getAllTrademarkRequest();
+        return authorRightsRepository.getAllCopyRightRequest();
     }
 
     public void getPDF() {
         try {
-            PDFGenerator.generatePDFandHTML(authorRightsRepository.getAllTrademarkRequest().get(0));
+            PDFGenerator.generatePDFandHTML(authorRightsRepository.getAllCopyRightRequest().get(0));
         } catch (Exception ignored) {
             ignored.printStackTrace();
         }

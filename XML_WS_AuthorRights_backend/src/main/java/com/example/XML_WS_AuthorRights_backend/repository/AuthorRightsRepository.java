@@ -19,7 +19,7 @@ public class AuthorRightsRepository {
 
     private final JAXBParser<ZahtevZaAutorskoPravo> jaxbParser;
     @Autowired
-    private ExistDatabase existDB;
+    private ExistDatabase copyRightDB;
     @Autowired
     private FusekiDatabase fusekiDB;
 
@@ -28,11 +28,12 @@ public class AuthorRightsRepository {
     }
 
 
-    public void save(ZahtevZaAutorskoPravo trademark) {
+    public void save(ZahtevZaAutorskoPravo copyRight) {
         try {
-            String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
-            existDB.addToCollection(collectionUri, documentId, trademarkXML);
-            fusekiDB.save(trademarkXML);
+            String documentID = copyRight.getBrojPrijave().concat(".xml");
+            String copyRightXML = jaxbParser.parseFromObjToByteStream(copyRight);
+            copyRightDB.addToCollection(collectionUri, documentID, copyRightXML);
+            fusekiDB.save(copyRightXML);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +41,7 @@ public class AuthorRightsRepository {
 
     public ZahtevZaAutorskoPravo getTrademarkRequestById(String trademarkReqNum) {
         try {
-            XMLResource res = existDB.loadResourceById(collectionUri, documentId);
+            XMLResource res = copyRightDB.loadResourceById(collectionUri, documentId);
             if (res != null)
                 return jaxbParser.parseFromXMLToObj(res.getContent().toString());
         } catch (Exception e) {
@@ -49,10 +50,10 @@ public class AuthorRightsRepository {
         return null;
     }
 
-    public List<ZahtevZaAutorskoPravo> getAllTrademarkRequest() {
+    public List<ZahtevZaAutorskoPravo> getAllCopyRightRequest() {
         List<ZahtevZaAutorskoPravo> trademarkReqs = new ArrayList<>();
         try {
-            ResourceIterator iterator = existDB.loadAllResources(collectionUri).getIterator();
+            ResourceIterator iterator = copyRightDB.loadAllResources(collectionUri).getIterator();
             while (iterator.hasMoreResources())
                 trademarkReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
         } catch (Exception e) {

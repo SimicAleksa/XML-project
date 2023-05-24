@@ -12,7 +12,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "/author-rights")
+@RequestMapping(path = "/api/author-rights",produces = MediaType.APPLICATION_XML_VALUE)
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthorRightsController {
     @Autowired
     private AuthorRightsService authorRightsService;
@@ -23,14 +24,8 @@ public class AuthorRightsController {
     }
 
     @PostMapping(path = "/save", consumes = {MediaType.APPLICATION_XML_VALUE} )
-    public ResponseEntity<HttpStatus> saveNewTrademark(@RequestBody ZahtevZaAutorskoPravo trademark) {
-        authorRightsService.save(trademark);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @GetMapping("/pdf")
-    public ResponseEntity<HttpStatus> getPDF() {
-        authorRightsService.getPDF();
+    public ResponseEntity<HttpStatus> saveNewTrademark(@RequestBody ZahtevZaAutorskoPravo zaAutorskoPravo) {
+        authorRightsService.save(zaAutorskoPravo);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
