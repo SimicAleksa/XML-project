@@ -1,0 +1,192 @@
+<h1 class="text-center">Novi zahtev za priznanje patenta</h1>
+<div class="form-cont">
+    <mat-stepper #stepper>
+        <mat-step [stepControl]="pseudonim_ili_znak_autora" label="Pseudonim ili znak autora">
+            <form [formGroup]="pseudonim_ili_znak_autora">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Pseudonim ili znak autora</mat-label>
+                        <input matInput type="text" formControlName="pseudonim_ili_znak_autora">
+                    </mat-form-field>
+                </div>
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="podaci_o_podnosiocu" label="Podaci o podnosiocu prijave">
+            <form [formGroup]="podaci_o_podnosiocu">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
+                        <mat-label>Ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required *ngIf="isFizockoLice;">
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required *ngIf="!isFizockoLice;">
+                        <mat-label>Poslovno ime</mat-label>
+                        <input matInput type="text" formControlName="poslovnoIme">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required *ngIf="!isFizockoLice;">
+                        <mat-label>Sediste</mat-label>
+                        <input matInput type="text" formControlName="poslovnoSediste">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required >
+                        <mat-label>Telefonski broj</mat-label>
+                        <input matInput type="text" formControlName="telefon">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>E-mail adresa</mat-label>
+                        <input matInput type="text" formControlName="eMail">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Grad</mat-label>
+                        <input matInput type="text" formControlName="grad">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required *ngIf="isFizockoLice;">
+                        <mat-label>Drzavljanstvo</mat-label>
+                        <input matInput type="text" formControlName="drzavljanstvo">
+                    </mat-form-field>
+                </div>
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="podaci_o_autoru" label="Podaci o autoru">
+            <form [formGroup]="podaci_o_autoru">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Grad</mat-label>
+                        <input matInput type="text" formControlName="grad">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Drzavljanstvo</mat-label>
+                        <input matInput type="text" formControlName="drzavljanstvo">
+                    </mat-form-field>
+                </div>
+
+
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="podaci_o_punomocniku" label="Podaci o punomocniku">
+            <form [formGroup]="podaci_o_punomocniku">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Grad</mat-label>
+                        <input matInput type="text" formControlName="grad">
+                    </mat-form-field>
+                </div>
+                
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="podaci_o_delu" label="Podaci o delu">
+            <form [formGroup]="podaci_o_delu">
+                <div class="row" >
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Ime</mat-label>
+                        <input matInput type="text" formControlName="ime">
+                    </mat-form-field>
+                    <mat-form-field class=col appearance="fill" required>
+                        <mat-label>Prezime</mat-label>
+                        <input matInput type="text" formControlName="prezime">
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class=col-8 appearance="fill" required>
+                        <mat-label>Ime ulice</mat-label>
+                        <input matInput type="text" formControlName="ulica">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Broj ulice</mat-label>
+                        <input matInput type="text" formControlName="brojUlice">
+                    </mat-form-field>
+                    <mat-form-field class=col-4 appearance="fill" required>
+                        <mat-label>Grad</mat-label>
+                        <input matInput type="text" formControlName="grad">
+                    </mat-form-field>
+                </div>
+                
+                <div class="text-center buttons-cont">
+                    <button mat-button matStepperPrevious class="stepper-btn">Nazad</button>
+                    <button mat-button matStepperNext class="stepper-btn">Sledece</button>
+                </div>
+            </form>
+        </mat-step>
+
+    </mat-stepper>
+</div>

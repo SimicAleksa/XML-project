@@ -2,7 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/AutorskaPrava"
    xmlns="http://www.ftn.uns.ac.rs/AutorskaPrava"
-    xmlns:a="http://www.ftn.uns.ac.rs/AutorskaPrava">
+    xmlns:a="http://www.ftn.uns.ac.rs/AutorskaPrava"
+           xmlns:pred="http://www.ftn.uns.ac.rs/AutorskaPrava/pred/">
     <xs:element name="zahtev_za_autorsko_pravo">
         <xs:complexType>
             <xs:all>

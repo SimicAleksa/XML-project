@@ -25,6 +25,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { NewPatentFormComponent } from './components/patent/new-patent-form/new-patent-form.component';
 import { PendingPatentRequestsPageComponent } from './components/patent/pages/pending-patent-requests-page/pending-patent-requests-page.component';
 import { PatentListComponent } from './components/patent/pages/patent-list/patent-list.component';
+import { NewCopyrightFormComponent } from './components/copyright/new-copyright-form/new-copyright-form.component';
 
 
 
@@ -43,7 +44,8 @@ import { PatentListComponent } from './components/patent/pages/patent-list/paten
     TmBasicSearchPageComponent,
     TmAdvancedSearchComponent,
     PendingPatentRequestsPageComponent,
-    PatentListComponent
+    PatentListComponent,
+    NewCopyrightFormComponent
   ],
   imports: [
     NgbModule,
