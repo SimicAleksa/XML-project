@@ -11,6 +11,7 @@ import org.xmldb.api.modules.XMLResource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class AuthorRightsRepository {
@@ -39,9 +40,9 @@ public class AuthorRightsRepository {
         }
     }
 
-    public ZahtevZaAutorskoPravo getTrademarkRequestById(String trademarkReqNum) {
+    public ZahtevZaAutorskoPravo getCRRequestById(String crReqNum) {
         try {
-            XMLResource res = copyRightDB.loadResourceById(collectionUri, documentId);
+            XMLResource res = copyRightDB.loadResourceById(collectionUri, crReqNum.concat(".xml"));
             if (res != null)
                 return jaxbParser.parseFromXMLToObj(res.getContent().toString());
         } catch (Exception e) {
@@ -60,5 +61,20 @@ public class AuthorRightsRepository {
             e.printStackTrace();
         }
         return trademarkReqs;
+    }
+
+    public List<ZahtevZaAutorskoPravo> getCopyRightWithBasicSearch(List<String> params) {
+        List<ZahtevZaAutorskoPravo> copyRightReqs = new ArrayList<>();
+        try {
+            String xpathQuery = "//*[local-name()='ZahtevZaAutorskoPravo' and (" +
+                    params.stream().map(searchString -> "contains(., '" + searchString + "')")
+                            .collect(Collectors.joining(" or ")) + ")]";
+            ResourceIterator iterator = copyRightDB.loadResourcesByCustomQuery(collectionUri, xpathQuery).getIterator();
+            while (iterator.hasMoreResources())
+                copyRightReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return copyRightReqs;
     }
 }

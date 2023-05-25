@@ -10,6 +10,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { NewPatentFormComponent } from './components/patent/new-patent-form/new-patent-form.component';
 import { PendingPatentRequestsPageComponent } from './components/patent/pages/pending-patent-requests-page/pending-patent-requests-page.component';
 import { NewCopyrightFormComponent } from './components/copyright/new-copyright-form/new-copyright-form.component';
+import { CopyRightRequestsPageComponent } from './components/copyright/pages/copy-right-patent-requests-page/copy-right-patent-requests-page.component';
+import { CrBasicSearchPageComponent } from './components/copyright/pages/cr-basic-search-page/cr-basic-search-page.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -20,7 +22,8 @@ const routes: Routes = [
   {path: 'patent/pending', component: PendingPatentRequestsPageComponent},
 
   {path: 'copyright/new', component: NewCopyrightFormComponent},
-  // {path: 'copyright/pending', component: PendingPatentRequestsPageComponent},
+  {path: 'copyright/pending', component: CopyRightRequestsPageComponent},
+  {path: 'copyright/search/basic', component: CrBasicSearchPageComponent},
 
   {path: 'trademark/new', component: NewTrademarkFormComponent},
   {path: 'trademark/pending', component: PendingRequestsPageComponent},

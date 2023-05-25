@@ -1,0 +1,24 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
+    <ng-container matColumnDef="oznaka">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Oznaka </th>
+        <td mat-cell *matCellDef="let element" > {{element.oznaka}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="vremePodnosenjaZahteva">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vreme podnosenja zahteva </th>
+        <td mat-cell *matCellDef="let element"> {{element.vremePodnosenjaZahteva}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="emailNalogaPodnosioca">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email naloga podnosioca </th>
+        <td mat-cell *matCellDef="let element"> {{element.emailNalogaPodnosioca}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class="row-on-hover" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+</table>

@@ -165,6 +165,7 @@ export class NewCopyrightFormComponent implements OnInit {
       },
       "a:broj_prijave": { _text: "A_"+this.generateRandomString()},
       "a:datum_podnosenja": { _text: new Date().toISOString().slice(0, 19) },
+      "a:status": { _text: "PENDING" },
       "a:pseudonim_ili_znak_autora": this._getPseudonimInfoJSONObj(this.pseudonim_ili_znak_autora.value),
       "a:podaci_o_podnosiocu": this._getPodnosilacInfoJSONObj(this.podaci_o_podnosiocu.value),
       "a:podaci_o_autoru": this._getAutorInfoJSONObj(this.items_autori),

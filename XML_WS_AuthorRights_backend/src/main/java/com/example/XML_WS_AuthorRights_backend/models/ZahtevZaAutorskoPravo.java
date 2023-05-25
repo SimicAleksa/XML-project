@@ -142,6 +142,10 @@ public class ZahtevZaAutorskoPravo {
     protected String datumPodnosenja;
     @XmlElement(name = "broj_prijave", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected String brojPrijave;
+
+    @XmlElement(name = "status", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
+    protected String status;
+
     @XmlElement(name = "pseudonim_ili_znak_autora", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected String pseudonimIliZnakAutora;
     @XmlElement(name = "podaci_o_podnosiocu", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
@@ -154,6 +158,17 @@ public class ZahtevZaAutorskoPravo {
     protected ZahtevZaAutorskoPravo.PodaciODelu podaciODelu;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected List<ZahtevZaAutorskoPravo.Prilozi> prilozi;
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String value) {
+        this.status = value;
+    }
+
+
 
     /**
      * Gets the value of the datumPodnosenja property.

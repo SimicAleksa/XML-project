@@ -26,6 +26,9 @@ import { NewPatentFormComponent } from './components/patent/new-patent-form/new-
 import { PendingPatentRequestsPageComponent } from './components/patent/pages/pending-patent-requests-page/pending-patent-requests-page.component';
 import { PatentListComponent } from './components/patent/pages/patent-list/patent-list.component';
 import { NewCopyrightFormComponent } from './components/copyright/new-copyright-form/new-copyright-form.component';
+import { CopyRightListComponent } from './components/copyright/pages/copy-right-list/copy-right-list.component';
+import { CopyRightRequestsPageComponent } from './components/copyright/pages/copy-right-patent-requests-page/copy-right-patent-requests-page.component';
+import { CrBasicSearchPageComponent } from './components/copyright/pages/cr-basic-search-page/cr-basic-search-page.component';
 
 
 
@@ -45,7 +48,10 @@ import { NewCopyrightFormComponent } from './components/copyright/new-copyright-
     TmAdvancedSearchComponent,
     PendingPatentRequestsPageComponent,
     PatentListComponent,
-    NewCopyrightFormComponent
+    NewCopyrightFormComponent,
+    CopyRightListComponent,
+    CopyRightRequestsPageComponent,
+    CrBasicSearchPageComponent
   ],
   imports: [
     NgbModule,

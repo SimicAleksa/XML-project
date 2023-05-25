@@ -206,7 +206,7 @@
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>Број пријаве</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:19px;font-family:Arial, Helvetica, sans-serif'>&#160;</span>
                                             <strong><span style='font-size:24px;font-family:Arial, Helvetica, sans-serif'>
-                                                &#160;A-&#160;<xsl:value-of select="//a:broj_prijave"/>
+                                                &#160;&#160;<xsl:value-of select="//a:broj_prijave"/>
                                             </span></strong></p>
                                     </td>
                                     <td rowspan="3" style="width: 12.45pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 49.8pt;vertical-align: top;">

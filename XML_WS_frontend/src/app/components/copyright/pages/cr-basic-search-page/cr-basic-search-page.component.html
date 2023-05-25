@@ -1,0 +1,43 @@
+<div class="row search-form">
+    <div class="col-3"></div>
+    <div class="col text-center">
+        <mat-form-field>
+            <input matInput [(ngModel)]="searchQuery" placeholder="Parametri">
+        </mat-form-field>
+        <button mat-icon-button color="primary" type="submit" (click)="performBasicSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+        <p><b>Pomoc:</b><i> Parametri pretrage su reci ili izrazi odvojeni navodnicima ("rec/izraz1" "rec/izraz2" itd.)</i></p>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<!-- <div *ngIf="searchResult.length !== 0"> -->
+<div>
+    <div class="row table-cont" >
+        <div class="col-3"></div>
+        <div class="col">
+            <h1 class="text-center">REZULTAT OSNOVNE PRETRAGE</h1>    
+            <app-trademark-list (onRowClickEventEmit)="handleSelectedRow($event)" [trademarks]="searchResult"></app-trademark-list>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <div class="row selected-tm">
+        <div class="col-3"></div>
+        <div class="col">
+            <span class="sl-tm-txt">Izabrani zahtev: </span>
+            <span class="sl-tm">{{ selectedCR }}</span>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <div class="row btns-section">
+        <div class="col-3"></div>
+        <div class="col">
+            <button mat-raised-button class="pdf-btn" (click)="onPDFBtnClick()">PDF</button>
+            <button mat-raised-button class="xhtml-btn" (click)="onXHTMLBtnClick()">XHTML</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

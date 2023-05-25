@@ -26,6 +26,7 @@ export const API_FETCH_PENDING_PAT_REQS_URL = PATENT_API_BASE_URL + "/patent/pen
 export const API_GEN_PAT_XHTML = PATENT_API_BASE_URL + "/patent/xhtml/";
 export const API_GEN_PAT_PDF = PATENT_API_BASE_URL + "/patent/pdf/";
 export const API_SEND_PAT_RESENJE = PATENT_API_BASE_URL + "/patent/resenje/save";
+export const API_PAT_BASIC_SEARCH = PATENT_API_BASE_URL + "/patent/search/basic";
 //-------------------------------
 
 
@@ -37,5 +38,6 @@ export const API_FETCH_PENDING_CR_REQS_URL = COPYRIGHT_API_BASE_URL + "/author-r
 export const API_GEN_CR_XHTML = COPYRIGHT_API_BASE_URL + "/author-rights/xhtml/";
 export const API_GEN_CR_PDF = COPYRIGHT_API_BASE_URL + "/author-rights/pdf/";
 export const API_SEND_CR_RESENJE = COPYRIGHT_API_BASE_URL + "/author-rights/resenje/save";
+export const API_CR_BASIC_SEARCH = COPYRIGHT_API_BASE_URL + "/author-rights/search/basic";
 //-------------------------------
 
