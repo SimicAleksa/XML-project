@@ -52,21 +52,21 @@ public class AuthorRightsRepository {
     }
 
     public List<ZahtevZaAutorskoPravo> getAllCopyRightRequest() {
-        List<ZahtevZaAutorskoPravo> trademarkReqs = new ArrayList<>();
+        List<ZahtevZaAutorskoPravo> copyRightReqs = new ArrayList<>();
         try {
             ResourceIterator iterator = copyRightDB.loadAllResources(collectionUri).getIterator();
             while (iterator.hasMoreResources())
-                trademarkReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+                copyRightReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return trademarkReqs;
+        return copyRightReqs;
     }
 
     public List<ZahtevZaAutorskoPravo> getCopyRightWithBasicSearch(List<String> params) {
         List<ZahtevZaAutorskoPravo> copyRightReqs = new ArrayList<>();
         try {
-            String xpathQuery = "//*[local-name()='ZahtevZaAutorskoPravo' and (" +
+            String xpathQuery = "//*[local-name()='zahtev_za_autorsko_pravo' and (" +
                     params.stream().map(searchString -> "contains(., '" + searchString + "')")
                             .collect(Collectors.joining(" or ")) + ")]";
             ResourceIterator iterator = copyRightDB.loadResourcesByCustomQuery(collectionUri, xpathQuery).getIterator();

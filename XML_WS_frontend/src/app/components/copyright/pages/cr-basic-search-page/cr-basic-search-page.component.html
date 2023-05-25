@@ -12,13 +12,12 @@
     <div class="col-3"></div>
 </div>
 
-<!-- <div *ngIf="searchResult.length !== 0"> -->
-<div>
+<div *ngIf="searchResult.length !== 0">
     <div class="row table-cont" >
         <div class="col-3"></div>
         <div class="col">
             <h1 class="text-center">REZULTAT OSNOVNE PRETRAGE</h1>    
-            <app-trademark-list (onRowClickEventEmit)="handleSelectedRow($event)" [trademarks]="searchResult"></app-trademark-list>
+            <app-copy-right-list (onRowClickEventEmit)="handleSelectedRow($event)" [crights]="searchResult"></app-copy-right-list>
         </div>
         <div class="col-3"></div>
     </div>
