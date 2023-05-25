@@ -13,6 +13,7 @@
                             <xs:element name="broj_prijave" type="xs:string"/>
                             <xs:element name="datum_prijema" type="xs:date"/>
                             <xs:element name="priznati_datum_podnosenja" type="xs:date"/>
+                            <xs:element name="status" type="xs:string"/>
                         </xs:all>
                     </xs:complexType>
                 </xs:element>

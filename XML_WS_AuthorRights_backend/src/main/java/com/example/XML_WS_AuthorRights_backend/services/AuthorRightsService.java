@@ -1,5 +1,6 @@
 package com.example.XML_WS_AuthorRights_backend.services;
 
+import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
 import com.example.XML_WS_AuthorRights_backend.repository.AuthorRightsRepository;
 import com.example.XML_WS_AuthorRights_backend.utils.PDForXHTMLGenerator;
@@ -25,7 +26,7 @@ public class AuthorRightsService {
 
     public List<ZahtevZaAutorskoPravo> getPendingRequests() {
         return authorRightsRepository.getAllCopyRightRequest().stream()
-                .filter(req -> req.getStatus().equals("PENDING"))
+                .filter(req -> req.getStatus().equals("NERESENO"))
                 .collect(Collectors.toList());
     }
 
@@ -52,6 +53,14 @@ public class AuthorRightsService {
     public List<ZahtevZaAutorskoPravo> basicSearch(List<String> params, boolean onlyApproved) {
         List<ZahtevZaAutorskoPravo> reqs = authorRightsRepository.getCopyRightWithBasicSearch(params);
         if (onlyApproved)
+            return reqs.stream().filter(req -> req.getStatus().equals("PRIHVACENO"))
+                    .collect(Collectors.toList());
+        return reqs;
+    }
+
+    public List<ZahtevZaAutorskoPravo> advancedSearch(ComplexSearchParamsDTO searchParamsDTO) {
+        List<ZahtevZaAutorskoPravo> reqs = authorRightsRepository.getCopyRightWithAdvancedSearch(searchParamsDTO);
+        if (searchParamsDTO.getOnlyApproved())
             return reqs.stream().filter(req -> req.getStatus().equals("PRIHVACENO"))
                     .collect(Collectors.toList());
         return reqs;

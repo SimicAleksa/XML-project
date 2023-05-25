@@ -1,6 +1,7 @@
 package com.example.XML_WS_AuthorRights_backend.controllers;
 
 import com.example.XML_WS_AuthorRights_backend.DTOs.BasicSearchParamsDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_AuthorRights_backend.DTOs.ListOfCopyRightRequestsDTO;
 import com.example.XML_WS_AuthorRights_backend.DTOs.PDFBytesDTO;
 import com.example.XML_WS_AuthorRights_backend.models.ResenjeZahteva;
@@ -62,6 +63,14 @@ public class AuthorRightsController {
     public ResponseEntity<ListOfCopyRightRequestsDTO> basicSearch(@RequestBody BasicSearchParamsDTO paramsDTO) {
         return new ResponseEntity<>(
                 new ListOfCopyRightRequestsDTO(authorRightsService.basicSearch(paramsDTO.getParam(), paramsDTO.getOnlyApproved())),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping("/search/advanced")
+    public ResponseEntity<ListOfCopyRightRequestsDTO> advancedSearch(@RequestBody ComplexSearchParamsDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfCopyRightRequestsDTO(authorRightsService.advancedSearch(paramsDTO)),
                 HttpStatus.OK
         );
     }

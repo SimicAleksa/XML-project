@@ -249,7 +249,7 @@ export class NewPatentFormComponent implements OnInit {
         "p:broj_prijave": { _text: "P_"+this.generateRandomString()},
         "p:datum_prijema": { _text: new Date().toISOString().slice(0, 19) },
         "p:priznati_datum_podnosenja": { _text: new Date().toISOString().slice(0, 19) }, 
-        "p:status": { _text: "PENDING" },
+        "p:status": { _text: "NERESENO" },
       }, 
       "p:naziv_pronalaska": this._getNazivInfoJSONObj(this.podaciPatenta.value) ,
       "p:podnosilac_prijave": this._getPodnosilacInfoJSONObj(this.podnosiocZahteva.value) ,

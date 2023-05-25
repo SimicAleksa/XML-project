@@ -29,6 +29,7 @@ import { NewCopyrightFormComponent } from './components/copyright/new-copyright-
 import { CopyRightListComponent } from './components/copyright/pages/copy-right-list/copy-right-list.component';
 import { CopyRightRequestsPageComponent } from './components/copyright/pages/copy-right-patent-requests-page/copy-right-patent-requests-page.component';
 import { CrBasicSearchPageComponent } from './components/copyright/pages/cr-basic-search-page/cr-basic-search-page.component';
+import { CrAdvancedSearchComponent } from './components/copyright/pages/cr-advanced-search/cr-advanced-search.component';
 
 
 
@@ -51,7 +52,8 @@ import { CrBasicSearchPageComponent } from './components/copyright/pages/cr-basi
     NewCopyrightFormComponent,
     CopyRightListComponent,
     CopyRightRequestsPageComponent,
-    CrBasicSearchPageComponent
+    CrBasicSearchPageComponent,
+    CrAdvancedSearchComponent
   ],
   imports: [
     NgbModule,

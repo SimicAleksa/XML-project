@@ -1,5 +1,6 @@
 package com.example.XML_WS_AuthorRights_backend.repository;
 
+import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_AuthorRights_backend.database.ExistDatabase;
 import com.example.XML_WS_AuthorRights_backend.database.FusekiDatabase;
 import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
@@ -76,5 +77,88 @@ public class AuthorRightsRepository {
             e.printStackTrace();
         }
         return copyRightReqs;
+    }
+
+    public List<ZahtevZaAutorskoPravo> getCopyRightWithAdvancedSearch(ComplexSearchParamsDTO paramsDTO) {
+        List<ZahtevZaAutorskoPravo> copytightReqs = new ArrayList<>();
+        try {
+            String xpathQuery = generateAdvancedSearchQuery(paramsDTO);
+            ResourceIterator iterator = copyRightDB.loadResourcesByCustomQuery(collectionUri, xpathQuery).getIterator();
+            while (iterator.hasMoreResources())
+                copytightReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return copytightReqs;
+    }
+
+    private String generateAdvancedSearchQuery(ComplexSearchParamsDTO paramsDTO) {
+        boolean toAddAnd = false;
+
+        String query = "/*[local-name()='zahtev_za_autorsko_pravo'][";
+        String nextQuery;
+//        nextQuery = generateEmailNalogaPodnosiocaQuery(paramsDTO.getEmailNalogaPodnosiocaFilter());
+//        if (!nextQuery.equals(""))
+//            toAddAnd = true;
+//        query += nextQuery;
+
+        nextQuery = generateDatumPodnosenjaQuery(paramsDTO.getDatumPodnosenjaFilter());
+//        if (toAddAnd && !nextQuery.equals(""))
+//          query += " and ";
+//          query += nextQuery;
+        if (!nextQuery.equals(""))
+            toAddAnd = true;
+        query += nextQuery;
+
+        nextQuery = generateStatusQuery(paramsDTO.getStatusFilter());
+        if (toAddAnd && !nextQuery.equals(""))
+            query += " and ";
+        query += nextQuery + "]";
+
+        return query;
+    }
+//    private String generateEmailNalogaPodnosiocaQuery(List<ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO> filters) {
+//        if (filters == null)
+//            return "";
+//
+//        StringBuilder query = new StringBuilder();
+//        query.append("(.//*[local-name()='EmailNalogaPodnosioca' and (");
+//        for (ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO f : filters) {
+//            query.append(String.format("%s(contains(text(),'%s')) ", f.getToNeg() ? "not" : "", f.getValue()));
+//            if (!f.getFollowingOperator().equals(""))
+//                query.append(String.format(" %s ",f.getFollowingOperator()));
+//        }
+//        query.append(")])");
+//        return query.toString();
+//    }
+
+    private String generateDatumPodnosenjaQuery(List<ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO> filters) {
+        if (filters == null)
+            return "";
+
+        StringBuilder query = new StringBuilder();
+        query.append("(.//*[local-name()='datum_podnosenja' and (");
+        for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f: filters) {
+            query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
+            if (!f.getFollowingOperator().equals(""))
+                query.append(String.format(" %s ",f.getFollowingOperator()));
+        }
+        query.append(")])");
+        return query.toString();
+    }
+
+    private String generateStatusQuery(List<ComplexSearchParamsDTO.StatusFilterDTO> filters) {
+        if (filters == null)
+            return "";
+
+        StringBuilder query = new StringBuilder();
+        query.append("(.//*[local-name()='status' and (");
+        for (ComplexSearchParamsDTO.StatusFilterDTO f: filters) {
+            query.append(String.format("text()%s'%s'", f.getToNeg() ? " != " : " = ", f.getValue()));
+            if (!f.getFollowingOperator().equals(""))
+                query.append(String.format(" %s ",f.getFollowingOperator()));
+        }
+        query.append(")])");
+        return query.toString();
     }
 }
