@@ -52,7 +52,7 @@ export class NewPatentFormComponent implements OnInit {
   public papirnaForma:boolean = false;
   
 
-  public isFizockoLice:boolean = false
+  public isFizockoLice:boolean = true
 
 
 
