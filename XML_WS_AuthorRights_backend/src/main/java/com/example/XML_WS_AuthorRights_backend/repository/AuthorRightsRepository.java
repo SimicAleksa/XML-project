@@ -96,20 +96,24 @@ public class AuthorRightsRepository {
         boolean toAddAnd = false;
 
         String query = "/*[local-name()='zahtev_za_autorsko_pravo'][";
-        String nextQuery;
-//        nextQuery = generateEmailNalogaPodnosiocaQuery(paramsDTO.getEmailNalogaPodnosiocaFilter());
-//        if (!nextQuery.equals(""))
-//            toAddAnd = true;
-//        query += nextQuery;
-
-        nextQuery = generateDatumPodnosenjaQuery(paramsDTO.getDatumPodnosenjaFilter());
-//        if (toAddAnd && !nextQuery.equals(""))
-//          query += " and ";
-//          query += nextQuery;
+        String nextQuery = generateEmailNalogaPodnosiocaQuery(paramsDTO.getEmailNalogaPodnosiocaFilter());
         if (!nextQuery.equals(""))
             toAddAnd = true;
         query += nextQuery;
-
+        if (!nextQuery.equals(""))
+            toAddAnd = true;
+        nextQuery = generateDatumPodnosenjaQuery(paramsDTO.getDatumPodnosenjaFilter());
+        if (toAddAnd && !nextQuery.equals(""))
+            query += " and ";
+        query += nextQuery;
+        if (!nextQuery.equals(""))
+            toAddAnd = true;
+        nextQuery = generateDatumPregledanjaQuery(paramsDTO.getDatumPregledanjaFilter());
+        if (toAddAnd && !nextQuery.equals(""))
+            query += " and ";
+        query += nextQuery;
+        if (!nextQuery.equals(""))
+            toAddAnd = true;
         nextQuery = generateStatusQuery(paramsDTO.getStatusFilter());
         if (toAddAnd && !nextQuery.equals(""))
             query += " and ";
@@ -117,20 +121,21 @@ public class AuthorRightsRepository {
 
         return query;
     }
-//    private String generateEmailNalogaPodnosiocaQuery(List<ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO> filters) {
-//        if (filters == null)
-//            return "";
-//
-//        StringBuilder query = new StringBuilder();
-//        query.append("(.//*[local-name()='EmailNalogaPodnosioca' and (");
-//        for (ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO f : filters) {
-//            query.append(String.format("%s(contains(text(),'%s')) ", f.getToNeg() ? "not" : "", f.getValue()));
-//            if (!f.getFollowingOperator().equals(""))
-//                query.append(String.format(" %s ",f.getFollowingOperator()));
-//        }
-//        query.append(")])");
-//        return query.toString();
-//    }
+
+    private String generateEmailNalogaPodnosiocaQuery(List<ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO> filters) {
+        if (filters == null)
+            return "";
+
+        StringBuilder query = new StringBuilder();
+        query.append("(.//*[local-name()='email_naloga_podnosioca' and (");
+        for (ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO f : filters) {
+            query.append(String.format("%s(contains(text(),'%s')) ", f.getToNeg() ? "not" : "", f.getValue()));
+            if (!f.getFollowingOperator().equals(""))
+                query.append(String.format(" %s ",f.getFollowingOperator()));
+        }
+        query.append(")])");
+        return query.toString();
+    }
 
     private String generateDatumPodnosenjaQuery(List<ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO> filters) {
         if (filters == null)
@@ -139,6 +144,21 @@ public class AuthorRightsRepository {
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='datum_podnosenja' and (");
         for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f: filters) {
+            query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
+            if (!f.getFollowingOperator().equals(""))
+                query.append(String.format(" %s ",f.getFollowingOperator()));
+        }
+        query.append(")])");
+        return query.toString();
+    }
+
+    private String generateDatumPregledanjaQuery(List<ComplexSearchParamsDTO.DatumPregledanjaFilterDTO> filters) {
+        if (filters == null)
+            return "";
+
+        StringBuilder query = new StringBuilder();
+        query.append("(.//*[local-name()='datum_pregledanja' and (");
+        for (ComplexSearchParamsDTO.DatumPregledanjaFilterDTO f: filters) {
             query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
             if (!f.getFollowingOperator().equals(""))
                 query.append(String.format(" %s ",f.getFollowingOperator()));

@@ -11,6 +11,8 @@
                 <xs:element name="broj_prijave" type="xs:string"/>
                 <xs:element name="pseudonim_ili_znak_autora" type="xs:string"/>
                 <xs:element name="status" type="xs:string"/>
+                <xs:element name="email_naloga_podnosioca" type="xs:string"/>
+                <xs:element name="datum_pregledanja" type="xs:string"/>
                 <xs:element name="podaci_o_podnosiocu">
                     <xs:complexType>
                         <xs:sequence>

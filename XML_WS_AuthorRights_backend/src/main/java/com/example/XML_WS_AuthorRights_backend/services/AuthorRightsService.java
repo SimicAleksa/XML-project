@@ -44,9 +44,10 @@ public class AuthorRightsService {
         return new byte[0];
     }
 
-    public void changeCRStatus(String crId, boolean isApproved) {
+    public void changeCRStatus(String crId, boolean isApproved, String datumPregledanja) {
         ZahtevZaAutorskoPravo crReq = authorRightsRepository.getCRRequestById(crId);
         crReq.setStatus(isApproved ? "PRIHVACENO" : "ODBIJENO");
+        crReq.setDatumPregledanja(datumPregledanja.toString());
         save(crReq);
     }
 
@@ -65,4 +66,5 @@ public class AuthorRightsService {
                     .collect(Collectors.toList());
         return reqs;
     }
+
 }

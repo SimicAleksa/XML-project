@@ -55,7 +55,7 @@ public class AuthorRightsController {
     @PostMapping("/resenje/save")
     public ResponseEntity<HttpStatus> saveResenje(@RequestBody ResenjeZahteva resenjeZahteva) {
         resenjaService.saveNewResenje(resenjeZahteva);
-        authorRightsService.changeCRStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen());
+        authorRightsService.changeCRStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen(), resenjeZahteva.getDatumPodnosenjaResenja());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

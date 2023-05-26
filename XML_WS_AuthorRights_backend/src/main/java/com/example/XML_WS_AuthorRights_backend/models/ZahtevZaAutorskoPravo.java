@@ -143,6 +143,13 @@ public class ZahtevZaAutorskoPravo {
     @XmlElement(name = "broj_prijave", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected String brojPrijave;
 
+
+    @XmlElement(name = "email_naloga_podnosioca", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
+    protected String emailNalogaPodnosioca;
+
+    @XmlElement(name = "datum_pregledanja", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
+    protected String datumPregledanja;
+
     @XmlElement(name = "status", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
     protected String status;
 
@@ -166,6 +173,22 @@ public class ZahtevZaAutorskoPravo {
 
     public void setStatus(String value) {
         this.status = value;
+    }
+
+    public String getEmailNalogaPodnosioca() {
+        return emailNalogaPodnosioca;
+    }
+
+    public void setEmailNalogaPodnosioca(String value) {
+        this.emailNalogaPodnosioca = value;
+    }
+
+    public String getDatumPregledanja() {
+        return datumPregledanja;
+    }
+
+    public void setDatumPregledanja(String value) {
+        this.datumPregledanja = value;
     }
 
 

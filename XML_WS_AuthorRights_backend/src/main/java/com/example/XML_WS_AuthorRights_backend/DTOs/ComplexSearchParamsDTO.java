@@ -17,7 +17,8 @@ import java.util.List;
         "onlyApproved",
         "statusFilter",
         "emailNalogaPodnosiocaFilter",
-        "datumPodnosenjaFilter"
+        "datumPodnosenjaFilter",
+        "datumPregledanjaFilter"
 })
 @XmlRootElement(name = "ComplexSearchParamsDTO")
 public class ComplexSearchParamsDTO {
@@ -29,6 +30,9 @@ public class ComplexSearchParamsDTO {
     private List<EmailNalogaPodnosiocaFilterDTO> emailNalogaPodnosiocaFilter;
     @XmlElement
     private List<DatumPodnosenjaFilterDTO> datumPodnosenjaFilter;
+
+    @XmlElement
+    private List<DatumPregledanjaFilterDTO> datumPregledanjaFilter;
 
     @Getter
     @Setter
@@ -84,6 +88,27 @@ public class ComplexSearchParamsDTO {
     })
     @XmlRootElement(name = "DatumPodnosenjaFilterDTO")
     public static class DatumPodnosenjaFilterDTO {
+        @XmlElement
+        private String value;
+        @XmlElement
+        private String dateOperator;
+        @XmlElement
+        private String followingOperator;
+
+    }
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+            "value",
+            "dateOperator",
+            "followingOperator"
+    })
+    @XmlRootElement(name = "DatumPregledanjaFilterDTO")
+    public static class DatumPregledanjaFilterDTO {
         @XmlElement
         private String value;
         @XmlElement

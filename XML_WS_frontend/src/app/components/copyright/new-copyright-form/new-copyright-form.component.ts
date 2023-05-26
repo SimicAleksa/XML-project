@@ -141,7 +141,7 @@ export class NewCopyrightFormComponent implements OnInit {
           alert('Neuspesno, nesto se desilo!');
         },
         complete: () => {
-          alert('Prijava za zig je uspesno poslata!');
+          alert('Prijava za copyright je uspesno poslata!');
         }
     });
   }
@@ -166,6 +166,8 @@ export class NewCopyrightFormComponent implements OnInit {
       "a:broj_prijave": { _text: "A_"+this.generateRandomString()},
       "a:datum_podnosenja": { _text: new Date().toISOString().slice(0, 19) },
       "a:status": { _text: "NERESENO" },
+      "a:email_naloga_podnosioca": { _text: this.lStoargeManager.getLoggedUserEmail() },
+      "a:datum_pregledanja": { _text: "TBD" },
       "a:pseudonim_ili_znak_autora": this._getPseudonimInfoJSONObj(this.pseudonim_ili_znak_autora.value),
       "a:podaci_o_podnosiocu": this._getPodnosilacInfoJSONObj(this.podaci_o_podnosiocu.value),
       "a:podaci_o_autoru": this._getAutorInfoJSONObj(this.items_autori),

@@ -1,5 +1,5 @@
 <div class="row search-form">
-    <div class="col text-center">
+    <div class="col text-center" *ngIf="!isRegualr">
         <button mat-raised-button (click)="resetStatusFilters()" color="accent">RESET</button>
 
         <mat-form-field class="sts-filters-inp marg">
@@ -36,8 +36,7 @@
     </div>
 </div>
 
-<!-- nema email  -->
-<!-- <div class="row search-form">
+<div class="row search-form">
     <div class="col text-center">
         <button mat-raised-button (click)="resetEmailFilters()" color="accent">RESET</button>
 
@@ -68,14 +67,14 @@
 
         <button mat-raised-button color="primary" type="submit" (click)="addEmailFilter()">Dodaj email filter</button>
     </div>
-</div> -->
+</div>
 
 <div class="row search-form">
     <div class="col text-center">
         <button mat-raised-button (click)="resetDateFilters()" color="accent">RESET</button>
 
         <mat-form-field class="sts-filters-inp marg">
-            <input matInput [(ngModel)]="dateFiltersTxt" placeholder="Datum filteri" >
+            <input matInput [(ngModel)]="dateFiltersTxt" placeholder="Datum podnosenja filteri" >
         </mat-form-field>
 
         <mat-form-field class="cmbox-neg marg">
@@ -106,6 +105,48 @@
         <button mat-raised-button color="primary" type="submit" (click)="addDateFilter()">Dodaj datum filter</button>
     </div>
 </div>
+
+<!-- ////////////////////////////////////////////////////////// -->
+
+<div class="row search-form">
+    <div class="col text-center">
+        <button mat-raised-button (click)="resetPregledanoDateFilters()" color="accent">RESET</button>
+
+        <mat-form-field class="sts-filters-inp marg">
+            <input matInput [(ngModel)]="datePregledanoFiltersTxt" placeholder="Datum pregledanja filteri" >
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-neg marg">
+            <mat-label>Zahtev je: </mat-label>
+            <mat-select matNativeControl required [(value)]="datePregledanoOpSelection">
+              <mat-option value="&lt;">PRE</mat-option>
+              <mat-option value="&gt;">POSLE</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="datepicker-inp marg">
+            <mat-label>Izaberite datum</mat-label>
+            <input matInput [matDatepicker]="pickerPregledano" [(ngModel)]="datePregledanoValueInp">
+            <mat-hint>DD/MM/GGGG</mat-hint>
+            <mat-datepicker-toggle matSuffix  [for]="pickerPregledano"></mat-datepicker-toggle>
+            <mat-datepicker #pickerPregledano></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="cmbox-logop marg">
+            <mat-label>Logicki operator</mat-label>
+            <mat-select matNativeControl required [(value)]="datePregledanoLogOpSelection">
+              <mat-option value="and"> && </mat-option>
+              <mat-option value="or"> || </mat-option>
+              <mat-option value="">Nista</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="addPregledanoDateFilter()">Dodaj pregledano datum filter</button>
+    </div>
+</div>
+
+
+<!-- ////////////////////////////////////////////////////////// -->
 
 <div class="row search-form">
     <div class="col text-center">

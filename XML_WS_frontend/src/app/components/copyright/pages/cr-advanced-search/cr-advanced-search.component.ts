@@ -31,6 +31,16 @@ export class CrAdvancedSearchComponent implements OnInit {
   public dateLogOpSelection: string = "";
 
 
+  public datePregledanoFilters: Array<{value: string, dateOperator: string, followingOperator: string}> = [];
+  public datePregledanoFiltersTxt: string = "";
+  public datePregledanoValueInp: string = "";
+  public datePregledanoOpSelection: string = "<";
+  public datePregledanoLogOpSelection: string = "";
+
+
+  public isRegualr = this.lStorageManager.getUserRole() === "REGULAR"
+
+
   constructor(private requestMaker: RequestMaker, private xmlParser: XMLParser, private lStorageManager: LocalStorageManager) { }
 
   ngOnInit(): void {
@@ -56,17 +66,12 @@ export class CrAdvancedSearchComponent implements OnInit {
   }
 
   searchFormToDTO() {
-    // let reqBody = {
-    //   onlyApproved: { _text: this.lStorageManager.getUserRole() === "REGULAR" },
-    //   statusFilter: this.convertStatusForm(),
-    //   // emailNalogaPodnosiocaFilter: this.convertEmailForm(),
-    //   datumPodnosenjaFilter: this.convertDateForm()
-    // }
     let reqBody = {
-      onlyApproved: { _text: true },
+      onlyApproved: { _text: this.lStorageManager.getUserRole() === "REGULAR" },
       statusFilter: this.convertStatusForm(),
-      // emailNalogaPodnosiocaFilter: this.convertEmailForm(),
-      datumPodnosenjaFilter: this.convertDateForm()
+      emailNalogaPodnosiocaFilter: this.convertEmailForm(),
+      datumPodnosenjaFilter: this.convertDateForm(),
+      datumPregledanjaFilter: this.convertPregledanjeDateForm()
     }
 
     return this.xmlParser.parseToXml("ComplexSearchParamsDTO", reqBody);
@@ -99,6 +104,18 @@ export class CrAdvancedSearchComponent implements OnInit {
   convertDateForm() {
     let filters = new Array<any>();
     this.dateFilters.forEach(f => {
+      filters.push({
+        value: { _text: f.value }, 
+        dateOperator: { _text: f.dateOperator }, 
+        followingOperator: { _text: f.followingOperator }
+      });
+    });
+    return filters
+  }
+
+  convertPregledanjeDateForm() {
+    let filters = new Array<any>();
+    this.datePregledanoFilters.forEach(f => {
       filters.push({
         value: { _text: f.value }, 
         dateOperator: { _text: f.dateOperator }, 
@@ -260,6 +277,45 @@ export class CrAdvancedSearchComponent implements OnInit {
       return true;
     
       if (this.dateFilters[this.dateFilters.length-1].followingOperator === "")
+      return false;
+
+    return true;
+  }
+
+  // ----------------------------------------------------------------------
+
+  // -----DATUM PREGLEDANO------------------------------------------------------------
+  
+  addPregledanoDateFilter(): void {
+    let dateConverted = new Date(this.datePregledanoValueInp);
+    const newFilter = {
+      value: `${dateConverted.getFullYear()}-${(dateConverted.getMonth() + 1).toString().padStart(2, '0')}-${dateConverted.getDate()}`, 
+      dateOperator: this.datePregledanoOpSelection, 
+      followingOperator: this.datePregledanoLogOpSelection
+    }
+
+    if (!this.validateNextPregledanoDateFilter()) {
+      alert("Novi filter datuma nije validan!");
+      return;
+    }
+    console.log(123);
+    this.datePregledanoFiltersTxt += `${newFilter.dateOperator === "<" ? "PRE" : "POSLE"}(${newFilter.value}) ${newFilter.followingOperator} `;
+    this.datePregledanoFilters.push(newFilter);
+  }
+
+  resetPregledanoDateFilters(): void {
+    this.datePregledanoFilters = [];
+    this.datePregledanoFiltersTxt = "";
+  }
+  
+  validateNextPregledanoDateFilter(): boolean {
+    if (this.datePregledanoValueInp === "")
+      return false;
+
+    if (this.datePregledanoFilters.length === 0)
+      return true;
+    
+      if (this.datePregledanoFilters[this.datePregledanoFilters.length-1].followingOperator === "")
       return false;
 
     return true;

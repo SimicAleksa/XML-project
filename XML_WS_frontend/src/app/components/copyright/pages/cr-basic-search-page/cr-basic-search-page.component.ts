@@ -46,12 +46,8 @@ export class CrBasicSearchPageComponent implements OnInit {
   }
 
   getParamsDTO(params: Array<string>) {
-    // let reqBody = {
-    //   onlyApproved: { _text: this.lStorageManager.getUserRole() === "REGULAR" },
-    //   param: params
-    // }
     let reqBody = {
-      onlyApproved: { _text: true },
+      onlyApproved: { _text: this.lStorageManager.getUserRole() === "REGULAR" },
       param: params
     }
     return this.xmlParser.parseToXml("BasicSearchParamsDTO", reqBody);

@@ -17,10 +17,17 @@
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingTrademarkReqsBtnClick()">Neobradjeni zahtevi</button>
         </mat-menu>
 
-        <!-- dodato -->
         <button mat-button [matMenuTriggerFor]="aboveMenu2">SERVIS ZA PATENT</button>
         <mat-menu #aboveMenu2="matMenu" yPosition="above">
             <button mat-menu-item (click)="onNewPatentReqBtnClick()">Novi zahtev za patent</button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="aboveMenu3">SERVIS ZA AUTORSKA PRAVA</button>
+        <mat-menu #aboveMenu3="matMenu" yPosition="above">
+            <button mat-menu-item (click)="onBasicSearchCRBtnClick()">Osnovna pretraga</button>
+            <button mat-menu-item (click)="onAdvancedSearchCRBtnClick()">Napredna pretraga</button>
+            <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewCopyRightReqBtnClick()">Novi zahtev za autorsko pravo</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingCopyRightReqsBtnClick()">Neobradjeni zahtevi</button>
         </mat-menu>
 
 
