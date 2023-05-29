@@ -19,7 +19,10 @@
 
         <button mat-button [matMenuTriggerFor]="aboveMenu2">SERVIS ZA PATENT</button>
         <mat-menu #aboveMenu2="matMenu" yPosition="above">
-            <button mat-menu-item (click)="onNewPatentReqBtnClick()">Novi zahtev za patent</button>
+            <button mat-menu-item (click)="onBasicSearchPTBtnClick()">Osnovna pretraga</button>
+            <button mat-menu-item (click)="onAdvancedSearchPTBtnClick()">Napredna pretraga</button>
+            <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewPatentReqBtnClick()">Novi zahtev za patent</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingPatentReqsBtnClick()">Neobradjeni zahtevi</button>
         </mat-menu>
 
         <button mat-button [matMenuTriggerFor]="aboveMenu3">SERVIS ZA AUTORSKA PRAVA</button>

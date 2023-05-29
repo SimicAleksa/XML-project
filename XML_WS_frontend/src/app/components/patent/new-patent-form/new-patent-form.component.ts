@@ -184,7 +184,7 @@ export class NewPatentFormComponent implements OnInit {
           alert('Neuspesno, nesto se desilo!');
         },
         complete: () => {
-          alert('Prijava za zig je uspesno poslata!');
+          alert('Prijava za patent je uspesno poslata!');
         }
     });
   }
@@ -250,6 +250,8 @@ export class NewPatentFormComponent implements OnInit {
         "p:datum_prijema": { _text: new Date().toISOString().slice(0, 19) },
         "p:priznati_datum_podnosenja": { _text: new Date().toISOString().slice(0, 19) }, 
         "p:status": { _text: "NERESENO" },
+        "p:email_naloga_podnosioca": { _text: this.lStoargeManager.getLoggedUserEmail() },
+        "p:datum_pregledanja": { _text: "1900-01-01T00:00:00" },
       }, 
       "p:naziv_pronalaska": this._getNazivInfoJSONObj(this.podaciPatenta.value) ,
       "p:podnosilac_prijave": this._getPodnosilacInfoJSONObj(this.podnosiocZahteva.value) ,

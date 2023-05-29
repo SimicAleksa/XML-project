@@ -51,10 +51,18 @@ export class CrAdvancedSearchComponent implements OnInit {
     .doCRAdvancedSearch(this.searchFormToDTO())
     .subscribe({
       next: (data: any) => {
-        if (data.body !== undefined)
-          this.searchResult = this.xmlParser.parseFromXml(
-                                    data.body.replace(/<(\/?)(ns2:)/g, '<$1')
-                                  ).ListOfCopyRightRequestsDTO.ZahtevZaAutorskoPravo;
+            if (data.body !== undefined){
+              if(this.datePregledanoFilters.length>0 && this.statusFiltersTxt.includes("NERESENO") && !this.statusFiltersTxt.includes("!NERESENO"))
+              {
+                alert("Nije pronadjen ni jedan zahtev za date filtere!")
+                this.searchResult = [];
+              }
+             else{
+                this.searchResult = this.xmlParser.parseFromXml(
+                        data.body.replace(/<(\/?)(ns2:)/g, '<$1')
+                      ).ListOfCopyRightRequestsDTO.ZahtevZaAutorskoPravo;
+                }
+              } 
         if (this.searchResult === undefined) {
           alert("Nije pronadjen ni jedan zahtev za date filtere!")
           this.searchResult = [];

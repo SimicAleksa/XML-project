@@ -671,13 +671,19 @@ public class ZahtevZaPatent {
         protected String brojPrijave;
         @XmlElement(name = "datum_prijema", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar datumPrijema;
+        protected String datumPrijema;
         @XmlElement(name = "priznati_datum_podnosenja", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar priznatiDatumPodnosenja;
+        protected String priznatiDatumPodnosenja;
 
         @XmlElement(name = "status", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
         protected String status;
+
+        @XmlElement(name = "email_naloga_podnosioca", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+        protected String emailNalogaPodnosioca;
+
+        @XmlElement(name = "datum_pregledanja", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
+        protected String datumPregledanja;
 
         /**
          * Gets the value of the brojPrijave property.
@@ -711,7 +717,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public XMLGregorianCalendar getDatumPrijema() {
+        public String getDatumPrijema() {
             return datumPrijema;
         }
 
@@ -723,7 +729,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public void setDatumPrijema(XMLGregorianCalendar value) {
+        public void setDatumPrijema(String value) {
             this.datumPrijema = value;
         }
 
@@ -735,7 +741,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public XMLGregorianCalendar getPriznatiDatumPodnosenja() {
+        public String getPriznatiDatumPodnosenja() {
             return priznatiDatumPodnosenja;
         }
 
@@ -747,7 +753,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public void setPriznatiDatumPodnosenja(XMLGregorianCalendar value) {
+        public void setPriznatiDatumPodnosenja(String value) {
             this.priznatiDatumPodnosenja = value;
         }
 
@@ -759,6 +765,22 @@ public class ZahtevZaPatent {
 
         public void setStatus(String value) {
             this.status = value;
+        }
+
+        public String getEmailNalogaPodnosioca() {
+            return emailNalogaPodnosioca;
+        }
+
+        public void setEmailNalogaPodnosioca(String value) {
+            this.emailNalogaPodnosioca = value;
+        }
+
+        public String getDatumPregledanja() {
+            return datumPregledanja;
+        }
+
+        public void setDatumPregledanja(String value) {
+            this.datumPregledanja = value;
         }
 
     }
@@ -800,7 +822,7 @@ public class ZahtevZaPatent {
         protected String brojOsnovnePrijave;
         @XmlElement(name = "datum_podnosenja_osnovne_prijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar datumPodnosenjaOsnovnePrijave;
+        protected String datumPodnosenjaOsnovnePrijave;
 
         /**
          * Gets the value of the dopunskaPrijava property.
@@ -866,7 +888,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public XMLGregorianCalendar getDatumPodnosenjaOsnovnePrijave() {
+        public String getDatumPodnosenjaOsnovnePrijave() {
             return datumPodnosenjaOsnovnePrijave;
         }
 
@@ -878,7 +900,7 @@ public class ZahtevZaPatent {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public void setDatumPodnosenjaOsnovnePrijave(XMLGregorianCalendar value) {
+        public void setDatumPodnosenjaOsnovnePrijave(String value) {
             this.datumPodnosenjaOsnovnePrijave = value;
         }
 
@@ -1371,7 +1393,7 @@ public class ZahtevZaPatent {
 
             @XmlElement(name = "datum_podnosenja_ranije_prijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
             @XmlSchemaType(name = "date")
-            protected XMLGregorianCalendar datumPodnosenjaRanijePrijave;
+            protected String datumPodnosenjaRanijePrijave;
             @XmlElement(name = "broj_ranije_prijave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
             protected String brojRanijePrijave;
             @XmlElement(name = "dvoslovna_oznaka_drzave", namespace = "http://www.ftn.uns.ac.rs/zahtev_za_patent", required = true)
@@ -1385,7 +1407,7 @@ public class ZahtevZaPatent {
              *     {@link XMLGregorianCalendar }
              *     
              */
-            public XMLGregorianCalendar getDatumPodnosenjaRanijePrijave() {
+            public String getDatumPodnosenjaRanijePrijave() {
                 return datumPodnosenjaRanijePrijave;
             }
 
@@ -1397,7 +1419,7 @@ public class ZahtevZaPatent {
              *     {@link XMLGregorianCalendar }
              *     
              */
-            public void setDatumPodnosenjaRanijePrijave(XMLGregorianCalendar value) {
+            public void setDatumPodnosenjaRanijePrijave(String value) {
                 this.datumPodnosenjaRanijePrijave = value;
             }
 

@@ -1,5 +1,7 @@
 package com.example.XML_WS_Patent_backend.controllers;
 
+import com.example.XML_WS_Patent_backend.DTOs.BasicSearchParamsDTO;
+import com.example.XML_WS_Patent_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_Patent_backend.DTOs.ListOfPatentRequestsDTO;
 import com.example.XML_WS_Patent_backend.DTOs.PDFBytesDTO;
 import com.example.XML_WS_Patent_backend.models.ResenjeZahteva;
@@ -53,7 +55,23 @@ public class PatentController {
     @PostMapping("/resenje/save")
     public ResponseEntity<HttpStatus> saveResenje(@RequestBody ResenjeZahteva resenjeZahteva) {
         resenjaService.saveNewResenje(resenjeZahteva);
-        patentService.changePatentStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen());
+        patentService.changePatentStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen(), resenjeZahteva.getDatumPodnosenjaResenja());
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/search/basic")
+    public ResponseEntity<ListOfPatentRequestsDTO> basicSearch(@RequestBody BasicSearchParamsDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfPatentRequestsDTO(patentService.basicSearch(paramsDTO.getParam(), paramsDTO.getOnlyApproved())),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping("/search/advanced")
+    public ResponseEntity<ListOfPatentRequestsDTO> advancedSearch(@RequestBody ComplexSearchParamsDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfPatentRequestsDTO(patentService.advancedSearch(paramsDTO)),
+                HttpStatus.OK
+        );
     }
 }
