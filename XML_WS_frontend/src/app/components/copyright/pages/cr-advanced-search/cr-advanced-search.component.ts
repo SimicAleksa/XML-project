@@ -52,17 +52,41 @@ export class CrAdvancedSearchComponent implements OnInit {
     .subscribe({
       next: (data: any) => {
             if (data.body !== undefined){
+              
+              
               if(this.datePregledanoFilters.length>0 && this.statusFiltersTxt.includes("NERESENO") && !this.statusFiltersTxt.includes("!NERESENO"))
               {
                 alert("Nije pronadjen ni jedan zahtev za date filtere!")
                 this.searchResult = [];
+              }
+              else if(this.datePregledanoFilters.length>0) 
+              { 
+                let temp = this.xmlParser.parseFromXml(
+                  data.body.replace(/<(\/?)(ns2:)/g, '<$1')
+                ).ListOfCopyRightRequestsDTO.ZahtevZaAutorskoPravo;
+
+                if (temp === undefined) {
+                  alert("Nije pronadjen ni jedan zahtev za date filtere!")
+                  this.searchResult = [];
+                }
+                else{
+                  if(Array.isArray(temp))
+                    this.searchResult = temp.filter((item: { datum_pregledanja: { _text: string; }; }) => item.datum_pregledanja._text!== '1900-01-01T00:00:00');
+                  else
+                    {
+                      if(temp.datum_pregledanja._text!=='1900-01-01T00:00:00')
+                        this.searchResult=temp
+                    }
+                }
+
               }
              else{
                 this.searchResult = this.xmlParser.parseFromXml(
                         data.body.replace(/<(\/?)(ns2:)/g, '<$1')
                       ).ListOfCopyRightRequestsDTO.ZahtevZaAutorskoPravo;
                 }
-              } 
+              }
+              // console.log(this.searchResult); 
         if (this.searchResult === undefined) {
           alert("Nije pronadjen ni jedan zahtev za date filtere!")
           this.searchResult = [];

@@ -58,6 +58,26 @@ export class PatentAdvancedSearchComponent implements OnInit {
               alert("Nije pronadjen ni jedan zahtev za date filtere!")
               this.searchResult = [];
             }
+            else if(this.datePregledanoFilters.length>0)
+              {
+                let temp = this.xmlParser.parseFromXml(
+                  data.body.replace(/<(\/?)(ns2:)/g, '<$1')
+                ).ListOfPatentRequestsDTO.ZahtevZaPatent;
+
+                if (temp === undefined) {
+                  alert("Nije pronadjen ni jedan zahtev za date filtere!")
+                  this.searchResult = [];
+                }
+                else{
+                  if(Array.isArray(temp))
+                    this.searchResult = temp.filter((item: {popunjava_zavod: { datum_pregledanja: { _text: string; }; }; }) => item.popunjava_zavod.datum_pregledanja._text!== '1900-01-01T00:00:00');
+                  else
+                    {
+                      if(temp.datum_pregledanja._text!=='1900-01-01T00:00:00')
+                        this.searchResult=temp
+                    }
+                }
+              }
             else{
               this.searchResult = this.xmlParser.parseFromXml(
                 data.body.replace(/<(\/?)(ns2:)/g, '<$1')
