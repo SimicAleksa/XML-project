@@ -191,6 +191,7 @@ export class XonomyService {
               }]
           },
 
+
           podnosilac_prijave_je_i_pronalazac : {
             hasText: true,
             oneliner: true,
