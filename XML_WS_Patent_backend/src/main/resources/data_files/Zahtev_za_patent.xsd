@@ -88,7 +88,7 @@
                             <xs:element name="dopunska_prijava" type="xs:boolean"/>
                             <xs:element name="izdvojena_prijava" type="xs:boolean"/>
                             <xs:element name="broj_osnovne_prijave" type="xs:string"/>
-                            <xs:element name="datum_podnosenja_osnovne_prijave" type="xs:date"/>
+                            <xs:element name="datum_podnosenja_osnovne_prijave" type="xs:string"/>
                         </xs:all>
                     </xs:complexType>
                 </xs:element>
