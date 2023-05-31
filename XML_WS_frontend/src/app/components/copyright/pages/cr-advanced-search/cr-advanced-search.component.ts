@@ -282,7 +282,7 @@ export class CrAdvancedSearchComponent implements OnInit {
   addDateFilter(): void {
     let dateConverted = new Date(this.dateValueInp);
     const newFilter = {
-      value: `${dateConverted.getFullYear()}-${(dateConverted.getMonth() + 1).toString().padStart(2, '0')}-${dateConverted.getDate()}`, 
+      value: `${dateConverted.getFullYear()}-${(dateConverted.getMonth() + 1).toString().padStart(2, '0')}-${dateConverted.getDate().toString().padStart(2, '0')}`, 
       dateOperator: this.dateOpSelection, 
       followingOperator: this.dateLogOpSelection
     }
@@ -321,7 +321,7 @@ export class CrAdvancedSearchComponent implements OnInit {
   addPregledanoDateFilter(): void {
     let dateConverted = new Date(this.datePregledanoValueInp);
     const newFilter = {
-      value: `${dateConverted.getFullYear()}-${(dateConverted.getMonth() + 1).toString().padStart(2, '0')}-${dateConverted.getDate()}`, 
+      value: `${dateConverted.getFullYear()}-${(dateConverted.getMonth() + 1).toString().padStart(2, '0')}-${dateConverted.getDate().toString().padStart(2, '0')}`, 
       dateOperator: this.datePregledanoOpSelection, 
       followingOperator: this.datePregledanoLogOpSelection
     }
