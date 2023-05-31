@@ -65,30 +65,29 @@ export class XonomyEditorComponent implements OnInit, AfterViewInit {
     let xml_zatvaranje_za_patent = zatvaranje_zahtev_za_patent[1]
 
 
-    console.log(text);
-    text=text.replace("</","!@#$%%TRQDSDSdasdsadafwa")
-    text=text.replace("<","<p:")
-    text=text.replace("!@#$%%TRQDSDSdasdsadafwa","</p:")
-    text=text.replace("xml:space='preserve'","")
+    text=text.replaceAll("</","!@#$%%TRQDSDSdasdsadafwa")
+    text=text.replaceAll("<","<p:")
+    text=text.replaceAll("!@#$%%TRQDSDSdasdsadafwa","</p:")
+    text=text.replaceAll("xml:space='preserve'","")
 
     console.log(text);
 
-    text=text.replace("<p:Zahtev_za_patent>",xml_otvaranje_zahtev_za_patent+xml_popunjava_zavod)
+    text=text.replaceAll("<p:Zahtev_za_patent>",xml_otvaranje_zahtev_za_patent+xml_popunjava_zavod)
 
     console.log("\n\n\n");
 
-    // console.log(text);
+    console.log(text);
     
 
-    // this.requestMaker
-    //   .sendPatentRequest(text)
-    //   .subscribe({
-    //     error: (err: any) => {
-    //       alert('Neuspesno, nesto se desilo!');
-    //     },
-    //     complete: () => {
-    //       alert('Prijava za patent je uspesno poslata!');
-    //     }
-    // });
+    this.requestMaker
+      .sendPatentRequest(text)
+      .subscribe({
+        error: (err: any) => {
+          alert('Neuspesno, nesto se desilo!');
+        },
+        complete: () => {
+          alert('Prijava za patent je uspesno poslata!');
+        }
+    });
   }
 }

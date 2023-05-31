@@ -815,6 +815,11 @@ e_posta : {
               ]
             },
 
+
+
+
+
+
             pronalazac_ne_zeli_da_bude_naveden_u_prijavi : {
               hasText: true,
               oneliner: true,
@@ -838,7 +843,6 @@ e_posta : {
             }
             ]
         },
-
 
 
         podaci_o_pronalazacu : {
