@@ -7,15 +7,15 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.*;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.xml.transform.TransformerException;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 
 @Component
@@ -27,9 +27,7 @@ public class FusekiDatabase {
     public FusekiAuthManager authManager;
 
 
-    public void save(ZahtevZaPriznanjeZiga trademark) throws IOException, TransformerException {
-
-//        MetadataExtractor.extractMetadata(reqXML, Files.newOutputStream(Paths.get(RDF_FILE_PATH)));
+    public void save(ZahtevZaPriznanjeZiga trademark) {
         String predNamespace = "http://www.patent.com/predicate/";
         Model model = ModelFactory.createDefaultModel();
         model.setNsPrefix("pred", predNamespace);
@@ -43,8 +41,6 @@ public class FusekiDatabase {
         resource.addProperty(model.createProperty(predNamespace, "Status"), trademark.getMetaData().getStatus().getValue());
 
         model.write(System.out, SparqlUtil.NTRIPLES);
-
-//        model.read(RDF_FILE_PATH);
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { API_FETCH_PENDING_TM_REQS_URL, API_GEN_TM_PDF, API_GEN_TM_XHTML, API_LOGIN_URL, API_REGISTRATION_URL, API_SEND_TM_RESENJE, API_SEND_TRADEMARK_REQ_URL, API_TM_ADVANCED_SEARCH, API_TM_BASIC_SEARCH, API_USER_INFO_URL } from "../configs/api-urls";
+import { API_FETCH_PENDING_TM_REQS_URL, API_GEN_TM_PDF, API_GEN_TM_XHTML, API_LOGIN_URL, API_REGISTRATION_URL, API_SEND_TM_RESENJE, API_SEND_TRADEMARK_REQ_URL, API_TM_ADVANCED_SEARCH, API_TM_BASIC_SEARCH, API_TM_JSON, API_TM_RDF, API_USER_INFO_URL } from "../configs/api-urls";
 import { LocalStorageManager } from '../utils/LocalStorageManager';
 
 @Injectable()
@@ -46,6 +46,14 @@ export class RequestMaker {
   
   doTMAdvancedSearch(data: any) {
     return this._getRequest('POST', API_TM_ADVANCED_SEARCH, data);
+  }
+
+  getTMMetadataRDF() {
+    return this._getRequest('GET', API_TM_RDF);
+  }
+
+  getTMMetadataJSON() {
+    return this._getRequest('GET', API_TM_JSON);
   }
 
   _getRequest(requestType: string, api_url: string, data: any = null) {
