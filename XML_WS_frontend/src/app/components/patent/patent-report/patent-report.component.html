@@ -1,0 +1,16 @@
+<div class="report-container">
+  <h2 class="report-title">Generate Report</h2>
+  <div class="date-inputs">
+    <div>
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required>
+      <div *ngIf="isStartDateInvalid" class="error-message">Invalid start date</div>
+    </div>
+    <div>
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required>
+      <div *ngIf="isEndDateInvalid" class="error-message">Invalid end date</div>
+    </div>
+  </div>
+  <button (click)="generateReport()">Generate PDF Report</button>
+</div>

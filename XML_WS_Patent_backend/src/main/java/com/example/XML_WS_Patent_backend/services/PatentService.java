@@ -2,6 +2,8 @@ package com.example.XML_WS_Patent_backend.services;
 
 
 import com.example.XML_WS_Patent_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_Patent_backend.DTOs.ReportDTO;
+import com.example.XML_WS_Patent_backend.DTOs.ReportParamsDTO;
 import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
 import com.example.XML_WS_Patent_backend.repository.PatentRepository;
 import com.example.XML_WS_Patent_backend.utils.PDForXHTMLGenerator;
@@ -65,5 +67,9 @@ public class PatentService {
             return reqs.stream().filter(req -> req.getPopunjavaZavod().getStatus().equals("PRIHVACENO"))
                     .collect(Collectors.toList());
         return reqs;
+    }
+
+    public ReportDTO getReport(ReportParamsDTO paramsDTO) {
+        return patentRepository.getReport(paramsDTO);
     }
 }

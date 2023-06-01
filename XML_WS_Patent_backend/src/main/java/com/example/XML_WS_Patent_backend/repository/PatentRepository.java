@@ -2,6 +2,8 @@ package com.example.XML_WS_Patent_backend.repository;
 
 
 import com.example.XML_WS_Patent_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_Patent_backend.DTOs.ReportDTO;
+import com.example.XML_WS_Patent_backend.DTOs.ReportParamsDTO;
 import com.example.XML_WS_Patent_backend.database.ExistDatabase;
 import com.example.XML_WS_Patent_backend.database.FusekiDatabase;
 import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
@@ -11,7 +13,10 @@ import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.modules.XMLResource;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -182,4 +187,58 @@ public class PatentRepository {
         query.append(")])");
         return query.toString();
     }
+
+    public ReportDTO getReport(ReportParamsDTO paramsDTO) {
+        List<ZahtevZaPatent> patentReqs = new ArrayList<>();
+        ReportDTO reportDTO = new ReportDTO();
+        int brojZahteva=0;
+        int brojPrihvacenih=0;
+        int brojOdbijenih=0;
+        try {
+            String xpathQuery = "/*[local-name()='Zahtev_za_patent']";
+            ResourceIterator iterator = patentDB.loadResourcesByCustomQuery(collectionUri, xpathQuery).getIterator();
+            while (iterator.hasMoreResources())
+                patentReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String startDateStrting = paramsDTO.getStartDate();
+        String endDateStrting = paramsDTO.getEndDate();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date startDate = dateFormat.parse(startDateStrting);
+            Date endDate = dateFormat.parse(endDateStrting);
+
+            for (ZahtevZaPatent zzp : patentReqs) {
+                String datumPrijemaString = zzp.getPopunjavaZavod().getDatumPrijema();
+                Date datumPrijema = dateFormat.parse(datumPrijemaString);
+                if (datumPrijema.compareTo(endDate)<0 && datumPrijema.compareTo(startDate)>0)
+                    brojZahteva++;
+                String datumPregledanjaString = zzp.getPopunjavaZavod().getDatumPregledanja();
+                Date datumPregledanja = dateFormat.parse(datumPregledanjaString);
+                if (datumPregledanja.compareTo(endDate)<0 && datumPregledanja.compareTo(startDate)>0)
+                {
+                    if(zzp.getPopunjavaZavod().getStatus().equals("PRIHVACENO"))
+                        brojPrihvacenih++;
+                    if(zzp.getPopunjavaZavod().getStatus().equals("ODBIJENO"))
+                        brojOdbijenih++;
+                }
+            }
+        }
+        catch (ParseException e) {
+            // Handle the ParseException if the string values are not in the expected date format
+            e.printStackTrace();
+        }
+        reportDTO.setPodneti(String.valueOf(brojZahteva));
+        reportDTO.setOdbijeni(String.valueOf(brojOdbijenih));
+        reportDTO.setPrihvaceni(String.valueOf(brojPrihvacenih));
+
+
+        return reportDTO;
+    }
+
+
 }

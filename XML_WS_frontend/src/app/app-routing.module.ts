@@ -16,6 +16,7 @@ import { CrAdvancedSearchComponent } from './components/copyright/pages/cr-advan
 import { PatentBasicSearchPageComponent } from './components/patent/pages/patent-basic-search-page/patent-basic-search-page.component';
 import { PatentAdvancedSearchComponent } from './components/patent/pages/patent-advanced-search/patent-advanced-search.component';
 import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-editor.component';
+import { PatentReportComponent } from './components/patent/patent-report/patent-report.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'patent/search/basic', component: PatentBasicSearchPageComponent},
   {path: 'patent/search/advanced', component: PatentAdvancedSearchComponent},
   {path: 'patent/xonomy', component: XonomyEditorComponent},
+  {path: 'patent/report', component: PatentReportComponent},
 
 
   {path: 'copyright/new', component: NewCopyrightFormComponent},

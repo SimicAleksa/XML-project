@@ -17,6 +17,7 @@ export const CLIENT_PT_NEW_XON_REQ_URL = "patent/xonomy";
 export const CLIENT_PT_PENDING_REQS_URL = "patent/pending";
 export const CLIENT_PT_BASIC_SEARCH_URL = "patent/search/basic";
 export const CLIENT_PT_ADVANCED_SEARCH_URL = "patent/search/advanced";
+export const CLIENT_PT_REPORT_URL = "patent/report";
 
 //trademark service related urls
 export const CLIENT_CR_NEW_REQ_URL = "copyright/new";

@@ -33,6 +33,7 @@ import { CrAdvancedSearchComponent } from './components/copyright/pages/cr-advan
 import { PatentBasicSearchPageComponent } from './components/patent/pages/patent-basic-search-page/patent-basic-search-page.component';
 import { PatentAdvancedSearchComponent } from './components/patent/pages/patent-advanced-search/patent-advanced-search.component';
 import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-editor.component';
+import { PatentReportComponent } from './components/patent/patent-report/patent-report.component';
 
 
 
@@ -59,7 +60,8 @@ import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-
     CrAdvancedSearchComponent,
     PatentBasicSearchPageComponent,
     PatentAdvancedSearchComponent,
-    XonomyEditorComponent
+    XonomyEditorComponent,
+    PatentReportComponent
   ],
   imports: [
     NgbModule,

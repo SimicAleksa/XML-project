@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CLIENT_LOGIN_URL, CLIENT_PROFILE_URL, CLIENT_REGISTER_URL, CLIENT_TM_NEW_REQ_URL, CLIENT_PT_NEW_REQ_URL, CLIENT_CR_ADVANCED_SEARCH_URL, CLIENT_CR_BASIC_SEARCH_URL, CLIENT_CR_PENDING_REQS_URL, CLIENT_CR_NEW_REQ_URL, CLIENT_PT_ADVANCED_SEARCH_URL, CLIENT_PT_BASIC_SEARCH_URL, CLIENT_PT_PENDING_REQS_URL, CLIENT_PT_NEW_XON_REQ_URL } from 'src/app/configs/client-urls';
+import { CLIENT_LOGIN_URL, CLIENT_PROFILE_URL, CLIENT_REGISTER_URL, CLIENT_TM_NEW_REQ_URL, CLIENT_PT_NEW_REQ_URL, CLIENT_CR_ADVANCED_SEARCH_URL, CLIENT_CR_BASIC_SEARCH_URL, CLIENT_CR_PENDING_REQS_URL, CLIENT_CR_NEW_REQ_URL, CLIENT_PT_ADVANCED_SEARCH_URL, CLIENT_PT_BASIC_SEARCH_URL, CLIENT_PT_PENDING_REQS_URL, CLIENT_PT_NEW_XON_REQ_URL, CLIENT_PT_REPORT_URL } from 'src/app/configs/client-urls';
 import { CLIENT_TM_ADVANCED_SEARCH_URL, CLIENT_TM_BASIC_SEARCH_URL, CLIENT_TM_PENDING_REQS_URL } from 'src/app/configs/client-urls';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { MenuService } from './service/menu-service';
@@ -99,5 +99,9 @@ export class MenuComponent implements OnInit {
 
   onAdvancedSearchPTBtnClick() {
     this.router.navigate([CLIENT_PT_ADVANCED_SEARCH_URL]);
+  }
+
+  onPTREPORTBtnClick() {
+    this.router.navigate([CLIENT_PT_REPORT_URL]);
   }
 }

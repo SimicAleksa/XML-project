@@ -28,6 +28,7 @@ export const API_GEN_PAT_PDF = PATENT_API_BASE_URL + "/patent/pdf/";
 export const API_SEND_PAT_RESENJE = PATENT_API_BASE_URL + "/patent/resenje/save";
 export const API_PAT_BASIC_SEARCH = PATENT_API_BASE_URL + "/patent/search/basic";
 export const API_PAT_ADVANCED_SEARCH = PATENT_API_BASE_URL + "/patent/search/advanced";
+export const API_PAT_REPORT = PATENT_API_BASE_URL + "/patent/report";
 //-------------------------------
 
 

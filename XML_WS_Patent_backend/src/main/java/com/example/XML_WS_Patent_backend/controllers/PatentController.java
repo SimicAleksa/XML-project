@@ -1,9 +1,6 @@
 package com.example.XML_WS_Patent_backend.controllers;
 
-import com.example.XML_WS_Patent_backend.DTOs.BasicSearchParamsDTO;
-import com.example.XML_WS_Patent_backend.DTOs.ComplexSearchParamsDTO;
-import com.example.XML_WS_Patent_backend.DTOs.ListOfPatentRequestsDTO;
-import com.example.XML_WS_Patent_backend.DTOs.PDFBytesDTO;
+import com.example.XML_WS_Patent_backend.DTOs.*;
 import com.example.XML_WS_Patent_backend.models.ResenjeZahteva;
 import com.example.XML_WS_Patent_backend.models.ZahtevZaPatent;
 import com.example.XML_WS_Patent_backend.services.PatentService;
@@ -29,6 +26,11 @@ public class PatentController {
     @GetMapping(path = "/all")
     public ResponseEntity<List<ZahtevZaPatent>> getAll() {
         return new ResponseEntity<>(patentService.getAll(), HttpStatus.OK);
+    }
+
+    @PostMapping(path="/report")
+    public ResponseEntity<ReportDTO> getReportData(@RequestBody ReportParamsDTO paramsDTO) {
+        return new ResponseEntity<>(patentService.getReport(paramsDTO), HttpStatus.OK);
     }
 
     @GetMapping(path = "/pending")
