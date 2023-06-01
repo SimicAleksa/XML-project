@@ -33,10 +33,18 @@ public class TrademarkRepository {
         try {
             String trademarkXML = jaxbParser.parseFromObjToByteStream(trademark);
             existDB.addToCollection(collectionUri, documentId, trademarkXML);
-            fusekiDB.save(trademarkXML);
+            fusekiDB.save(trademark);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getMetadataInRDF() {
+        return fusekiDB.getAsRDF();
+    }
+
+    public String getMetadataInJSON() {
+        return fusekiDB.getAsJSON();
     }
 
     public ZahtevZaPriznanjeZiga getTrademarkRequestById(String documentId) {
@@ -121,7 +129,7 @@ public class TrademarkRepository {
         for (ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO f : filters) {
             query.append(String.format("%s(contains(text(),'%s')) ", f.getToNeg() ? "not" : "", f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
@@ -133,10 +141,10 @@ public class TrademarkRepository {
 
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='DatumPodnosenja' and (");
-        for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f: filters) {
+        for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f : filters) {
             query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
@@ -148,10 +156,10 @@ public class TrademarkRepository {
 
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='Status' and (");
-        for (ComplexSearchParamsDTO.StatusFilterDTO f: filters) {
+        for (ComplexSearchParamsDTO.StatusFilterDTO f : filters) {
             query.append(String.format("text()%s'%s'", f.getToNeg() ? " != " : " = ", f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();

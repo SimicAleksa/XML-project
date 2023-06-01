@@ -73,4 +73,14 @@ public class TrademarkController {
         );
     }
 
+    @GetMapping("/metadata/rdf")
+    public ResponseEntity<String> getRDF() {
+        return new ResponseEntity<>(trademarkService.getRDF(), HttpStatus.OK);
+    }
+
+    @GetMapping("/metadata/json")
+    public ResponseEntity<String> getJSON() {
+        return new ResponseEntity<>(trademarkService.getJSON(), HttpStatus.OK);
+    }
+
 }

@@ -17,7 +17,7 @@ public class TrademarkService {
 
 
     public void addNewTrademarkReq(ZahtevZaPriznanjeZiga trademark) {
-        trademark.getMetaData().getBrojPrijave().setValue("Ж-" + (trademarkRepository.getAllTrademarkRequest().size()+1));
+        trademark.getMetaData().getBrojPrijave().setValue("Ж-" + (trademarkRepository.getAllTrademarkRequest().size() + 1));
         trademark.getMetaData().getStatus().setValue("NERESENO");
         save(trademark);
     }
@@ -35,14 +35,16 @@ public class TrademarkService {
     public byte[] getPDF(String brojPrijave) {
         try {
             return PDForXHTMLGenerator.getPDF(trademarkRepository.getTrademarkRequestById(brojPrijave));
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return new byte[0];
     }
 
     public byte[] getXHTML(String brojPrijave) {
         try {
             return PDForXHTMLGenerator.getXHTML(trademarkRepository.getTrademarkRequestById(brojPrijave));
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return new byte[0];
     }
 
@@ -56,7 +58,7 @@ public class TrademarkService {
         List<ZahtevZaPriznanjeZiga> reqs = trademarkRepository.getTrademarksWithBasicSearch(params);
         if (onlyApproved)
             return reqs.stream().filter(req -> req.getMetaData().getStatus().getValue().equals("PRIHVACENO"))
-                                .collect(Collectors.toList());
+                    .collect(Collectors.toList());
         return reqs;
     }
 
@@ -67,6 +69,15 @@ public class TrademarkService {
                     .collect(Collectors.toList());
         return reqs;
     }
+
+    public String getRDF() {
+        return trademarkRepository.getMetadataInRDF();
+    }
+
+    public String getJSON() {
+        return trademarkRepository.getMetadataInJSON();
+    }
+
 
     private void save(ZahtevZaPriznanjeZiga trademark) {
         trademarkRepository.save(trademark);
