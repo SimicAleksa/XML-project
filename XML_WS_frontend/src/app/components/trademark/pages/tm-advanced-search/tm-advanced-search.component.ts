@@ -31,7 +31,7 @@ export class TmAdvancedSearchComponent implements OnInit {
   public dateLogOpSelection: string = "";
 
 
-  constructor(private requestMaker: RequestMaker, private xmlParser: XMLParser, private lStorageManager: LocalStorageManager) { }
+  constructor(private requestMaker: RequestMaker, private xmlParser: XMLParser, public lStorageManager: LocalStorageManager) { }
 
   ngOnInit(): void {
   }
@@ -236,7 +236,6 @@ export class TmAdvancedSearchComponent implements OnInit {
       alert("Novi filter datuma nije validan!");
       return;
     }
-    console.log(123);
     this.dateFiltersTxt += `${newFilter.dateOperator === "<" ? "PRE" : "POSLE"}(${newFilter.value}) ${newFilter.followingOperator} `;
     this.dateFilters.push(newFilter);
   }
