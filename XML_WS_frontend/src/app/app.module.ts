@@ -22,6 +22,7 @@ import { DeclineReqDialogComponent } from './components/trademark/decline-req-di
 import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basic-search-page/tm-basic-search-page.component';
 import { TmAdvancedSearchComponent } from './components/trademark/pages/tm-advanced-search/tm-advanced-search.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MetadataTabOpener } from './utils/MetadataTabOpener';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     RequestMaker, 
     XMLParser, 
-    LocalStorageManager
+    LocalStorageManager,
+    MetadataTabOpener
   ],
   bootstrap: [AppComponent]
 })
