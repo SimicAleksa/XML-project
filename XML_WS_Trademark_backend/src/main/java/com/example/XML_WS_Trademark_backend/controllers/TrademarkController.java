@@ -83,4 +83,10 @@ public class TrademarkController {
         return new ResponseEntity<>(trademarkService.getJSON(), HttpStatus.OK);
     }
 
+    @GetMapping("/request/qrcode/{id}")
+    public ResponseEntity<byte[]> getQRCode(@PathVariable String id) {
+        return new ResponseEntity<>(trademarkService.getQRCode(id), HttpStatus.OK);
+    }
+
+
 }

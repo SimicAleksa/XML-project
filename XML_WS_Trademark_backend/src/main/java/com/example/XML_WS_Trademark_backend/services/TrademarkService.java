@@ -4,6 +4,7 @@ import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.example.XML_WS_Trademark_backend.repositories.TrademarkRepository;
 import com.example.XML_WS_Trademark_backend.utils.PDForXHTMLGenerator;
+import com.example.XML_WS_Trademark_backend.utils.QRCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -78,6 +79,9 @@ public class TrademarkService {
         return trademarkRepository.getMetadataInJSON();
     }
 
+    public byte[] getQRCode(String id) {
+        return QRCodeGenerator.getAsBytes(id);
+    }
 
     private void save(ZahtevZaPriznanjeZiga trademark) {
         trademarkRepository.save(trademark);
