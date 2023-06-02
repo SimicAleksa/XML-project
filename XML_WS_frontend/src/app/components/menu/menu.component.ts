@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CLIENT_LOGIN_URL, CLIENT_PROFILE_URL, CLIENT_REGISTER_URL, CLIENT_TM_ADVANCED_SEARCH_URL, CLIENT_TM_BASIC_SEARCH_URL, CLIENT_TM_NEW_REQ_URL, CLIENT_TM_PENDING_REQS_URL } from 'src/app/configs/client-urls';
+import { CLIENT_LOGIN_URL, CLIENT_PROFILE_URL, CLIENT_REGISTER_URL, CLIENT_TM_ADVANCED_SEARCH_URL, CLIENT_TM_BASIC_SEARCH_URL, CLIENT_TM_NEW_REQ_URL, CLIENT_TM_PENDING_REQS_URL, CLIENT_TM_REPORTS_URL } from 'src/app/configs/client-urls';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { MetadataTabOpener } from 'src/app/utils/MetadataTabOpener';
 import { MenuService } from './service/menu-service';
@@ -71,5 +71,9 @@ export class MenuComponent implements OnInit {
 
   onTMMetadataJSONBtnClick() {
     this.metadataTabOpener.openTrademarkMetadataAsJSON();
+  }
+
+  onReportsBtnClick() {
+    this.router.navigate([CLIENT_TM_REPORTS_URL]);
   }
 }

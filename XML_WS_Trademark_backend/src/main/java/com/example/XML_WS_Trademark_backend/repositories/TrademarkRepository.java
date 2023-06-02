@@ -1,6 +1,7 @@
 package com.example.XML_WS_Trademark_backend.repositories;
 
 import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_Trademark_backend.DTOs.ReportDTO;
 import com.example.XML_WS_Trademark_backend.database.ExistDatabase;
 import com.example.XML_WS_Trademark_backend.database.FusekiDatabase;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
@@ -68,6 +69,29 @@ public class TrademarkRepository {
             e.printStackTrace();
         }
         return trademarkReqs;
+    }
+
+    public ReportDTO getReportData(String startDate, String endDate)  {
+        String query = "/*[local-name()='ZahtevZaPriznanjeZiga'][(.//*[local-name()='DatumPodnosenja' and (" +
+                String.format(
+                        "xs:dateTime(.) > xs:dateTime('%sT00:00:00') and xs:dateTime(.) < xs:dateTime('%sT00:00:00')",
+                        startDate, endDate
+                ) + ")])]";
+        ReportDTO reportDTO = new ReportDTO(0, 0, 0);
+        try {
+            ResourceIterator iterator = existDB.loadResourcesByCustomQuery(collectionUri, query).getIterator();
+            while (iterator.hasMoreResources()) {
+                String status = jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()).getMetaData().getStatus().getValue();
+                if (status.equals("PRIHVACENO"))
+                    reportDTO.incPrihvaceno();
+                else if (status.equals("ODBIJENO"))
+                    reportDTO.incOdbijeno();
+                reportDTO.incUkupno();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reportDTO;
     }
 
     public List<ZahtevZaPriznanjeZiga> getTrademarksWithBasicSearch(List<String> params) {
