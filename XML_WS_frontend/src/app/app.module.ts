@@ -23,6 +23,7 @@ import { TmBasicSearchPageComponent } from './components/trademark/pages/tm-basi
 import { TmAdvancedSearchComponent } from './components/trademark/pages/tm-advanced-search/tm-advanced-search.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MetadataTabOpener } from './utils/MetadataTabOpener';
+import { TmReportPageComponent } from './components/trademark/pages/tm-report-page/tm-report-page.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MetadataTabOpener } from './utils/MetadataTabOpener';
     PendingRequestsPageComponent,
     DeclineReqDialogComponent,
     TmBasicSearchPageComponent,
-    TmAdvancedSearchComponent
+    TmAdvancedSearchComponent,
+    TmReportPageComponent
   ],
   imports: [
     NgbModule,

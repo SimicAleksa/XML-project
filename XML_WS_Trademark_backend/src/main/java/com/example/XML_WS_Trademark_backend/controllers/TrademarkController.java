@@ -1,9 +1,6 @@
 package com.example.XML_WS_Trademark_backend.controllers;
 
-import com.example.XML_WS_Trademark_backend.DTOs.BasicSearchParamsDTO;
-import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
-import com.example.XML_WS_Trademark_backend.DTOs.ListOfTrademarkRequestsDTO;
-import com.example.XML_WS_Trademark_backend.DTOs.PDFBytesDTO;
+import com.example.XML_WS_Trademark_backend.DTOs.*;
 import com.example.XML_WS_Trademark_backend.models.ResenjeZahteva;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.example.XML_WS_Trademark_backend.services.ResenjaService;
@@ -88,5 +85,9 @@ public class TrademarkController {
         return new ResponseEntity<>(trademarkService.getQRCode(id), HttpStatus.OK);
     }
 
+    @PostMapping("/report")
+    public ResponseEntity<ReportDTO> getReport(@RequestBody ReportParamsDTO reportParamsDTO) {
+        return new ResponseEntity<>(trademarkService.getReport(reportParamsDTO), HttpStatus.OK);
+    }
 
 }

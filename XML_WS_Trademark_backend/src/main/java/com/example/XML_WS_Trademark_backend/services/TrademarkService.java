@@ -1,6 +1,8 @@
 package com.example.XML_WS_Trademark_backend.services;
 
 import com.example.XML_WS_Trademark_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_Trademark_backend.DTOs.ReportDTO;
+import com.example.XML_WS_Trademark_backend.DTOs.ReportParamsDTO;
 import com.example.XML_WS_Trademark_backend.models.ZahtevZaPriznanjeZiga;
 import com.example.XML_WS_Trademark_backend.repositories.TrademarkRepository;
 import com.example.XML_WS_Trademark_backend.utils.PDForXHTMLGenerator;
@@ -81,6 +83,10 @@ public class TrademarkService {
 
     public byte[] getQRCode(String id) {
         return QRCodeGenerator.getAsBytes(id);
+    }
+
+    public ReportDTO getReport(final ReportParamsDTO reportParamsDTO) {
+        return trademarkRepository.getReportData(reportParamsDTO.getStartDate(), reportParamsDTO.getEndDate());
     }
 
     private void save(ZahtevZaPriznanjeZiga trademark) {

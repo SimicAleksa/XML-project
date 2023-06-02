@@ -18,4 +18,5 @@ export const API_TM_BASIC_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/b
 export const API_TM_ADVANCED_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/advanced";
 export const API_TM_RDF = TRADEMARK_API_BASE_URL + "/trademark/metadata/rdf";
 export const API_TM_JSON = TRADEMARK_API_BASE_URL + "/trademark/metadata/json";
+export const API_TM_REPORT = TRADEMARK_API_BASE_URL + "/trademark/report";
 //-------------------------------
