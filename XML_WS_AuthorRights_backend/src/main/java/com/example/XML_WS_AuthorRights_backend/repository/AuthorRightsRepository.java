@@ -1,6 +1,8 @@
 package com.example.XML_WS_AuthorRights_backend.repository;
 
 import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.ReportDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.ReportParamsDTO;
 import com.example.XML_WS_AuthorRights_backend.database.ExistDatabase;
 import com.example.XML_WS_AuthorRights_backend.database.FusekiDatabase;
 import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
@@ -10,7 +12,10 @@ import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.modules.XMLResource;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -188,5 +193,57 @@ public class AuthorRightsRepository {
 
     public String getMetadataInJSON() {
         return fusekiDB.getAsJSON();
+    }
+
+    public ReportDTO getReport(ReportParamsDTO paramsDTO) {
+        List<ZahtevZaAutorskoPravo> copyRightReqs = new ArrayList<>();
+        ReportDTO reportDTO = new ReportDTO();
+        int brojZahteva=0;
+        int brojPrihvacenih=0;
+        int brojOdbijenih=0;
+        try {
+            String xpathQuery = "/*[local-name()='zahtev_za_autorsko_pravo']";
+            ResourceIterator iterator = copyRightDB.loadResourcesByCustomQuery(collectionUri, xpathQuery).getIterator();
+            while (iterator.hasMoreResources())
+                copyRightReqs.add(jaxbParser.parseFromXMLToObj(iterator.nextResource().getContent().toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String startDateStrting = paramsDTO.getStartDate();
+        String endDateStrting = paramsDTO.getEndDate();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date startDate = dateFormat.parse(startDateStrting);
+            Date endDate = dateFormat.parse(endDateStrting);
+
+            for (ZahtevZaAutorskoPravo zzap : copyRightReqs) {
+                String datumPrijemaString = zzap.getDatumPodnosenja();
+                Date datumPrijema = dateFormat.parse(datumPrijemaString);
+                if (datumPrijema.compareTo(endDate)<0 && datumPrijema.compareTo(startDate)>0)
+                    brojZahteva++;
+                String datumPregledanjaString = zzap.getDatumPregledanja();
+                Date datumPregledanja = dateFormat.parse(datumPregledanjaString);
+                if (datumPregledanja.compareTo(endDate)<0 && datumPregledanja.compareTo(startDate)>0)
+                {
+                    if(zzap.getStatus().equals("PRIHVACENO"))
+                        brojPrihvacenih++;
+                    if(zzap.getStatus().equals("ODBIJENO"))
+                        brojOdbijenih++;
+                }
+            }
+        }
+        catch (ParseException e) {
+            // Handle the ParseException if the string values are not in the expected date format
+            e.printStackTrace();
+        }
+        reportDTO.setPodneti(String.valueOf(brojZahteva));
+        reportDTO.setOdbijeni(String.valueOf(brojOdbijenih));
+        reportDTO.setPrihvaceni(String.valueOf(brojPrihvacenih));
+
+
+        return reportDTO;
     }
 }

@@ -1,9 +1,6 @@
 package com.example.XML_WS_AuthorRights_backend.controllers;
 
-import com.example.XML_WS_AuthorRights_backend.DTOs.BasicSearchParamsDTO;
-import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
-import com.example.XML_WS_AuthorRights_backend.DTOs.ListOfCopyRightRequestsDTO;
-import com.example.XML_WS_AuthorRights_backend.DTOs.PDFBytesDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.*;
 import com.example.XML_WS_AuthorRights_backend.models.ResenjeZahteva;
 import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
 import com.example.XML_WS_AuthorRights_backend.services.AuthorRightsService;
@@ -83,6 +80,11 @@ public class AuthorRightsController {
     @GetMapping("/metadata/json")
     public ResponseEntity<String> getJSON() {
         return new ResponseEntity<>(authorRightsService.getJSON(), HttpStatus.OK);
+    }
+
+    @PostMapping(path="/report")
+    public ResponseEntity<ReportDTO> getReportData(@RequestBody ReportParamsDTO paramsDTO) {
+        return new ResponseEntity<>(authorRightsService.getReport(paramsDTO), HttpStatus.OK);
     }
 
 }
