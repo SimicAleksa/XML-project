@@ -25,3 +25,4 @@ export const CLIENT_CR_NEW_REQ_URL = "copyright/new";
 export const CLIENT_CR_PENDING_REQS_URL = "copyright/pending";
 export const CLIENT_CR_BASIC_SEARCH_URL = "copyright/search/basic";
 export const CLIENT_CR_ADVANCED_SEARCH_URL = "copyright/search/advanced";
+export const CLIENT_CR_REPORT_URL = "copyright/report";

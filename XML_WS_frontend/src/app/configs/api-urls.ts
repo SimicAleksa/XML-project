@@ -49,5 +49,6 @@ export const API_CR_BASIC_SEARCH = COPYRIGHT_API_BASE_URL + "/author-rights/sear
 export const API_CR_ADVANCED_SEARCH = COPYRIGHT_API_BASE_URL + "/author-rights/search/advanced";
 export const API_CR_RDF = COPYRIGHT_API_BASE_URL + "/author-rights/metadata/rdf";
 export const API_CR_JSON = COPYRIGHT_API_BASE_URL + "/author-rights/metadata/json";
+export const API_CR_REPORT = COPYRIGHT_API_BASE_URL + "/author-rights/report";
 //-------------------------------
 

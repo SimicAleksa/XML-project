@@ -18,6 +18,7 @@ import { PatentBasicSearchPageComponent } from './components/patent/pages/patent
 import { PatentAdvancedSearchComponent } from './components/patent/pages/patent-advanced-search/patent-advanced-search.component';
 import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-editor.component';
 import { PatentReportComponent } from './components/patent/patent-report/patent-report.component';
+import { CopyrightReportComponent } from './components/copyright/copyright-report/copyright-report.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'copyright/pending', component: CopyRightRequestsPageComponent},
   {path: 'copyright/search/basic', component: CrBasicSearchPageComponent},
   {path: 'copyright/search/advanced', component: CrAdvancedSearchComponent},
+  {path: 'copyright/report', component: CopyrightReportComponent},
 
   {path: 'trademark/new', component: NewTrademarkFormComponent},
   {path: 'trademark/pending', component: PendingRequestsPageComponent},
