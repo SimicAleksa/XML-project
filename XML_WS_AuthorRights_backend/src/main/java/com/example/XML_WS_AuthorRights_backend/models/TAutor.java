@@ -36,7 +36,7 @@ public class TAutor
 {
 
     @XmlElement(name = "godina_smrti", namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava")
-    protected Integer godinaSmrti;
+    protected String godinaSmrti;
 
     /**
      * Gets the value of the godinaSmrti property.
@@ -46,7 +46,7 @@ public class TAutor
      *     {@link Integer }
      *     
      */
-    public Integer getGodinaSmrti() {
+    public String getGodinaSmrti() {
         return godinaSmrti;
     }
 
@@ -58,7 +58,7 @@ public class TAutor
      *     {@link Integer }
      *     
      */
-    public void setGodinaSmrti(Integer value) {
+    public void setGodinaSmrti(String value) {
         this.godinaSmrti = value;
     }
 

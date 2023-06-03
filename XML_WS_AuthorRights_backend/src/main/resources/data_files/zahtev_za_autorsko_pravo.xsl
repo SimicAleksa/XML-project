@@ -123,22 +123,30 @@
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>8) Подаци о аутору ако подносилац пријаве из тачке 1. овог захтева није аутор и то: презиме, име, адреса и држављанство аутора (групе аутора или коаутора), а ако су у питању један или више аутора који нису живи, имена аутора и године смрти аутора а ако је у питању ауторско дело анонимног аутора навод да је ауторско дело дело анонимног аутора:&#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
-                                        <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
-                                            <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:anoniman_autor"/>&#160;
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:ime"/>&#160;
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:prezime"/>
-                                            </span>
-                                            <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:adresa/a:ulica"/> &#160;
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:adresa/a:broj"/>&#160;
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:adresa/a:grad"/>
-                                            </span>
-                                            <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:drzavljanstvo"/> &#160;
-                                                <xsl:value-of select="//a:podaci_o_autoru/a:autor/a:godina_smrti"/>&#160;
-                                            </span>
-                                        </p>
+                                        <xsl:for-each select="//a:podaci_o_autoru">
+                                            <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
+                                                <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
+                                                    <xsl:choose>
+                                                        <xsl:when test="a:anoniman_autor = 'true'">
+                                                            anoniman autor
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:value-of select="a:autor/a:ime"/>&#160;
+                                                            <xsl:value-of select="a:autor/a:prezime"/>
+                                                            <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
+                                                                <xsl:value-of select="a:autor/a:adresa/a:ulica"/> &#160;
+                                                                <xsl:value-of select="a:autor/a:adresa/a:broj"/>&#160;
+                                                                <xsl:value-of select="a:autor/a:adresa/a:grad"/>
+                                                            </span>
+                                                            <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
+                                                                <xsl:value-of select="a:autor/a:drzavljanstvo"/> &#160;
+                                                                <xsl:value-of select="a:autor/a:godina_smrti"/>&#160;
+                                                            </span>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </span>
+                                            </p>
+                                        </xsl:for-each>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>9) Податак да ли је у питању ауторско дело створено у радном односу:</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
@@ -184,8 +192,12 @@
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>12) Прилози који се подносе уз захтев:</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'></p>
                                         <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                            <xsl:value-of select="//a:prilozi/a:opis_dela"/> &#160;
-                                            <xsl:value-of select="//a:prilozi/a:primer_dela"/>&#160;
+                                            <xsl:for-each select="//a:prilozi">
+                                                <xsl:value-of select="position()"/>.
+                                                <xsl:value-of select="a:opis_dela"/> &#160;
+                                                <xsl:value-of select="a:primer_dela"/>&#160;
+                                                <hr></hr>
+                                            </xsl:for-each>
                                         </span>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;text-indent:-1.45pt;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;text-align:center;'><strong><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>ПОПУЊАВА ЗАВОД:</span></strong></p>
