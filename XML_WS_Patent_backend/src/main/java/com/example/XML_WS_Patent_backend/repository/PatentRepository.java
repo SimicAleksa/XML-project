@@ -41,7 +41,7 @@ public class PatentRepository {
             String documentID = patent.getPopunjavaZavod().getBrojPrijave().concat(".xml");
             String patentXML = jaxbParser.parseFromObjToByteStream(patent);
             patentDB.addToCollection(collectionUri, documentID, patentXML);
-            fusekiDB.save(patentXML);
+            fusekiDB.save(patent);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -241,4 +241,11 @@ public class PatentRepository {
     }
 
 
+    public String getMetadataInRDF() {
+        return fusekiDB.getAsRDF();
+    }
+
+    public String getMetadataInJSON() {
+        return fusekiDB.getAsJSON();
+    }
 }

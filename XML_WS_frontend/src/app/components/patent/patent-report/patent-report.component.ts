@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RequestMaker } from 'src/app/services/request-maker.service';
 import { LocalStorageManager } from 'src/app/utils/LocalStorageManager';
 import { XMLParser } from 'src/app/utils/XMLParser';
-import pdfMake  from 'pdfmake/build/pdfmake';
-import pdfFonts  from 'pdfmake/build/vfs_fonts';
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
 
 
 @Component({
@@ -69,7 +67,7 @@ export class PatentReportComponent implements OnInit {
     }
 
     generatePDF(podaciIzvestaja){
-      const documentDefinition = {
+      const documentDefinition:any = {
         content: [
           { text: 'Izvestaj', style: 'header' },
           { text: 'OD: ' + this.startDate + '     DO: ' + this.endDate },
@@ -111,7 +109,7 @@ export class PatentReportComponent implements OnInit {
         }
       };
   
-      pdfMake.createPdf(documentDefinition).open();
+      pdfMake.createPdf(documentDefinition, null, null, pdfFonts.pdfMake.vfs).open();
     }
 
   }

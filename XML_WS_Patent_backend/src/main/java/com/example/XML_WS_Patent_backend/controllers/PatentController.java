@@ -76,4 +76,15 @@ public class PatentController {
                 HttpStatus.OK
         );
     }
+
+    @GetMapping("/metadata/rdf")
+    public ResponseEntity<String> getRDF() {
+        return new ResponseEntity<>(patentService.getRDF(), HttpStatus.OK);
+    }
+
+    @GetMapping("/metadata/json")
+    public ResponseEntity<String> getJSON() {
+        return new ResponseEntity<>(patentService.getJSON(), HttpStatus.OK);
+    }
+
 }

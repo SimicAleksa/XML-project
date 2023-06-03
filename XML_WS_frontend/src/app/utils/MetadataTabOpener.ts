@@ -28,6 +28,33 @@ export class MetadataTabOpener {
         });
     }
 
+
+    openPatentMetadataAsRDF() {
+      this.requestMaker
+      .getPATMetadataRDF()
+      .subscribe({
+        next: (data: any) => {
+          if (data.body !== undefined)
+              this.openTextInNewTab(data.body);
+        }
+      });
+  }
+
+  openPatentMetadataAsJSON() {
+      this.requestMaker
+      .getPATMetadataJSON()
+      .subscribe({
+        next: (data: any) => {
+          if (data.body !== undefined)
+              this.openTextInNewTab(data.body);
+        }
+      });
+  }
+
+
+
+
+
     openTextInNewTab(textContent: string) {
         const newTab = window.open('', 'metadata');
         if (newTab !== null) {

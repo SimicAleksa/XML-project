@@ -27,6 +27,8 @@
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewPatentReqBtnClick()">Novi zahtev za patent</button>
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewPatentXonomyReqBtnClick()">Novi zahtev za patent (xonomy)</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingPatentReqsBtnClick()">Neobradjeni zahtevi</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPATMetadataJSONBtnClick()">Meta podaci u JSON-u</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPATMetadataRDFBtnClick()">Meta podaci u RDF-u</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPTREPORTBtnClick()">Izvestaj</button>
         </mat-menu>
 

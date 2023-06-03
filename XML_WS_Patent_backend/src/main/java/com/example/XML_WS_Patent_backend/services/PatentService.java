@@ -72,4 +72,12 @@ public class PatentService {
     public ReportDTO getReport(ReportParamsDTO paramsDTO) {
         return patentRepository.getReport(paramsDTO);
     }
+
+    public String getRDF() {
+        return patentRepository.getMetadataInRDF();
+    }
+
+    public String getJSON() {
+        return patentRepository.getMetadataInJSON();
+    }
 }

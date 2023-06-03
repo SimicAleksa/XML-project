@@ -119,4 +119,12 @@ export class MenuComponent implements OnInit {
   onPTREPORTBtnClick() {
     this.router.navigate([CLIENT_PT_REPORT_URL]);
   }
+
+  onPATMetadataRDFBtnClick() {
+    this.metadataTabOpener.openPatentMetadataAsRDF();
+  }
+
+  onPATMetadataJSONBtnClick() {
+    this.metadataTabOpener.openPatentMetadataAsJSON();
+  }
 }
