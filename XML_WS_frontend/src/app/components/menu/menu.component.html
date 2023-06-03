@@ -11,10 +11,13 @@
     <span *ngIf="activeRole !== 'NOT LOGGED'">
         <button mat-button [matMenuTriggerFor]="aboveMenu">SERVIS ZA ZIG</button>
         <mat-menu #aboveMenu="matMenu" yPosition="above">
-            <button mat-menu-item (click)="onBasicSearchBtnClick()">Osnovna pretraga</button>
-            <button mat-menu-item (click)="onAdvancedSearchBtnClick()">Napredna pretraga</button>
+            <button mat-menu-item (click)="onTMBasicSearchBtnClick()">Osnovna pretraga</button>
+            <button mat-menu-item (click)="onTMAdvancedSearchBtnClick()">Napredna pretraga</button>
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewTrademarkReqBtnClick()">Novi zahtev za zig</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingTrademarkReqsBtnClick()">Neobradjeni zahtevi</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onTMMetadataJSONBtnClick()">Meta podaci u JSON-u</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onTMMetadataRDFBtnClick()">Meta podaci u RDF-u</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onReportsBtnClick()">Izvestaj</button>
         </mat-menu>
 
         <button mat-button [matMenuTriggerFor]="aboveMenu2">SERVIS ZA PATENT</button>

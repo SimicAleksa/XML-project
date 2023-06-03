@@ -16,6 +16,9 @@ export const API_GEN_TM_XHTML = TRADEMARK_API_BASE_URL + "/trademark/xhtml/";
 export const API_SEND_TM_RESENJE = TRADEMARK_API_BASE_URL + "/trademark/resenje/save";
 export const API_TM_BASIC_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/basic";
 export const API_TM_ADVANCED_SEARCH = TRADEMARK_API_BASE_URL + "/trademark/search/advanced";
+export const API_TM_RDF = TRADEMARK_API_BASE_URL + "/trademark/metadata/rdf";
+export const API_TM_JSON = TRADEMARK_API_BASE_URL + "/trademark/metadata/json";
+export const API_TM_REPORT = TRADEMARK_API_BASE_URL + "/trademark/report";
 //-------------------------------
 
 //-----------PATENT-----------

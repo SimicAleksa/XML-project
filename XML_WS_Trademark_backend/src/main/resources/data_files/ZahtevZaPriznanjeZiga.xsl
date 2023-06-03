@@ -326,7 +326,11 @@
                         <td colspan="1" class="pad-lef-10 ht-50 is-top-vertical"><b>Динара</b></td>
                         <td colspan="5" rowspan="4" class="pad-lef-10 ht-50 is-top-vertical is-centered col-third-width">
                             <p class="mb-1 mt-0"><b>QR код</b></p>
-                            <img alt="qr code" />
+                            <img alt="qr code">
+                                <xsl:attribute name="src">
+                                    <xsl:value-of select="concat('http://localhost:8069/api/trademark/request/qrcode/%D0%B6', substring(//z:MetaData/z:BrojPrijave, 2))"/>
+                                </xsl:attribute>
+                            </img>
                         </td>
                     </tr>
                     <tr class="ht-60 pad-left-20">

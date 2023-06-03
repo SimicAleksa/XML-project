@@ -34,7 +34,8 @@ import { PatentBasicSearchPageComponent } from './components/patent/pages/patent
 import { PatentAdvancedSearchComponent } from './components/patent/pages/patent-advanced-search/patent-advanced-search.component';
 import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-editor.component';
 import { PatentReportComponent } from './components/patent/patent-report/patent-report.component';
-
+import { MetadataTabOpener } from './utils/MetadataTabOpener';
+import { TmReportPageComponent } from './components/trademark/pages/tm-report-page/tm-report-page.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { PatentReportComponent } from './components/patent/patent-report/patent-
     PatentBasicSearchPageComponent,
     PatentAdvancedSearchComponent,
     XonomyEditorComponent,
-    PatentReportComponent
+    PatentReportComponent,
+    TmReportPageComponent
   ],
   imports: [
     NgbModule,
@@ -78,7 +80,8 @@ import { PatentReportComponent } from './components/patent/patent-report/patent-
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     RequestMaker,
     XMLParser,
-    LocalStorageManager
+    LocalStorageManager,
+    MetadataTabOpener
   ],
   bootstrap: [AppComponent]
 })

@@ -47,6 +47,7 @@ public class PDForXHTMLGenerator {
                     new DOMSource(makeDocFromTrademarkReq(trademarkReq)),
                     new StreamResult(outputStream)
             );
+
             return outputStream.toByteArray();
         } catch (TransformerFactoryConfigurationError | TransformerException ignored) {}
         return new byte[0];
@@ -78,7 +79,6 @@ public class PDForXHTMLGenerator {
                     )
             );
         } catch (Exception ignored) {}
-
         return document;
     }
 

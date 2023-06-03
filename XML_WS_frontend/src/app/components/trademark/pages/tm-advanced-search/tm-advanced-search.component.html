@@ -1,4 +1,4 @@
-<div class="row search-form">
+<div class="row search-form" *ngIf="lStorageManager.getUserRole() !== 'REGULAR'">
     <div class="col text-center">
         <button mat-raised-button (click)="resetStatusFilters()" color="accent">RESET</button>
 
