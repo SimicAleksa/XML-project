@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { API_FETCH_PENDING_TM_REQS_URL, API_GEN_TM_PDF, API_GEN_TM_XHTML, API_LOGIN_URL, API_PAT_JSON, API_PAT_RDF, API_SEND_TM_RESENJE, API_TM_ADVANCED_SEARCH, API_TM_BASIC_SEARCH, API_TM_JSON, API_TM_RDF, API_TM_REPORT, API_USER_INFO_URL } from "../configs/api-urls";
+import { API_CR_JSON, API_CR_RDF, API_FETCH_PENDING_TM_REQS_URL, API_GEN_TM_PDF, API_GEN_TM_XHTML, API_LOGIN_URL, API_PAT_JSON, API_PAT_RDF, API_SEND_TM_RESENJE, API_TM_ADVANCED_SEARCH, API_TM_BASIC_SEARCH, API_TM_JSON, API_TM_RDF, API_TM_REPORT, API_USER_INFO_URL } from "../configs/api-urls";
 import { API_CR_ADVANCED_SEARCH, API_CR_BASIC_SEARCH, API_FETCH_PENDING_CR_REQS_URL, API_FETCH_PENDING_PAT_REQS_URL, API_GEN_CR_PDF, API_GEN_CR_XHTML, API_GEN_PAT_PDF, API_GEN_PAT_XHTML, API_PAT_ADVANCED_SEARCH, API_PAT_BASIC_SEARCH, API_PAT_REPORT, API_REGISTRATION_URL, API_SEND_CR_REQ_URL, API_SEND_CR_RESENJE, API_SEND_PATENT_REQ_URL, API_SEND_PAT_RESENJE, API_SEND_TRADEMARK_REQ_URL } from "../configs/api-urls";
 import { LocalStorageManager } from '../utils/LocalStorageManager';
 
@@ -111,6 +111,14 @@ export class RequestMaker {
 
   getPendingCRRequests(){
     return this._getRequest('GET', API_FETCH_PENDING_CR_REQS_URL);
+  }
+
+  getCRMetadataRDF() {
+    return this._getRequest('GET', API_CR_RDF);
+  }
+
+  getCRMetadataJSON() {
+    return this._getRequest('GET', API_CR_JSON);
   }
 
 

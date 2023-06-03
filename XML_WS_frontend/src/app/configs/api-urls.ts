@@ -47,5 +47,7 @@ export const API_GEN_CR_PDF = COPYRIGHT_API_BASE_URL + "/author-rights/pdf/";
 export const API_SEND_CR_RESENJE = COPYRIGHT_API_BASE_URL + "/author-rights/resenje/save";
 export const API_CR_BASIC_SEARCH = COPYRIGHT_API_BASE_URL + "/author-rights/search/basic";
 export const API_CR_ADVANCED_SEARCH = COPYRIGHT_API_BASE_URL + "/author-rights/search/advanced";
+export const API_CR_RDF = COPYRIGHT_API_BASE_URL + "/author-rights/metadata/rdf";
+export const API_CR_JSON = COPYRIGHT_API_BASE_URL + "/author-rights/metadata/json";
 //-------------------------------
 

@@ -38,6 +38,8 @@
             <button mat-menu-item (click)="onAdvancedSearchCRBtnClick()">Napredna pretraga</button>
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewCopyRightReqBtnClick()">Novi zahtev za autorsko pravo</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingCopyRightReqsBtnClick()">Neobradjeni zahtevi</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onCRMetadataJSONBtnClick()">Meta podaci u JSON-u</button>
+            <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onCRMetadataRDFBtnClick()">Meta podaci u RDF-u</button>
         </mat-menu>
     </span>
     <span *ngIf="activeRole !== 'NOT LOGGED'">

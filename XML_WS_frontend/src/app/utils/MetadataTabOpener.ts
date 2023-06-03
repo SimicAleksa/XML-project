@@ -29,15 +29,15 @@ export class MetadataTabOpener {
     }
 
 
-    openPatentMetadataAsRDF() {
-      this.requestMaker
-      .getPATMetadataRDF()
-      .subscribe({
-        next: (data: any) => {
-          if (data.body !== undefined)
-              this.openTextInNewTab(data.body);
-        }
-      });
+  openPatentMetadataAsRDF() {
+    this.requestMaker
+    .getPATMetadataRDF()
+    .subscribe({
+      next: (data: any) => {
+        if (data.body !== undefined)
+            this.openTextInNewTab(data.body);
+      }
+    });
   }
 
   openPatentMetadataAsJSON() {
@@ -51,6 +51,28 @@ export class MetadataTabOpener {
       });
   }
 
+
+  openCopyRightMetadataAsRDF() {
+    this.requestMaker
+    .getCRMetadataRDF()
+    .subscribe({
+      next: (data: any) => {
+        if (data.body !== undefined)
+            this.openTextInNewTab(data.body);
+      }
+    });
+  }
+
+  openCopyRightMetadataAsJSON() {
+      this.requestMaker
+      .getCRMetadataJSON()
+      .subscribe({
+        next: (data: any) => {
+          if (data.body !== undefined)
+              this.openTextInNewTab(data.body);
+        }
+      });
+  }
 
 
 

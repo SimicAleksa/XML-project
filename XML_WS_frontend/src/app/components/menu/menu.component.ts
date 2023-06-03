@@ -127,4 +127,12 @@ export class MenuComponent implements OnInit {
   onPATMetadataJSONBtnClick() {
     this.metadataTabOpener.openPatentMetadataAsJSON();
   }
+
+  onCRMetadataRDFBtnClick() {
+    this.metadataTabOpener.openCopyRightMetadataAsRDF();
+  }
+
+  onCRMetadataJSONBtnClick() {
+    this.metadataTabOpener.openCopyRightMetadataAsJSON();
+  }
 }
