@@ -39,8 +39,6 @@
             <button *ngIf="activeRole === 'REGULAR'" mat-menu-item (click)="onNewCopyRightReqBtnClick()">Novi zahtev za autorsko pravo</button>
             <button *ngIf="activeRole === 'OFFICIAL'" mat-menu-item (click)="onPendingCopyRightReqsBtnClick()">Neobradjeni zahtevi</button>
         </mat-menu>
-
-
     </span>
 
     <span *ngIf="activeRole !== 'NOT LOGGED'">
