@@ -126,21 +126,22 @@
                                         <xsl:for-each select="//a:podaci_o_autoru">
                                             <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
                                                 <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
+                                                    <xsl:value-of select="position()"/>. Autor --
                                                     <xsl:choose>
                                                         <xsl:when test="a:anoniman_autor = 'true'">
                                                             anoniman autor
                                                         </xsl:when>
                                                         <xsl:otherwise>
-                                                            <xsl:value-of select="a:autor/a:ime"/>&#160;
-                                                            <xsl:value-of select="a:autor/a:prezime"/>
+                                                            Ime <xsl:value-of select="a:autor/a:ime"/>,&#160;
+                                                            Prezime <xsl:value-of select="a:autor/a:prezime"/>,
                                                             <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                                <xsl:value-of select="a:autor/a:adresa/a:ulica"/> &#160;
-                                                                <xsl:value-of select="a:autor/a:adresa/a:broj"/>&#160;
-                                                                <xsl:value-of select="a:autor/a:adresa/a:grad"/>
+                                                                Ulica <xsl:value-of select="a:autor/a:adresa/a:ulica"/>, &#160;
+                                                                Broj <xsl:value-of select="a:autor/a:adresa/a:broj"/>,&#160;
+                                                                Grad <xsl:value-of select="a:autor/a:adresa/a:grad"/>,
                                                             </span>
                                                             <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                                <xsl:value-of select="a:autor/a:drzavljanstvo"/> &#160;
-                                                                <xsl:value-of select="a:autor/a:godina_smrti"/>&#160;
+                                                                Drzavljanstvo <xsl:value-of select="a:autor/a:drzavljanstvo"/>, &#160;
+                                                                Godina smrti <xsl:value-of select="a:autor/a:godina_smrti"/>&#160;
                                                             </span>
                                                         </xsl:otherwise>
                                                     </xsl:choose>
@@ -152,7 +153,14 @@
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'>
                                             <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
-                                                <xsl:value-of select="//a:podaci_o_delu/a:delo_stvoreno_u_radnom_odnosu"/>&#160;
+                                                <xsl:choose>
+                                                    <xsl:when test="//a:podaci_o_delu/a:delo_stvoreno_u_radnom_odnosu = 'true'">
+                                                        Autorsko delo je stvoreno u radnom odnosu
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        Autorsko delo nije stvoreno u radnom odnosu
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
                                             </span></p>
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'><span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>&#160;</span></p>
                                         <br/><br/>
@@ -193,9 +201,9 @@
                                         <p style='margin:0cm;margin-bottom:.0001pt;font-size:13px;font-family:Verdana, Geneva, Tahoma, sans-serif;'></p>
                                         <span style='font-size:16px;font-family:Arial, Helvetica, sans-serif;'>
                                             <xsl:for-each select="//a:prilozi">
-                                                <xsl:value-of select="position()"/>.
-                                                <xsl:value-of select="a:opis_dela"/> &#160;
-                                                <xsl:value-of select="a:primer_dela"/>&#160;
+                                                <xsl:value-of select="position()"/>. Prilog --
+                                                Opis dela: <xsl:value-of select="a:opis_dela"/>, &#160;
+                                                Primer dela: <xsl:value-of select="a:primer_dela"/>&#160;
                                                 <hr></hr>
                                             </xsl:for-each>
                                         </span>
