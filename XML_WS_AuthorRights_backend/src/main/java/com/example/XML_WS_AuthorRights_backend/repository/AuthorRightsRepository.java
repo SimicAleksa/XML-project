@@ -35,7 +35,7 @@ public class AuthorRightsRepository {
             String documentID = copyRight.getBrojPrijave().concat(".xml");
             String copyRightXML = jaxbParser.parseFromObjToByteStream(copyRight);
             copyRightDB.addToCollection(collectionUri, documentID, copyRightXML);
-            fusekiDB.save(copyRightXML);
+            fusekiDB.save(copyRight);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +131,7 @@ public class AuthorRightsRepository {
         for (ComplexSearchParamsDTO.EmailNalogaPodnosiocaFilterDTO f : filters) {
             query.append(String.format("%s(contains(text(),'%s')) ", f.getToNeg() ? "not" : "", f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
@@ -143,10 +143,10 @@ public class AuthorRightsRepository {
 
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='datum_podnosenja' and (");
-        for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f: filters) {
+        for (ComplexSearchParamsDTO.DatumPodnosenjaFilterDTO f : filters) {
             query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
@@ -158,10 +158,10 @@ public class AuthorRightsRepository {
 
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='datum_pregledanja' and (");
-        for (ComplexSearchParamsDTO.DatumPregledanjaFilterDTO f: filters) {
+        for (ComplexSearchParamsDTO.DatumPregledanjaFilterDTO f : filters) {
             query.append(String.format("xs:dateTime(.) %s xs:dateTime('%sT00:00:00') ", f.getDateOperator(), f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
@@ -173,12 +173,20 @@ public class AuthorRightsRepository {
 
         StringBuilder query = new StringBuilder();
         query.append("(.//*[local-name()='status' and (");
-        for (ComplexSearchParamsDTO.StatusFilterDTO f: filters) {
+        for (ComplexSearchParamsDTO.StatusFilterDTO f : filters) {
             query.append(String.format("text()%s'%s'", f.getToNeg() ? " != " : " = ", f.getValue()));
             if (!f.getFollowingOperator().equals(""))
-                query.append(String.format(" %s ",f.getFollowingOperator()));
+                query.append(String.format(" %s ", f.getFollowingOperator()));
         }
         query.append(")])");
         return query.toString();
+    }
+
+    public String getMetadataInRDF() {
+        return fusekiDB.getAsRDF();
+    }
+
+    public String getMetadataInJSON() {
+        return fusekiDB.getAsJSON();
     }
 }

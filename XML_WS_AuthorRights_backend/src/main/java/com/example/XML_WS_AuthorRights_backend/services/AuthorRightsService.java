@@ -67,4 +67,11 @@ public class AuthorRightsService {
         return reqs;
     }
 
+    public String getRDF() {
+        return authorRightsRepository.getMetadataInRDF();
+    }
+
+    public String getJSON() {
+        return authorRightsRepository.getMetadataInJSON();
+    }
 }

@@ -75,4 +75,14 @@ public class AuthorRightsController {
         );
     }
 
+    @GetMapping("/metadata/rdf")
+    public ResponseEntity<String> getRDF() {
+        return new ResponseEntity<>(authorRightsService.getRDF(), HttpStatus.OK);
+    }
+
+    @GetMapping("/metadata/json")
+    public ResponseEntity<String> getJSON() {
+        return new ResponseEntity<>(authorRightsService.getJSON(), HttpStatus.OK);
+    }
+
 }
