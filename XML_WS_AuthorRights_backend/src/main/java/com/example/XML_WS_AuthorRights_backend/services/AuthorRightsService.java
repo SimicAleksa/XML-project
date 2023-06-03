@@ -1,6 +1,8 @@
 package com.example.XML_WS_AuthorRights_backend.services;
 
 import com.example.XML_WS_AuthorRights_backend.DTOs.ComplexSearchParamsDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.ReportDTO;
+import com.example.XML_WS_AuthorRights_backend.DTOs.ReportParamsDTO;
 import com.example.XML_WS_AuthorRights_backend.models.ZahtevZaAutorskoPravo;
 import com.example.XML_WS_AuthorRights_backend.repository.AuthorRightsRepository;
 import com.example.XML_WS_AuthorRights_backend.utils.PDForXHTMLGenerator;
@@ -73,5 +75,9 @@ public class AuthorRightsService {
 
     public String getJSON() {
         return authorRightsRepository.getMetadataInJSON();
+    }
+
+    public ReportDTO getReport(ReportParamsDTO paramsDTO) {
+        return authorRightsRepository.getReport(paramsDTO);
     }
 }
