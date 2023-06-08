@@ -53,6 +53,7 @@ public class AuthorRightsController {
     public ResponseEntity<HttpStatus> saveResenje(@RequestBody ResenjeZahteva resenjeZahteva) {
         resenjaService.saveNewResenje(resenjeZahteva);
         authorRightsService.changeCRStatus(resenjeZahteva.getBrojPrijave(), resenjeZahteva.getJePrihvacen(), resenjeZahteva.getDatumPodnosenjaResenja());
+        resenjaService.sendEmailGornji(resenjeZahteva);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
