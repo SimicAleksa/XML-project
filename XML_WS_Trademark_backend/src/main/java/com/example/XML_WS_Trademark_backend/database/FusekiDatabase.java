@@ -28,7 +28,7 @@ public class FusekiDatabase {
 
 
     public void save(ZahtevZaPriznanjeZiga trademark) {
-        String predNamespace = "http://www.patent.com/predicate/";
+        String predNamespace = "http://www.trademark.com/predicate/";
         Model model = ModelFactory.createDefaultModel();
         model.setNsPrefix("pred", predNamespace);
 
