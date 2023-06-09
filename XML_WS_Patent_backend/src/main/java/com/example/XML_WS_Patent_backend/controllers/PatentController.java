@@ -61,6 +61,14 @@ public class PatentController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PostMapping("/reference")
+    public ResponseEntity<ListOfPatentRequestsDTO> referencedFiles(@RequestBody ReferencedFilesDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfPatentRequestsDTO(patentService.referenceSearch(paramsDTO.getParam())),
+                HttpStatus.OK
+        );
+    }
+
     @PostMapping("/search/basic")
     public ResponseEntity<ListOfPatentRequestsDTO> basicSearch(@RequestBody BasicSearchParamsDTO paramsDTO) {
         return new ResponseEntity<>(

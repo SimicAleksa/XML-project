@@ -38,6 +38,9 @@ export class PatentAdvancedSearchComponent implements OnInit {
     public datePregledanoOpSelection: string = "<";
     public datePregledanoLogOpSelection: string = "";
   
+
+    public searchResultReference: Array<any> = [];
+    public selectedPATReference: string = "Nista nije izabrano";
   
     public isRegualr = this.lStorageManager.getUserRole() === "REGULAR"
   
@@ -157,6 +160,10 @@ export class PatentAdvancedSearchComponent implements OnInit {
     handleSelectedRow(patentNum: string) {
       this.selectedPAT = patentNum;
     }
+
+    handleSelectedRowReferenced(patentNum: string) {
+      this.selectedPATReference = patentNum;
+    }
   
     onPDFBtnClick() {
       if (this.nothingIsSelected())
@@ -190,6 +197,32 @@ export class PatentAdvancedSearchComponent implements OnInit {
           alert('XHTML nije generisan, nesto se desilo!');
         }
       });
+    }
+
+    onReferencedBtnClick(){
+      this.requestMaker
+      .doPATReferancedSearch(this.getParamsDTOReference())
+      .subscribe({
+        next: (data: any) => {
+          if (data.body !== undefined){
+              this.searchResultReference = this.xmlParser.parseFromXml(
+                      data.body.replace(/<(\/?)(ns2:)/g, '<$1')
+                    ).ListOfPatentRequestsDTO.ZahtevZaPatent;
+            if (this.searchResultReference === undefined) {
+              alert("Nije pronadjen ni jedan zahtev za date filtere!")
+              this.searchResultReference = [];
+            }
+          }
+        }
+        });
+        this.selectedPATReference = "Nista nije izabrano";
+    } 
+
+    getParamsDTOReference() {
+      let reqBody = {
+        param: this.selectedPAT
+      }
+      return this.xmlParser.parseToXml("ReferencedFilesDTO", reqBody);
     }
   
     nothingIsSelected(): Boolean {

@@ -83,3 +83,12 @@ button {
 .xhtml-btn:hover {
     background-color: rgb(119, 165, 196);
 }
+
+
+.xhtml-btn {
+    background-color: rgb(59, 167, 239);
+}
+
+.xhtml-btn:hover {
+    background-color: rgb(169, 205, 216);
+}

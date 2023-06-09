@@ -10,6 +10,7 @@ import com.example.XML_WS_Patent_backend.utils.PDForXHTMLGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -79,5 +80,17 @@ public class PatentService {
 
     public String getJSON() {
         return patentRepository.getMetadataInJSON();
+    }
+
+    public List<ZahtevZaPatent> referenceSearch(String param) {
+        List<ZahtevZaPatent> reqs = patentRepository.getAllPatentRequest();
+        List<ZahtevZaPatent> retVal = new ArrayList<>();
+        for(ZahtevZaPatent zahtevZaPatent : reqs){
+            for(ZahtevZaPatent.ZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.RanijaPrijava ranijaPrijava : zahtevZaPatent.getZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava().getRanijaPrijave()){
+                if(ranijaPrijava.getBrojRanijePrijave().equals(param))
+                    retVal.add(zahtevZaPatent);
+            }
+        }
+        return retVal;
     }
 }

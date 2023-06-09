@@ -34,6 +34,7 @@ export const API_PAT_ADVANCED_SEARCH = PATENT_API_BASE_URL + "/patent/search/adv
 export const API_PAT_RDF = PATENT_API_BASE_URL + "/patent/metadata/rdf";
 export const API_PAT_JSON = PATENT_API_BASE_URL + "/patent/metadata/json";
 export const API_PAT_REPORT = PATENT_API_BASE_URL + "/patent/report";
+export const API_PAT_REFERANCED_SEARCH = PATENT_API_BASE_URL + "/patent/reference";
 //-------------------------------
 
 
