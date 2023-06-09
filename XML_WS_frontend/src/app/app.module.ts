@@ -37,6 +37,7 @@ import { PatentReportComponent } from './components/patent/patent-report/patent-
 import { MetadataTabOpener } from './utils/MetadataTabOpener';
 import { TmReportPageComponent } from './components/trademark/pages/tm-report-page/tm-report-page.component';
 import { CopyrightReportComponent } from './components/copyright/copyright-report/copyright-report.component';
+import { LinkedPagePrijavaComponent } from './components/linked-page-prijava/linked-page-prijava.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { CopyrightReportComponent } from './components/copyright/copyright-repor
     XonomyEditorComponent,
     PatentReportComponent,
     TmReportPageComponent,
-    CopyrightReportComponent
+    CopyrightReportComponent,
+    LinkedPagePrijavaComponent
   ],
   imports: [
     NgbModule,

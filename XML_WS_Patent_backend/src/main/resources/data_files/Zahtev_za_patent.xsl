@@ -512,6 +512,9 @@
                                         <td colspan="2" style="width: 129.05pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 17pt;vertical-align: top;">
                                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.15pt;margin-left:0cm;text-indent:0cm;line-height:107%;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:black;'>
                                                 <span style="font-size:12px;line-height:107%;">&#160;
+                                                    <a>
+                                                        <xsl:attribute name="href">http://localhost:4200/pdf/prikaz/<xsl:value-of select="p:broj_ranije_prijave"/></xsl:attribute>
+                                                    </a>
                                                     <xsl:value-of select="p:broj_ranije_prijave"/>
                                                 </span></p>
                                         </td>

@@ -19,6 +19,7 @@ import { PatentAdvancedSearchComponent } from './components/patent/pages/patent-
 import { XonomyEditorComponent } from './components/patent/xonomy-editor/xonomy-editor.component';
 import { PatentReportComponent } from './components/patent/patent-report/patent-report.component';
 import { CopyrightReportComponent } from './components/copyright/copyright-report/copyright-report.component';
+import { LinkedPagePrijavaComponent } from './components/linked-page-prijava/linked-page-prijava.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -44,6 +45,9 @@ const routes: Routes = [
   {path: 'trademark/search/basic', component: TmBasicSearchPageComponent},
   {path: 'trademark/search/advanced', component: TmAdvancedSearchComponent},
   {path: 'trademark/report', component: TmReportPageComponent},
+
+
+  {path: 'pdf/prikaz/:id', component: LinkedPagePrijavaComponent},
 ];
 
 @NgModule({

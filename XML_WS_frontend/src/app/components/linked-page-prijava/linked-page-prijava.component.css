@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .smiley {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: yellow;
+    position: relative;
+  }
+  
+  .eye {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+  }
+  
+  .left-eye {
+    top: 40px;
+    left: 50px;
+  }
+  
+  .right-eye {
+    top: 40px;
+    right: 50px;
+  }
+  
+  .mouth {
+    height: 80px;
+    width: 120px;
+    border-bottom-left-radius: 60px 50px;
+    border-bottom-right-radius: 60px 50px;
+    border: 3px solid black;
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+  }
+  
