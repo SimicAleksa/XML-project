@@ -72,7 +72,7 @@ public class ExistDatabase {
         createDBConnection();
 
         Collection collection = getOrCreateCollection(collectionId, 0);
-        XMLResource resource = (XMLResource) collection.createResource(documentId, XMLResource.RESOURCE_TYPE);
+        XMLResource resource = (XMLResource) collection.createResource(documentId + ".xml", XMLResource.RESOURCE_TYPE);
         resource.setContent(xmlDoc);
         collection.storeResource(resource);
 
@@ -83,7 +83,7 @@ public class ExistDatabase {
         createDBConnection();
         try (Collection collection = getOrCreateCollection(collectionUri, 0)) {
             collection.setProperty(OutputKeys.INDENT, "yes");
-            return (XMLResource) collection.getResource(documentId);
+            return (XMLResource) collection.getResource(documentId + ".xml");
         }
     }
 
