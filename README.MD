@@ -24,6 +24,7 @@ npm start
 #### Prvi set naredbi je za eXist baze podataka za zahteve i korisnike
 ```
 docker run -d -p 8042:8080 -p 8441:8441 --name existPat existdb/existdb
+docker run -d -p 8032:8080 -p 8442:8442 --name existTrademark existdb/existdb
 docker run -d -p 8022:8080 -p 8442:8442 --name existCopyR existdb/existdb
 docker run -d -p 8081:8080 -p 8443:8443 --name existBack existdb/existdb
 ```
@@ -31,7 +32,8 @@ docker run -d -p 8081:8080 -p 8443:8443 --name existBack existdb/existdb
 #### Drugi set naredbi je za Fuseki baze podataka za metapodatke
 ```
 docker run --init -d -p 3042:3030 -e ADMIN_PASSWORD=pw123 --name fusekiPat stain/jena-fuseki
+docker run --init -d -p 3032:3030 -e ADMIN_PASSWORD=pw123 --name fusekiTrademark stain/jena-fuseki
 docker run --init -d -p 3022:3030 -e ADMIN_PASSWORD=pw123 --name fusekiCopyR stain/jena-fuseki
 ```
 
-*Napomena: Prilikom kreiranja Fuseki baza, u svaku se mora ulogovati korisnik sa kredencijalima "admin" za username i "pw123" za šifru. Zatim treba kreirati odgovarajući dataset za odgovarajuće baze patentMD / authorRightsMD.*
+*Napomena: Prilikom kreiranja Fuseki baza, u svaku se mora ulogovati korisnik sa kredencijalima "admin" za username i "pw123" za šifru. Zatim treba kreirati odgovarajući dataset za odgovarajuće baze patentMD / trademarkMD  /authorRightsMD.*
