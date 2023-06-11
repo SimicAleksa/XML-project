@@ -842,9 +842,9 @@ public class ZahtevZaAutorskoPravo {
 
         @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
         protected ZahtevZaAutorskoPravo.PodaciOPodnosiocu.Lice lice;
-        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
+        @XmlElement(name = "telefon",namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
         protected String telefon;
-        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
+        @XmlElement(name = "email",namespace = "http://www.ftn.uns.ac.rs/AutorskaPrava", required = true)
         protected String email;
 
         /**

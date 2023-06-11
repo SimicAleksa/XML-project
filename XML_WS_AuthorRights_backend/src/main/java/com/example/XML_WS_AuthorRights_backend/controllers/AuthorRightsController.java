@@ -33,7 +33,7 @@ public class AuthorRightsController {
     }
 
     @PostMapping(path = "/save", consumes = {MediaType.APPLICATION_XML_VALUE} )
-    public ResponseEntity<HttpStatus> saveNewTrademark(@RequestBody ZahtevZaAutorskoPravo zaAutorskoPravo) {
+    public ResponseEntity<HttpStatus> saveNewCopyRight(@RequestBody ZahtevZaAutorskoPravo zaAutorskoPravo) {
         authorRightsService.save(zaAutorskoPravo);
         return new ResponseEntity<>(HttpStatus.OK);
     }

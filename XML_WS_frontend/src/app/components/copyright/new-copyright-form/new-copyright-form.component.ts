@@ -267,9 +267,9 @@ export class NewCopyrightFormComponent implements OnInit {
               "a:grad": { _text: formData.grad },
             }
           },
-          "a:telefon": { _text: formData.telefon},
-          "a:email": { _text: formData.eMail},
-        }
+        },
+        "a:telefon": { _text: formData.telefon},
+        "a:email": { _text: formData.eMail}
       }
       else
       return {
@@ -282,9 +282,9 @@ export class NewCopyrightFormComponent implements OnInit {
               "a:grad": { _text: formData.grad },
             }
           },
-          "a:telefon": { _text: formData.telefon},
-          "a:email": { _text: formData.eMail},
-        }
+        },
+        "a:telefon": { _text: formData.telefon},
+        "a:email": { _text: formData.eMail}
       }
     }
   }
