@@ -24,7 +24,7 @@ npm start
 #### Prvi set naredbi je za eXist baze podataka za zahteve i korisnike
 ```
 docker run -d -p 8042:8080 -p 8441:8441 --name existPat existdb/existdb
-docker run -d -p 8032:8080 -p 8442:8442 --name existTrademark existdb/existdb
+docker run -d -p 8032:8080 -p 8444:8444 --name existTrademark existdb/existdb
 docker run -d -p 8022:8080 -p 8442:8442 --name existCopyR existdb/existdb
 docker run -d -p 8081:8080 -p 8443:8443 --name existBack existdb/existdb
 ```

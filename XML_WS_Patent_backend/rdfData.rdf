@@ -1,0 +1,25 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://example.org/">
+  <rdf:Description>
+    <j.0:property>&lt;rdf:RDF&#xD;
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&#xD;
+    xmlns:j.0="http://www.patent.com/predicate/"&gt;&#xD;
+  &lt;rdf:Description rdf:about="http://www.patent.com/P_dqhj4xpz4c1686491024121"&gt;&#xD;
+    &lt;j.0:EmailNalogaPodnosioca&gt;aleksadsimic@gmail.com&lt;/j.0:EmailNalogaPodnosioca&gt;&#xD;
+    &lt;j.0:BrojPrijave&gt;P_dqhj4xpz4c1686491024121&lt;/j.0:BrojPrijave&gt;&#xD;
+    &lt;j.0:DatumPodnosenja&gt;2023-06-11T13:43:44&lt;/j.0:DatumPodnosenja&gt;&#xD;
+    &lt;j.0:Status&gt;NERESENO&lt;/j.0:Status&gt;&#xD;
+    &lt;j.0:DatumPregledanja&gt;1900-01-01T00:00:00&lt;/j.0:DatumPregledanja&gt;&#xD;
+  &lt;/rdf:Description&gt;&#xD;
+  &lt;rdf:Description rdf:about="http://www.patent.com/P_p7ft36cpt71686491030121"&gt;&#xD;
+    &lt;j.0:EmailNalogaPodnosioca&gt;aleksadsimic@gmail.com&lt;/j.0:EmailNalogaPodnosioca&gt;&#xD;
+    &lt;j.0:BrojPrijave&gt;P_p7ft36cpt71686491030121&lt;/j.0:BrojPrijave&gt;&#xD;
+    &lt;j.0:DatumPodnosenja&gt;2023-06-11T13:43:50&lt;/j.0:DatumPodnosenja&gt;&#xD;
+    &lt;j.0:Status&gt;NERESENO&lt;/j.0:Status&gt;&#xD;
+    &lt;j.0:DatumPregledanja&gt;1900-01-01T00:00:00&lt;/j.0:DatumPregledanja&gt;&#xD;
+  &lt;/rdf:Description&gt;&#xD;
+&lt;/rdf:RDF&gt;&#xD;
+</j.0:property>
+  </rdf:Description>
+</rdf:RDF>
