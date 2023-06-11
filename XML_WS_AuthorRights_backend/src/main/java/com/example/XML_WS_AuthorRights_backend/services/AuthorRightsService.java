@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -107,6 +108,20 @@ public class AuthorRightsService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<ZahtevZaAutorskoPravo> referenceSearch(String param) {
+        List<ZahtevZaAutorskoPravo> reqs = authorRightsRepository.getAllCopyRightRequest();
+        List<ZahtevZaAutorskoPravo> retVal = new ArrayList<>();
+        ZahtevZaAutorskoPravo zzap = authorRightsRepository.getCRRequestById(param);
+        if(zzap!=null) {
+            for (ZahtevZaAutorskoPravo zahtevZaAutorskoPravo : reqs) {
+                if (zahtevZaAutorskoPravo.getPseudonimIliZnakAutora().equals(zzap.getPseudonimIliZnakAutora())
+                        && !zahtevZaAutorskoPravo.getBrojPrijave().equals(param))
+                    retVal.add(zahtevZaAutorskoPravo);
+            }
+        }
+        return retVal;
     }
 
     public ReportDTO getReport(ReportParamsDTO paramsDTO) {

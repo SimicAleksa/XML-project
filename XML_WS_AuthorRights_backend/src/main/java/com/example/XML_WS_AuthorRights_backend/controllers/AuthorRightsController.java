@@ -82,6 +82,14 @@ public class AuthorRightsController {
         );
     }
 
+    @PostMapping("/reference")
+    public ResponseEntity<ListOfCopyRightRequestsDTO> referencedFiles(@RequestBody ReferencedFilesDTO paramsDTO) {
+        return new ResponseEntity<>(
+                new ListOfCopyRightRequestsDTO(authorRightsService.referenceSearch(paramsDTO.getParam())),
+                HttpStatus.OK
+        );
+    }
+
     @PostMapping("/search/advanced")
     public ResponseEntity<ListOfCopyRightRequestsDTO> advancedSearch(@RequestBody ComplexSearchParamsDTO paramsDTO) {
         return new ResponseEntity<>(

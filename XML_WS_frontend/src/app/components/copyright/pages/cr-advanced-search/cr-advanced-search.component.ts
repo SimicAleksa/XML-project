@@ -38,6 +38,9 @@ export class CrAdvancedSearchComponent implements OnInit {
   public datePregledanoLogOpSelection: string = "";
 
 
+  public searchResultReference: Array<any> = [];
+  public selectedCRReference: string = "Nista nije izabrano";
+
   public isRegualr = this.lStorageManager.getUserRole() === "REGULAR"
 
 
@@ -203,6 +206,32 @@ export class CrAdvancedSearchComponent implements OnInit {
     const blob = new Blob([require('buffer').Buffer.from(bytesAsStr, 'base64')], { type: mime });
     const url = window.URL.createObjectURL(blob);
     window.open(url);
+  }
+
+  onReferencedBtnClick(){
+    this.requestMaker
+    .doCRReferancedSearch(this.getParamsDTOReference())
+    .subscribe({
+      next: (data: any) => {
+        if (data.body !== undefined){
+            this.searchResultReference = this.xmlParser.parseFromXml(
+                    data.body.replace(/<(\/?)(ns2:)/g, '<$1')
+                  ).ListOfCopyRightRequestsDTO.ZahtevZaAutorskoPravo;
+          if (this.searchResultReference === undefined) {
+            alert("Nije pronadjen ni jedan zahtev za date filtere!")
+            this.searchResultReference = [];
+          }
+        }
+      }
+      });
+      this.selectedCRReference = "Nista nije izabrano";
+  } 
+
+  getParamsDTOReference() {
+    let reqBody = {
+      param: this.selectedCR
+    }
+    return this.xmlParser.parseToXml("ReferencedFilesDTO", reqBody);
   }
 
   // -------STATUS---------------------------------------------------------

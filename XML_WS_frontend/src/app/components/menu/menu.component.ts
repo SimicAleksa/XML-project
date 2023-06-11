@@ -15,8 +15,7 @@ import { MenuService } from './service/menu-service';
 export class MenuComponent implements OnInit {
   public activeRole: string;
 
-  constructor(private lStorageManager: LocalStorageManager, private menuService: MenuService,
-              private router: Router, private metadataTabOpener: MetadataTabOpener) {
+  constructor(private lStorageManager: LocalStorageManager, private menuService: MenuService, private router: Router, private metadataTabOpener: MetadataTabOpener) {
     this.activeRole = lStorageManager.getUserRole();
     this.updateRole();
   }

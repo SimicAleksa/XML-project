@@ -180,7 +180,17 @@
         <div class="col">
             <button mat-raised-button class="pdf-btn" (click)="onPDFBtnClick()">PDF</button>
             <button mat-raised-button class="xhtml-btn" (click)="onXHTMLBtnClick()">XHTML</button>
+            <button mat-raised-button class="xhtml-btn" (click)="onReferencedBtnClick()">Referenced by</button>
+            <button mat-raised-button class="xhtml-btn" (click)="onReferencedBtnClick()">Referenced from</button>
         </div>
         <div class="col-3"></div>
+        <div class="row table-cont" >
+            <div class="col-3"></div>
+            <div class="col">
+                <h1 class="text-center">REZULTAT REFERENCIRANJA</h1>    
+                <app-copy-right-list (onRowClickEventEmit)="handleSelectedRow($event)" [crights]="searchResultReference"></app-copy-right-list>
+            </div>
+            <div class="col-3"></div>
+        </div>
     </div>
 </div>
