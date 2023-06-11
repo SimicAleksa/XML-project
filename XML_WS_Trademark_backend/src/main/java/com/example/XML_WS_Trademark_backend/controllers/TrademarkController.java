@@ -11,6 +11,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 @RestController
 @RequestMapping(path = "/api/trademark", produces = MediaType.APPLICATION_XML_VALUE)
 @CrossOrigin("http://localhost:4200")
@@ -44,6 +48,19 @@ public class TrademarkController {
 
     @GetMapping("/xhtml/{id}")
     public ResponseEntity<PDFBytesDTO> getXHTML(@PathVariable String id) {
+        byte[] xhtmlContent = trademarkService.getXHTML(id);
+        String filePath = "xhtmlData.xhtml";
+        File file = new File(filePath);
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(xhtmlContent);
+            outputStream.close();
+
+            System.out.println("XHTML file created successfully!");
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the XHTML file: " + e.getMessage());
+        }
         return new ResponseEntity<>(new PDFBytesDTO(trademarkService.getXHTML(id)), HttpStatus.OK);
     }
 

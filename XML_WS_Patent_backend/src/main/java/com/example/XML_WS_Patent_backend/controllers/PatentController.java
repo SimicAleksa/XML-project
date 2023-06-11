@@ -11,6 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -51,6 +54,19 @@ public class PatentController {
 
     @GetMapping("/xhtml/{id}")
     public ResponseEntity<PDFBytesDTO> getXHTML(@PathVariable String id) {
+        byte[] xhtmlContent = patentService.getXHTML(id);
+        String filePath = "xhtmlData.xhtml";
+        File file = new File(filePath);
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(xhtmlContent);
+            outputStream.close();
+
+            System.out.println("XHTML file created successfully!");
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the XHTML file: " + e.getMessage());
+        }
         return new ResponseEntity<>(new PDFBytesDTO(patentService.getXHTML(id)), HttpStatus.OK);
     }
 
